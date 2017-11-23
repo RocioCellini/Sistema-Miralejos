@@ -12,6 +12,26 @@
   include '../menu.html';
 ?>
 
+<div class="row">
+	<div class="col-md-2"></div>
+    <div class="col-md-8">
+		<h3>Importar Datos</h3><br><br>
+		<form method="post" action="subir_archivo.php" enctype="multipart/form-data">
+		    <input type="file" name="archivo" /><br />
+		    <input type="submit" value="Cargar" />
+		</form>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<hr>
+<div class="row">
+	<div class="col-md-2"></div>
+    <div class="col-md-8">
+		<h3>Cargar Datos</h3><br><br>
+	</div>
+	<div class="col-md-2"></div>
+</div>
 
 <form>
 	<div class="row">
@@ -20,6 +40,10 @@
 		
 		  <div class="form-group">
 		    <label>Cliente</label>
+		    <input type="" class="form-control">
+		  </div>
+		  <div class="form-group">
+		    <label>Tipo de Cliente</label>
 		    <input type="" class="form-control">
 		  </div>
 		  <div class="form-group">
@@ -46,13 +70,14 @@
 		    <label>Actividad</label>
 		    <input type="" class="form-control">
 		  </div>
+		  
+		</div>
+
+		<div class="col-md-4">
 		  <div class="form-group">
 		    <label>Conoce</label>
 		    <input type="" class="form-control">
 		  </div>
-		</div>
-
-		<div class="col-md-4">
 		  <div class="form-group">
 		    <label>Fecha origen dato</label>
 		    <input type="" class="form-control">

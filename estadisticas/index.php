@@ -14,11 +14,22 @@
 
 <br><br>
 <div class="row">
-
 	<div class="col-md-1"></div>
 	<div class="col-md-3"><div class="well"><h2>Contactos:</h2><br></div></div>
 	<div class="col-md-3"><div class="well"><h2>Ventas:</h2><br></div></div>
-	<div class="col-md-3"><div class="well"><h2>Alquileres:</h2><br></div></div>
+	<div class="col-md-5"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<h3>Mes: Noviembre</h3>
+		<p>Cantidad de personas que consultaron por Miralejos 14: 300</p>
+		<p>Cantidad de personas que consultaron por Miralejos 15: 400</p>
+		<p>Dptos vendidos en Miralejos 14</p>
+		<p>Dptos vendidos en Miralejos 15</p>
+	</div>
+	<div class="col-md-1"></div>
 </div>
 
 <?php
