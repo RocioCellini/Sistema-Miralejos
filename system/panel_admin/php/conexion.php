@@ -2,9 +2,9 @@
 //datos para establecer la conexion con la base de mysql.
 
 $DBServer = 'localhost'; // e.g 'localhost' or '192.168.1.100'
-$DBUser   = 'dante';
-$DBPass   = 'FxB{RnekCaHd';
-$DBName   = 'colegio_dante';
+$DBUser   = 'rocio-miralejos';
+$DBPass   = 'xbjppTexycItFhIg';
+$DBName   = 'sistema_miralejos';
 
 $conn = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
 
