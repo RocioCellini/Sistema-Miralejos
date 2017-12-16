@@ -1,0 +1,28 @@
+table.table{
+	margin: 16px;
+	text-align: center;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr.primer-fila, tr:nth-child(even){
+    background-color: #dddddd;
+}
+
+
+table tr:hover {
+  background-color: #FFEBCD;
+}//sacar el hover a la fila primer-fila del archivo historial.php
+
+h4{
+	margin-left: 20px;
+}

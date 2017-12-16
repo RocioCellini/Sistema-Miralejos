@@ -27,17 +27,21 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="estadisticas/index.php">Estadísticas</a></li>
-        
-        <li class="dropdown">
-          <a href="contactos/index.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contactos <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="contactos/nuevo-contacto.php">Nuevo</a></li>
-            <li><a href="contactos/ver-lista.php">Ver lista</a></li>            
-          </ul>
-        </li>
 
         <li><a href="planilla/index.php">Planilla</a></li>
+
+        <li><a href="contactos/index.php">Contactos</a></li>
+        
+        <!--<li><a href="../departamentos/index.php">Departamento</a></li>-->
+
+        <li><a href="localidades/index.php">Localidades</a></li>
+
         <li><a href="vendedores/index.php">Vendedores</a></li>
+
+        <li><a href="llamados/index.php">Llamados</a></li>
+
+        <li><a href="cierre-operacion/index.php">Cierre de Operación</a></li>
+
       </ul>
       
     </div><!-- /.navbar-collapse -->

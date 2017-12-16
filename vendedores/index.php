@@ -8,34 +8,50 @@
 </head>
 <body>
 
-<?php
-  include '../menu.html';
-?>
+	<?php
+	  include '../menu.html';
+	?>
 
-<div class="row">
-	<div class="col-md-2"></div>
-    <div class="col-md-4">
-		<form>
-		  <div class="form-group">
-		    <label>Nombre</label>
-		    <input type="" class="form-control" id="Nombre">
-		  </div>
-		  <div class="form-group">
-		    <label>Teléfono</label>
-		    <input type="" class="form-control" id="tel">
-		  </div>
-		  <div class="form-group">
-		    <label>Correo Electrónico</label>
-		    <input type="" class="form-control" id="correo">
-		  </div>
-		  <button type="submit" class="btn btn-default">Guardar</button>
-		</form>
+	<br><br>
+		<div class="row">
+			<div class="col-md-2"></div>
+		    <div class="col-md-4 well">
+				<form method="post" action=""> 
+					<legend>Buscar</legend>
+					<fieldset>
+					<input type="text" class="form-control" name="buscar">
+					<p>* ingrese el correo electrónico de la persona</p><br>
+					<button type="submit" class="btn btn-default">Buscar</button>
+					</fieldset>
+				</form> 
+			</div>
+			<div class="col-md-8"></div>
+		</div>
+		<br><br>
+		<div class="row">
+		<div class="col-md-2"></div>
+	    <div class="col-md-4 well">
+			<form method="post" action="">
+				<legend>Nuevo Vendedor</legend>
+				<fieldset>
+				  <div class="form-group">
+				    <label>Nombre</label>
+				    <input type="text" class="form-control" name="localidad">
+				  </div>
+				  <div class="form-group">
+				    <label>Correo Electrónico</label>
+				    <input type="text" class="form-control" name="provincia">
+				  </div>
+				 
+				  <button type="submit" class="btn btn-default">Guardar</button>
+				</fieldset>
+			</form>
+		</div>
+		<div class="col-md-8"></div>
 	</div>
-	<div class="col-md-8"></div>
-</div>
 
-<?php
-  include '../pie.html';
-?>
+	<?php
+	  include '../pie.html';
+	?>
 </body>
 </html>

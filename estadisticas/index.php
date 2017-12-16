@@ -22,8 +22,15 @@
 
 <div class="row">
 	<div class="col-md-1"></div>
-	<div class="col-md-10">
+	<div class="col-md-5">
 		<h3>Mes: Noviembre</h3>
+		<p>Cantidad de personas que consultaron por Miralejos 14: 300</p>
+		<p>Cantidad de personas que consultaron por Miralejos 15: 400</p>
+		<p>Dptos vendidos en Miralejos 14</p>
+		<p>Dptos vendidos en Miralejos 15</p>
+	</div>
+	<div class="col-md-5">
+		<h3>Mes: Diciembre</h3>
 		<p>Cantidad de personas que consultaron por Miralejos 14: 300</p>
 		<p>Cantidad de personas que consultaron por Miralejos 15: 400</p>
 		<p>Dptos vendidos en Miralejos 14</p>

@@ -4,33 +4,8 @@
 	<title>Planilla</title>
 
 	<!-- CSS -->
- 	<link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.min.css">
-
-<style>
-table.table{
-	margin: 16px;
-	text-align: center;
-}
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-h4{
-	margin-left: 20px;
-}
-</style>
+ 	<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7/css/bootstrap.min.css">
+ 	<link rel="stylesheet" type="text/css" href="../css/estilos.css">
 
 </head>
 
@@ -57,7 +32,7 @@ h4{
 			<th>Actividad</th>
 			<th>Conoce</th>
 			<th>Fecha origen dato</th>
-			<th>Fecha ultimo contacto</th>
+			<th>Fecha último contacto</th>
 			<th>Nº Llamados</th>
 			<th>Fecha cierre operación</th>
 			<th>Edificio</th>
@@ -65,11 +40,20 @@ h4{
 			<th>Correo Electrónico</th>
 			<td></td>
 			<td></td>
+			<td></td>
 		</tr>
 		<tr>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="3"></td>
+			<td>
+				<select class="form-control" style="width:40%;"> 
+	                <option value="0">0</option> 
+	                <option value="1">1</option> 
+	                <option value="2">2</option> 
+	                <option value="3">3</option> 
+	                <option value="4">4</option>                                               
+            	</select> 
+			</td>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
@@ -83,6 +67,7 @@ h4{
 			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="20"></td>
+			<td></td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -106,6 +91,7 @@ h4{
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
          	<img src="../imagenes/delete.png" border="0" title="Eliminar"/></a></font></td>
+         	<td><a href="historial.php">Ver Historial</a></td>
 		</tr>
 		<tr>
 			<td>Cornelli Ada</td>
@@ -127,6 +113,7 @@ h4{
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
          	<img src="../imagenes/delete.png" border="0" title="Eliminar"/></a></font></td>
+         	<td><a href="historial.php">Ver Historial</a></td>
 		</tr>
 		<tr>
 			<td>Bobbio, Raúl</td>
@@ -148,6 +135,7 @@ h4{
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
          	<img src="../imagenes/delete.png" border="0" title="Eliminar"/></a></font></td>
+         	<td><a href="historial.php">Ver Historial</a></td>
 		</tr>
 
 		<tr>
@@ -170,6 +158,7 @@ h4{
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
          	<img src="../imagenes/delete.png" border="0" title="Eliminar"/></a></font></td>
+         	<td><a href="historial.php">Ver Historial</a></td>
 		</tr>
 		<tr>
 			<td>Panero, Rodolfo</td>
@@ -191,6 +180,7 @@ h4{
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
          	<img src="../imagenes/delete.png" border="0" title="Eliminar"/></a></font></td>
+         	<td><a href="historial.php">Ver Historial</a></td>
 		</tr>
 		
 	</table>
