@@ -1,0 +1,84 @@
+<h3>Modificar Pago Inscripto</h3>
+<div class="row" align="center">
+  <div class="col-sm-4" ></div>
+    <div class=" col-sm-4">
+      <button class="btn btn-default" ng-click="self.GoUrl()">Volver</button>
+    </div>
+  <div class="col-sm-4" ></div>
+<div style="height:50px"></div>
+  </div>
+<!--For Modal-->
+<div class="modal-use">
+  <div class="modal-parent">
+  </div>
+</div>
+
+<div class="row" align="center">
+<form name="FormEditHisto" class="form-horizontal" role="form">
+          <div ng-model="t"></div>
+           <div class="form-group">
+             <label class="col-sm-4 control-label">Nombre:</label>
+             <div class="col-sm-4" >
+              <input class="form-control campoform" ng-model="self.objData.Name_Inscripto"  readonly="readonly">
+            </div>
+            <div class="col-sm-4" ></div>
+          </div>
+         
+        <div class="form-group">
+           <label class="col-sm-4 control-label">Dni:</label>
+            <div class="col-sm-4">
+              <input class="form-control campoform" ng-model="self.objData.Dni_Inscripto"  readonly="readonly">
+            </div>
+             <div class="col-sm-4" ></div>
+        </div>
+
+        <div class="form-group">
+           <label class="col-sm-4 control-label">Arancel:</label>
+            <div class="col-sm-4">
+              <input class="form-control campoform" ng-model="self.objData.Monto"  readonly="readonly">
+            </div>
+             <div class="col-sm-4" ></div>
+        </div>
+
+        <div class="form-group">
+           <label class="col-sm-4 control-label">Tipo de Inscripción:</label>
+            <div class="col-sm-4">
+              <input class="form-control campoform" ng-model="self.objData.Tipo_Arancel"  readonly="readonly">
+            </div>
+             <div class="col-sm-4" ></div>
+        </div>      
+        <div class="form-group">
+         <label class="col-sm-4 control-label">Fecha Pago</label>
+            <div class="col-sm-4" >
+              <input type="text" class="form-control campoform" ng-model="self.objData.Fecha_Pago"  readonly="readonly"/>
+            </div>
+            <div class="col-sm-4" ></div>
+         </div>
+
+       <div class="form-group">
+             <label  class="col-sm-4 control-label" >Pago Realizdo:</label>
+           <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"
+      ng-options="option.Tipo_Pago for option in self.data_edit.availableOptions track by option.id"
+      ng-model="self.data_edit.selectedOption"  ng-change="upDate()"></select></div>
+            <div class="col-sm-4" ></div>
+        </div>
+
+        <div class="form-group">
+             <label  class="col-sm-4 control-label" >Detalle:</label>
+           <div class="col-sm-4" ><div class="col-sm-4" >
+              ​<textarea   class="form-control textdetail" ng-model="self.objData.Detalle" rows="10" cols="84"></textarea>
+            </div></div>
+            <div class="col-sm-4" ></div>
+        </div>
+      
+      <div class="form-group">
+        <div class="col-sm-4" ></div>
+          <div class=" col-sm-4">
+          <button class="btn btn-default" ng-disabled="self.allow_disable"  ng-show="self.allow_visible" ng-click='self.EditPago()' style='margin-left: 63px;margin-top:10px'>Modificar Pago</button>
+             </div>
+          <div class="col-sm-4" ></div>
+        </div>
+        <div class="mensajesistema">{{MessageEdit}}</div>
+</form>
+</div>
+<div style="height:100px"></div>

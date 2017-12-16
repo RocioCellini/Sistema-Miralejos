@@ -1,0 +1,123 @@
+/*Container*/
+
+div.col-xs-12.container-fluid{
+  padding: 0px;
+}
+
+/*Header*/
+.page-header{
+	height: 100%;
+  width: 100%;
+  float: left;
+  margin: 0px;
+}
+
+.page-header img{
+  float: left;
+}
+
+.page-header h2{
+  margin: 15px 0;
+  font-size: 2em;
+  float: left;
+}
+
+/*Body*/
+
+img{	
+	margin: 10px;
+}
+
+h2{
+  margin: 4%;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #333;
+  font-size: 2em;
+}
+
+/*Títulos*/
+
+.titPrincipal h2{
+    margin-top: 4%;
+}
+
+.titFecha{
+  font-weight: bold;
+  padding: 10px 0px;
+  font-size: 1.2em;
+  padding-top: 40px;
+}
+
+/*Tablas*/
+
+tr.titulo{
+  border-bottom: 2px solid #A11414; 
+}
+
+th{
+  padding: 10px 0px;
+}
+
+th:nth-child(2){
+  padding-left: 20px;
+}
+
+/*Listas*/
+
+ul{
+  padding: 0px;
+}
+
+ul li{
+  list-style:none;
+}
+
+ul.cost{
+  padding-left: 20px;
+}
+
+ul.cost li{
+    padding-bottom: 10px;
+}
+
+/*Button*/
+
+.btn.btn-default:hover{
+  color: #A11414;
+  border-color: #A11414;
+}
+
+.btn.btn-default:active{
+  text-decoration: none;
+}
+
+/*Error Message*/
+.errorform {
+  color: #c11414;
+  font-size:14px;
+  font-weight: 600;
+}
+
+.form-control:focus {
+  border-color: #aa211e;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(110, 20, 27, .6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(110, 20, 27, .6);
+}
+
+.form-control.textdetail {
+  width: 613px;
+  height:180px;
+}
+
+
+
+
+
+
+a.button-table { 
+	cursor: pointer; 
+}
