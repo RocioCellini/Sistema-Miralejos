@@ -24,13 +24,13 @@ if($type_accion==="nuevo_vendedor"){
   $detalle =$data->{'Detalle'};
 	*/
 
-  $nombre='Florencia';
-  $email='farraras@miralejos.net';
+  //$nombre='Florencia';
+  //$email='farraras@miralejos.net';
 
   $item="";
 
   $sql_insert='INSERT INTO vendedor (id_vendedor, nombre, email) VALUES
-  (?, ? ,?)';
+  (?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
