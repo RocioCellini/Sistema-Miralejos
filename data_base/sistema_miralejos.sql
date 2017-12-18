@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-12-2017 a las 10:34:30
+-- Tiempo de generación: 18-12-2017 a las 15:27:36
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -39,6 +39,14 @@ CREATE TABLE `cliente` (
   `conoce` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `id_provincia`, `id_localidad`, `actividad`, `conoce`) VALUES
+(1, 'Rocio', 'Cellini', 33444444, 3541222, 'rcellini@miralejos.net', 3, 5, 'agropecuario', 'si'),
+(2, 'Rocio', 'Cellini', 33444444, 3541222, 'rcellini@miralejos.net', 3, 5, 'agropecuario', 'si');
+
 -- --------------------------------------------------------
 
 --
@@ -47,8 +55,18 @@ CREATE TABLE `cliente` (
 
 CREATE TABLE `departamento` (
   `id_dpto` int(11) NOT NULL,
-  `nombre` text COLLATE latin1_spanish_ci NOT NULL
+  `nombre` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `departamento`
+--
+
+INSERT INTO `departamento` (`id_dpto`, `nombre`) VALUES
+(1, 4),
+(2, 4),
+(3, 0),
+(4, 0);
 
 -- --------------------------------------------------------
 
@@ -60,6 +78,14 @@ CREATE TABLE `edificio` (
   `id_edificio` int(11) NOT NULL,
   `nombre` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `edificio`
+--
+
+INSERT INTO `edificio` (`id_edificio`, `nombre`) VALUES
+(1, 'M6'),
+(2, 'M8');
 
 -- --------------------------------------------------------
 
@@ -82,6 +108,14 @@ CREATE TABLE `llamado` (
   `anotaciones` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `llamado`
+--
+
+INSERT INTO `llamado` (`id_llamado`, `id_vendedor`, `id_cliente`, `fecha_llamado`, `hora_llamado`, `id_edificio`, `id_planta`, `id_dpto`, `grado_interes`, `nombre_origen_dato`, `fecha_origen_dato`, `anotaciones`) VALUES
+(1, 2, 3, '2011-03-14', '17:00:01', 2, 1, 5, 2, 'letrero', '2017-06-14', 'respondió en forma cortante'),
+(2, 2, 3, '2011-03-14', '17:00:01', 2, 1, 5, 2, 'letrero', '2017-06-14', 'respondió en forma cortante');
+
 -- --------------------------------------------------------
 
 --
@@ -89,16 +123,16 @@ CREATE TABLE `llamado` (
 --
 
 CREATE TABLE `localidad` (
-  `Id` int(11) NOT NULL DEFAULT '0',
-  `Id_provincia` int(11) NOT NULL,
-  `Localidad` text COLLATE latin1_spanish_ci NOT NULL
+  `id_localidad` int(11) NOT NULL DEFAULT '0',
+  `id_provincia` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `localidad`
 --
 
-INSERT INTO `localidad` (`Id`, `Id_provincia`, `Localidad`) VALUES
+INSERT INTO `localidad` (`id_localidad`, `id_provincia`, `nombre`) VALUES
 (1, 1, '25 de Mayo'),
 (2, 1, '3 de febrero'),
 (3, 1, 'A. Alsina'),
@@ -2192,7 +2226,7 @@ INSERT INTO `localidad` (`Id`, `Id_provincia`, `Localidad`) VALUES
 (2091, 22, 'Pueblo Muñoz'),
 (2092, 22, 'Pueblo Uranga'),
 (2093, 22, 'Pujato');
-INSERT INTO `localidad` (`Id`, `Id_provincia`, `Localidad`) VALUES
+INSERT INTO `localidad` (`id_localidad`, `id_provincia`, `nombre`) VALUES
 (2094, 22, 'Pujato N.'),
 (2095, 22, 'Rafaela'),
 (2096, 22, 'Ramayón'),
@@ -2514,6 +2548,15 @@ CREATE TABLE `planta` (
   `nombre` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `planta`
+--
+
+INSERT INTO `planta` (`id_planta`, `nombre`) VALUES
+(1, 'B'),
+(2, 'B'),
+(3, 'A');
+
 -- --------------------------------------------------------
 
 --
@@ -2521,15 +2564,15 @@ CREATE TABLE `planta` (
 --
 
 CREATE TABLE `provincia` (
-  `Id` int(11) NOT NULL,
-  `Provincia` text COLLATE latin1_spanish_ci NOT NULL
+  `id_provincia` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `provincia`
 --
 
-INSERT INTO `provincia` (`Id`, `Provincia`) VALUES
+INSERT INTO `provincia` (`id_provincia`, `nombre`) VALUES
 (1, 'Buenos Aires'),
 (2, 'Buenos Aires-GBA'),
 (3, 'Capital Federal'),
@@ -2582,6 +2625,17 @@ CREATE TABLE `vendedor` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `vendedor`
+--
+
+INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `email`) VALUES
+(1, 'Florencia', 'farraras@miralejos.net'),
+(2, 'Florencia', 'farraras@miralejos.net'),
+(3, 'Florencia', 'farraras@miralejos.net'),
+(4, 'Florencia', 'farraras@miralejos.net'),
+(5, 'Florencia', 'farraras@miralejos.net');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -2613,7 +2667,7 @@ ALTER TABLE `llamado`
 -- Indices de la tabla `localidad`
 --
 ALTER TABLE `localidad`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id_localidad`);
 
 --
 -- Indices de la tabla `operacion`
@@ -2622,10 +2676,16 @@ ALTER TABLE `operacion`
   ADD PRIMARY KEY (`id_operacion`);
 
 --
+-- Indices de la tabla `planta`
+--
+ALTER TABLE `planta`
+  ADD PRIMARY KEY (`id_planta`);
+
+--
 -- Indices de la tabla `provincia`
 --
 ALTER TABLE `provincia`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id_provincia`);
 
 --
 -- Indices de la tabla `tabla-intermedia-dpto`
@@ -2647,32 +2707,37 @@ ALTER TABLE `vendedor`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
 ALTER TABLE `departamento`
-  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `edificio`
 --
 ALTER TABLE `edificio`
-  MODIFY `id_edificio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_edificio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `llamado`
 --
 ALTER TABLE `llamado`
-  MODIFY `id_llamado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_llamado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `operacion`
 --
 ALTER TABLE `operacion`
   MODIFY `id_operacion` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `planta`
+--
+ALTER TABLE `planta`
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT de la tabla `provincia`
 --
 ALTER TABLE `provincia`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_provincia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `tabla-intermedia-dpto`
 --
@@ -2682,7 +2747,7 @@ ALTER TABLE `tabla-intermedia-dpto`
 -- AUTO_INCREMENT de la tabla `vendedor`
 --
 ALTER TABLE `vendedor`
-  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
