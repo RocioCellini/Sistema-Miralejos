@@ -24,7 +24,7 @@ if($type_accion==="nuevo_cliente"){
   $detalle =$data->{'Detalle'};
 	*/
 
-  $nombre='Rocio';
+  /*$nombre='Rocio';
   $apellido='Cellini';
   $dni=33444444;
   $telefono=3541222;
@@ -32,7 +32,7 @@ if($type_accion==="nuevo_cliente"){
   $id_provincia=3;
   $id_localidad=5;
   $actividad='agropecuario';
-  $conoce='si';
+  $conoce='si';*/
 
   $item="";
 

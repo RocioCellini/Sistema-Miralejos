@@ -24,7 +24,7 @@ if($type_accion==="nuevo_dpto"){
   $detalle =$data->{'Detalle'};
 	*/
 
-  $nombre=5;
+  //$nombre=5;
 
   $item="";
 
