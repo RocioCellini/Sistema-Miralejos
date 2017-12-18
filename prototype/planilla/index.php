@@ -36,7 +36,8 @@
 			<th>Nº Llamados</th>
 			<th>Fecha cierre operación</th>
 			<th>Edificio</th>
-			<th>Depto Vendido</th>
+			<th>Planta</th>
+			<th>Dpto</th>
 			<th>Correo Electrónico</th>
 			<td></td>
 			<td></td>
@@ -45,15 +46,7 @@
 		<tr>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
-			<td>
-				<select class="form-control" style="width:40%;"> 
-	                <option value="0">0</option> 
-	                <option value="1">1</option> 
-	                <option value="2">2</option> 
-	                <option value="3">3</option> 
-	                <option value="4">4</option>                                               
-            	</select> 
-			</td>
+			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
@@ -64,6 +57,7 @@
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="8"></td>
+			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="20"></td>
@@ -86,7 +80,8 @@
 			<td>5</td>
 			<td>4/4/2016</td>
 			<td>M2</td>
-			<td>3B</td>
+			<td>B</td>
+			<td>3</td>
 			<td>anguinegra@hotmail.com</td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
@@ -108,7 +103,8 @@
 			<td>5</td>
 			<td></td>
 			<td>M3</td>
-			<td>3B</td>
+			<td>B</td>
+			<td>3</td>
 			<td>georginabertone@hotmail.com</td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
@@ -130,7 +126,8 @@
 			<td>5</td>
 			<td>4/4/2016</td>
 			<td>M2</td>
-			<td>3B</td>
+			<td>B</td>
+			<td>3</td>
 			<td>fsfarmacia@hotmail.com</td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
@@ -153,7 +150,8 @@
 			<td>5</td>
 			<td>4/4/2016</td>
 			<td>M2</td>
-			<td>3B</td>
+			<td>B</td>
+			<td>3</td>
 			<td>gmacagno@cotagro.com.ar</td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
@@ -175,6 +173,7 @@
 			<td></td>
 			<td>nov-13</td>
 			<td>M7</td>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="../imagenes/edit.png" border="0" title="Modificar"/></a></font></td>
