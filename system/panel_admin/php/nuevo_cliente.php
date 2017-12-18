@@ -57,7 +57,7 @@ if($type_accion==="nuevo_cliente"){
   if($last_id!=0){
     $message="Se guardo un nuevo cliente";
   }else{
-    $message="El nuevo cliente no se guardÃ³";
+    $message="El nuevo cliente no se guardó";
   }
 
   //***************************************************************************************///
@@ -67,6 +67,6 @@ if($type_accion==="nuevo_cliente"){
   echo $json;
             
    } //if($type_accion==="nuevo_cliente")
-   //agregar un json con el error si no se guardÃ³ en la BD
+   //agregar un json con el error si no se guardó en la BD
 
 ?>      

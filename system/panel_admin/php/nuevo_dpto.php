@@ -49,7 +49,7 @@ if($type_accion==="nuevo_dpto"){
   if($last_id!=0){
     $message="Se guardo un nuevo dpto";
   }else{
-    $message="El nuevo dpto no se guardÃ³";
+    $message="El nuevo dpto no se guardó";
   }
 
   //***************************************************************************************///
@@ -59,6 +59,6 @@ if($type_accion==="nuevo_dpto"){
   echo $json;
             
    } //if($type_accion==="nuevo_dpto")
-   //agregar un json con el error si no se guardÃ³ en la BD
+   //agregar un json con el error si no se guardó en la BD
 
 ?>      
