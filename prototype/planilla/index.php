@@ -32,7 +32,7 @@
 			<th>Actividad</th>
 			<th>Conoce</th>
 			<th>Fecha origen dato</th>
-			<th>Fecha último contacto</th>
+			<th>Fecha último llamado</th>
 			<th>Nº Llamados</th>
 			<th>Fecha cierre operación</th>
 			<th>Edificio</th>
