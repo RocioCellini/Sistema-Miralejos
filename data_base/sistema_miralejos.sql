@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2017 a las 15:27:36
+-- Tiempo de generación: 18-12-2017 a las 15:48:47
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -2527,10 +2527,10 @@ CREATE TABLE `operacion` (
   `id_operacion` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_vendedor` int(11) NOT NULL,
-  `fecha-ultimo-llamado` date NOT NULL,
-  `cant-llamados` int(11) NOT NULL,
-  `fecha-cierre-operacion` date NOT NULL,
-  `hora-cierre-operacion` time NOT NULL,
+  `fecha_ultimo_llamado` date NOT NULL,
+  `cant_llamados` int(11) NOT NULL,
+  `fecha_cierre_operacion` date NOT NULL,
+  `hora_cierre_operacion` time NOT NULL,
   `id_edificio` int(11) NOT NULL,
   `id_planta` int(11) NOT NULL,
   `id_dpto` int(11) NOT NULL,
