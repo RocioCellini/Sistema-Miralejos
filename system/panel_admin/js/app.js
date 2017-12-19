@@ -2,8 +2,7 @@
 
       "use strict";
 
-
-      var app = _angular.module("myFomrC1", ["ngSanitize", "ngAnimate", 
+      var app = _angular.module("GestionVentas", ["ngSanitize", "ngAnimate", 
       "ngTable", "ui.router", "ui.bootstrap"]);
 
 
@@ -14,51 +13,51 @@
 
       var $state = $injector.get('$state');
 
-      var path = $location.path(),
-      normalized = path.toLowerCase();
+      var path = $location.path();
+      //normalized = path.toLowerCase();
      
-
+      /*
       if (path==='/xepago') {
-        $state.go('myFomrC1.editpago');
+        $state.go('GestionVentas.editpago');
       }
       
       if (path==='/xeliminar') {
-        $state.go('myFomrC1.eliminaruser');
+        $state.go('GestionVentas.eliminaruser');
       }
-
+      */
       });
 
 
-      $stateProvider.state('myFomrC1', {
+    $stateProvider.state('GestionVentas', {
       views: {
-      'content': {
-       template:'<div ui-view></div>'
-      },
-
-      'footer': {
-        templateUrl: 'templates/footer.html',
-        controller: 'FooterController as vf'
+        'content': {
+         template:'<div ui-view></div>'
+        },
+        'footer': {
+          templateUrl: 'templates/footer.html',
+          controller: 'FooterController as vf'
+        }
       }
-
-      }
-      }).state('myFomrC1.index',{
-      url:'/ingreso_paciente',
-        templateUrl:'templates/ingresoPaciente.html',
-        controller: 'IngresoPaciente as $ctrl_ip'
-      }).state('myFomrC1.modificaPaciente',{
-        url:'/modifica_paciente',
-        templateUrl:'templates/modificaPaciente.html',
-        controller: 'ModifyPciente as $ctrl_mp'
+    })
+      .state('GestionVentas.index',{
+        url:'/NuevoCliente',
+        templateUrl:'templates/nuevo_cliente.html',
+        controller: 'NuevoCliente as $ctrl_nc'
       })
-      .state('myFomrC1.main',{
-        url:'/busca_paciente',
-        templateUrl:'templates/buscarPaciente.html',
-        controller: 'BuscarPaCiente as $ctrl_bp'
+      .state('GestionVentas.editarCliente',{
+        url:'/EditarCliente',
+        templateUrl:'templates/editar_cliente.html',
+        controller: 'EditarCliente as $ctrl_editc'
+      })
+       .state('GestionVentas.eliminarCliente',{
+        url:'/EliminarCliente',
+        templateUrl:'templates/eliminar_cliente.html',
+        controller: 'EliminarCliente as $ctrl_elimc'
       });
 
       }).run(function($state) {
         
-        $state.go('myFomrC1.index');
+        $state.go('GestionVentas.index');
       
       }).controller('FooterController', function() {})
 

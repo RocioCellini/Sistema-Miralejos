@@ -10,19 +10,26 @@ $json = file_get_contents('php://input');
 $data=json_decode($json);
 
 
-//$type_accion=$data->{'type_accion'};
-$type_accion='nuevo_cliente';
+$type_accion=$data->{'type_accion'};
+
 
 if($type_accion==="nuevo_cliente"){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
-	/*
-	$operationid =$data->{'Id_Operacion'};
-	$idinscripto =$data->{'Id_Inscripto'};
-	$status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-	*/
+	
+
+	$nombre=$data->{'nombre'};
+  $apellido=$data->{'apellido'};
+  $dni =$data->{'dni'};
+	$telefono =$data->{'telefono'};
+  $email =$data->{'email'};
+  $id_provincia=$data->{'id_provincia'};
+  $id_localidad=$data->{'id_localidad'};  
+	$actividad =$data->{'actividad'};
+  $conoce=$data->{'conoce'};
+ 
+
 
   /*$nombre='Rocio';
   $apellido='Cellini';
@@ -62,7 +69,7 @@ if($type_accion==="nuevo_cliente"){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
