@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2017 a las 15:48:47
+-- Tiempo de generación: 19-12-2017 a las 14:11:35
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -44,7 +44,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `dni`, `telefono`, `email`, `id_provincia`, `id_localidad`, `actividad`, `conoce`) VALUES
-(1, 'Rocio', 'Cellini', 33444444, 3541222, 'rcellini@miralejos.net', 3, 5, 'agropecuario', 'si'),
+(1, 'Maria', 'Cellini', 555, 54545, 'maria@miralejos.net', 3, 5, 'abogada', 'si'),
 (2, 'Rocio', 'Cellini', 33444444, 3541222, 'rcellini@miralejos.net', 3, 5, 'agropecuario', 'si');
 
 -- --------------------------------------------------------
@@ -65,7 +65,7 @@ CREATE TABLE `departamento` (
 INSERT INTO `departamento` (`id_dpto`, `nombre`) VALUES
 (1, 4),
 (2, 4),
-(3, 0),
+(3, 2),
 (4, 0);
 
 -- --------------------------------------------------------
@@ -84,7 +84,7 @@ CREATE TABLE `edificio` (
 --
 
 INSERT INTO `edificio` (`id_edificio`, `nombre`) VALUES
-(1, 'M6'),
+(1, 'M14'),
 (2, 'M8');
 
 -- --------------------------------------------------------
@@ -114,7 +114,7 @@ CREATE TABLE `llamado` (
 
 INSERT INTO `llamado` (`id_llamado`, `id_vendedor`, `id_cliente`, `fecha_llamado`, `hora_llamado`, `id_edificio`, `id_planta`, `id_dpto`, `grado_interes`, `nombre_origen_dato`, `fecha_origen_dato`, `anotaciones`) VALUES
 (1, 2, 3, '2011-03-14', '17:00:01', 2, 1, 5, 2, 'letrero', '2017-06-14', 'respondió en forma cortante'),
-(2, 2, 3, '2011-03-14', '17:00:01', 2, 1, 5, 2, 'letrero', '2017-06-14', 'respondió en forma cortante');
+(2, 1, 1, '2016-03-14', '18:00:01', 1, 2, 2, 4, 'oficina', '2016-02-14', 'respondió bien');
 
 -- --------------------------------------------------------
 
@@ -2537,6 +2537,14 @@ CREATE TABLE `operacion` (
   `observaciones` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `operacion`
+--
+
+INSERT INTO `operacion` (`id_operacion`, `id_cliente`, `id_vendedor`, `fecha_ultimo_llamado`, `cant_llamados`, `fecha_cierre_operacion`, `hora_cierre_operacion`, `id_edificio`, `id_planta`, `id_dpto`, `observaciones`) VALUES
+(1, 3, 2, '2015-03-14', 5, '2015-04-16', '16:00:01', 3, 2, 1, 'excelente'),
+(2, 2, 22, '2011-03-14', 5, '2011-03-16', '17:00:01', 4, 3, 2, 'todo tranquilo');
+
 -- --------------------------------------------------------
 
 --
@@ -2554,7 +2562,7 @@ CREATE TABLE `planta` (
 
 INSERT INTO `planta` (`id_planta`, `nombre`) VALUES
 (1, 'B'),
-(2, 'B'),
+(2, 'C'),
 (3, 'A');
 
 -- --------------------------------------------------------
@@ -2602,15 +2610,24 @@ INSERT INTO `provincia` (`id_provincia`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tabla-intermedia-dpto`
+-- Estructura de tabla para la tabla `tabla_intermedia_dpto`
 --
 
-CREATE TABLE `tabla-intermedia-dpto` (
+CREATE TABLE `tabla_intermedia_dpto` (
   `id_tabla` int(11) NOT NULL,
   `id_dpto` int(11) NOT NULL,
   `id_planta` int(11) NOT NULL,
   `id_edificio` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tabla_intermedia_dpto`
+--
+
+INSERT INTO `tabla_intermedia_dpto` (`id_tabla`, `id_dpto`, `id_planta`, `id_edificio`) VALUES
+(1, 5, 3, 6),
+(2, 3, 1, 6),
+(3, 4, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -2630,7 +2647,7 @@ CREATE TABLE `vendedor` (
 
 INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `email`) VALUES
 (1, 'Florencia', 'farraras@miralejos.net'),
-(2, 'Florencia', 'farraras@miralejos.net'),
+(2, 'Pablo', 'pperlo@miralejos.net'),
 (3, 'Florencia', 'farraras@miralejos.net'),
 (4, 'Florencia', 'farraras@miralejos.net'),
 (5, 'Florencia', 'farraras@miralejos.net');
@@ -2688,9 +2705,9 @@ ALTER TABLE `provincia`
   ADD PRIMARY KEY (`id_provincia`);
 
 --
--- Indices de la tabla `tabla-intermedia-dpto`
+-- Indices de la tabla `tabla_intermedia_dpto`
 --
-ALTER TABLE `tabla-intermedia-dpto`
+ALTER TABLE `tabla_intermedia_dpto`
   ADD PRIMARY KEY (`id_tabla`);
 
 --
@@ -2727,7 +2744,7 @@ ALTER TABLE `llamado`
 -- AUTO_INCREMENT de la tabla `operacion`
 --
 ALTER TABLE `operacion`
-  MODIFY `id_operacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_operacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `planta`
 --
@@ -2739,10 +2756,10 @@ ALTER TABLE `planta`
 ALTER TABLE `provincia`
   MODIFY `id_provincia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
--- AUTO_INCREMENT de la tabla `tabla-intermedia-dpto`
+-- AUTO_INCREMENT de la tabla `tabla_intermedia_dpto`
 --
-ALTER TABLE `tabla-intermedia-dpto`
-  MODIFY `id_tabla` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tabla_intermedia_dpto`
+  MODIFY `id_tabla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `vendedor`
 --
