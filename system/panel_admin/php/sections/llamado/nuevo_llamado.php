@@ -16,7 +16,7 @@ $type_accion='nuevo_llamado';
 if($type_accion==="nuevo_llamado"){
 
 //************************************************************************************************//	
-	include "conexion.php";	
+	include "../../conexion.php";	
 	/*
 	$operationid =$data->{'Id_Operacion'};
 	$idinscripto =$data->{'Id_Inscripto'};

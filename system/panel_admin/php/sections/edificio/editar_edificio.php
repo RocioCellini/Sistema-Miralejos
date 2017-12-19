@@ -17,7 +17,7 @@ if($type_accion==="editar_edificio"){
 
 //********************************************************************************************//  
   
-  include "conexion.php"; 
+  include "../../conexion.php"; 
   /*
   $operationid =$data->{'Id_Operacion'};
   $idinscripto =$data->{'Id_Inscripto'};
