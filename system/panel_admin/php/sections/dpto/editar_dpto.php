@@ -22,7 +22,7 @@ if($type_accion==="editar_dpto"){
   $operationid =$data->{'Id_Operacion'};
   $idinscripto =$data->{'Id_Inscripto'};
   $status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
+  $detalle =$data->{'Detalle'}; 
   */
   $id_dpto=3;
   $nombre=2;

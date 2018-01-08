@@ -53,15 +53,21 @@
         url:'/EliminarCliente',
         templateUrl:'templates/eliminar_cliente.html',
         controller: 'EliminarCliente as $ctrl_elimc'
-      });
+      })/*.state('GestionVentas',{
+        url:'/NuevoDpto',
+        templateUrl:'templates/nuevo_dpto.html',
+        controller: 'NuevoDpto as $ctrl_nd'
+      })
+
+       url:'/NuevoCliente',
+        templateUrl:'templates/nuevo_cliente.html',
+        controller: 'NuevoCliente as $ctrl_nc'
+        */;
 
       }).run(function($state) {
         
         $state.go('GestionVentas.index');
       
       }).controller('FooterController', function() {})
-
-
-
 
 })(window.angular);

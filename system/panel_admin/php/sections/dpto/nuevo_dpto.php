@@ -11,7 +11,7 @@ $data=json_decode($json);
 
 
 //$type_accion=$data->{'type_accion'};
-$type_accion='nuevo_dpto';
+$type_accion='nuevo_dpto'; 
 
 if($type_accion==="nuevo_dpto"){
 
