@@ -7,11 +7,11 @@
   app.controller("NuevoCliente", NuevoCliente);
   
   NuevoCliente.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "clienteFactory"];
+   "clienteDataFactory"];
 
           //Controller
           function NuevoCliente ($scope, $sce, $state,  $stateParams,  $window,
-           $uibModal, $document, clienteFactory) {
+           $uibModal, $document, clienteDataFactory) {
                                          
                  var $ctrl_nc = this;
                  
@@ -68,7 +68,7 @@
               $ctrl_nc.objDataCliente.id_localidad=5;
               $ctrl_nc.objDataCliente.conoce="si";
               
-              clienteFactory.nuevoCliente($ctrl_nc.objDataCliente).then(function(d) {                   
+              clienteDataFactory.nuevoCliente($ctrl_nc.objDataCliente).then(function(d) {                   
                       $ctrl_nc.Mensaje=d.Mensaje;
                       //$ctrl_nc.allow_disable=false;
           
