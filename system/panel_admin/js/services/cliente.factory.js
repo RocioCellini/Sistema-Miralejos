@@ -4,15 +4,22 @@
 
      var app=_angular.module("GestionVentas");
 
-     app.factory('clienteFactory', function ($http, $sce, $stateParams) {
+     app.factory('clienteDataFactory', function ($http, $sce, $stateParams) {
 
      var promisedata;
       
 
-     var abmCliente = {
+     var ingresoCliente = {
             
-        nuevoCliente: function(paramsearch) {
-            promisedata=$http.post('php/nuevo_cliente.php', paramsearch).then(function (response) {
+        nuevoCliente: function(params) {
+            promisedata=$http.post('php/sections/cliente/nuevo_cliente.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
+        },
+        editarCliente: function(params) {
+            promisedata=$http.post('php/sections/cliente/nuevo_cliente.php', params).then(function (response) {
                   return response.data;
         });
            
@@ -21,12 +28,8 @@
 
       };//RETURN API
 
-
-
-      return abmCliente;      
-  
-
-  });//  app.factory
+      return ingresoCliente;      
+    });//  app.factory
 
 
 
