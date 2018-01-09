@@ -41,7 +41,7 @@ if($type_accion==="nuevo_cliente"){
   $actividad='agropecuario';
   $conoce='si';*/
 
-  $item="";
+
 
   $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, dni, telefono, email, id_provincia, id_localidad, actividad, conoce) VALUES
   (?,?,?,?,?,?,?,?,?,?)';
@@ -59,7 +59,6 @@ if($type_accion==="nuevo_cliente"){
 
   $last_id=mysqli_insert_id($conn);
 
-  echo $last_id;
 
   if($last_id!=0){
     $message="Se guardo un nuevo cliente";

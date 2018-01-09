@@ -66,13 +66,17 @@
              <div class="col-sm-4" ></div>
         </div>
 
-          <!--<div class="form-group">
-           <label class="col-sm-4 control-label">Conoce:</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control campoform" ng-model="$ctrl_nc.objDataCliente.conoce">
+         <div class="form-group">
+         <label class="col-sm-4 control-label">Conoce:</label>
+            <div class="col-sm-4" >
+                  <select name="conoce" id="conoce" class="form-control campoform"
+                  ng-options="option.name for option in $ctrl_nc.data.availableOptions track by option.id"
+                  ng-model="$ctrl_nc.data.selectedOption"></select>                 
             </div>
-             <div class="col-sm-4" ></div>
-        </div>-->
+            <div class="col-sm-4" ></div>
+         </div>
+
+
    
       
       <div class="form-group">
@@ -83,7 +87,7 @@
              </div>
           <div class="col-sm-4" ></div>
         </div>
-        <div class="mensajesistema">{{Mensaje}}</div>
+        <div class="mensajesistema">{{$ctrl_nc.Mensaje}}</div>
 </form>
 </div>
 <div style="height:100px"></div>
