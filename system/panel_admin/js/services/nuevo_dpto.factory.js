@@ -9,9 +9,9 @@
      var promisedata;
       
 
-     var ingresoCliente = {
+     var ingresoDpto = {
             
-        nuevoCliente: function(params) {
+        nuevoDpto: function(params) {
             promisedata=$http.post('php/sections/dpto/nuevo_dpto.php', params).then(function (response) {
                   return response.data;
         });

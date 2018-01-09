@@ -15,7 +15,7 @@
                                  
      var $ctrl_nd = this;
      
-     $ctrl_nd.objDataCliente={};
+     $ctrl_nd.objDataDpto={};
      $ctrl_nd.allow_disable=false;
      $ctrl_nd.allow_visible=true;
 
@@ -41,10 +41,8 @@
         //$ctrl_nd.allow_disable=true;
 
         $ctrl_nd.objDataDpto.type_accion="nuevo_dpto";
-   
-        $ctrl_nd.objDataDpto.id_provincia=1;
-        $ctrl_nd.objDataDpto.id_localidad=5;
-        $ctrl_nd.objDataDpto.conoce="si";
+
+        $ctrl_nd.objDataDpto.nombre="A5";
         
         dptoFactory.nuevoDpto($ctrl_nd.objDataDpto).then(function(d) {                   
                 $ctrl_nd.Mensaje=d.Mensaje;
