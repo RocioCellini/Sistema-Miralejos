@@ -63,12 +63,10 @@
               //$ctrl_nv.allow_disable=true;
 
               $ctrl_nv.objDataVendedor.type_accion="nuevo_vendedor";
-         
-              $ctrl_nv.objDataVendedor.nombre="roxana";
-              $ctrl_nv.objDataVendedor.email="vende@hotmail.com";
-              
-              vendedorFactory.nuevoVendedor($ctrl_nv.objDataVendedor).then(function(d) {                   
-                      $ctrl_nv.Mensaje=d.Mensaje;
+           
+              vendedorFactory.nuevoVendedor($ctrl_nv.objDataVendedor).then(function(d) {  
+                                 
+                      $ctrl_nv.Mensaje=d.MessageComment;
                       //$ctrl_nv.allow_disable=false;
           
                }).catch(function (err) {

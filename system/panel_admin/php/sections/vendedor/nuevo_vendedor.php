@@ -17,17 +17,12 @@ if($type_accion==="nuevo_vendedor"){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
-	/*
-	$operationid =$data->{'Id_Operacion'};
-	$idinscripto =$data->{'Id_Inscripto'};
-	$status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-	*/
+	
+	$nombre =$data->{'nombre'};
+	$email =$data->{'email'};
 
-  //$nombre='Florencia';
-  //$email='farraras@miralejos.net';
-
-  $item="";
+	
+ 
 
   $sql_insert='INSERT INTO vendedor (id_vendedor, nombre, email) VALUES
   (?,?,?)';
@@ -45,20 +40,22 @@ if($type_accion==="nuevo_vendedor"){
 
   $last_id=mysqli_insert_id($conn);
 
-  echo $last_id;
+ 
 
   if($last_id!=0){
-    $message="Se guardo un nuevo vendedor";
+    $data_responde="Se guardo un nuevo vendedor";
   }else{
-    $message="El nuevo vendedor no se guardó";
+    $data_responde="El nuevo vendedor no se guardó";
   }
 
-  //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
-  $json = json_encode($item);
+
+  //***************************************************************************************///
+  $arr2=array('MessageComment'=>$data_responde);
+  
+  $json = json_encode($arr2);
   echo $json;
-            
+     
    } //if($type_accion==="nuevo_vendedor")
    //agregar un json con el error si no se guardó en la BD
 
