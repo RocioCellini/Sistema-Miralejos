@@ -7,15 +7,16 @@
   app.controller("NuevoCliente", NuevoCliente);
   
   NuevoCliente.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "clienteDataFactory"];
+   "clienteDataFactory", "defaultdataFactory"];
 
           //Controller
           function NuevoCliente ($scope, $sce, $state,  $stateParams,  $window,
-           $uibModal, $document, clienteDataFactory) {
+           $uibModal, $document, clienteDataFactory, defaultdataFactory) {
                                          
                  var $ctrl_nc = this;
                  
                  $ctrl_nc.objDataCliente={};
+                $ctrl_nc.defaultparams={};
                  $ctrl_nc.allow_disable=false;
                  $ctrl_nc.allow_visible=true;
                              
@@ -29,7 +30,7 @@
                  $ctrl_nc.Init = Init;
                  $ctrl_nc.upDate = upDate;
                  $ctrl_nc.NuevoCliente=NuevoCliente;
-            
+                
 
                 $ctrl_nc.data = {
                   availableOptions: [
@@ -39,6 +40,9 @@
                   ],
                     selectedOption: {id: '-1'} //This sets the default value of the select in the ui
                 };
+
+
+
 
 
     //------------------------------------------------------------------------------------------------// 
@@ -53,10 +57,22 @@
 
     function Init () {
 
-           console.log("Aqui Deben Llamarse los Combos");
 
-          // $ctrl_ap.allow_disable=false;                   
-          //self.objData=modifydataFactory.dataDefault();   
+
+                $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
+                defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {        
+                        
+                  
+                $ctrl_nc.dataprovincia = {
+                    availableOptions: d.provincia,
+                    selectedOption: {id: '1'} //This sets the default value of the select in the ui
+               };
+          
+               }).catch(function (err) {
+                    console.log(err);
+               });                
+
+       
     };    
     
         

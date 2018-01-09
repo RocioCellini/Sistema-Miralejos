@@ -13,7 +13,7 @@ $data=json_decode($json);
 $type_accion=$data->{'type_accion'};
 
 
-if($type_accion==="nuevo_cliente"){
+if ($type_accion==="nuevo_cliente") {
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
