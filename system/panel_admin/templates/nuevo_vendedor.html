@@ -1,0 +1,34 @@
+<h3>Nuevo Vendedor</h3>
+<hr>
+
+<div class="row" align="center">
+<form name="FormNuevoVendedor" class="form-horizontal" role="form">
+      
+      <div class="form-group">
+         <label class="col-sm-4 control-label">Nombre:</label>
+         <div class="col-sm-4" >
+          <input type="text" class="form-control campoform" ng-model="$ctrl_nv.objDataVendedor.nombre">
+        </div>
+        <div class="col-sm-4" ></div>
+      </div>          
+    
+      <div class="form-group">
+           <label class="col-sm-4 control-label">Correo Electrónico:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control campoform" ng-model="$ctrl_nv.objDataVendedor.email">
+            </div>
+             <div class="col-sm-4" ></div>
+        </div>
+      
+      <div class="form-group">
+        <div class="col-sm-4" ></div>
+          <div class=" col-sm-4">
+          <button class="btn btn-default" ng-disabled="$ctrl_nv.allow_disable"  ng-show="$ctrl_nv.allow_visible" 
+          ng-click='$ctrl_nv.NuevoVendedor()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+             </div>
+          <div class="col-sm-4" ></div>
+        </div>
+        <div class="mensajesistema">{{Mensaje}}</div>
+</form>
+</div>
+<div style="height:100px"></div>

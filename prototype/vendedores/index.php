@@ -36,11 +36,11 @@
 				<fieldset>
 				  <div class="form-group">
 				    <label>Nombre</label>
-				    <input type="text" class="form-control" name="localidad">
+				    <input type="text" class="form-control" name="nombre">
 				  </div>
 				  <div class="form-group">
 				    <label>Correo Electrónico</label>
-				    <input type="text" class="form-control" name="provincia">
+				    <input type="text" class="form-control" name="email">
 				  </div>
 				 
 				  <button type="submit" class="btn btn-default">Guardar</button>
