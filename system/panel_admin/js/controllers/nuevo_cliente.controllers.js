@@ -43,24 +43,24 @@
 
 
 
-      function Init () {
-                  
-                  $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
-                  defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {        
-                          
-                                      
-                    
-                  $ctrl_nc.dataprovincia = {
-                      availableOptions: d.provincia,
-                      selectedOption: {id: '1'} //This sets the default value of the select in the ui
-                 };
-            
-                 }).catch(function (err) {
-                      console.log(err);
-                 });                
+          function Init () {
+                      
+                      $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
+                      defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {        
+                              
+                                          
+                        
+                      $ctrl_nc.dataprovincia = {
+                          availableOptions: d.provincia,
+                          selectedOption: {id: '1'} //This sets the default value of the select in the ui
+                     };
+                
+                     }).catch(function (err) {
+                          console.log(err);
+                     });                
 
-         
-      };    
+             
+          };    
     
         
 
