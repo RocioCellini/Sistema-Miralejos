@@ -38,7 +38,19 @@
           controller: 'FooterController as vf'
         }
       }
-    })
+    }) 
+    .state('GestionVentas.index',{
+        url:'/NuevoVendedor',
+        templateUrl:'templates/nuevo_vendedor.html',
+        controller: 'NuevoVendedor as $ctrl_nv'
+      })
+    /*
+      .state('GestionVentas.index',{
+        url:'/NuevoLlamado',
+        templateUrl:'templates/nuevo_llamado.html',
+        controller: 'NuevoLlamado as $ctrl_nl'
+      })
+     
       .state('GestionVentas.index',{
         url:'/NuevoCliente',
         templateUrl:'templates/nuevo_cliente.html',
@@ -53,7 +65,9 @@
         url:'/EliminarCliente',
         templateUrl:'templates/eliminar_cliente.html',
         controller: 'EliminarCliente as $ctrl_elimc'
-      })/*.state('GestionVentas',{
+      })
+      */
+      /*.state('GestionVentas',{
         url:'/NuevoDpto',
         templateUrl:'templates/nuevo_dpto.html',
         controller: 'NuevoDpto as $ctrl_nd'
