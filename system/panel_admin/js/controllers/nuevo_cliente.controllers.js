@@ -16,7 +16,7 @@
                  var $ctrl_nc = this;
                  
                  $ctrl_nc.objDataCliente={};
-                $ctrl_nc.defaultparams={};
+                 $ctrl_nc.defaultparams={};
                  $ctrl_nc.allow_disable=false;
                  $ctrl_nc.allow_visible=true;
                              
@@ -43,37 +43,24 @@
 
 
 
-
-
-    //------------------------------------------------------------------------------------------------// 
-
-    /*
-    $ctrl_nc.Init = Init;
-    $ctrl_nc.Init = function  Init () {
-
-    }
-    */
-
-
-    function Init () {
-
-
-
-                $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
-                defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {        
-                        
+      function Init () {
                   
-                $ctrl_nc.dataprovincia = {
-                    availableOptions: d.provincia,
-                    selectedOption: {id: '1'} //This sets the default value of the select in the ui
-               };
-          
-               }).catch(function (err) {
-                    console.log(err);
-               });                
+                  $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
+                  defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {        
+                          
+                                      
+                    
+                  $ctrl_nc.dataprovincia = {
+                      availableOptions: d.provincia,
+                      selectedOption: {id: '1'} //This sets the default value of the select in the ui
+                 };
+            
+                 }).catch(function (err) {
+                      console.log(err);
+                 });                
 
-       
-    };    
+         
+      };    
     
         
 
@@ -90,7 +77,7 @@
 
               $ctrl_nc.objDataCliente.type_accion="nuevo_cliente";
          
-              $ctrl_nc.objDataCliente.id_provincia=1;
+              $ctrl_nc.objDataCliente.id_provincia=$ctrl_nc.dataprovincia.selectedOption.id;
               $ctrl_nc.objDataCliente.id_localidad=5;
               $ctrl_nc.objDataCliente.conoce=$ctrl_nc.data.selectedOption.id;
               
@@ -107,7 +94,7 @@
     };
 
 
-         Init();
+    Init();
          
 
 

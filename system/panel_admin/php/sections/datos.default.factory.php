@@ -1,11 +1,11 @@
 <?php
         
-      /*  
+        
      $json = file_get_contents('php://input');
      $data=json_decode($json);
-    */
+    
 
-     //$type_accion=$data->{'type_accion'};
+     $type_accion=$data->{'type_accion'};
 
      $type_accion="search_provincialocalidad";
 
@@ -34,7 +34,7 @@
 
                 $temp=array('id'=>utf8_encode($row['Id']),
                             'name'=> utf8_encode($row['Provincia'])
-                              );
+                );
 
 
                 $response[]=$temp;
