@@ -9,36 +9,24 @@ session_start();
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
-//$type_accion=$data->{'type_accion'};
-$type_accion='nuevo_llamado';
+$type_accion=$data->{'type_accion'};
 
 if($type_accion==="nuevo_llamado"){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
-	/*
-	$operationid =$data->{'Id_Operacion'};
-	$idinscripto =$data->{'Id_Inscripto'};
-	$status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-	*/
 
-  /*
-  $id_vendedor=2;
-  $id_cliente=3;
-  $fecha_llamado='2011-03-14';
-  $hora_llamado='17:00:01';
-  $id_edificio=2;
-  $id_planta=1;
-  $id_dpto=5;
-  $grado_interes=2;
-  $nombre_origen_dato='letrero';
-  $fecha_origen_dato='2017-06-14';
-  $anotaciones='respondió en forma cortante';
-  */
-  
-  $item="";
+  $id_vendedor=$data->{'id_vendedor'};
+  $id_cliente=$data->{'id_cliente'};
+  $fecha_llamado=$data->{'fecha_llamado'};
+  $hora_llamado=$data->{'hora_llamado'};
+  $id_edificio=$data->{'id_edificio'};
+  $id_planta=$data->{'id_planta'};
+  $id_dpto=$data->{'id_dpto'};
+  $grado_interes=$data->{'grado_interes'};
+  $nombre_origen_dato=$data->{'nombre_origen_dato'};
+  $fecha_origen_dato=$data->{'fecha_origen_dato'};
+  $anotaciones=$data->{'anotaciones'};
 
   $sql_insert='INSERT INTO llamado (id_llamado, id_vendedor, id_cliente, fecha_llamado, hora_llamado, id_edificio, id_planta, id_dpto, grado_interes, nombre_origen_dato, fecha_origen_dato, anotaciones) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
 
@@ -57,8 +45,6 @@ if($type_accion==="nuevo_llamado"){
 
   $last_id=mysqli_insert_id($conn);
 
-  echo $last_id;
-
   if($last_id!=0){
     $message="Se guardo un nuevo llamado";
   }else{
@@ -67,11 +53,10 @@ if($type_accion==="nuevo_llamado"){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
    } //if($type_accion==="nuevo_llamado")
-   //agregar un json con el error si no se guardó en la BD
 
 ?>      
