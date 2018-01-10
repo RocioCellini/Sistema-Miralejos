@@ -9,9 +9,7 @@ session_start();
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
 $type_accion=$data->{'type_accion'};
-
 
 if ($type_accion==="nuevo_cliente") {
 
@@ -29,20 +27,6 @@ if ($type_accion==="nuevo_cliente") {
 	$actividad =$data->{'actividad'};
   $conoce=$data->{'conoce'};
  
-
-
-  /*$nombre='Rocio';
-  $apellido='Cellini';
-  $dni=33444444;
-  $telefono=3541222;
-  $email='rcellini@miralejos.net';
-  $id_provincia=3;
-  $id_localidad=5;
-  $actividad='agropecuario';
-  $conoce='si';*/
-
-
-
   $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, dni, telefono, email, id_provincia, id_localidad, actividad, conoce) VALUES
   (?,?,?,?,?,?,?,?,?,?)';
 
@@ -73,6 +57,5 @@ if ($type_accion==="nuevo_cliente") {
   echo $json;
             
    } //if($type_accion==="nuevo_cliente")
-   //agregar un json con el error si no se guardó en la BD
 
 ?>      
