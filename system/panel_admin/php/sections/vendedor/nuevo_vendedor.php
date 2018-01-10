@@ -11,7 +11,7 @@ $data=json_decode($json);
 
 
 //$type_accion=$data->{'type_accion'};
-$type_accion='nuevo_vendedor';
+$type_accion=$data->{'type_accion'};
 
 if($type_accion==="nuevo_vendedor"){
 
@@ -20,9 +20,6 @@ if($type_accion==="nuevo_vendedor"){
 	
 	$nombre =$data->{'nombre'};
 	$email =$data->{'email'};
-
-	
- 
 
   $sql_insert='INSERT INTO vendedor (id_vendedor, nombre, email) VALUES
   (?,?,?)';
