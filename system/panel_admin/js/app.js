@@ -41,33 +41,31 @@
     }) 
 
     .state('GestionVentas.index',{
-        url:'/NuevoDpto',
-        templateUrl:'templates/nuevo_dpto.html',
-        controller: 'NuevoDpto as $ctrl_nd'
+        url:'/NuevoEdificio',
+        templateUrl:'templates/nuevo_edificio.html',
+        controller: 'NuevoEdificio as $ctrl_ne'
       })
-
-
-
-/*  
-      .state('GestionVentas.index',{
+/* 
+     .state('GestionVentas.index',{
         url:'/NuevaLocalidad',
         templateUrl:'templates/nueva_localidad.html',
         controller: 'NuevaLocalidad as $ctrl_nloc'
       })
-
+      .state('GestionVentas.index',{
+        url:'/NuevoDpto',
+        templateUrl:'templates/nuevo_dpto.html',
+        controller: 'NuevoDpto as $ctrl_nd'
+      })
      .state('GestionVentas.index',{
         url:'/NuevoVendedor',
         templateUrl:'templates/nuevo_vendedor.html',
         controller: 'NuevoVendedor as $ctrl_nv'
-      })
-
-    
+      })    
      .state('GestionVentas.index',{
         url:'/NuevoLlamado',
         templateUrl:'templates/nuevo_llamado.html',
         controller: 'NuevoLlamado as $ctrl_nl'
       })
-     
       .state('GestionVentas.index',{
         url:'/NuevoCliente',
         templateUrl:'templates/nuevo_cliente.html',
@@ -78,13 +76,13 @@
         templateUrl:'templates/editar_cliente.html',
         controller: 'EditarCliente as $ctrl_editc'
       })
-       .state('GestionVentas.eliminarCliente',{
+      .state('GestionVentas.eliminarCliente',{
         url:'/EliminarCliente',
         templateUrl:'templates/eliminar_cliente.html',
         controller: 'EliminarCliente as $ctrl_elimc'
       })
-      */
-      /*.state('GestionVentas',{
+      
+      .state('GestionVentas',{
         url:'/NuevoDpto',
         templateUrl:'templates/nuevo_dpto.html',
         controller: 'NuevoDpto as $ctrl_nd'
@@ -93,7 +91,7 @@
        url:'/NuevoCliente',
         templateUrl:'templates/nuevo_cliente.html',
         controller: 'NuevoCliente as $ctrl_nc'
-        */;
+      */ ;
 
       }).run(function($state) {
         

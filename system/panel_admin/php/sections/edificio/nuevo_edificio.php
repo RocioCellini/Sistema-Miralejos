@@ -9,24 +9,14 @@ session_start();
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
-//$type_accion=$data->{'type_accion'};
-$type_accion='nuevo_edificio';
+$type_accion=$data->{'type_accion'};
 
 if($type_accion==="nuevo_edificio"){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
-	/*
-	$operationid =$data->{'Id_Operacion'};
-	$idinscripto =$data->{'Id_Inscripto'};
-	$status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-	*/
-
-  //$nombre='M8';
-
-  $item="";
+	
+	$nombre =$data->{'nombre'};
 
   $sql_insert='INSERT INTO edificio (id_edificio, nombre) VALUES
   (?,?)';
@@ -44,8 +34,6 @@ if($type_accion==="nuevo_edificio"){
 
   $last_id=mysqli_insert_id($conn);
 
-  echo $last_id;
-
   if($last_id!=0){
     $message="Se guardo un nuevo edificio";
   }else{
@@ -54,11 +42,10 @@ if($type_accion==="nuevo_edificio"){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
-   } //if($type_accion==="nuevo_edificio")
-   //agregar un json con el error si no se guardó en la BD
+  } //if($type_accion==="nuevo_edificio")
 
 ?>      
