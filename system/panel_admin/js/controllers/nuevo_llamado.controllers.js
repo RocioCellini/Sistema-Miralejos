@@ -47,8 +47,8 @@
 
       function Init () {
 
-            $ctrl_nl.defaultparams.type_accion="search_edificio_localidad";
-            defaultdataFactory.buscar_edificio_localidad($ctrl_nl.defaultparams).then(function(d) {                            
+            $ctrl_nl.defaultparams.type_accion="search_edificio_dpto";
+            defaultdataFactory.buscar_edificio_dpto($ctrl_nl.defaultparams).then(function(d) {                            
               
             $ctrl_nl.data_edificio = {
                 availableOptions: d.edificio,
