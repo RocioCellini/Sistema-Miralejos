@@ -34,8 +34,6 @@ if($type_accion==="nuevo_dpto"){
 
   $last_id=mysqli_insert_id($conn);
 
-  echo $last_id;
-
   if($last_id!=0){
     $message="Se guardo un nuevo dpto";
   }else{
