@@ -9,24 +9,14 @@ session_start();
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
-//$type_accion=$data->{'type_accion'};
-$type_accion='nueva_planta';
+$type_accion=$data->{'type_accion'};
 
 if($type_accion==="nueva_planta"){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
-	/*
-	$operationid =$data->{'Id_Operacion'};
-	$idinscripto =$data->{'Id_Inscripto'};
-	$status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-	*/
-
-  //$nombre='B';
-
-  $item="";
+	
+	$nombre =$data->{'nombre'};
 
   $sql_insert='INSERT INTO planta (id_planta, nombre) VALUES (?,?)';
 
@@ -43,8 +33,6 @@ if($type_accion==="nueva_planta"){
 
   $last_id=mysqli_insert_id($conn);
 
-  echo $last_id;
-
   if($last_id!=0){
     $message="Se guardo una nueva planta";
   }else{
@@ -53,11 +41,10 @@ if($type_accion==="nueva_planta"){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
-   } //if($type_accion==="nueva_planta")
-   //agregar un json con el error si no se guardó en la BD
+  } //if($type_accion==="nueva_planta")
 
 ?>      

@@ -41,12 +41,19 @@
     }) 
 
     .state('GestionVentas.index',{
+        url:'/NuevaPlanta',
+        templateUrl:'templates/nueva_planta.html',
+        controller: 'NuevaPlanta as $ctrl_np'
+      })
+
+/*
+    .state('GestionVentas.index',{
         url:'/CerrarOperacion',
         templateUrl:'templates/cerrar_operacion.html',
         controller: 'CerrarOperacion as $ctrl_co'
       })
 
-/*
+
     .state('GestionVentas.index',{
         url:'/NuevoEdificio',
         templateUrl:'templates/nuevo_edificio.html',
