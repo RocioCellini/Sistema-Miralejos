@@ -27,10 +27,6 @@
 
       function Init () {
 
-        console.log("Aqui Deben Llamarse los Combos");
-
-        // $ctrl_ap.allow_disable=false;                   
-        //self.objData=modifydataFactory.dataDefault();   
       };    
 
       function upDate () { 
@@ -41,8 +37,6 @@
         //$ctrl_nd.allow_disable=true;
 
         $ctrl_nd.objDataDpto.type_accion="nuevo_dpto";
-
-        $ctrl_nd.objDataDpto.nombre="A5";
         
         dptoFactory.nuevoDpto($ctrl_nd.objDataDpto).then(function(d) {                   
                 $ctrl_nd.Mensaje=d.Mensaje;

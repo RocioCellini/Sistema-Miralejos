@@ -9,24 +9,14 @@ session_start();
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
-//$type_accion=$data->{'type_accion'};
-$type_accion='nuevo_dpto'; 
+$type_accion=$data->{'type_accion'};
 
 if($type_accion==="nuevo_dpto"){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
-	/*
-	$operationid =$data->{'Id_Operacion'};
-	$idinscripto =$data->{'Id_Inscripto'};
-	$status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-	*/
-
-  //$nombre=5;
-
-  $item="";
+	
+	$nombre =$data->{'nombre'};
 
   $sql_insert='INSERT INTO departamento (id_dpto, nombre) VALUES
   (?,?)';
@@ -38,7 +28,7 @@ if($type_accion==="nuevo_dpto"){
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('ii',$idfirst, $nombre);
+  $stmt_insert->bind_param('is',$idfirst, $nombre);
 
   $stmt_insert->execute();
 
@@ -54,11 +44,10 @@ if($type_accion==="nuevo_dpto"){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
-   } //if($type_accion==="nuevo_dpto")
-   //agregar un json con el error si no se guardó en la BD
-
+  } //if($type_accion==="nuevo_dpto")
+ 
 ?>      

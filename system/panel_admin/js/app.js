@@ -40,13 +40,28 @@
       }
     }) 
 
+    .state('GestionVentas.index',{
+        url:'/NuevoDpto',
+        templateUrl:'templates/nuevo_dpto.html',
+        controller: 'NuevoDpto as $ctrl_nd'
+      })
+
+
+
+/*  
+      .state('GestionVentas.index',{
+        url:'/NuevaLocalidad',
+        templateUrl:'templates/nueva_localidad.html',
+        controller: 'NuevaLocalidad as $ctrl_nloc'
+      })
+
      .state('GestionVentas.index',{
         url:'/NuevoVendedor',
         templateUrl:'templates/nuevo_vendedor.html',
         controller: 'NuevoVendedor as $ctrl_nv'
       })
 
-    /*
+    
      .state('GestionVentas.index',{
         url:'/NuevoLlamado',
         templateUrl:'templates/nuevo_llamado.html',
