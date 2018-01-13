@@ -43,7 +43,9 @@
         function Init () {
                     
           $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
-          defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {      
+          defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {    
+
+            console.log($ctrl_nc.defaultparams);  
 
             $ctrl_nc.dataprovincia = {
                 availableOptions: d.provincia,
@@ -77,6 +79,10 @@
           $ctrl_nc.objDataCliente.id_localidad=$ctrl_nc.datalocalidad.selectedOption.id;
           $ctrl_nc.objDataCliente.conoce=$ctrl_nc.data.selectedOption.id;
           
+
+
+
+
           clienteDataFactory.nuevoCliente($ctrl_nc.objDataCliente).then(function(d) {                   
                   $ctrl_nc.Mensaje=d.Mensaje;
                   //$ctrl_nc.allow_disable=false;

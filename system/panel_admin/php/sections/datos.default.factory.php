@@ -28,7 +28,7 @@
 
         if($row = $rs->fetch_assoc()) {
         
-            $response = array();
+            $response_prov = array();
 
             do  {
 
@@ -37,7 +37,7 @@
                 );
 
 
-                $response[]=$temp;
+                $response_prov[]=$temp;
 
             }  while ($row= $rs->fetch_assoc());
 
@@ -60,7 +60,7 @@
 
         if($row_loc = $rs_loc->fetch_assoc()) {
         
-            $response = array();
+            $response_loc = array();
 
             do  {
 
@@ -69,16 +69,15 @@
                 );
 
 
-                $response[]=$temp_loc;
+                $response_loc[]=$temp_loc;
 
             }  while ($row_loc= $rs_loc->fetch_assoc());
 
 
         }
     
-    
      
-        $item=array('provincia' => $response, 'localidad' => $response);
+        $item=array('provincia' => $response_prov, 'localidad' => $response_loc);
         $json = json_encode($item);
         echo $json;
 
