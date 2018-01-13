@@ -52,11 +52,21 @@
 
           function Init () {
                       
-            $ctrl_co.defaultparams.type_accion="search_edificio_dpto";
-            defaultdataFactory.buscar_edificio_dpto($ctrl_co.defaultparams).then(function(d) {                            
+            $ctrl_co.defaultparams.type_accion="search_edificio_planta_dpto";
+            defaultdataFactory.buscar_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
                 
               $ctrl_co.data_edificio = {
-                  availableOptions: d.edificio,
+                availableOptions: d.edificio,
+                selectedOption: {id: '1'} //This sets the default value of the select in the ui
+              };
+
+              $ctrl_co.data_planta = {
+                  availableOptions: d.planta,
+                  selectedOption: {id: '1'} //This sets the default value of the select in the ui
+              };
+
+              $ctrl_co.data_dpto = {
+                  availableOptions: d.dpto,
                   selectedOption: {id: '1'} //This sets the default value of the select in the ui
               };
         
@@ -75,6 +85,8 @@
         $ctrl_co.objDataCerrarOperacion.type_accion="cerrar_operacion";
    
         $ctrl_co.objDataCerrarOperacion.id_edificio=$ctrl_co.data_edificio.selectedOption.id;
+        $ctrl_co.objDataLlamado.id_planta=$ctrl_co.data_planta.selectedOption.id;
+        $ctrl_co.objDataLlamado.id_dpto=$ctrl_co.data_dpto.selectedOption.id;
 
         CerrarOperacionFactory.cerrarOperacion($ctrl_co.objDataCerrarOperacion).then(function(d) {                   
                 $ctrl_co.Mensaje=d.Mensaje;

@@ -65,7 +65,7 @@
         $ctrl_nl.objDataLlamado.id_planta=$ctrl_nl.data_planta.selectedOption.id;
         $ctrl_nl.objDataLlamado.id_dpto=$ctrl_nl.data_dpto.selectedOption.id;
         
-    /*
+    
         llamadoFactory.nuevoLlamado($ctrl_nl.objDataLlamado).then(function(d) {                   
                 $ctrl_nl.Mensaje=d.Mensaje;
                 //$ctrl_nl.allow_disable=false;
@@ -74,7 +74,7 @@
               console.log(err);
               //$ctrl_nl.allow_disable=false;
          });                
-    */
+    
     };
       
      Init();
