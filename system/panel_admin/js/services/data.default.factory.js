@@ -17,7 +17,7 @@
               });
            
           return promisedata;
-        }
+        },
 
         buscar_edificio_planta_dpto: function(paramsearch) {
             promisedata=$http.post('php/sections/datos.default.factory.php', paramsearch).then(function (response) {

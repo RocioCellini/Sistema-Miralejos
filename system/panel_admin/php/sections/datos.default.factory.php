@@ -7,7 +7,7 @@
 
      $type_accion=$data->{'type_accion'};
 
-    if ($type_accion==="search_provincialocalidad") {
+      if ($type_accion==="search_provincialocalidad") {
 
 
         include "../conexion.php";  
@@ -81,9 +81,10 @@
         $json = json_encode($item);
         echo $json;
 
-} //fin search_provincialocalidad
+}  //if ($type_accion==="search_provincialocalidad") {
 
 
+//*************************************************************************************************************************************
 if ($type_accion==="search_edificio_planta_dpto") {
 
 
