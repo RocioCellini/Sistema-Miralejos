@@ -7,11 +7,11 @@
   app.controller("NuevoLlamado", NuevoLlamado);
   
   NuevoLlamado.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "llamadoFactory"];
+   "llamadoFactory", "defaultdataFactory"];
 
   //Controller
   function NuevoLlamado ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, llamadoFactory) {
+   $uibModal, $document, llamadoFactory, defaultdataFactory) {
                                  
      var $ctrl_nl = this;
      
@@ -23,37 +23,27 @@
      $ctrl_nl.Init = Init;
      $ctrl_nl.upDate = upDate;
      $ctrl_nl.NuevoLlamado=NuevoLlamado;
-
-      $ctrl_nl.data = {
-                  availableOptions: [
-                    {id: '-1', name: 'Seleccionar'},
-                    {id: '0', name: 'Miralejos 1'},
-                    {id: '1', name: 'Miralejos 2'},
-                    {id: '1', name: 'Miralejos 3'},
-                    {id: '1', name: 'Miralejos 4'},
-                    {id: '1', name: 'Miralejos 5'},
-                    {id: '1', name: 'Miralejos 6'},
-                    {id: '1', name: 'Miralejos 7'},
-                    {id: '1', name: 'Miralejos 8'},
-                    {id: '1', name: 'Miralejos 9'},               
-                    {id: '1', name: 'Miralejos 11'},
-                    {id: '1', name: 'Miralejos 12'},
-                    {id: '1', name: 'Miralejos 14'},
-                    {id: '1', name: 'Miralejos 15'}
-                  ],
-                    selectedOption: {id: '-1'} //This sets the default value of the select in the ui
-                };
         
 
       function Init () {
 
-            $ctrl_nl.defaultparams.type_accion="search_edificio_dpto";
-            defaultdataFactory.buscar_edificio_dpto($ctrl_nl.defaultparams).then(function(d) {                            
+            $ctrl_nl.defaultparams.type_accion="search_edificio_planta_dpto";
+            defaultdataFactory.buscar_edificio_planta_dpto($ctrl_nl.defaultparams).then(function(d) {                            
               
             $ctrl_nl.data_edificio = {
                 availableOptions: d.edificio,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
-           };
+            };
+
+            $ctrl_nl.data_planta = {
+                availableOptions: d.planta,
+                selectedOption: {id: '1'} //This sets the default value of the select in the ui
+            };
+
+            $ctrl_nl.data_dpto = {
+                availableOptions: d.dpto,
+                selectedOption: {id: '1'} //This sets the default value of the select in the ui
+            };
       
            }).catch(function (err) {
                 console.log(err);
