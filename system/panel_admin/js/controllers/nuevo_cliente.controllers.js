@@ -14,7 +14,8 @@
      $uibModal, $document, clienteDataFactory, defaultdataFactory, $filter) {
                                    
         var $ctrl_nc = this;
-         
+
+        $ctrl_nc.datalocalidad2={};
         $ctrl_nc.objDataCliente={};
         $ctrl_nc.defaultparams={};
         $ctrl_nc.allow_disable=false;
@@ -44,10 +45,10 @@
                     
           $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
           defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {    
+    
 
-            console.log(d);  
+            $ctrl_nc.datalocalidad2=d.localidad;
 
-            angular.copy(d, $ctrl_nc.datalocalidad2);
 
             $ctrl_nc.dataprovincia = {
                 availableOptions: d.provincia,
@@ -71,19 +72,9 @@
 
         function upDate (objprov) { 
     
-        
-
-          console.log(objprov);
-
-          
-          function esSuficientementeGrande(el , objprov) {
-            return el === objprov.id;
-          }
-
-           //$ctrl_nc.datalocalidad.availableOptions = $ctrl_nc.datalocalidad2.filter(el, objprov);
-
-           $ctrl_nc.datalocalidad.availableOptions=$filter('filter')($ctrl_nc.datalocalidad2, $ctrl_nc.datalocalidad2===objprov.id);
-          
+          //Filers By Employee Name
+           $ctrl_nc.datalocalidad.availableOptions = $filter('filter')($ctrl_nc.datalocalidad2 ,{id_provincia:objprov.id});
+           $ctrl_nc.datalocalidad.selectedOption={id: $ctrl_nc.datalocalidad.availableOptions[0].id};                                                                         
       }
 
 
