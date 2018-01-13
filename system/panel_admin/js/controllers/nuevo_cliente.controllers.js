@@ -7,11 +7,11 @@
   app.controller("NuevoCliente", NuevoCliente);
   
   NuevoCliente.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "clienteDataFactory", "defaultdataFactory"];
+   "clienteDataFactory", "defaultdataFactory", "$filter"];
 
     //Controller
     function NuevoCliente ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, clienteDataFactory, defaultdataFactory) {
+     $uibModal, $document, clienteDataFactory, defaultdataFactory, $filter) {
                                    
         var $ctrl_nc = this;
          
@@ -45,7 +45,9 @@
           $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
           defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {    
 
-            console.log($ctrl_nc.defaultparams);  
+            console.log(d);  
+
+            angular.copy(d, $ctrl_nc.datalocalidad2);
 
             $ctrl_nc.dataprovincia = {
                 availableOptions: d.provincia,
@@ -57,6 +59,8 @@
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
               };
     
+
+
          }).catch(function (err) {
               console.log(err);
          });                
@@ -65,7 +69,21 @@
 
       //-------------------------------------------------------------------------------------------------  
 
-      function upDate () { 
+        function upDate (objprov) { 
+    
+        
+
+          console.log(objprov);
+
+          
+          function esSuficientementeGrande(el , objprov) {
+            return el === objprov.id;
+          }
+
+           //$ctrl_nc.datalocalidad.availableOptions = $ctrl_nc.datalocalidad2.filter(el, objprov);
+
+           $ctrl_nc.datalocalidad.availableOptions=$filter('filter')($ctrl_nc.datalocalidad2, $ctrl_nc.datalocalidad2===objprov.id);
+          
       }
 
 

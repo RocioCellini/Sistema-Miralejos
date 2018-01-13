@@ -65,7 +65,7 @@
             do  {
 
                 $temp_loc=array('id'=>utf8_encode($row_loc['id_localidad']),
-                            'name'=> utf8_encode($row_loc['nombre'])
+                            'name'=> utf8_encode($row_loc['nombre']), 'id_provincia'=>utf8_encode($row_loc['id_provincia'])
                 );
 
 

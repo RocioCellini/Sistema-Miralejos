@@ -39,7 +39,7 @@
             <div class="col-sm-4" >
                   <select name="provincia" id="provincia" class="form-control campoform"
                   ng-options="option.name for option in $ctrl_nc.dataprovincia.availableOptions track by option.id"
-                  ng-model="$ctrl_nc.dataprovincia.selectedOption"></select>                 
+                  ng-model="$ctrl_nc.dataprovincia.selectedOption" ng-change='$ctrl_nc.upDate($ctrl_nc.dataprovincia.selectedOption)'></select>                 
             </div>
             <div class="col-sm-4" ></div>
          </div>
@@ -50,6 +50,7 @@
               <select  name="localidad" id="localidad" class="form-control campoform"
               ng-options="option.name for option in $ctrl_nc.datalocalidad.availableOptions track by option.id"
               ng-model="$ctrl_nc.datalocalidad.selectedOption"></select>
+
             </div>
             <div class="col-sm-4" ></div>
         </div>
