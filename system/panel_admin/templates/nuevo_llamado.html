@@ -42,27 +42,30 @@
       <div class="form-group">
           <label  class="col-sm-4 control-label" >Edificio:</label>
           <div class="col-sm-4" >
-            <select class="form-control campoform" name="edificio" id="edificio" ng-options="option.edificio for option in $ctrl_nl.data_edificio.availableOptions track by option.id" ng-model="$ctrl_nl.data_edificio.selectedOption"></select>
+            <select class="form-control campoform" name="edificio" id="edificio" ng-options="option.name for option in $ctrl_nl.data_edificio.availableOptions track by option.id" ng-model="$ctrl_nl.data_edificio.selectedOption"></select>
           </div>
           <div class="col-sm-4" ></div>
         </div>
-<!--
+
       <div class="form-group">
-          <label  class="col-sm-4 control-label" >Planta:</label>
-           <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"
-      ng-options="option.Planta for option in $ctrl_nl.data_edit.availableOptions track by option.id"
-      ng-model="$ctrl_nl.data_edit.selectedOption"  ng-change="upDate()"></select></div>
+          <label  class="col-sm-4 control-label">Planta:</label>
+           <div class="col-sm-4">
+              <select class="form-control campoform" name="planta" id="planta"
+              ng-options="option.name for option in $ctrl_nl.data_planta.availableOptions track by option.id"
+              ng-model="$ctrl_nl.data_planta.selectedOption"></select>
+            </div>
             <div class="col-sm-4" ></div>
         </div>
 
        <div class="form-group">
-          <label  class="col-sm-4 control-label" >Departamento:</label>
-           <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"
-      ng-options="option.Departamento for option in $ctrl_nl.data_edit.availableOptions track by option.id"
-      ng-model="$ctrl_nl.data_edit.selectedOption"  ng-change="upDate()"></select></div>
+          <label  class="col-sm-4 control-label">Departamento:</label>
+           <div class="col-sm-4">
+            <select class="form-control campoform" name="dpto" id="dpto"
+              ng-options="option.name for option in $ctrl_nl.data_dpto.availableOptions track by option.id"
+              ng-model="$ctrl_nl.data_dpto.selectedOption"></select></div>
             <div class="col-sm-4" ></div>
         </div>
-
+<!--
        <div class="form-group">
           <label  class="col-sm-4 control-label" >Grado de Interés:</label>
            <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"

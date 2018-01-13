@@ -81,27 +81,113 @@
         $json = json_encode($item);
         echo $json;
 
-} 
+} //fin search_provincialocalidad
 
 
- /*
+if ($type_accion==="search_edificio_planta_dpto") {
 
-        $result = "SELECT * FROM Sis_Localidades";
-        $stmt = $this->con->prepare($result);
+
+        include "../conexion.php";  
+
+        //Edificio 
+
+        $result = "SELECT * FROM edificio";
+        $stmt = $conn->prepare($result);
 
         if($stmt === false) {
             trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
         }
 
 
-                  
-        $stmt->bind_param('i', $id);
+        /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */            
         $stmt->execute();
         $rs=$stmt->get_result();
-        //echo $row['Id_Localidad'];
 
-        if($row= $rs->fetch_assoc()) {
-            return $row['Localidad'];
+        if($row = $rs->fetch_assoc()) {
+        
+            $response_edif = array();
+
+            do  {
+
+                $temp=array('id'=>utf8_encode($row['id_edificio']),
+                            'name'=> utf8_encode($row['nombre'])
+                );
+
+
+                $response_edif[]=$temp;
+
+            }  while ($row= $rs->fetch_assoc());
+
+
         }
- 
-*/
+
+        //Plantas
+
+        $result_planta = "SELECT * FROM planta";
+        $stmt_planta = $conn->prepare($result_planta);
+
+        if($stmt_planta === false) {
+            trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+
+
+        /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */            
+        $stmt_planta->execute();
+        $rs_planta=$stmt_planta->get_result();
+
+        if($row_planta = $rs_planta->fetch_assoc()) {
+        
+            $response_planta = array();
+
+            do  {
+
+                $temp_planta=array('id'=>utf8_encode($row_planta['id_planta']),
+                            'name'=> utf8_encode($row_planta['nombre'])
+                );
+
+
+                $response_planta[]=$temp_planta;
+
+            }  while ($row_planta= $rs_planta->fetch_assoc());
+
+
+        }
+
+        //Departamentos
+
+        $result_dpto = "SELECT * FROM departamento";
+        $stmt_dpto = $conn->prepare($result_dpto);
+
+        if($stmt_dpto === false) {
+            trigger_error('Wrong SQL: ' . $result_dpto . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+
+
+        /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */            
+        $stmt_dpto->execute();
+        $rs_dpto=$stmt_dpto->get_result();
+
+        if($row_dpto = $rs_dpto->fetch_assoc()) {
+        
+            $response_dpto = array();
+
+            do  {
+
+                $temp_dpto=array('id'=>utf8_encode($row_dpto['id_dpto']),
+                            'name'=> utf8_encode($row_dpto['nombre'])
+                );
+
+
+                $response_dpto[]=$temp_dpto;
+
+            }  while ($row_dpto= $rs_dpto->fetch_assoc());
+
+
+        }
+    
+     
+        $item=array('edificio' => $response_edif, 'planta' => $response_planta, 'dpto' => $response_dpto);
+        $json = json_encode($item);
+        echo $json;
+
+} 
