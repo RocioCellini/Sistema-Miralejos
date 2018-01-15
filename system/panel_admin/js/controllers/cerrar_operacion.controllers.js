@@ -15,6 +15,7 @@
                                          
                  var $ctrl_co = this;
                  
+                 $ctrl_co.data_planta2={};
                  $ctrl_co.objDataCerrarOperacion={};
                  $ctrl_co.defaultparams={};
                  $ctrl_co.allow_disable=false;
@@ -30,31 +31,13 @@
                  $ctrl_co.CerrarOperacion=CerrarOperacion;
                 
 
-                 $ctrl_co.data = {
-                  availableOptions: [
-                    {id: '-1', name: 'Seleccionar'},
-                    {id: '0', name: 'Miralejos 1'},
-                    {id: '1', name: 'Miralejos 2'},
-                    {id: '1', name: 'Miralejos 3'},
-                    {id: '1', name: 'Miralejos 4'},
-                    {id: '1', name: 'Miralejos 5'},
-                    {id: '1', name: 'Miralejos 6'},
-                    {id: '1', name: 'Miralejos 7'},
-                    {id: '1', name: 'Miralejos 8'},
-                    {id: '1', name: 'Miralejos 9'},               
-                    {id: '1', name: 'Miralejos 11'},
-                    {id: '1', name: 'Miralejos 12'},
-                    {id: '1', name: 'Miralejos 14'},
-                    {id: '1', name: 'Miralejos 15'}
-                  ],
-                    selectedOption: {id: '-1'} //This sets the default value of the select in the ui
-                };
-
           function Init () {
                       
             $ctrl_co.defaultparams.type_accion="search_edificio_planta_dpto";
             defaultdataFactory.buscar_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
-                
+              
+              $ctrl_co.data_planta2=d.data_planta;
+
               $ctrl_co.data_edificio = {
                 availableOptions: d.edificio,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
@@ -76,8 +59,12 @@
           };    
 
     //-------------------------------------------------------------------------------------------------  
-    function upDate () { 
-    }
+
+    function upDate (obj_edificio) { 
+
+           $ctrl_co.data_planta.availableOptions = $filter('filter')($ctrl_co.data_planta2 ,{id_edificio:obj_edificio.id});
+           $ctrl_co.data_planta.selectedOption={id: $ctrl_co.data_planta.availableOptions[0].id};                                                                         
+      }
 
     function CerrarOperacion () {              
         //$ctrl_co.allow_disable=true;

@@ -59,8 +59,6 @@
                 availableOptions: d.localidad,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
               };
-    
-
 
          }).catch(function (err) {
               console.log(err);
@@ -71,8 +69,7 @@
       //-------------------------------------------------------------------------------------------------  
 
         function upDate (objprov) { 
-    
-          //Filers By Employee Name
+
            $ctrl_nc.datalocalidad.availableOptions = $filter('filter')($ctrl_nc.datalocalidad2 ,{id_provincia:objprov.id});
            $ctrl_nc.datalocalidad.selectedOption={id: $ctrl_nc.datalocalidad.availableOptions[0].id};                                                                         
       }
@@ -87,10 +84,6 @@
           $ctrl_nc.objDataCliente.id_provincia=$ctrl_nc.dataprovincia.selectedOption.id;
           $ctrl_nc.objDataCliente.id_localidad=$ctrl_nc.datalocalidad.selectedOption.id;
           $ctrl_nc.objDataCliente.conoce=$ctrl_nc.data.selectedOption.id;
-          
-
-
-
 
           clienteDataFactory.nuevoCliente($ctrl_nc.objDataCliente).then(function(d) {                   
                   $ctrl_nc.Mensaje=d.Mensaje;

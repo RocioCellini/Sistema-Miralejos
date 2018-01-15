@@ -81,10 +81,11 @@
         $json = json_encode($item);
         echo $json;
 
-}  //if ($type_accion==="search_provincialocalidad") {
+}  //if ($type_accion==="search_provincialocalidad")
 
 
-//*************************************************************************************************************************************
+//***************************************************************************************************
+
 if ($type_accion==="search_edificio_planta_dpto") {
 
 
@@ -110,53 +111,65 @@ if ($type_accion==="search_edificio_planta_dpto") {
 
             do  {
 
-                $temp=array('id'=>utf8_encode($row['id_edificio']),
-                            'name'=> utf8_encode($row['nombre'])
+                $temp=array('id_edificio'=>utf8_encode($row['id_edificio']),
+                            'nombre'=> utf8_encode($row['nombre'])
                 );
 
 
                 $response_edif[]=$temp;
 
             }  while ($row= $rs->fetch_assoc());
-
-
         }
 
         //Plantas
 
-        $result_planta = "SELECT * FROM planta";
-        $stmt_planta = $conn->prepare($result_planta);
+        $result_ti = "SELECT * FROM tabla_intermedia_dpto";
+        $stmt_ti = $conn->prepare($result_ti);
 
-        if($stmt_planta === false) {
-            trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
+        if($stmt_ti === false) {
+            trigger_error('Wrong SQL: ' . $result_ti . ' Error: ' . $conn->error, E_USER_ERROR);
         }
 
 
         /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */            
-        $stmt_planta->execute();
-        $rs_planta=$stmt_planta->get_result();
+        $stmt_ti->execute();
+        $rs_ti=$stmt_ti->get_result();
 
-        if($row_planta = $rs_planta->fetch_assoc()) {
+        if($row_ti = $rs_ti->fetch_assoc()) {
         
-            $response_planta = array();
+                $result_planta = "SELECT * FROM planta";
 
-            do  {
+                $stmt_planta = $conn->prepare($result_planta);
 
-                $temp_planta=array('id'=>utf8_encode($row_planta['id_planta']),
-                            'name'=> utf8_encode($row_planta['nombre'])
-                );
+                if($stmt_planta === false) {
+                    trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
+                }
+
+                $stmt_planta->execute();
+                $rs_planta=$stmt_planta->get_result();
+
+                if($row_planta = $rs_planta->fetch_assoc()) {
+
+                    $response_planta = array();
+      
+                    do  {
+
+                        $temp_planta=array('id_planta'=>utf8_encode($row_planta['id_planta']),
+                                    'nombre'=>utf8_encode($row_planta['nombre'])
+                                   // 'id_edificio'=>utf8_encode($row_planta['id_edificio'])
+                                   );
 
 
-                $response_planta[]=$temp_planta;
+                        $response_planta[]=$temp_planta; 
 
-            }  while ($row_planta= $rs_planta->fetch_assoc());
-
+                        }while ($row_planta= $rs_planta->fetch_assoc());
+                }
 
         }
 
         //Departamentos
 
-        $result_dpto = "SELECT * FROM departamento";
+        $result_dpto = "SELECT * FROM tabla_intermedia_dpto";
         $stmt_dpto = $conn->prepare($result_dpto);
 
         if($stmt_dpto === false) {
@@ -172,17 +185,15 @@ if ($type_accion==="search_edificio_planta_dpto") {
         
             $response_dpto = array();
 
-            do  {
+            do {
 
-                $temp_dpto=array('id'=>utf8_encode($row_dpto['id_dpto']),
-                            'name'=> utf8_encode($row_dpto['nombre'])
+                $temp_dpto=array('id_dpto'=>utf8_encode($row_dpto['id_dpto']),
+                            'id_planta'=>utf8_encode($row_planta['id_planta'])
                 );
-
 
                 $response_dpto[]=$temp_dpto;
 
-            }  while ($row_dpto= $rs_dpto->fetch_assoc());
-
+            } while ($row_dpto= $rs_dpto->fetch_assoc());
 
         }
     
@@ -191,4 +202,4 @@ if ($type_accion==="search_edificio_planta_dpto") {
         $json = json_encode($item);
         echo $json;
 
-} 
+} //if ($type_accion==="search_edificio_planta_dpto")
