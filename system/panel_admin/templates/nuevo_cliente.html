@@ -50,8 +50,7 @@
               <select  name="localidad" id="localidad" class="form-control campoform"
               ng-options="option.name for option in $ctrl_nc.datalocalidad.availableOptions track by option.id"
               ng-model="$ctrl_nc.datalocalidad.selectedOption"></select>
-
-            </div>
+            </div><!-- ng-disabled="!$ctrl_nc.datalocalidad"-->
             <div class="col-sm-4" ></div>
         </div>
 
