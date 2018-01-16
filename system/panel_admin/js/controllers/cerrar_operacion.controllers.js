@@ -23,7 +23,6 @@
                  $ctrl_co.allow_visible=true;                                     
                 
                  $ctrl_co.Init = Init;
-                 $ctrl_co.Fecha = Fecha;
                  $ctrl_co.upDatePlanta = upDatePlanta;
                  $ctrl_co.upDateDpto = upDateDpto;
                  $ctrl_co.CerrarOperacion=CerrarOperacion;
@@ -37,9 +36,13 @@
               $ctrl_co.data_planta2=d.data_planta;
               $ctrl_co.data_dpto2=d.data_departamento;
 
+              
+              console.log(d);
+
+
               $ctrl_co.data_edificio = {
                 availableOptions: d.edificio,
-                selectedOption: {id: '1'} //This sets the default value of the select in the ui
+                selectedOption: {id_edificio: '1'} //This sets the default value of the select in the ui
               };
 
               $ctrl_co.data_planta = {
@@ -60,9 +63,6 @@
     //-------------------------------------------------------------------------------------------------  
 
 
-    function CurrentDate($scope) {
-         $scope.CurrentDate = new Date();
-    };
 
     function upDatePlanta (obj_edificio) { 
 
@@ -97,7 +97,7 @@
 
     Init();
 
-    CurrentDate();
+   
 
     }// DataSendController
 

@@ -29,7 +29,7 @@
          <label class="col-sm-4 control-label">Edificio:</label>
             <div class="col-sm-4">
                   <select name="edificio" id="edificio" class="form-control campoform"
-                  ng-options="option.name for option in $ctrl_co.data_edificio.availableOptions track by option.id"
+                  ng-options="option.nombre for option in $ctrl_co.data_edificio.availableOptions track by option.id_edificio"
                   ng-model="$ctrl_co.data_edificio.selectedOption"  ng-change='$ctrl_co.upDatePlanta($ctrl_co.data_edificio.selectedOption)'></select>           
             </div>
             <div class="col-sm-4" ></div>
@@ -39,7 +39,7 @@
 	     <label class="col-sm-4 control-label">Planta:</label>
 	        <div class="col-sm-4">
 	              <select name="planta" id="planta" class="form-control campoform"
-	              ng-options="option.name for option in $ctrl_co.data_planta.availableOptions track by option.id"
+	              ng-options="option.nombre for option in $ctrl_co.data_planta.availableOptions track by option.id_planta"
 	              ng-disabled="!data_edificio.selectedOption" 
 	              ng-model="$ctrl_co.data_planta.selectedOption"
 	              ng-change='$ctrl_co.upDateDpto($ctrl_co.data_planta.selectedOption)'></select>                 
@@ -51,7 +51,7 @@
 	     <label class="col-sm-4 control-label">Departamento:</label>
 	        <div class="col-sm-4" >
 	              <select name="dpto" id="dpto" class="form-control campoform"
-	              ng-options="option.name for option in $ctrl_co.data_dpto.availableOptions track by option.id"
+	              ng-options="option.name for option in $ctrl_co.data_dpto.availableOptions track by option.id_dpto"
 	              ng-disabled="!data_dpto.selectedOption" 
 	              ng-model="$ctrl_co.data_dpto.selectedOption"></select>                 
 	        </div>
