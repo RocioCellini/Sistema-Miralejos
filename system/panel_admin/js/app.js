@@ -40,17 +40,18 @@
       }
     }) 
 
-    .state('GestionVentas.index',{
-        url:'/NuevoCliente',
-        templateUrl:'templates/nuevo_cliente.html',
-        controller: 'NuevoCliente as $ctrl_nc'
-      })
 
-/*
      .state('GestionVentas.index',{
         url:'/CerrarOperacion',
         templateUrl:'templates/cerrar_operacion.html',
         controller: 'CerrarOperacion as $ctrl_co'
+      })
+
+/*
+    .state('GestionVentas.index',{
+        url:'/NuevoCliente',
+        templateUrl:'templates/nuevo_cliente.html',
+        controller: 'NuevoCliente as $ctrl_nc'
       })
 
     .state('GestionVentas.index',{

@@ -7,15 +7,16 @@
   app.controller("CerrarOperacion", CerrarOperacion);
   
   CerrarOperacion.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "CerrarOperacionFactory", "defaultdataFactory"];
+   "CerrarOperacionFactory", "defaultdataFactory", "$filter"];
 
           //Controller
           function CerrarOperacion ($scope, $sce, $state,  $stateParams,  $window,
-           $uibModal, $document, CerrarOperacionFactory, defaultdataFactory) {
+           $uibModal, $document, CerrarOperacionFactory, defaultdataFactory, $filter) {
                                          
                  var $ctrl_co = this;
                  
                  $ctrl_co.data_planta2={};
+                 $ctrl_co.data_dpto2={};
                  $ctrl_co.objDataCerrarOperacion={};
                  $ctrl_co.defaultparams={};
                  $ctrl_co.allow_disable=false;
@@ -27,7 +28,8 @@
                  $ctrl_co.animationsEnabled=true;               
                 
                  $ctrl_co.Init = Init;
-                 $ctrl_co.upDate = upDate;
+                 $ctrl_co.upDatePlanta = upDatePlanta;
+                 $ctrl_co.upDateDpto = upDateDpto;
                  $ctrl_co.CerrarOperacion=CerrarOperacion;
                 
 
@@ -37,6 +39,7 @@
             defaultdataFactory.buscar_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
               
               $ctrl_co.data_planta2=d.data_planta;
+              $ctrl_co.data_dpto2=d.data_departamento;
 
               $ctrl_co.data_edificio = {
                 availableOptions: d.edificio,
@@ -60,10 +63,16 @@
 
     //-------------------------------------------------------------------------------------------------  
 
-    function upDate (obj_edificio) { 
+    function upDatePlanta (obj_edificio) { 
 
            $ctrl_co.data_planta.availableOptions = $filter('filter')($ctrl_co.data_planta2 ,{id_edificio:obj_edificio.id});
            $ctrl_co.data_planta.selectedOption={id: $ctrl_co.data_planta.availableOptions[0].id};                                                                         
+      }
+
+    function upDateDpto (obj_planta) { 
+
+           $ctrl_co.data_dpto.availableOptions = $filter('filter')($ctrl_co.data_dpto2 ,{id_planta:obj_planta.id});
+           $ctrl_co.data_dpto.selectedOption={id: $ctrl_co.data_dpto.availableOptions[0].id};                                                                         
       }
 
     function CerrarOperacion () {              
