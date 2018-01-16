@@ -5,7 +5,7 @@
   var app=_angular.module("GestionVentas");
 
   app.controller("CerrarOperacion", CerrarOperacion);
-  
+
   CerrarOperacion.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "CerrarOperacionFactory", "defaultdataFactory", "$filter"];
 
@@ -20,14 +20,10 @@
                  $ctrl_co.objDataCerrarOperacion={};
                  $ctrl_co.defaultparams={};
                  $ctrl_co.allow_disable=false;
-                 $ctrl_co.allow_visible=true;
-                             
-                 // For Modal
-                 $ctrl_co.itemsModals=[];
-                 $ctrl_co.itemWarning=[];
-                 $ctrl_co.animationsEnabled=true;               
+                 $ctrl_co.allow_visible=true;                                     
                 
                  $ctrl_co.Init = Init;
+                 $ctrl_co.Fecha = Fecha;
                  $ctrl_co.upDatePlanta = upDatePlanta;
                  $ctrl_co.upDateDpto = upDateDpto;
                  $ctrl_co.CerrarOperacion=CerrarOperacion;
@@ -63,6 +59,11 @@
 
     //-------------------------------------------------------------------------------------------------  
 
+
+    function CurrentDate($scope) {
+         $scope.CurrentDate = new Date();
+    };
+
     function upDatePlanta (obj_edificio) { 
 
            $ctrl_co.data_planta.availableOptions = $filter('filter')($ctrl_co.data_planta2 ,{id_edificio:obj_edificio.id});
@@ -95,6 +96,8 @@
     };
 
     Init();
+
+    CurrentDate();
 
     }// DataSendController
 
