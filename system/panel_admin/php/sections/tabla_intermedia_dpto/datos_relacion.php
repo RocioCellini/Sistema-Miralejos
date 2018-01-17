@@ -11,7 +11,7 @@
       
       if ($type_accion==="add_relacion") {
 
-        include "../conexion.php"; 
+        include "../../conexion.php"; 
 
 
         //Edificios
@@ -44,7 +44,7 @@
 
         //Plantas
 
-        $result_planta = "SELECT * FROM plantas";
+        $result_planta = "SELECT * FROM planta";
 
         $stmt_planta = $conn->prepare($result_planta);
 
@@ -73,7 +73,7 @@
 
         //Departamentos
 
-        $result_dpto = "SELECT * FROM departamentos";
+        $result_dpto = "SELECT * FROM departamento";
 
         $stmt_dpto = $conn->prepare($result_dpto);
 
