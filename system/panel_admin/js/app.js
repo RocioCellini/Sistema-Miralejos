@@ -40,7 +40,6 @@
       }
     }) 
 
-
      .state('GestionVentas.index',{
         url:'/CerrarOperacion',
         templateUrl:'templates/cerrar_operacion.html',
@@ -48,6 +47,14 @@
       })
 
 /*
+    .state('GestionVentas.index',{
+        url:'/NuevaRelacion',
+        templateUrl:'templates/nueva_ti_dpto.html',
+        controller: 'NuevaRelacion as $ctrl_nr'
+      })
+
+
+
     .state('GestionVentas.index',{
         url:'/NuevoCliente',
         templateUrl:'templates/nuevo_cliente.html',
