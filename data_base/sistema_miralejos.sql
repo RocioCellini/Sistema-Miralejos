@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-01-2018 a las 02:35:26
+-- Tiempo de generación: 17-01-2018 a las 15:34:27
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -73,19 +73,22 @@ CREATE TABLE `departamento` (
 --
 
 INSERT INTO `departamento` (`id_dpto`, `nombre`) VALUES
-(1, '4'),
-(2, '4'),
-(3, '2'),
-(5, '0'),
-(6, '0'),
-(7, 'A6'),
-(8, 'B5'),
-(9, 'C3'),
-(10, 'A2'),
-(11, 'A1'),
-(12, 'E1'),
-(13, 'R3'),
-(14, 'D3');
+(1, 'A'),
+(2, 'B'),
+(3, 'C'),
+(4, 'D'),
+(5, 'E'),
+(6, 'F'),
+(7, 'G'),
+(8, 'H'),
+(9, 'I'),
+(10, 'J'),
+(11, 'K'),
+(12, 'L'),
+(13, 'M'),
+(14, 'N'),
+(15, 'O'),
+(16, 'P');
 
 -- --------------------------------------------------------
 
@@ -103,8 +106,21 @@ CREATE TABLE `edificio` (
 --
 
 INSERT INTO `edificio` (`id_edificio`, `nombre`) VALUES
-(1, 'M14'),
-(3, 'M9');
+(1, 'M1'),
+(2, 'M2'),
+(3, 'M3'),
+(4, 'M4'),
+(5, 'M5'),
+(6, 'M6'),
+(7, 'M7'),
+(8, 'M8'),
+(9, 'M9'),
+(10, 'M10'),
+(11, 'M11'),
+(12, 'M12'),
+(13, 'M13'),
+(14, 'M14'),
+(15, 'M15');
 
 -- --------------------------------------------------------
 
@@ -737,7 +753,6 @@ INSERT INTO `localidad` (`id_localidad`, `id_provincia`, `nombre`) VALUES
 (584, 7, 'Comechingones'),
 (585, 7, 'Conlara'),
 (586, 7, 'Copacabana'),
-(587, 7, '7'),
 (588, 7, 'Coronel Baigorria'),
 (589, 7, 'Coronel Moldes'),
 (590, 7, 'Corral de Bustos'),
@@ -2578,10 +2593,24 @@ CREATE TABLE `planta` (
 --
 
 INSERT INTO `planta` (`id_planta`, `nombre`) VALUES
-(1, 'B'),
-(2, 'C'),
-(4, '3'),
-(5, 'd');
+(1, '3er Subsuelo'),
+(2, '2do Subsuelo'),
+(3, '1er Subsuelo'),
+(4, 'Planta Intermedia'),
+(5, 'Planta Baja'),
+(6, 'Piso 1'),
+(7, 'Piso 2'),
+(8, 'Piso 3'),
+(9, 'Piso 4'),
+(10, 'Piso 5'),
+(11, 'Piso 6'),
+(12, 'Piso 7'),
+(13, 'Piso 8'),
+(14, 'Piso 9'),
+(15, 'Piso 10'),
+(16, 'Piso 11'),
+(17, 'Piso 12'),
+(18, 'Piso 13');
 
 -- --------------------------------------------------------
 
@@ -2644,7 +2673,8 @@ CREATE TABLE `tabla_intermedia_dpto` (
 
 INSERT INTO `tabla_intermedia_dpto` (`id_tabla`, `id_dpto`, `id_planta`, `id_edificio`) VALUES
 (1, 5, 3, 6),
-(2, 3, 1, 6);
+(2, 3, 1, 6),
+(4, 1, 5, 7);
 
 -- --------------------------------------------------------
 
@@ -2747,12 +2777,12 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `departamento`
 --
 ALTER TABLE `departamento`
-  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `edificio`
 --
 ALTER TABLE `edificio`
-  MODIFY `id_edificio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_edificio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `llamado`
 --
@@ -2767,7 +2797,7 @@ ALTER TABLE `operacion`
 -- AUTO_INCREMENT de la tabla `planta`
 --
 ALTER TABLE `planta`
-  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `provincia`
 --
@@ -2777,7 +2807,7 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `tabla_intermedia_dpto`
 --
 ALTER TABLE `tabla_intermedia_dpto`
-  MODIFY `id_tabla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tabla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `vendedor`
 --
