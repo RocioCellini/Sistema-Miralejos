@@ -97,10 +97,8 @@
 
             $ctrl_co.data_dpto = {
                   availableOptions: objplanta.dptos, 
-                 selectedOption: {id_dpto: null}
+                  selectedOption: {id_dpto: objplanta.dptos[0].id_dpto}
               };
-
-               $ctrl_co.data_dpto.selectedOption.id_dpto=$ctrl_co.data_dpto.availableOptions[0].id_dpto;
                                                                       
       }
 
