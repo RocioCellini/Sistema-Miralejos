@@ -132,7 +132,7 @@ if ($type_accion==="edificio_planta_dpto") {
 
 
 
-$id_edificio=1;
+$id_edificio=6;
 
 if($type_accion==="search_edificio_planta_dpto") {
 
@@ -213,8 +213,9 @@ if($type_accion==="search_edificio_planta_dpto") {
                                             $rs_dpto=$stmt_dpto->get_result();
 
                                             if($row_dpto = $rs_dpto->fetch_assoc()) {
-                                                    $temp2=array('nombre'=>utf8_encode($row_dpto['nombre']),
-                                                    'id_dpto'=>utf8_encode($row_dpto['id_dpto']));
+                                                    $temp2=array('id_dpto'=>utf8_encode($row_dpto['id_dpto']),
+                                                        'nombre_dpto'=>utf8_encode($row_dpto['nombre'])
+                                                    );
                                             }
                                     
                                    
@@ -222,8 +223,7 @@ if($type_accion==="search_edificio_planta_dpto") {
 
                                   $dptos[]=$temp2;
                     
-                                 $temp1=array('nombre'=>utf8_encode($row_planta['nombre']),
-                                 'id_planta'=>utf8_encode($row_planta['id_planta']), 'dptos'=>$dptos);
+                                 $temp1=array('id_planta'=>utf8_encode($row_planta['id_planta']),'nombre_planta'=>utf8_encode($row_planta['nombre']),'dptos'=>$dptos);
 
 
                                  unset($dptos);
@@ -247,7 +247,7 @@ if($type_accion==="search_edificio_planta_dpto") {
         }// 
     
      
-        $item=array('planta' => $response_planta);
+        $item=array('plantas_con_sus_dptos' => $response_planta);
         $json = json_encode($item);
         echo $json;
 }
