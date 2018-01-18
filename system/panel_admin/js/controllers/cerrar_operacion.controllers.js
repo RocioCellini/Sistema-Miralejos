@@ -15,6 +15,7 @@
                                          
                  var $ctrl_co = this;
                  
+                 $ctrl_co.data={};
                  $ctrl_co.data_planta2={};
                  $ctrl_co.data_dpto2={};
                  $ctrl_co.objDataCerrarOperacion={};
