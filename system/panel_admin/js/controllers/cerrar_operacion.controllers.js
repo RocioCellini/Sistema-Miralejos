@@ -75,17 +75,15 @@
 
               $ctrl_co.data_planta = {
                   availableOptions: d.plantas,
-                  selectedOption: {id_planta: null} 
+                  selectedOption: {id_planta: d.plantas[0].id_planta} 
               };
 
               $ctrl_co.data_dpto = {
                   availableOptions: d.plantas[0].dptos, 
-                  selectedOption: {id_dpto: null}
+                  selectedOption: {id_dpto:  d.plantas[0].dptos[0].id_dpto}
               };
         
-            
-               $ctrl_co.data_dpto.selectedOption.id_planta=$ctrl_co.data_planta.availableOptions[0].id_planta;
-               $ctrl_co.data_dpto.selectedOption.id_dpto=$ctrl_co.data_dpto.availableOptions[0].id_dpto;
+        
 
             }).catch(function (err) {
                   console.log(err);
