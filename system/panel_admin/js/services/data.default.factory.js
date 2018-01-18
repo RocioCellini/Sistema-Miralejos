@@ -4,8 +4,6 @@
 
     var app=_angular.module("GestionVentas");
     app.factory('defaultdataFactory', function ($http, $stateParams) {
-    
-
 
     var promisedata, datasearch;
 

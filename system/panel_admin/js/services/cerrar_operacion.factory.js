@@ -8,9 +8,9 @@
 
       var promisedata;      
 
-      var ingresoLlamado = {
+      var ingresoOperacion = {
             
-        nuevoLlamado: function(params) {
+        cerrarOperacion: function(params) {
             promisedata=$http.post('php/sections/operacion/cerrar_operacion.php', params).then(function (response) {
                 return response.data;
         });
@@ -20,7 +20,7 @@
 
       };//RETURN API
 
-      return ingresoLlamado;      
+      return ingresoOperacion;      
     });//  app.factory
 
 })(window.angular);

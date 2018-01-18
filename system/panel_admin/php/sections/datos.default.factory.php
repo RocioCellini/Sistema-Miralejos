@@ -1,14 +1,14 @@
 <?php
         
-     /*   
+      
      $json = file_get_contents('php://input');
      $data=json_decode($json);
     
 
      $type_accion=$data->{'type_accion'};
-*/
-      
-       $type_accion='search_edificio_planta_dpto';
+    
+      // $type_accion='search_edificio_planta_dpto';
+     
       if ($type_accion==="search_provincialocalidad") {
 
 
@@ -146,7 +146,7 @@ if($type_accion==="search_edificio_planta_dpto") {
         }
 
 
-        /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */  
+        /* Bind parameters. Types: s = string, i = integer, d = double,  b = blob */  
         $stmt->bind_param('i',$id_edificio);          
         $stmt->execute();
         $rs=$stmt->get_result();
@@ -223,31 +223,61 @@ if($type_accion==="search_edificio_planta_dpto") {
 
                                   $dptos[]=$temp2;
                     
-                                 $temp1=array('id_planta'=>utf8_encode($row_planta['id_planta']),'nombre_planta'=>utf8_encode($row_planta['nombre']),'dptos'=>$dptos);
+                                 $temp1=array('id_planta'=>utf8_encode($row_planta['id_planta']),
+                                    'nombre_planta'=>utf8_encode($row_planta['nombre']),
+                                    'dptos'=>$dptos);
 
 
                                  unset($dptos);
 
                             } while ($row_planta=$rs_planta->fetch_assoc());
-                            
-
-
-                        
 
 
                     }// Planta
 
-                //$temp2;
                 
                 $response_planta[]=$temp1;
+
+                /*
+
+                $result_edif = "SELECT * FROM edificio WHERE id_edificio=?";
+                $stmt_edif = $conn->prepare($result_edif);
+
+                if($stmt_edif === false) {
+                    trigger_error('Wrong SQL: ' . $result_edif . ' Error: ' . $conn->error, E_USER_ERROR);
+                }
+            
+                $stmt_edif->execute();
+                $rs_edif=$stmt_edif->get_result();
+
+                if($row_edif = $rs_edif->fetch_assoc()) {
+                
+                    $response_edif = array();
+
+                    do  {
+
+                        $temp=array('id_edificio'=>utf8_encode($row_edif['id_edificio']),
+                                    'nombre'=> utf8_encode($row_edif['nombre'])
+                        );
+
+
+                        $response_edif[]=$temp;
+
+                    }  while ($row_edif= $rs_edif->fetch_assoc());
+                }
+                */
+
+                $temp3=array('id_edificio'=>utf8_encode($row['id_edificio']));
+
+                $response[]=$temp3;
            
           
             } while ($row= $rs->fetch_assoc());
 
-        }// 
+        }
     
      
-        $item=array('plantas_con_sus_dptos' => $response_planta);
+        $item=array('edificios' => $response, 'plantas_con_sus_dptos' => $response_planta);
         $json = json_encode($item);
         echo $json;
 }
