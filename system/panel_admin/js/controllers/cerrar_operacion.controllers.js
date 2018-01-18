@@ -16,65 +16,94 @@
                  var $ctrl_co = this;
                  
                  $ctrl_co.data={};
-                 $ctrl_co.data_planta2={};
-                 $ctrl_co.data_dpto2={};
+                
                  $ctrl_co.objDataCerrarOperacion={};
                  $ctrl_co.defaultparams={};
                  $ctrl_co.allow_disable=false;
                  $ctrl_co.allow_visible=true;                                     
                 
                  $ctrl_co.Init = Init;
+                 $ctrl_co.upDateEdificio = upDateEdificio;
                  $ctrl_co.upDatePlanta = upDatePlanta;
-                 $ctrl_co.upDateDpto = upDateDpto;
                  $ctrl_co.CerrarOperacion=CerrarOperacion;
                 
 
           function Init () {
                       
-            $ctrl_co.defaultparams.type_accion="search_edificio_planta_dpto";
+            $ctrl_co.defaultparams.type_accion="buscar_edificio_planta_dpto";
+            $ctrl_co.defaultparams
+            
+
             defaultdataFactory.buscar_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
-              
-              $ctrl_co.data_planta2=d.data_planta;
-              $ctrl_co.data_dpto2=d.data_departamento;
-
-              
+                        
               console.log(d);
-
 
               $ctrl_co.data_edificio = {
                 availableOptions: d.edificio,
-                selectedOption: {id: '1'} //This sets the default value of the select in the ui
-              };
-
-              $ctrl_co.data_planta = {
-                  availableOptions: d.planta,
-                  selectedOption: {id: '1'} //This sets the default value of the select in the ui
-              };
-
-              $ctrl_co.data_dpto = {
-                  availableOptions: d.dpto,
-                  selectedOption: {id: '1'} //This sets the default value of the select in the ui
+                selectedOption: {id_edificio: '1'} //This sets the default value of the select in the ui
               };
         
             }).catch(function (err) {
                   console.log(err);
               });         
+          
+
+              
+      
+
+
           };    
 
     //-------------------------------------------------------------------------------------------------  
 
 
 
-    function upDatePlanta (obj_edificio) { 
 
-           $ctrl_co.data_planta.availableOptions = $filter('filter')($ctrl_co.data_planta2 ,{id_edificio:obj_edificio.id});
-           $ctrl_co.data_planta.selectedOption={id: $ctrl_co.data_planta.availableOptions[0].id};                                                                         
+
+    function upDateEdificio(obj_edificio) { 
+
+              console.log(obj_edificio);
+
+             $ctrl_co.defaultparams.type_accion="relacion_edificio_planta_dpto";
+             // Objecto edificio contiene la propiedad ID seleccionada en ese momento por el usuario.
+             $ctrl_co.defaultparams.id_edificio=obj_edificio.id_edificio;
+
+              
+             
+              defaultdataFactory.relacion_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
+                        
+
+              $ctrl_co.data_planta = {
+                  availableOptions: d.plantas,
+                  selectedOption: {id_planta: null} 
+              };
+
+              $ctrl_co.data_dpto = {
+                  availableOptions: d.plantas[0].dptos, 
+                  selectedOption: {id_dpto: null}
+              };
+        
+            
+               $ctrl_co.data_dpto.selectedOption.id_planta=$ctrl_co.data_planta.availableOptions[0].id_planta;
+               $ctrl_co.data_dpto.selectedOption.id_dpto=$ctrl_co.data_dpto.availableOptions[0].id_dpto;
+
+            }).catch(function (err) {
+                  console.log(err);
+              });         
+
+         
+
       }
 
-    function upDateDpto (obj_planta) { 
+    function upDatePlanta (objplanta) {
 
-           $ctrl_co.data_dpto.availableOptions = $filter('filter')($ctrl_co.data_dpto2 ,{id_planta:obj_planta.id});
-           $ctrl_co.data_dpto.selectedOption={id: $ctrl_co.data_dpto.availableOptions[0].id};                                                                         
+            $ctrl_co.data_dpto = {
+                  availableOptions: objplanta.dptos, 
+                 selectedOption: {id_dpto: null}
+              };
+
+               $ctrl_co.data_dpto.selectedOption.id_dpto=$ctrl_co.data_dpto.availableOptions[0].id_dpto;
+                                                                      
       }
 
     function CerrarOperacion () {              
