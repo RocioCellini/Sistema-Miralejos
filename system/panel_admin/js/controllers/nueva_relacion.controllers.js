@@ -58,11 +58,11 @@
                 
         //$ctrl_nr.allow_disable=true;
 
-        $ctrl_nr.objDataRelacion.type_accion="nueva_relacion";
-
-        $ctrl_nr.objDataRelacion.id_edificio=$ctrl_nr.data_edificio.selectedOption.id;
-        $ctrl_nr.objDataRelacion.id_planta=$ctrl_nr.data_planta.selectedOption.id;
-        $ctrl_nr.objDataRelacion.id_dpto=$ctrl_nr.data_dpto.selectedOption.id;
+        $ctrl_nr.objDataRelacion.type_accion="nueva_relacion";        
+       
+        $ctrl_nr.objDataRelacion.id_dpto=$ctrl_nr.data_dpto.selectedOption.id_dpto;
+        $ctrl_nr.objDataRelacion.id_planta=$ctrl_nr.data_planta.selectedOption.id_planta;
+        $ctrl_nr.objDataRelacion.id_edificio=$ctrl_nr.data_edificio.selectedOption.id_edificio;
         
         relacionFactory.nuevaRelacion($ctrl_nr.objDataRelacion).then(function(d) {                   
                 $ctrl_nr.Mensaje=d.Mensaje;

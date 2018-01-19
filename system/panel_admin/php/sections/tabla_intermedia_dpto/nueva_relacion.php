@@ -55,7 +55,7 @@ if($type_accion==="nueva_relacion"){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
