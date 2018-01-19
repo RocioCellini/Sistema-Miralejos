@@ -30,11 +30,9 @@
 
           function Init () {
                       
-            $ctrl_co.defaultparams.type_accion="buscar_edificio_planta_dpto";
-            $ctrl_co.defaultparams
-            
+              $ctrl_co.defaultparams.type_accion="buscar_edificio_planta_dpto";
 
-            defaultdataFactory.buscar_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
+              defaultdataFactory.buscar_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
                         
               console.log(d);
 
@@ -46,60 +44,45 @@
             }).catch(function (err) {
                   console.log(err);
               });         
-          
-
-              
-      
-
 
           };    
 
     //-------------------------------------------------------------------------------------------------  
 
 
-
-
-
     function upDateEdificio(obj_edificio) { 
 
-              console.log(obj_edificio);
+          console.log(obj_edificio);
 
-             $ctrl_co.defaultparams.type_accion="relacion_edificio_planta_dpto";
-             // Objecto edificio contiene la propiedad ID seleccionada en ese momento por el usuario.
-             $ctrl_co.defaultparams.id_edificio=obj_edificio.id_edificio;
+          $ctrl_co.defaultparams.type_accion="relacion_edificio_planta_dpto";
 
-              
-             
-              defaultdataFactory.relacion_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
-                        
+         // Objecto edificio contiene la propiedad ID seleccionada en ese momento por el usuario.
+          $ctrl_co.defaultparams.id_edificio=obj_edificio.id_edificio;
 
-              $ctrl_co.data_planta = {
-                  availableOptions: d.plantas,
-                  selectedOption: {id_planta: d.plantas[0].id_planta} 
-              };
+          defaultdataFactory.relacion_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
+                    
 
-              $ctrl_co.data_dpto = {
-                  availableOptions: d.plantas[0].dptos, 
-                  selectedOption: {id_dpto:  d.plantas[0].dptos[0].id_dpto}
-              };
-        
-        
+          $ctrl_co.data_planta = {
+              availableOptions: d.plantas,
+              selectedOption: {id_planta: d.plantas[0].id_planta} 
+          };
 
-            }).catch(function (err) {
-                  console.log(err);
-              });         
+          $ctrl_co.data_dpto = {
+              availableOptions: d.plantas[0].dptos, 
+              selectedOption: {id_dpto: d.plantas[0].dptos[0].id_dpto}
+          };        
 
-         
-
+        }).catch(function (err) {
+              console.log(err);
+          });         
       }
 
     function upDatePlanta (objplanta) {
 
-            $ctrl_co.data_dpto = {
-                  availableOptions: objplanta.dptos, 
-                  selectedOption: {id_dpto: objplanta.dptos[0].id_dpto}
-              };
-                                                                      
+        $ctrl_co.data_dpto = {
+              availableOptions: objplanta.dptos, 
+              selectedOption: {id_dpto: objplanta.dptos[0].id_dpto}
+          };                                                                     
       }
 
     function CerrarOperacion () {              
@@ -122,8 +105,6 @@
     };
 
     Init();
-
-   
 
     }// DataSendController
 
