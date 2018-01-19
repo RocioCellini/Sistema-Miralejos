@@ -7,14 +7,14 @@
   app.controller("NuevaRelacion", NuevaRelacion);
   
   NuevaRelacion.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "relacionFactory", "dataRelacionFactory"];
+  "relacionFactory", "defaultdataFactory"];
 
   //Controller
   function NuevaRelacion ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, relacionFactory, dataRelacionFactory) {
+   $uibModal, $document, relacionFactory, defaultdataFactory) {
                                  
      var $ctrl_nr = this;
-     
+
      $ctrl_nr.defaultparams={};
      $ctrl_nr.objDataRelacion={};
      $ctrl_nr.allow_disable=false;
@@ -22,43 +22,43 @@
 
     
      $ctrl_nr.Init = Init;
-     $ctrl_nr.upDate = upDate;
      $ctrl_nr.NuevaRelacion=NuevaRelacion;
         
 
-      function Init () {
-        $ctrl_nr.defaultparams.type_accion="add_relacion";
-                dataRelacionFactory.buscar_edificio_planta_dpto($ctrl_nr.defaultparams).then(function(d) {        
+      function Init () {      
 
-              $ctrl_nr.data_edificio = {
-                availableOptions: d.edificio,
-                selectedOption: {id: '1'} //This sets the default value of the select in the ui
-              };
+          $ctrl_nr.defaultparams.type_accion="buscar_edificio_planta_dpto";
 
-              $ctrl_nr.data_planta = {
-                  availableOptions: d.planta,
-                  selectedOption: {id: '1'} //This sets the default value of the select in the ui
-              };
+          defaultdataFactory.buscar_edificio_planta_dpto($ctrl_nr.defaultparams).then(function(d) {                            
+                        
+          console.log(d);    
 
-              $ctrl_nr.data_dpto = {
-                  availableOptions: d.dpto,
-                  selectedOption: {id: '1'} //This sets the default value of the select in the ui
-              };
-          
-               }).catch(function (err) {
-                    console.log(err);
-               });                
-             
+          $ctrl_nr.data_edificio = {
+              availableOptions: d.edificio,
+              selectedOption: {id_edificio: '1'}
+            };
+
+          $ctrl_nr.data_planta = {
+              availableOptions: d.planta,
+              selectedOption: {id_planta: '1'} 
+            };
+
+          $ctrl_nr.data_dpto = {
+              availableOptions: d.dpto, 
+              selectedOption: {id_dpto: '1'}
+            };  
+
+          }).catch(function (err) {
+                  console.log(err);
+              });    
       };    
 
-      function upDate () { 
-      }
 
       function NuevaRelacion () {
                 
         //$ctrl_nr.allow_disable=true;
 
-        $ctrl_nr.objDataRelacion.type_accion="nueva_ti_relacion";
+        $ctrl_nr.objDataRelacion.type_accion="nueva_relacion";
 
         $ctrl_nr.objDataRelacion.id_edificio=$ctrl_nr.data_edificio.selectedOption.id;
         $ctrl_nr.objDataRelacion.id_planta=$ctrl_nr.data_planta.selectedOption.id;

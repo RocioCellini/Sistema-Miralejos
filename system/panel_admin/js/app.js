@@ -41,15 +41,15 @@
     }) 
 
      .state('GestionVentas.index',{
-        url:'/NuevoLlamado',
-        templateUrl:'templates/nuevo_llamado.html',
-        controller: 'NuevoLlamado as $ctrl_nl'
+        url:'/NuevaRelacion',
+        templateUrl:'templates/nueva_relacion.html',
+        controller: 'NuevaRelacion as $ctrl_nr'
       })
 
 /*
     .state('GestionVentas.index',{
         url:'/NuevaRelacion',
-        templateUrl:'templates/nueva_ti_dpto.html',
+        templateUrl:'templates/nueva_relacion.html',
         controller: 'NuevaRelacion as $ctrl_nr'
       })
 

@@ -29,15 +29,15 @@
 
      function Init () {
 
-        $ctrl_nl.defaultparams.type_accion = "buscar_edificio_planta_dpto";
-        defaultdataFactory.buscar_edificio_planta_dpto($ctrl_nl.defaultparams).then(function(d) {                            
-          
-        console.log(d);
+      $ctrl_nl.defaultparams.type_accion = "buscar_edificio_planta_dpto";
+      defaultdataFactory.buscar_edificio_planta_dpto($ctrl_nl.defaultparams).then(function(d) {                            
+        
+      console.log(d);
 
-        $ctrl_nl.data_edificio = {
-            availableOptions: d.edificio,
-            selectedOption: {id_edificio: '1'} //This sets the default value of the select in the ui
-          };
+      $ctrl_nl.data_edificio = {
+          availableOptions: d.edificio,
+          selectedOption: {id_edificio: '1'} //This sets the default value of the select in the ui
+        };
   
        }).catch(function (err) {
             console.log(err);

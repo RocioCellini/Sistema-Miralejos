@@ -14,9 +14,9 @@ $data=json_decode($json);
 
 $type_accion=$data->{'type_accion'};
 
-//$type_accion="nueva_ti_relacion";
+//$type_accion="nueva_relacion";
 
-if($type_accion==="nueva_ti_relacion"){
+if($type_accion==="nueva_relacion"){
 
 //************************************************************************************************//  
   include "../../conexion.php"; 

@@ -11,7 +11,7 @@
       var ingresoRelacion = {
             
         nuevaRelacion: function(params) {
-            promisedata=$http.post('php/sections/tabla_intermedia_dpto/nueva_tabla_intermedia_dpto.php', params).then(function (response) {
+            promisedata=$http.post('php/sections/tabla_intermedia_dpto/nueva_relacion.php', params).then(function (response) {
                 return response.data;
         });
            
