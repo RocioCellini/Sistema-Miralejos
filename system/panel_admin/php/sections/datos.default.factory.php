@@ -5,7 +5,7 @@
      $data=json_decode($json);
     
 
-     $type_accion=$data->{'type_accion'};
+    $type_accion=$data->{'type_accion'};
     
     // $type_accion='search_edificio_planta_dpto';
      
@@ -186,13 +186,16 @@ if ($type_accion==="buscar_edificio_planta_dpto") {
 } //if ($type_accion==="edificio_planta_dpto")
 
 
+;
+
 if($type_accion==="relacion_edificio_planta_dpto") {
 
         include "../conexion.php";  
         
         $id_edificio=$data->{'id_edificio'};
+      
     
-        $result = "SELECT * FROM tabla_intermedia_dpto where id_edificio=?";
+        $result = "SELECT DISTINCT id_planta FROM tabla_intermedia_dpto where id_edificio=?";
         $stmt = $conn->prepare($result);
 
         if($stmt === false) {
@@ -208,10 +211,14 @@ if($type_accion==="relacion_edificio_planta_dpto") {
         if($row = $rs->fetch_assoc()) {
         
             $response = array();
+           
+
 
             do {
 
-                    // SubConsulta para Obtener Plantas
+                    //  echo $row['id_planta'];
+
+                    // SubConsulta para Obtener NOMBRE de las Plantas
                     //--------------------------------------------------------------
                     $result_planta = "SELECT * FROM planta where id_planta=?";
                     $stmt_planta = $conn->prepare($result_planta);
@@ -226,9 +233,14 @@ if($type_accion==="relacion_edificio_planta_dpto") {
                     $stmt_planta->execute();
                     $rs_planta=$stmt_planta->get_result();
 
+                   // echo $row['id_planta'];
+
                     if($row_planta = $rs_planta->fetch_assoc()) {
                         
+                              
+                                  //  echo "ID DE LAS PLANTAS:".$row_planta['id_planta']."<br>";
 
+                                      
                             
                             do {
 
@@ -254,6 +266,14 @@ if($type_accion==="relacion_edificio_planta_dpto") {
 
 
                                 if($row2 = $rs2->fetch_assoc()) {
+
+
+                                          do {
+
+                                           // echo "ID DE LOS DEPARTAMNETOS.".$row2['id_dpto']."<br>";
+                                            
+                                          
+                                            // CREAR UN DO WHILE 
                                        
                                             $result_dpto = "SELECT * FROM departamento where id_dpto=?";
                                             $stmt_dpto = $conn->prepare($result_dpto);
@@ -271,34 +291,41 @@ if($type_accion==="relacion_edificio_planta_dpto") {
                                                         'nombre'=>utf8_encode($row_dpto['nombre'])
                                                     );
                                             }
-                                    
-                                   
-                                }                            
+                                        
+                                             $dptos[]=$temp2;
 
-                                  $dptos[]=$temp2;
+                                     } while ($row2 = $rs2->fetch_assoc());
+                            
+                            } // if($row2 = $rs2->                                                                                       
+                                     
+                    $temp1=array('id_planta'=>utf8_encode($row_planta['id_planta']),
+                    'nombre'=>utf8_encode($row_planta['nombre']),'dptos'=>$dptos);
+
+                    unset($dptos);
                     
-                                 $temp1=array('id_planta'=>utf8_encode($row_planta['id_planta']),
-                                    'nombre'=>utf8_encode($row_planta['nombre']),
-                                    'dptos'=>$dptos);
+                    $response_planta[]=$temp1;
+
+                 } while ($row_planta=$rs_planta->fetch_assoc());
 
 
-                                 unset($dptos);
+                         
+                                                               // 
+                                        
+                               
 
-                            } while ($row_planta=$rs_planta->fetch_assoc());
-
-
-                    }// Planta
+                }// Planta
 
                 
-                $response_planta[]=$temp1;
+               
             
           
             } while ($row= $rs->fetch_assoc());
 
         }
     
-     
+        
         $item=array( 'plantas' => $response_planta);
         $json = json_encode($item);
         echo $json;
+        
 }

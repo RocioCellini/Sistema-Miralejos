@@ -34,7 +34,7 @@
 
               defaultdataFactory.buscar_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
                         
-              console.log(d);
+             
 
               $ctrl_co.data_edificio = {
                 availableOptions: d.edificio,
@@ -61,6 +61,8 @@
 
           defaultdataFactory.relacion_edificio_planta_dpto($ctrl_co.defaultparams).then(function(d) {                            
                     
+
+            console.log(d);  
 
           $ctrl_co.data_planta = {
               availableOptions: d.plantas,
