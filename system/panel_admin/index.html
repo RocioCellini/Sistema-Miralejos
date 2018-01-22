@@ -14,11 +14,17 @@
 <link rel="stylesheet" href="../css/ng-table.css">
 
 <link rel="stylesheet" href="css/styles-panel.css"  type="text/css">
+<link rel="stylesheet" href="css/ui-navbar.css"  type="text/css">
 <link href="templates/modal/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
+
+<div class="row" style="height:100px;">
+    <div ui-view="nav"></div>
+</div>
+
 
 <div  align="center" class="col-xs-12 container-fluid">
            <ui-view name="content"></ui-view>
@@ -38,6 +44,13 @@
 <!--Para La Aplicacion -->
 <script src="../js/ngtable/ng-table.min.js"></script>
 <script src="js/app.js"></script>
+
+
+<!--Menu-->
+<script src="js/controllers/menu.controllers.js"></script>
+
+<!--Directives-->
+<script src="js/directives/ui-navbar.js"></script>
 
 <!-- Provincia -->
 <script src="js/services/data.default.factory.js"></script>
@@ -77,9 +90,6 @@
 <!-- Relación Tabla Intermedia Dpto -->
 <script src="js/controllers/nueva_relacion.controllers.js"></script>
 <script src="js/services/relacion.factory.js"></script>
-
-
-
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 
   "use strict";
 
-  var app = _angular.module("GestionVentas", ["ngSanitize", "ngAnimate", 
+  var app = _angular.module("GestionVentas", ["ngSanitize", "ngAnimate", "ui.navbar",
             "ngTable", "ui.router", "ui.bootstrap"]);
 
 
@@ -30,6 +30,10 @@
 
       $stateProvider.state('GestionVentas', {
         views: {
+          'nav': {
+              templateUrl: 'templates/menu.html',
+              controller: 'NavigationController as $ctrl_m' 
+          },
           'content': {
            template:'<div ui-view></div>'
           },

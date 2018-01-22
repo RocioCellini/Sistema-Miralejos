@@ -307,17 +307,10 @@ if($type_accion==="relacion_edificio_planta_dpto") {
 
                  } while ($row_planta=$rs_planta->fetch_assoc());
 
-
-                         
-                                                               // 
-                                        
-                               
+                     
 
                 }// Planta
-
-                
-               
-            
+                      
           
             } while ($row= $rs->fetch_assoc());
 
