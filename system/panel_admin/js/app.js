@@ -46,6 +46,18 @@
         controller: 'NuevaRelacion as $ctrl_nr'
       })
 
+      .state('GestionVentas.nuevoLlamado',{
+        url:'/NuevoLlamado',
+        templateUrl:'templates/nuevo_llamado.html',
+        controller: 'NuevoLlamado as $ctrl_nl'
+      })
+
+      .state('GestionVentas.cerrarOperacion',{
+        url:'/CerrarOperacion',
+        templateUrl:'templates/cerrar_operacion.html',
+        controller: 'CerrarOperacion as $ctrl_co'
+      })
+
 /*
     .state('GestionVentas.index',{
         url:'/NuevaRelacion',
