@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-01-2018 a las 19:17:12
+-- Tiempo de generación: 24-01-2018 a las 12:42:24
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -27,15 +27,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `provincia` (
-  `Id` int(11) NOT NULL,
-  `Provincia` text COLLATE latin1_spanish_ci NOT NULL
+  `id_provincia` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `provincia`
 --
 
-INSERT INTO `provincia` (`Id`, `Provincia`) VALUES
+INSERT INTO `provincia` (`id_provincia`, `nombre`) VALUES
 (1, 'Buenos Aires'),
 (2, 'Buenos Aires-GBA'),
 (3, 'Capital Federal'),
@@ -70,7 +70,7 @@ INSERT INTO `provincia` (`Id`, `Provincia`) VALUES
 -- Indices de la tabla `provincia`
 --
 ALTER TABLE `provincia`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id_provincia`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -80,7 +80,7 @@ ALTER TABLE `provincia`
 -- AUTO_INCREMENT de la tabla `provincia`
 --
 ALTER TABLE `provincia`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_provincia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
