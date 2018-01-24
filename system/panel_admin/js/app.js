@@ -56,15 +56,15 @@
         controller: 'Planilla as $ctrl_p'
       })
 
-       .state('GestionVentas.buscarContacto',{
-        url:'/BuscarContacto',
-        templateUrl:'templates/buscar_contacto.html',
-        controller: 'BuscarContacto as $ctrl_bc'
+       .state('GestionVentas.buscarCliente',{
+        url:'/BuscarCliente',
+        templateUrl:'templates/buscar_cliente.html',
+        controller: 'BuscarCliente as $ctrl_bc'
       })
 
-      .state('GestionVentas.nuevoContacto',{
-        url:'/NuevoContacto',
-        templateUrl:'templates/nuevo_contacto.html',
+      .state('GestionVentas.nuevoCliente',{
+        url:'/NuevoCliente',
+        templateUrl:'templates/nuevo_cliente.html',
         controller: 'NuevoCliente as $ctrl_nc'
       })
 

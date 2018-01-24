@@ -18,8 +18,9 @@
            
           return promisedata;
         },
-        editarCliente: function(params) {
-            promisedata=$http.post('php/sections/cliente/nuevo_cliente.php', params).then(function (response) {
+        
+        buscarCliente: function(params) {
+            promisedata=$http.post('php/sections/cliente/buscar_cliente.php', params).then(function (response) {
                   return response.data;
         });
            

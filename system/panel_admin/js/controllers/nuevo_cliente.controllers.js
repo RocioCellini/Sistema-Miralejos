@@ -29,6 +29,7 @@
         $ctrl_nc.Init = Init;
         $ctrl_nc.upDate = upDate;
         $ctrl_nc.NuevoCliente=NuevoCliente;
+        $ctrl_bc.BuscarCliente=BuscarCliente;
         
 
         $ctrl_nc.data = {
@@ -94,10 +95,30 @@
                 //$ctrl_nc.allow_disable=false;
            });                
 
-      };
+      };     
 
       Init();
 
     }// DataSendController
+
+    function BuscarCliente ($scope, $sce, $state,  $stateParams,  $window,
+     $uibModal, $document, clienteDataFactory, $filter) {
+
+        $ctrl_bc=this;
+        $ctrl_bc.BuscarCliente=BuscarCliente;
+
+        function BuscarCliente () {
+
+          $ctrl_bc.objDataCliente.type_accion="buscar_cliente";
+
+          clienteDataFactory.buscarCliente($ctrl_bc.objDataCliente).then(function(d) {                   
+                  $ctrl_bc.Mensaje=d.Mensaje;     
+      
+           }).catch(function (err) {
+                console.log(err);          
+           });                
+
+      };
+    }
 
 })(window.angular);
