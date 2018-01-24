@@ -19,58 +19,100 @@
             link: "#",
             subtree: [{
               name: "Visualizar",
-              link: "GestionVentas.planillas"
+              link: "#!/Planilla"
             }]
           }, {
-            name: "Disciplinas",
+            name: "Contactos",
             link: "#",
             subtree: [{
-              name: "Nueva Disciplina",
-              link: "../disciplinas.php"
-            }]
-            },{
-            name: "Cooperadora",
-            link: "#",
-            subtree: [{
-              name: "Nuevo Cupon",
-              link: "../nuevocupon.php"
-            }, {
-              name: "Buscar Cajas",
-              link: "../buscarcaja.php",
-
+              name: "Buscar",
+              link: "GestionVentas.buscarContacto"
+            },
+            {
+              name: "Añadir",
+              link: "GestionVentas.nuevoContacto"
             }]
           },{
-            name: "Usuarios",
+            name: "Vendedores",
             link: "#",
-            subtree: [{
-              name: "Nuevo Usuario",
-              link: "../usuarios.php"
-            }, {
-              name: "Modificar Usuario",
-              link: "../buscarusuarios.php",
-
-            },{
-              name: "Cerrar Sesion",
-              link: "../logout.php",
-
+             subtree: [{
+              name: "Buscar",
+              link: "GestionVentas.buscarVendedor"
+            },
+            {
+              name: "Añadir",
+              link: "GestionVentas.nuevoVendedor"
             }]
-            }, {
-            name: "Recupero",
+          },{
+            name: "Relación EPD",
             link: "#",
             subtree: [{
-              name: "Formulario C1",
-              link: "#",
+              name: "Edificios",
+              link: "GestionVentas.edificios",
               subtree: [{
-                  name: "Nuevo Formulario",
-                  link: "#!/nuevo_formulario"
-                  }, {
-                  name: "Buscar Formularios",
-                  link: "#!/listado_formulario"
-                  }]
+                          name: "Buscar",
+                          link: "GestionVentas.buscarEdificio"
+                        },
+                        {
+                          name: "Añadir",
+                          link: "GestionVentas.nuevoEdificio"
+                        }]
+              },{
+              name: "Plantas",
+              link: "GestionVentas.plantas",
+              subtree: [{
+                          name: "Buscar",
+                          link: "GestionVentas.buscarPlantas"
+                        },
+                        {
+                          name: "Añadir",
+                          link: "GestionVentas.nuevaPlantas"
+                        }]
+              },{
+              name: "Dptos",
+              link: "GestionVentas.dptos",
+              subtree: [{
+                          name: "Buscar",
+                          link: "GestionVentas.buscarDptos"
+                        },
+                        {
+                          name: "Añadir",
+                          link: "GestionVentas.nuevoDpto"
+                        }]
+              },{
+              name: "Añadir Relación",
+              link: "GestionVentas.nuevaRelacion"
+            }]
+          },{
+            name: "Localidades",
+            link: "#",
+            subtree: [{
+              name: "Buscar",
+              link: "GestionVentas.buscarLocalidad"
+            },
+            {
+              name: "Añadir",
+              link: "GestionVentas.nuevaLocalidad"
+            }]
+          },{
+            name: "Llamados",
+            link: "#",
+            subtree: [{
+              name: "Buscar",
+              link: "GestionVentas.buscarLlamado"
+            },
+            {
+              name: "Añadir",
+              link: "GestionVentas.nuevoLlamado"
+            }]
+          },{
+            name: "Cierre de Operación",
+            link: "#",
+            subtree: [{
+              name: "Cerrar Operación",
+              link: "GestionVentas.cerrarOperacion"
             }]
           }
-
-
 
           ]// $ctrl_m.itemsMenu 
 
