@@ -28,9 +28,7 @@
          
         $ctrl_nc.Init = Init;
         $ctrl_nc.upDate = upDate;
-        $ctrl_nc.NuevoCliente=NuevoCliente;
-        $ctrl_bc.BuscarCliente=BuscarCliente;
-        
+        $ctrl_nc.NuevoCliente=NuevoCliente;        
 
         $ctrl_nc.data = {
           availableOptions: [
