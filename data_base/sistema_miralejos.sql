@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-01-2018 a las 18:37:08
+-- Tiempo de generación: 24-01-2018 a las 21:24:07
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -110,7 +110,15 @@ INSERT INTO `departamento` (`id_dpto`, `nombre`) VALUES
 (35, 'Local D'),
 (36, 'Local E'),
 (37, 'Local F'),
-(38, 'Local G');
+(38, 'Local G'),
+(39, 'Local 4'),
+(40, 'Local 5'),
+(41, 'Local 6'),
+(42, 'Local 7'),
+(43, 'Local 8'),
+(44, 'Local 9'),
+(45, 'Local 10'),
+(46, 'Local 11');
 
 -- --------------------------------------------------------
 
@@ -2641,15 +2649,15 @@ INSERT INTO `planta` (`id_planta`, `nombre`) VALUES
 --
 
 CREATE TABLE `provincia` (
-  `Id` int(11) NOT NULL,
-  `Provincia` text COLLATE latin1_spanish_ci NOT NULL
+  `id_provincia` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `provincia`
 --
 
-INSERT INTO `provincia` (`Id`, `Provincia`) VALUES
+INSERT INTO `provincia` (`id_provincia`, `nombre`) VALUES
 (1, 'Buenos Aires'),
 (2, 'Buenos Aires-GBA'),
 (3, 'Capital Federal'),
@@ -2873,19 +2881,19 @@ INSERT INTO `tabla_intermedia_dpto` (`id_tabla`, `id_dpto`, `id_planta`, `id_edi
 (177, 27, 6, 3),
 (178, 13, 6, 3),
 (179, 14, 6, 3),
-(180, 28, 3, 1),
-(181, 15, 3, 1),
-(182, 16, 3, 1),
-(183, 17, 3, 1),
-(184, 18, 3, 1),
-(185, 19, 3, 1),
-(186, 20, 3, 1),
-(187, 21, 3, 1),
-(188, 22, 3, 1),
-(189, 23, 3, 1),
-(190, 24, 3, 1),
-(191, 25, 3, 1),
-(192, 26, 3, 1),
+(180, 28, 6, 3),
+(181, 15, 6, 3),
+(182, 16, 6, 3),
+(183, 17, 6, 3),
+(184, 18, 6, 3),
+(185, 19, 6, 3),
+(186, 20, 6, 3),
+(187, 21, 6, 3),
+(188, 22, 6, 3),
+(189, 23, 6, 3),
+(190, 24, 6, 3),
+(191, 25, 6, 3),
+(192, 26, 6, 3),
 (193, 1, 7, 3),
 (194, 2, 7, 3),
 (195, 3, 7, 3),
@@ -3301,7 +3309,111 @@ INSERT INTO `tabla_intermedia_dpto` (`id_tabla`, `id_dpto`, `id_planta`, `id_edi
 (605, 8, 7, 11),
 (606, 9, 7, 11),
 (607, 10, 7, 11),
-(608, 11, 7, 11);
+(608, 11, 7, 11),
+(609, 29, 5, 12),
+(610, 30, 5, 12),
+(611, 31, 5, 12),
+(612, 39, 5, 12),
+(613, 40, 5, 12),
+(614, 41, 5, 12),
+(615, 42, 5, 12),
+(616, 43, 5, 12),
+(617, 44, 4, 12),
+(618, 45, 4, 12),
+(619, 46, 4, 12),
+(620, 1, 6, 12),
+(621, 2, 6, 12),
+(622, 3, 6, 12),
+(623, 4, 6, 12),
+(624, 5, 6, 12),
+(625, 6, 6, 12),
+(626, 7, 6, 12),
+(627, 8, 6, 12),
+(628, 9, 6, 12),
+(629, 10, 6, 12),
+(630, 1, 7, 12),
+(631, 2, 7, 12),
+(632, 3, 7, 12),
+(633, 4, 7, 12),
+(634, 5, 7, 12),
+(635, 6, 7, 12),
+(636, 1, 5, 14),
+(637, 2, 5, 14),
+(638, 3, 5, 14),
+(639, 4, 5, 14),
+(640, 5, 5, 14),
+(641, 1, 6, 14),
+(642, 2, 6, 14),
+(643, 3, 6, 14),
+(644, 4, 6, 14),
+(645, 5, 6, 14),
+(646, 6, 6, 14),
+(647, 1, 7, 14),
+(648, 2, 7, 14),
+(649, 3, 7, 14),
+(650, 4, 7, 14),
+(651, 5, 7, 14),
+(652, 1, 8, 14),
+(653, 2, 8, 14),
+(654, 3, 8, 14),
+(655, 1, 6, 15),
+(656, 2, 6, 15),
+(657, 3, 6, 15),
+(658, 4, 6, 15),
+(659, 5, 6, 15),
+(660, 6, 6, 15),
+(661, 7, 6, 15),
+(662, 8, 6, 15),
+(663, 9, 6, 15),
+(664, 10, 6, 15),
+(665, 1, 7, 15),
+(666, 2, 7, 15),
+(667, 3, 7, 15),
+(668, 4, 7, 15),
+(669, 5, 7, 15),
+(670, 6, 7, 15),
+(671, 7, 7, 15),
+(672, 8, 7, 15),
+(673, 9, 7, 15),
+(674, 10, 7, 15),
+(675, 11, 7, 15),
+(676, 12, 7, 15),
+(677, 1, 8, 15),
+(678, 2, 8, 15),
+(679, 3, 8, 15),
+(680, 4, 8, 15),
+(681, 5, 8, 15),
+(682, 6, 8, 15),
+(683, 7, 8, 15),
+(684, 8, 8, 15),
+(685, 9, 8, 15),
+(686, 10, 8, 15),
+(687, 11, 8, 15),
+(688, 12, 8, 15),
+(689, 1, 9, 15),
+(690, 2, 9, 15),
+(691, 3, 9, 15),
+(692, 4, 9, 15),
+(693, 5, 9, 15),
+(694, 6, 9, 15),
+(695, 7, 9, 15),
+(696, 8, 9, 15),
+(697, 9, 9, 15),
+(698, 10, 9, 15),
+(699, 11, 9, 15),
+(700, 12, 9, 15),
+(701, 1, 10, 15),
+(702, 2, 10, 15),
+(703, 3, 10, 15),
+(704, 4, 10, 15),
+(705, 5, 10, 15),
+(706, 6, 10, 15),
+(707, 7, 10, 15),
+(708, 8, 10, 15),
+(709, 9, 10, 15),
+(710, 10, 10, 15),
+(711, 11, 10, 15),
+(712, 12, 10, 15);
 
 -- --------------------------------------------------------
 
@@ -3377,7 +3489,7 @@ ALTER TABLE `planta`
 -- Indices de la tabla `provincia`
 --
 ALTER TABLE `provincia`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`id_provincia`);
 
 --
 -- Indices de la tabla `tabla_intermedia_dpto`
@@ -3404,7 +3516,7 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `departamento`
 --
 ALTER TABLE `departamento`
-  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT de la tabla `edificio`
 --
@@ -3429,12 +3541,12 @@ ALTER TABLE `planta`
 -- AUTO_INCREMENT de la tabla `provincia`
 --
 ALTER TABLE `provincia`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_provincia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `tabla_intermedia_dpto`
 --
 ALTER TABLE `tabla_intermedia_dpto`
-  MODIFY `id_tabla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=609;
+  MODIFY `id_tabla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=749;
 --
 -- AUTO_INCREMENT de la tabla `vendedor`
 --
