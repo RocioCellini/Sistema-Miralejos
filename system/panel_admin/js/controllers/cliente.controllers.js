@@ -105,8 +105,8 @@
      $uibModal, $document, clienteDataFactory, $filter) {
 
         $ctrl_bc=this;
-        $ctrl_nc.objDataCliente={};
-        $ctrl_nc.defaultparams={};
+        $ctrl_bc.objDataCliente={};
+        $ctrl_bc.defaultparams={};
         $ctrl_bc.BuscarCliente=BuscarCliente;
 
         function BuscarCliente () {
