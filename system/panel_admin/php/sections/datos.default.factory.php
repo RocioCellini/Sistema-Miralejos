@@ -1,9 +1,7 @@
 <?php
-        
-      
-     $json = file_get_contents('php://input');
-     $data=json_decode($json);
-    
+             
+    $json = file_get_contents('php://input');
+    $data=json_decode($json);  
 
     $type_accion=$data->{'type_accion'};
     
@@ -22,9 +20,7 @@
         if($stmt === false) {
             trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
         }
-
-
-        /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */            
+         
         $stmt->execute();
         $rs=$stmt->get_result();
 
@@ -34,16 +30,13 @@
 
             do  {
 
-                $temp=array('id'=>utf8_encode($row['Id']),
-                            'name'=> utf8_encode($row['Provincia'])
+                $temp=array('id'=>utf8_encode($row['id_provincia']),
+                            'name'=> utf8_encode($row['nombre'])
                 );
-
 
                 $response_prov[]=$temp;
 
             }  while ($row= $rs->fetch_assoc());
-
-
         }
 
         //Localidades
@@ -54,9 +47,7 @@
         if($stmt_loc === false) {
             trigger_error('Wrong SQL: ' . $result_loc . ' Error: ' . $conn->error, E_USER_ERROR);
         }
-
-
-        /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */            
+          
         $stmt_loc->execute();
         $rs_loc=$stmt_loc->get_result();
 
@@ -70,14 +61,10 @@
                             'name'=> utf8_encode($row_loc['nombre']), 'id_provincia'=>utf8_encode($row_loc['id_provincia'])
                 );
 
-
                 $response_loc[]=$temp_loc;
 
             }  while ($row_loc= $rs_loc->fetch_assoc());
-
-
-        }
-    
+        }   
      
         $item=array('provincia' => $response_prov, 'localidad' => $response_loc);
         $json = json_encode($item);
@@ -86,7 +73,7 @@
 }  //if ($type_accion==="search_provincialocalidad")
 
 
-//***************************************************************************************************
+//******************************************************************************************
 
 
 if ($type_accion==="buscar_edificio_planta_dpto") {
@@ -188,7 +175,7 @@ if ($type_accion==="buscar_edificio_planta_dpto") {
 
 ;
 
-if($type_accion==="relacion_edificio_planta_dpto") {
+if($type_accion==="relacion_edificio_planta_dpto"){
 
         include "../conexion.php";  
         
@@ -202,102 +189,78 @@ if($type_accion==="relacion_edificio_planta_dpto") {
             trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
         }
 
-
-        /* Bind parameters. Types: s = string, i = integer, d = double,  b = blob */  
         $stmt->bind_param('i',$id_edificio);          
         $stmt->execute();
         $rs=$stmt->get_result();
 
         if($row = $rs->fetch_assoc()) {
         
-            $response = array();
-           
-
+            $response = array();       
 
             do {
 
-                    //  echo $row['id_planta'];
+                // SubConsulta para Obtener NOMBRE de las Plantas
+                //--------------------------------------------------------------
+                $result_planta = "SELECT * FROM planta where id_planta=?";
+                $stmt_planta = $conn->prepare($result_planta);
 
-                    // SubConsulta para Obtener NOMBRE de las Plantas
-                    //--------------------------------------------------------------
-                    $result_planta = "SELECT * FROM planta where id_planta=?";
-                    $stmt_planta = $conn->prepare($result_planta);
-
-                    if($stmt_planta === false) {
-                        trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
-                    }
-
-
-                    /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */  
-                    $stmt_planta->bind_param('i', $row['id_planta']);          
-                    $stmt_planta->execute();
-                    $rs_planta=$stmt_planta->get_result();
-
-                   // echo $row['id_planta'];
-
-                    if($row_planta = $rs_planta->fetch_assoc()) {
-                        
-                              
-                                  //  echo "ID DE LAS PLANTAS:".$row_planta['id_planta']."<br>";
-
-                                      
-                            
-                            do {
+                if($stmt_planta === false) {
+                    trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
+                }
+ 
+                $stmt_planta->bind_param('i', $row['id_planta']);          
+                $stmt_planta->execute();
+                $rs_planta=$stmt_planta->get_result();
 
 
-                                $result2 = "SELECT * FROM tabla_intermedia_dpto where id_edificio=? and id_planta=?";
-                                $stmt2 = $conn->prepare($result2);
+                if($row_planta = $rs_planta->fetch_assoc()) {                        
+                          
+                    //  echo "ID DE LAS PLANTAS:".$row_planta['id_planta']."<br>";                               
+                    
+                    do {
 
-                                if($stmt2 === false) {
-                                trigger_error('Wrong SQL: ' . $result2 . ' Error: ' . $conn->error, E_USER_ERROR);
-                                }
+                        $result2 = "SELECT * FROM tabla_intermedia_dpto where id_edificio=? and id_planta=?";
+                        $stmt2 = $conn->prepare($result2);
 
+                        if($stmt2 === false) {
+                        trigger_error('Wrong SQL: ' . $result2 . ' Error: ' . $conn->error, E_USER_ERROR);
+                        }
+                      
+                        $stmt2->bind_param('ii', $id_edificio, $row_planta['id_planta']);          
+                        $stmt2->execute();
+                        $rs2=$stmt2->get_result();
 
-                              
-                                $stmt2->bind_param('ii', $id_edificio, $row_planta['id_planta']);          
-                                $stmt2->execute();
-                                $rs2=$stmt2->get_result();
+                        if($row2 = $rs2->fetch_assoc()) {
 
+                                  do {
+
+                                   // echo "ID DE LOS DEPARTAMNETOS.".$row2['id_dpto']."<br>";                                            
+                                  
+                                    // CREAR UN DO WHILE 
                                
+                                    $result_dpto = "SELECT * FROM departamento where id_dpto=?";
+                                    $stmt_dpto = $conn->prepare($result_dpto);
 
-                                //echo  $id_edificio."<br>";
-                                //echo  $row_planta['id_planta']."<br>";
+                                    if($stmt_dpto === false) {
+                                    trigger_error('Wrong SQL: ' . $result_dpto . ' Error: ' . $conn->error, E_USER_ERROR);
+                                    }
 
+                                    $stmt_dpto->bind_param('i',$row2['id_dpto']);          
+                                    $stmt_dpto->execute();
+                                    $rs_dpto=$stmt_dpto->get_result();
 
+                                    if($row_dpto = $rs_dpto->fetch_assoc()) {
+                                            $temp2=array('id_dpto'=>utf8_encode($row_dpto['id_dpto']),
+                                                'nombre'=>utf8_encode($row_dpto['nombre'])
+                                            );
+                                    }
+                                
+                                     $dptos[]=$temp2;
 
-                                if($row2 = $rs2->fetch_assoc()) {
-
-
-                                          do {
-
-                                           // echo "ID DE LOS DEPARTAMNETOS.".$row2['id_dpto']."<br>";
-                                            
-                                          
-                                            // CREAR UN DO WHILE 
-                                       
-                                            $result_dpto = "SELECT * FROM departamento where id_dpto=?";
-                                            $stmt_dpto = $conn->prepare($result_dpto);
-
-                                            if($stmt_dpto === false) {
-                                            trigger_error('Wrong SQL: ' . $result_dpto . ' Error: ' . $conn->error, E_USER_ERROR);
-                                            }
-
-                                            $stmt_dpto->bind_param('i',$row2['id_dpto']);          
-                                            $stmt_dpto->execute();
-                                            $rs_dpto=$stmt_dpto->get_result();
-
-                                            if($row_dpto = $rs_dpto->fetch_assoc()) {
-                                                    $temp2=array('id_dpto'=>utf8_encode($row_dpto['id_dpto']),
-                                                        'nombre'=>utf8_encode($row_dpto['nombre'])
-                                                    );
-                                            }
-                                        
-                                             $dptos[]=$temp2;
-
-                                     } while ($row2 = $rs2->fetch_assoc());
-                            
-                            } // if($row2 = $rs2->                                                                                       
-                                     
+                             } while ($row2 = $rs2->fetch_assoc());
+                    
+                    } // if($row2 = $rs2->                                                                                       
+                             
                     $temp1=array('id_planta'=>utf8_encode($row_planta['id_planta']),
                     'nombre'=>utf8_encode($row_planta['nombre']),'dptos'=>$dptos);
 
@@ -305,20 +268,16 @@ if($type_accion==="relacion_edificio_planta_dpto") {
                     
                     $response_planta[]=$temp1;
 
-                 } while ($row_planta=$rs_planta->fetch_assoc());
+                    } while ($row_planta=$rs_planta->fetch_assoc());                    
 
-                     
-
-                }// Planta
-                      
+                }// Planta                      
           
             } while ($row= $rs->fetch_assoc());
 
-        }
-    
+        } //if($row = $rs->fetch_assoc())  
         
         $item=array( 'plantas' => $response_planta);
         $json = json_encode($item);
         echo $json;
         
-}
+}//if($type_accion==="relacion_edificio_planta_dpto")
