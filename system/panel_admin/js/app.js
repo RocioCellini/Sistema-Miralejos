@@ -45,15 +45,45 @@
       }) 
 
       .state('GestionVentas.index',{
-        url:'/NuevoCliente',
-        templateUrl:'templates/nuevo_cliente.html',
+        url:'/Estadisticas',
+        templateUrl:'templates/estadisticas.html',
+        controller: 'Estadisticas as $ctrl_e'
+      })
+
+       .state('GestionVentas.planilla',{
+        url:'/Planilla',
+        templateUrl:'templates/planilla.html',
+        controller: 'Planilla as $ctrl_p'
+      })
+
+       .state('GestionVentas.buscarContacto',{
+        url:'/BuscarContacto',
+        templateUrl:'templates/buscar_contacto.html',
+        controller: 'BuscarContacto as $ctrl_bc'
+      })
+
+      .state('GestionVentas.nuevoContacto',{
+        url:'/NuevoContacto',
+        templateUrl:'templates/nuevo_contacto.html',
         controller: 'NuevoCliente as $ctrl_nc'
       })
 
-      .state('GestionVentas.nuevoDpto',{
-        url:'/NuevoDpto',
-        templateUrl:'templates/nuevo_dpto.html',
-        controller: 'NuevoDpto as $ctrl_nd'
+      .state('GestionVentas.buscarVendedor',{
+        url:'/BuscarVendedor',
+        templateUrl:'templates/buscar_vendedor.html',
+        controller: 'BuscarVendedor as $ctrl_bv'
+      }) 
+
+      .state('GestionVentas.nuevoVendedor',{
+        url:'/NuevoVendedor',
+        templateUrl:'templates/nuevo_vendedor.html',
+        controller: 'NuevoVendedor as $ctrl_nv'
+      }) 
+
+      .state('GestionVentas.buscarEdificio',{
+        url:'/BuscarEdificio',
+        templateUrl:'templates/buscar_edificio.html',
+        controller: 'BuscarEdificio as $ctrl_be'
       })
 
       .state('GestionVentas.nuevoEdificio',{
@@ -62,22 +92,10 @@
         controller: 'NuevoEdificio as $ctrl_ne'
       })
 
-      .state('GestionVentas.nuevoLlamado',{
-        url:'/NuevoLlamado',
-        templateUrl:'templates/nuevo_llamado.html',
-        controller: 'NuevoLlamado as $ctrl_nl'
-      })
-
-      .state('GestionVentas.nuevaLocalidad',{
-        url:'/NuevaLocalidad',
-        templateUrl:'templates/nueva_localidad.html',
-        controller: 'NuevaLocalidad as $ctrl_nloc'
-      })
-
-      .state('GestionVentas.cerrarOperacion',{
-        url:'/CerrarOperacion',
-        templateUrl:'templates/cerrar_operacion.html',
-        controller: 'CerrarOperacion as $ctrl_co'
+      .state('GestionVentas.buscarPlanta',{
+        url:'/BuscarPlanta',
+        templateUrl:'templates/buscar_planta.html',
+        controller: 'BuscarPlanta as $ctrl_bp'
       })
 
       .state('GestionVentas.nuevaPlanta',{
@@ -86,30 +104,55 @@
         controller: 'NuevaPlanta as $ctrl_np'
       })
 
+      .state('GestionVentas.buscarDpto',{
+        url:'/BuscarDpto',
+        templateUrl:'templates/buscar_dpto.html',
+        controller: 'BuscarDpto as $ctrl_bd'
+      })
+
+      .state('GestionVentas.nuevoDpto',{
+        url:'/NuevoDpto',
+        templateUrl:'templates/nuevo_dpto.html',
+        controller: 'NuevoDpto as $ctrl_nd'
+      })
+
       .state('GestionVentas.nuevaRelacion',{
         url:'/NuevaRelacion',
         templateUrl:'templates/nueva_relacion.html',
         controller: 'NuevaRelacion as $ctrl_nr'
       })
 
-     .state('GestionVentas.nuevoVendedor',{
-        url:'/NuevoVendedor',
-        templateUrl:'templates/nuevo_vendedor.html',
-        controller: 'NuevoVendedor as $ctrl_nv'
-      })  
-
-      /*  
-      .state('GestionVentas.editarCliente',{
-        url:'/EditarCliente',
-        templateUrl:'templates/editar_cliente.html',
-        controller: 'EditarCliente as $ctrl_editc'
+      .state('GestionVentas.buscarLocalidad',{
+        url:'/BuscarLocalidad',
+        templateUrl:'templates/buscar_localidad.html',
+        controller: 'BuscarLocalidad as $ctrl_bloc'
       })
-      .state('GestionVentas.eliminarCliente',{
-        url:'/EliminarCliente',
-        templateUrl:'templates/eliminar_cliente.html',
-        controller: 'EliminarCliente as $ctrl_elimc'
-      })      
-      */
+
+      .state('GestionVentas.nuevaLocalidad',{
+        url:'/NuevaLocalidad',
+        templateUrl:'templates/nueva_localidad.html',
+        controller: 'NuevaLocalidad as $ctrl_nloc'
+      })
+
+      .state('GestionVentas.BuscarLlamado',{
+        url:'/BuscarLlamado',
+        templateUrl:'templates/buscar_llamado.html',
+        controller: 'BuscarLlamado as $ctrl_bl'
+      })
+
+      .state('GestionVentas.nuevoLlamado',{
+        url:'/NuevoLlamado',
+        templateUrl:'templates/nuevo_llamado.html',
+        controller: 'NuevoLlamado as $ctrl_nl'
+      })
+
+      .state('GestionVentas.cerrarOperacion',{
+        url:'/CerrarOperacion',
+        templateUrl:'templates/cerrar_operacion.html',
+        controller: 'CerrarOperacion as $ctrl_co'
+      })
+
+   
 
       }).run(function($state) {
         
