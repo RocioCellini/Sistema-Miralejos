@@ -5,11 +5,13 @@
 		<form method="post" action=""> 
 			<legend>Buscar Vendedor</legend>
 			<fieldset>
-			<input type="text" class="form-control" name="buscar">
+			<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bv.objDataVendedor.email">
 			<p>* ingrese el correo electrónico de la persona</p><br>
-			<button type="submit" class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl_bv.BuscarVendedor()' class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
 	<div class="col-md-8"></div>
 </div>
+
+<div class="mensajesistema">{{$ctrl_bc.Mensaje}}</div><br><br>
