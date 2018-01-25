@@ -4,12 +4,12 @@
 
      var app=_angular.module("GestionVentas");
 
-     app.factory('clienteDataFactory', function ($http, $sce, $stateParams) {
+     app.factory('clienteFactory', function ($http, $sce, $stateParams) {
 
      var promisedata;
       
 
-     var ingresoCliente = {
+     var Cliente = {
             
         nuevoCliente: function(params) {
             promisedata=$http.post('php/sections/cliente/nuevo_cliente.php', params).then(function (response) {
@@ -29,7 +29,7 @@
 
       };//RETURN API
 
-      return ingresoCliente;      
+      return Cliente;      
     });//  app.factory
 
 

@@ -4,33 +4,36 @@
 
   var app=_angular.module("GestionVentas");
 
-  app.controller("NuevoCliente", NuevoCliente);
+  app.controller("Cliente", Cliente);
   
-  NuevoCliente.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "clienteDataFactory", "defaultdataFactory", "$filter"];
+  Cliente.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
+   "clienteDataFactory", "defaultdataFactory", "$filter", "$location"];
 
     //Controller
-    function NuevoCliente ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, clienteDataFactory, defaultdataFactory, $filter) {
+    function Cliente ($scope, $sce, $state,  $stateParams,  $window,
+     $uibModal, $document, clienteDataFactory, defaultdataFactory, $filter, $location) {
                                    
-        var $ctrl_nc = this;
+       var path = $location.path();
+       console.log(path);
 
-        $ctrl_nc.datalocalidad2={};
-        $ctrl_nc.objDataCliente={};
-        $ctrl_nc.defaultparams={};
-        $ctrl_nc.allow_disable=false;
-        $ctrl_nc.allow_visible=true;
+        var $ctrl_c = this;
+
+        $ctrl_c.datalocalidad2={};
+        $ctrl_c.objDataCliente={};
+        $ctrl_c.defaultparams={};
+        $ctrl_c.allow_disable=false;
+        $ctrl_c.allow_visible=true;
                      
          // For Modal
-        $ctrl_nc.itemsModals=[];
-        $ctrl_nc.itemWarning=[];
-        $ctrl_nc.animationsEnabled=true;
+        $ctrl_c.itemsModals=[];
+        $ctrl_c.itemWarning=[];
+        $ctrl_c.animationsEnabled=true;
          
-        $ctrl_nc.Init = Init;
-        $ctrl_nc.upDate = upDate;
-        $ctrl_nc.NuevoCliente=NuevoCliente;        
+        $ctrl_c.Init = Init;
+        $ctrl_c.upDate = upDate;
+        $ctrl_c.NuevoCliente=NuevoCliente;        
 
-        $ctrl_nc.data = {
+        $ctrl_c.data = {
           availableOptions: [
             {id: '-1', name: 'Seleccionar'},
             {id: '0', name: 'No'},
@@ -42,19 +45,20 @@
 
         function Init () {
                     
-          $ctrl_nc.defaultparams.type_accion="search_provincialocalidad";
-          defaultdataFactory.buscarProvinciaLocalidad($ctrl_nc.defaultparams).then(function(d) {    
+          $ctrl_c.defaultparams.type_accion="search_provincialocalidad";
+          defaultdataFactory.buscarProvinciaLocalidad($ctrl_c.defaultparams).then(function(d) {    
     
+            console.log(d);
 
-            $ctrl_nc.datalocalidad2=d.localidad;
+            $ctrl_c.datalocalidad2=d.localidad;
 
 
-            $ctrl_nc.dataprovincia = {
+            $ctrl_c.dataprovincia = {
                 availableOptions: d.provincia,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
               };
 
-            $ctrl_nc.datalocalidad = {
+            $ctrl_c.datalocalidad = {
                 availableOptions: d.localidad,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
               };
@@ -68,29 +72,28 @@
       //-------------------------------------------------------------------------------------------------  
 
         function upDate (objprov) { 
-
-           $ctrl_nc.datalocalidad.availableOptions = $filter('filter')($ctrl_nc.datalocalidad2 ,{id_provincia:objprov.id});
-           $ctrl_nc.datalocalidad.selectedOption={id: $ctrl_nc.datalocalidad.availableOptions[0].id};                                                                         
-      }
+           $ctrl_c.datalocalidad.availableOptions = $filter('filter')($ctrl_c.datalocalidad2 ,{id_provincia:objprov.id});
+           $ctrl_c.datalocalidad.selectedOption={id: $ctrl_c.datalocalidad.availableOptions[0].id};                                                                         
+       }
 
 
       function NuevoCliente () {
                 
-          //$ctrl_nc.allow_disable=true;
+          //$ctrl_c.allow_disable=true;
 
-          $ctrl_nc.objDataCliente.type_accion="nuevo_cliente";
+          $ctrl_c.objDataCliente.type_accion="nuevo_cliente";
      
-          $ctrl_nc.objDataCliente.id_provincia=$ctrl_nc.dataprovincia.selectedOption.id;
-          $ctrl_nc.objDataCliente.id_localidad=$ctrl_nc.datalocalidad.selectedOption.id;
-          $ctrl_nc.objDataCliente.conoce=$ctrl_nc.data.selectedOption.id;
+          $ctrl_c.objDataCliente.id_provincia=$ctrl_c.dataprovincia.selectedOption.id;
+          $ctrl_c.objDataCliente.id_localidad=$ctrl_c.datalocalidad.selectedOption.id;
+          $ctrl_c.objDataCliente.conoce=$ctrl_c.data.selectedOption.id;
 
-          clienteDataFactory.nuevoCliente($ctrl_nc.objDataCliente).then(function(d) {                   
-                  $ctrl_nc.Mensaje=d.Mensaje;
-                  //$ctrl_nc.allow_disable=false;
+          clienteDataFactory.nuevoCliente($ctrl_c.objDataCliente).then(function(d) {                   
+                  $ctrl_c.Mensaje=d.Mensaje;
+                  //$ctrl_c.allow_disable=false;
       
            }).catch(function (err) {
                 console.log(err);
-                //$ctrl_nc.allow_disable=false;
+                //$ctrl_c.allow_disable=false;
            });                
 
       };     
@@ -98,25 +101,5 @@
       Init();
 
     }// DataSendController
-
-    function BuscarCliente ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, clienteDataFactory, $filter) {
-
-        $ctrl_bc=this;
-        $ctrl_bc.objDataCliente={};        
-        $ctrl_bc.Buscar=Buscar;
-
-        function Buscar() {
-
-          $ctrl_bc.objDataCliente.type_accion="buscar_cliente";
-
-          clienteDataFactory.buscarCliente($ctrl_bc.objDataCliente).then(function(d) {                   
-                  $ctrl_bc.Mensaje=d.Mensaje;     
-      
-           }).catch(function (err) {
-                console.log(err);          
-           });                
-      };
-    }
 
 })(window.angular);

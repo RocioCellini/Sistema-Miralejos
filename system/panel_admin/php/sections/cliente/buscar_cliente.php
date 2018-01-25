@@ -15,6 +15,13 @@ if ($type_accion==="buscar_cliente") {*/
 
     //$email=$data->{'email'};
 
+
+		/*
+		$result = 'SELECT * FROM Sis_Personas WHERE   (Nombre Like ? OR Apellido like ? OR Mail like ? OR TelefonoFijo Like ? OR Cel1 Like ? OR Cel2 Like ? OR DNI like ?) AND (Set_Historial=?) ORDER BY Nombre';
+	   */
+
+
+
 	$result = 'SELECT * FROM cliente WHERE email=?';
 
 	$stmt = $conn->prepare($result);
@@ -37,7 +44,7 @@ if ($type_accion==="buscar_cliente") {*/
 
       	 do{
 
-			$message="Los datos del cliente encontrado son:";
+		
 			$id_provincia=$row["id_provincia"];
 			$id_localidad=$row["id_localidad"];			
 
@@ -83,29 +90,26 @@ if ($type_accion==="buscar_cliente") {*/
                         'dni'=>utf8_encode($row['dni']),
                         'telefono'=>utf8_encode($row['telefono']),
                         'email'=>utf8_encode($row['email']),
-                        'id_provincia'=>utf8_encode($provincia),                    
-                        'id_localidad'=>utf8_encode($localidad),
+                        'provincia'=>utf8_encode($provincia),                    
+                        'localidad'=>utf8_encode($localidad),
                         'actividad'=>utf8_encode($row['actividad']),
                         'conoce'=>utf8_encode($row['conoce'])
                     	);
 
 			$response[]=$temp;
-		
+
+	
 		} while ($row=$rs->fetch_assoc());
-		echo '</table></div><br><br>';
+		
 
 	} else { 
-		 $message="No se encontró un cliente con el email ingresado";
-		 $response[]=Null;
+		 $mensaje=array($message=>utf8_encode("No se encontró un cliente con el email ingresado"));
+		 $response[]=$mensaje;
 	} 
 
   //***************************************************************************************///
 
-  $item2=array('Mensaje' => utf8_encode($message));
-  $json = json_encode($item2);
-  echo $json.'<br>';
-
-  $item=array('cliente' => $response);
+  $item=array('Respuesta' => $response);
   $json = json_encode($item);
   echo $json;
 

@@ -5,9 +5,9 @@
 		<form name="FormBuscarCliente" class="form-horizontal" role="form"> 
 			<legend>Buscar Contacto</legend>
 			<fieldset>
-			<input name="email" type="text" class="form-control campoform" ng-model="$ctrl_bc.objDataCliente.email">
+			<input  type="text" class="form-control campoform" ng-model="$ctrl_bc.objSearch.criterio">
 			<p>* ingrese el correo electrónico de la persona</p><br>
-			<button ng-click='$ctrl_bc.BuscarCliente()' class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl_bc.BuscarCliente($ctrl_bc.objSearch.criterio)' class="btn btn-default">Buscar</button>
 			</fieldset>			
 		</form> 
 	</div>
@@ -16,20 +16,31 @@
 
 <div class="mensajesistema">{{$ctrl_bc.Mensaje}}</div><br><br>
 
-<div class="row" align="center">
-	<div class="table-responsive">
-  		<table class="table table-bordered table-responsive">
-		<tr>
-		<td class="tablalistado_encabezado" align="center"><strong>Nombre</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>Apellido</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>Dni</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>telefono</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>Email</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>Provincia</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>Loc</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>Actividad</strong></td>
-		<td class="tablalistado_encabezado" align="center"><strong>Conoce</strong></td>
-		</tr>
-		</table>
-	</div>
-</div>
+
+  <div class="row" >
+    <div class="col-md-3"  ></div>
+      <div class="col-md-6"  align="center">
+  
+      <table ng-table="$ctrl_bc.tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in $data">
+            <td data-title="'Nombre'">{{row.nombre}}</td>
+            <td data-title="'Apellido'">{{row.apellido}}</td>
+            <td data-title="'Dni'">{{row.dni}}</td>
+            <td data-title="'Telefono'">{{row.telefono}}</td>
+            <td data-title="'Email'">{{row.email}}</td>
+            <td data-title="'Provincia'">{{row.provincia}}</td>
+            <td data-title="'Localidad'">{{row.localidad}}</td>
+            <td data-title="'Actividad'">{{row.actividad}}</td>
+            <td data-title="'Conoce'">{{row.conoce}}</td>
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bc.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bc.GoDataEdit(row)'>
+             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
+            </td>
+        </tr>
+      </table>
+
+
+
+      </div>
+      <div class="col-md-3" > </div>
+    </div>
