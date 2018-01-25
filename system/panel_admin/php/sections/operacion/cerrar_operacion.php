@@ -1,10 +1,4 @@
 <?php
-//header('X-Frame-Options: SAMEORIGIN');
-//header('X-Content-Type-Options: nosniff');
-//header('X-XSS-Protection: 1;mode=block');
-//header("Content-type: text/plain");	
-session_start();
-//if(isset($_SESSION['Id_Usuario'])) {
 
 $json = file_get_contents('php://input');
 $data=json_decode($json);
@@ -56,6 +50,6 @@ if($type_accion==="cerrar_operacion"){
   $json = json_encode($item);
   echo $json;
             
-   } //if($type_accion==="nueva_operacion")
+  // } //if($type_accion==="nueva_operacion")
 
 ?>      
