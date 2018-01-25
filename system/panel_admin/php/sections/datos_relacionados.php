@@ -173,7 +173,7 @@ if ($type_accion==="buscar_edificio_planta_dpto") {
 } //if ($type_accion==="edificio_planta_dpto")
 
 
-;
+
 
 if($type_accion==="relacion_edificio_planta_dpto"){
 
