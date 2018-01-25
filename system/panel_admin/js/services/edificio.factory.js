@@ -16,6 +16,14 @@
         });
            
           return promisedata;
+        },
+
+        buscarEdificio: function(params) {
+            promisedata=$http.post('php/sections/edificio/buscar_edificio.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API
