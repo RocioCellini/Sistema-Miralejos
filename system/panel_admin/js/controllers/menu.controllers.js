@@ -26,11 +26,11 @@
             link: "#",
             subtree: [{
               name: "Buscar",
-              link: "GestionVentas.buscarContacto"
+              link: "GestionVentas.buscarCliente"
             },
             {
               name: "Añadir",
-              link: "GestionVentas.nuevoContacto"
+              link: "GestionVentas.nuevoCliente"
             }]
           },{
             name: "Vendedores",
