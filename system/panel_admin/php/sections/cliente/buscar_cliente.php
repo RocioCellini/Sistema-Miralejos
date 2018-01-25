@@ -77,7 +77,8 @@ if ($type_accion==="buscar_cliente") {*/
 					$localidad=$row_loc["nombre"];
 				}
 			
-			$temp=array('nombre'=>utf8_encode($row['nombre']),
+			$temp=array('id_cliente'=>utf8_encode($row['id_cliente']),
+						'nombre'=>utf8_encode($row['nombre']),
                         'apellido'=> utf8_encode($row['apellido']), 
                         'dni'=>utf8_encode($row['dni']),
                         'telefono'=>utf8_encode($row['telefono']),
@@ -95,6 +96,7 @@ if ($type_accion==="buscar_cliente") {*/
 
 	} else { 
 		 $message="No se encontró un cliente con el email ingresado";
+		 $response[]=Null;
 	} 
 
   //***************************************************************************************///

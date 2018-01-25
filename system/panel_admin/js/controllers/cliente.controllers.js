@@ -104,9 +104,9 @@
 
         $ctrl_bc=this;
         $ctrl_bc.objDataCliente={};        
-        $ctrl_bc.BuscarCliente=BuscarCliente;
+        $ctrl_bc.Buscar=Buscar;
 
-        function BuscarCliente () {
+        function Buscar() {
 
           $ctrl_bc.objDataCliente.type_accion="buscar_cliente";
 
@@ -116,7 +116,6 @@
            }).catch(function (err) {
                 console.log(err);          
            });                
-
       };
     }
 
