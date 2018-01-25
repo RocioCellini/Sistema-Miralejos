@@ -59,13 +59,14 @@
        .state('GestionVentas.buscarCliente',{
         url:'/BuscarCliente',
         templateUrl:'templates/buscar_cliente.html',
-        controller: 'BuscarCliente as $ctrl_bc'
+        controller: 'BuscarCliente as $ctrl_bc',
+
       })
 
       .state('GestionVentas.nuevoCliente',{
         url:'/NuevoCliente',
-        templateUrl:'templates/nuevo_cliente.html',
-        controller: 'NuevoCliente as $ctrl_nc'
+        templateUrl:'templates/cliente.html',
+        controller: 'Cliente as $ctrl_c'
       })
 
       .state('GestionVentas.buscarVendedor',{
