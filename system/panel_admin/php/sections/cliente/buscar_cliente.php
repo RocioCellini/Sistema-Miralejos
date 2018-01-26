@@ -1,38 +1,59 @@
 <?php
 
-$json = file_get_contents('php://input');
+$json=file_get_contents('php://input');
 $data=json_decode($json);
 
-/*$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'};
+$criterio=$data->{'criterio'};
 
-$type_accion=="buscar_cliente";
+	echo $type_accion;
+	echo $criterio;
 
-if ($type_accion==="buscar_cliente") {*/
+//$email=$data->{'email'};
+
+if ($type_accion==="buscar_cliente") {
 
 	include "../../conexion.php";
 
-	$email='maria@miralejos.net';
+	echo "ingresó en el php";
+
+	/*$nombre='Maria';
+	$apellido='Cellini';
+	$dni=555;	
+    $telefono=54545;
+    $email='maria@miralejos.net';
+    $id_provincia=3;                
+    $id_localidad=5;
+    $actividad='abogada';
+    $conoce=0;*/
 
     //$email=$data->{'email'};
 
+	/* Ejemplo
 
-		/*
-		$result = 'SELECT * FROM Sis_Personas WHERE   (Nombre Like ? OR Apellido like ? OR Mail like ? OR TelefonoFijo Like ? OR Cel1 Like ? OR Cel2 Like ? OR DNI like ?) AND (Set_Historial=?) ORDER BY Nombre';
-	   */
+		$result = 'SELECT * FROM Sis_Personas WHERE (Nombre Like ? OR Apellido like ? OR Mail like ? OR TelefonoFijo Like ? OR Cel1 Like ? OR Cel2 Like ? OR DNI like ?) AND (Set_Historial=?) ORDER BY Nombre';
 
+	   Ejemplo aplicado
 
+		$result = 'SELECT * FROM cliente WHERE (nombre Like ? OR apellido like ? OR dni like ? OR telefono Like ? OR email Like ? OR id_provincia Like ? OR id_localidad like ? OR actividad like ? conoce like ?) ORDER BY nombre';
+    */
 
-	$result = 'SELECT * FROM cliente WHERE email=?';
+	/*Consulta que anda bien
+		$result = 'SELECT * FROM cliente WHERE email=?';*/
 
-	$stmt = $conn->prepare($result);
+	  $result = 'SELECT * FROM cliente WHERE (nombre Like ? OR apellido like ? OR dni like ? OR telefono Like ? OR email Like ? OR id_provincia Like ? OR id_localidad like ? OR actividad like ? conoce like ?) ORDER BY nombre';
+
+	  $stmt = $conn->prepare($result);
 
       if($stmt===false) {
       trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
       }
 
-    // $desc="%".$criterio."%";    
+      $desc="%".$criterio."%";    
 
-      $stmt->bind_param('s',$email); 
+      // $stmt->bind_param('ssiisiisi',$nombre, $apellido, $dni, $telefono, $email, $id_provincia, $id_localidad, $actividad, $conoce); 
+
+      $stmt->bind_param('s',$desc);
 
       $stmt->execute(); 
 
@@ -43,7 +64,6 @@ if ($type_accion==="buscar_cliente") {*/
       	 $response = array();
 
       	 do{
-
 		
 			$id_provincia=$row["id_provincia"];
 			$id_localidad=$row["id_localidad"];			
@@ -97,10 +117,8 @@ if ($type_accion==="buscar_cliente") {*/
                     	);
 
 			$response[]=$temp;
-
 	
-		} while ($row=$rs->fetch_assoc());
-		
+		} while ($row=$rs->fetch_assoc());		
 
 	} else { 
 		 $mensaje=array($message=>utf8_encode("No se encontró un cliente con el email ingresado"));
@@ -113,6 +131,6 @@ if ($type_accion==="buscar_cliente") {*/
   $json = json_encode($item);
   echo $json;
 
-  //}//if ($type_accion==="buscar_cliente") 
+  }//if ($type_accion==="buscar_cliente") 
 
 ?>		
