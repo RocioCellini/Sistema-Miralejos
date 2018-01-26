@@ -37,15 +37,12 @@
                   count: 10 // initial page size
                 };
 
-
-
                 var initialSettings = {
                     paginationMaxBlocks: 13,
                     paginationMinBlocks: 2
                 };
 
-
-                //http://ng-table.com/#/
+                
                 $ctrl_bc.tableParams = new NgTableParams(initialParams, initialSettings);
             
 
@@ -57,22 +54,19 @@
          //**********************************************************************************************// 
           function Init () {
             
-                  //$ctrl_bc.objSearch.type_accion="search_ingresos";
-                  //$ctrl_bc.objSearch.criterio="";
-                   $ctrl_bc.objSearch;
-                               
-                       
-                  clienteFactory.buscarCliente($ctrl_bc.objSearch).then(function(d) {
+              //$ctrl_bc.objSearch.type_accion="search_ingresos";
+              //$ctrl_bc.objSearch.criterio="";
+               $ctrl_bc.objSearch;                           
+                   
+              clienteFactory.buscarCliente($ctrl_bc.objSearch).then(function(d) {
 
-                      console.log(d);
-                 
-                      $ctrl_bc.tableParams.settings({dataset: d.Respuesta});
+                  console.log(d);
+             
+                  $ctrl_bc.tableParams.settings({dataset: d.Respuesta});          
 
-              
-
-                  }).catch(function (err) {
-                      console.log(err);
-                    });
+              }).catch(function (err) {
+                  console.log(err);
+                });
              
           };
 
@@ -83,21 +77,15 @@
                 console.log(valorIngresado);               
           };
 
+
           // To go to modify form for pacient suscribers      
          //**********************************************************************************************// 
-          function GoDataEdit (objuser) {
-              
+          function GoDataEdit (objuser) {             
             
-             // $state.go('myFomrC1.modificaPaciente');
+             // $state.go('GestionVentas.modificarCliente');
 
           };
-
-
-     
-
-
-              
+    
       }// DataSendController
+
 })(window.angular);
-/**********************************************/
-// FOR TABLE
