@@ -8,7 +8,6 @@
 
      var promisedata;
       
-
      var Cliente = {
             
         nuevoCliente: function(params) {
@@ -31,7 +30,5 @@
 
       return Cliente;      
     });//  app.factory
-
-
 
 })(window.angular);

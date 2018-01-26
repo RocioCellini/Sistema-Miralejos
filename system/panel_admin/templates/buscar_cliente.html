@@ -16,13 +16,13 @@
 
 <div class="mensajesistema">{{$ctrl_bc.Mensaje}}</div><br><br>
 
+<div class="row" >
+  <div class="col-md-3"  ></div>
+    <div class="col-md-6"  align="center">
 
-  <div class="row" >
-    <div class="col-md-3"  ></div>
-      <div class="col-md-6"  align="center">
-  
       <table ng-table="$ctrl_bc.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
+
             <td data-title="'Nombre'">{{row.nombre}}</td>
             <td data-title="'Apellido'">{{row.apellido}}</td>
             <td data-title="'Dni'">{{row.dni}}</td>
@@ -32,6 +32,7 @@
             <td data-title="'Localidad'">{{row.localidad}}</td>
             <td data-title="'Actividad'">{{row.actividad}}</td>
             <td data-title="'Conoce'">{{row.conoce}}</td>
+            
             <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bc.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
              <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bc.GoDataEdit(row)'>
              <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
@@ -39,8 +40,6 @@
         </tr>
       </table>
 
-
-
-      </div>
-      <div class="col-md-3" > </div>
     </div>
+  <div class="col-md-3" > </div>
+</div>
