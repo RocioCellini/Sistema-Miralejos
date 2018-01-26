@@ -65,7 +65,7 @@
 
       .state('GestionVentas.nuevoCliente',{
         url:'/NuevoCliente',
-        templateUrl:'templates/cliente.html',
+        templateUrl:'templates/abm_cliente.html',
         controller: 'Cliente as $ctrl_c'
       })
 
@@ -77,8 +77,8 @@
 
       .state('GestionVentas.nuevoVendedor',{
         url:'/NuevoVendedor',
-        templateUrl:'templates/nuevo_vendedor.html',
-        controller: 'NuevoVendedor as $ctrl_nv'
+        templateUrl:'templates/abm_vendedor.html',
+        controller: 'NuevoVendedor as $ctrl_v'
       }) 
 
       .state('GestionVentas.buscarEdificio',{
@@ -89,7 +89,7 @@
 
       .state('GestionVentas.nuevoEdificio',{
         url:'/NuevoEdificio',
-        templateUrl:'templates/nuevo_edificio.html',
+        templateUrl:'templates/abm_edificio.html',
         controller: 'NuevoEdificio as $ctrl_ne'
       })
 
@@ -101,7 +101,7 @@
 
       .state('GestionVentas.nuevaPlanta',{
         url:'/NuevaPlanta',
-        templateUrl:'templates/nueva_planta.html',
+        templateUrl:'templates/abm_planta.html',
         controller: 'NuevaPlanta as $ctrl_np'
       })
 
@@ -113,7 +113,7 @@
 
       .state('GestionVentas.nuevoDpto',{
         url:'/NuevoDpto',
-        templateUrl:'templates/nuevo_dpto.html',
+        templateUrl:'templates/abm_dpto.html',
         controller: 'NuevoDpto as $ctrl_nd'
       })
 
@@ -131,7 +131,7 @@
 
       .state('GestionVentas.nuevaLocalidad',{
         url:'/NuevaLocalidad',
-        templateUrl:'templates/nueva_localidad.html',
+        templateUrl:'templates/abm_localidad.html',
         controller: 'NuevaLocalidad as $ctrl_nloc'
       })
 
@@ -143,7 +143,7 @@
 
       .state('GestionVentas.nuevoLlamado',{
         url:'/NuevoLlamado',
-        templateUrl:'templates/nuevo_llamado.html',
+        templateUrl:'templates/abm_llamado.html',
         controller: 'NuevoLlamado as $ctrl_nl'
       })
 

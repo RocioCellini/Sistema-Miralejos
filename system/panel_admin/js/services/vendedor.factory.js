@@ -8,7 +8,7 @@
 
     var promisedata;      
 
-    var ingresoVendedor = {
+    var Vendedor = {
             
         nuevoVendedor: function(params) {
             promisedata=$http.post('php/sections/vendedor/nuevo_vendedor.php', params).then(function (response) {
@@ -19,7 +19,7 @@
         },
 
         buscarVendedor: function(params) {
-            promisedata=$http.post('php/sections/cliente/buscar_vendedor.php', params).then(function (response) {
+            promisedata=$http.post('php/sections/vendedor/buscar_vendedor.php', params).then(function (response) {
                   return response.data;
         });
            
@@ -28,7 +28,8 @@
 
       };//RETURN API
 
-      return ingresoVendedor;      
-    });//  app.factory
+      return Vendedor;     
+       
+    });
 
 })(window.angular);

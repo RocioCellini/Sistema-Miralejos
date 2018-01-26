@@ -1,110 +1,85 @@
 
-
-
-//Modificar
-
-
-
 (function(_angular) {
   
-  var app=_angular.module("myFomrC1");
+  var app=_angular.module("GestionVentas");
 
-  app.controller("ListadoIngresos", ListadoIngresos);
-  ListadoIngresos.$inject = ["$scope", "$state", "$stateParams",
-  "clienteFactory", "NgTableParams","$window", "$filter"];
+  app.controller("BuscarVendedor", BuscarVendedor);
+  BuscarVendedor.$inject = ["$scope", "$state", "$stateParams",
+  "vendedorFactory", "NgTableParams","$window", "$filter"];
 
-          //Controller
-          function ListadoIngresos($scope, $state,  
-            $stateParams , clienteFactory,  
-             NgTableParams, $window, $filter) {
-                          
-                
-            // Vars And Functions   
-            //****************************************************************************************//
-                 var $ctrl_bc=this;
+  //Controller
+  function BuscarVendedor($scope, $state,$stateParams , vendedorFactory,  
+       NgTableParams, $window, $filter) {
+                    
+        var $ctrl_bv=this;
 
+        $ctrl_bv.objSearch={
+             criterio:""
+        };
 
-                 $ctrl_bc.objSearch={
-                       criterio:""
-                 };
+        $ctrl_bv.allow_disable2=true;          
 
-                 $ctrl_bc.allow_disable2=true;          
+        $ctrl_bv.Init = Init;
+        $ctrl_bv.BuscarVendedor = BuscarVendedor;
+        $ctrl_bv.GoDataEdit = GoDataEdit;
 
-                $ctrl_bc.Init = Init;
-                $ctrl_bc.StartSearch = StartSearch;
-                $ctrl_bc.GoDataEdit = GoDataEdit;
-                $ctrl_bc.DeleteUser = DeleteUser;
-                $ctrl_bc.GetExcel = GetExcel;
-
-                $ctrl_bc.Init();
-
-            // To configure table   
-            //****************************************************************************************//    
-                var initialParams = {
-                  count: 10 // initial page size
-                };
+        $ctrl_bv.Init();
 
 
+      // To configure table   
+      //****************************************************************************************//    
 
-                var initialSettings = {
-                    paginationMaxBlocks: 13,
-                    paginationMinBlocks: 2,
-                    dataset: $ctrl_bc.objSearch.result
-                };
+        var initialParams = {
+          count: 10 // initial page size
+        };
 
-                $ctrl_bc.tableParams = new NgTableParams(initialParams, initialSettings);
+        var initialSettings = {
+            paginationMaxBlocks: 13,
+            paginationMinBlocks: 2
+        };
+
+        $ctrl_bv.tableParams = new NgTableParams(initialParams, initialSettings);
+
+        $ctrl_bv.objSearch={};
+
+
+        // To go to modify form for pacient suscribers      
+        //**********************************************************************************************// 
+
+        function Init () {
             
+              //$ctrl_bv.objSearch.type_accion="search_ingresos";
+              //$ctrl_bv.objSearch.criterio="";
+              $ctrl_bv.objSearch;                           
+                   
+              vendedorFactory.buscarVendedor($ctrl_bv.objSearch).then(function(d) {
 
-                $ctrl_bc.objSearch={};
-
-
-
-         // To go to modify form for pacient suscribers      
-         //**********************************************************************************************// 
-          function Init () {
-            
-                  //$ctrl_bc.objSearch.type_accion="search_ingresos";
-                  //$ctrl_bc.objSearch.criterio="";
-                   $ctrl_bc.objSearch;
-                               
-                       
-                  IngresoDataFactory.buscarIngresos($ctrl_bc.objSearch).then(function(d) {
-
-                      console.log(d);
-                 
-                      $ctrl_bc.tableParams.settings({dataset: d.Respuesta});
-
-                      console.log($ctrl_bc.tableParams.settings().counts);
-
-                  }).catch(function (err) {
-                      console.log(err);
-                    });
+                  console.log(d);
              
+                  $ctrl_bv.tableParams.settings({dataset: d.Respuesta});
+
+            }).catch(function (err) {
+                console.log(err);
+              });    
+
           };
 
              
          // Searching data        
          //**********************************************************************************************//  
-          function StartSearch () {     
-                                     
-                  
+           function BuscarVendedor (valorIngresado) {     
+                console.log(valorIngresado);               
           };
+          
 
           // To go to modify form for pacient suscribers      
          //**********************************************************************************************// 
           function GoDataEdit (objuser) {
-              
-              IngresoDataFactory.saveDataForm(objuser);
-              $state.go('myFomrC1.modificaPaciente');
+
+              //$state.go('GestionVentas.modificarVendedor');
 
           };
-
-
-     
-
-
               
       }// DataSendController
+
 })(window.angular);
-/**********************************************/
-// FOR TABLE

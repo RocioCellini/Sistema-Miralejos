@@ -4,70 +4,50 @@
 
   var app=_angular.module("GestionVentas");
 
-  app.controller("NuevoVendedor", NuevoVendedor);
+  app.controller("Vendedor", Vendedor);
   
-  NuevoVendedor.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
+  Vendedor.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "vendedorFactory"];
 
     //Controller
-    function NuevoVendedor ($scope, $sce, $state,  $stateParams,  $window,
+    function Vendedor ($scope, $sce, $state,  $stateParams,  $window,
      $uibModal, $document, vendedorFactory) {
                                    
-          var $ctrl_nv = this;
+          var $ctrl_v = this;
 
-          $ctrl_nv.objDataVendedor={};
-          $ctrl_nv.allow_disable=false;
-          $ctrl_nv.allow_visible=true;
+          $ctrl_v.objDataVendedor={};
+          $ctrl_v.allow_disable=false;
+          $ctrl_v.allow_visible=true;
                      
           // For Modal
-          $ctrl_nv.itemsModals=[];
-          $ctrl_nv.itemWarning=[];
-          $ctrl_nv.animationsEnabled=true;        
+          $ctrl_v.itemsModals=[];
+          $ctrl_v.itemWarning=[];
+          $ctrl_v.animationsEnabled=true;        
 
-          $ctrl_nv.Init = Init;
-          $ctrl_nv.NuevoVendedor=NuevoVendedor;
+          $ctrl_v.Init = Init;
+          $ctrl_v.NuevoVendedor=NuevoVendedor;
 
           function Init () { }
 
           function NuevoVendedor() {
               
-            //$ctrl_nv.allow_disable=true;
+            //$ctrl_v.allow_disable=true;
 
-            $ctrl_nv.objDataVendedor.type_accion="nuevo_vendedor";
+            $ctrl_v.objDataVendedor.type_accion="nuevo_vendedor";
          
-            vendedorFactory.nuevoVendedor($ctrl_nv.objDataVendedor).then(function(d) {  
+            vendedorFactory.nuevoVendedor($ctrl_v.objDataVendedor).then(function(d) {  
                                
-                    $ctrl_nv.Mensaje=d.MessageComment;
-                    //$ctrl_nv.allow_disable=false;
+                    $ctrl_v.Mensaje=d.MessageComment;
+                    //$ctrl_v.allow_disable=false;
         
              }).catch(function (err) {
                   console.log(err);
-                  //$ctrl_nv.allow_disable=false;
+                  //$ctrl_v.allow_disable=false;
              });                    
         };
 
       Init();
 
      }// DataSendController
-
-    function BuscarVendedor ($scope, $sce, $state,  $stateParams, $window,
-     $uibModal, $document, vendedorFactory, $filter) {
-
-        $ctrl_bv=this;
-        $ctrl_bv.objDataVendedor={};        
-        $ctrl_bv.Buscar=Buscar;
-
-        function Buscar() {
-
-          $ctrl_bv.objDataVendedor.type_accion="buscar_vendedor";
-
-          vendedorFactory.buscarVendedor($ctrl_bv.objDataVendedor).then(function(d) {                   
-                  $ctrl_bv.Mensaje=d.Mensaje;     
-      
-           }).catch(function (err) {
-                console.log(err);          
-           });                
-      };
-    }
 
 })(window.angular);
