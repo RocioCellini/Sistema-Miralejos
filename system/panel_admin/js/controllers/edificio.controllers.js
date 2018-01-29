@@ -4,29 +4,28 @@
 
   var app=_angular.module("GestionVentas");
 
-  app.controller("NuevoEdificio", NuevoEdificio);
+  app.controller("Edificio", Edificio);
   
-  NuevoEdificio.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
+  Edificio.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "edificioFactory"];
 
   //Controller
-  function NuevoEdificio ($scope, $sce, $state,  $stateParams,  $window,
+  function Edificio ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, edificioFactory) {
                                  
-     var $ctrl_ne = this;
+     var $ctrl_e = this;
      
-     $ctrl_ne.objDataEdificio={};
-     $ctrl_ne.allow_disable=false;
-     $ctrl_ne.allow_visible=true;
+     $ctrl_e.objDataEdificio={};
+     $ctrl_e.allow_disable=false;
+     $ctrl_e.allow_visible=true;
 
     
-     $ctrl_ne.Init = Init;
-     $ctrl_ne.upDate = upDate;
-     $ctrl_ne.NuevoEdificio=NuevoEdificio;
+     $ctrl_e.Init = Init;
+     $ctrl_e.upDate = upDate;
+     $ctrl_e.NuevoEdificio=NuevoEdificio;
         
 
       function Init () {
-
       };    
 
       function upDate () { 
@@ -34,17 +33,17 @@
 
       function NuevoEdificio () {
                 
-        //$ctrl_ne.allow_disable=true;
+        //$ctrl_e.allow_disable=true;
 
-        $ctrl_ne.objDataEdificio.type_accion="nuevo_edificio";
+        $ctrl_e.objDataEdificio.type_accion="nuevo_edificio";
         
-        edificioFactory.nuevoEdificio($ctrl_ne.objDataEdificio).then(function(d) {                   
-                $ctrl_ne.Mensaje=d.Mensaje;
-                //$ctrl_ne.allow_disable=false;
+        edificioFactory.nuevoEdificio($ctrl_e.objDataEdificio).then(function(d) {                   
+                $ctrl_e.Mensaje=d.Mensaje;
+                //$ctrl_e.allow_disable=false;
     
          }).catch(function (err) {
               console.log(err);
-              //$ctrl_ne.allow_disable=false;
+              //$ctrl_e.allow_disable=false;
          });                
       };
       
