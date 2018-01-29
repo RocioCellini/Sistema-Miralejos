@@ -17,6 +17,14 @@
         });
            
           return promisedata;
+        },
+        
+        buscarDpto: function(params) {
+            promisedata=$http.post('php/sections/dpto/buscar_dpto.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API

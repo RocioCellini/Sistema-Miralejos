@@ -1,15 +1,37 @@
-
 <div class="row">
 	<div class="col-md-2"></div>
     <div class="col-md-4 well">
-		<form method="post" action=""> 
+		<form name="FormBuscarDpto" class="form-horizontal" role="form"> 
 			<legend>Buscar Dpto</legend>
 			<fieldset>
-			<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bd.objDataDpto.nombre">
+			<input type="text" class="form-control" name="buscar" nng-model="$ctrl_bd.objSearch.criterio">
 			<p>* ingrese el nombre del dpto</p><br>
-			<button ng-click='$ctrl_bd.BuscarDpto()' class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl_bd.BuscarDpto($ctrl_bd.objSearch.criterio)' class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
 	<div class="col-md-8"></div>
+</div>
+
+<div class="mensajesistema">{{$ctrl_bd.Mensaje}}</div><br><br>
+
+<div class="row">
+  <div class="col-md-3"></div>
+    <div class="col-md-6"  align="center">
+
+      <table ng-table="$ctrl_bd.tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in $data">
+
+            <td data-title="'Nombre'">{{row.nombre}}</td>
+
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bd.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bd.GoDataEdit(row)'>
+             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
+            </td>
+            
+        </tr>
+      </table>
+
+    </div>
+  <div class="col-md-3"> </div>
 </div>

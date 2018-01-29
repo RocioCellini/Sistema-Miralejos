@@ -4,14 +4,24 @@ $json = file_get_contents('php://input');
 $data=json_decode($json);
 
 /*$type_accion=$data->{'type_accion'};
+$criterio=$data->{'criterio'};
+
+  echo $type_accion;
+  echo $criterio;
 
 $type_accion=="buscar_dpto";
 
 if ($type_accion==="buscar_dpto") {*/
 
+  $criterio=$data->{'criterio'};
+  
+  echo $criterio;
+
 	include "../../conexion.php";
 
-	$nombre='A';
+  echo "ingresó en el php";
+
+	//$nombre='A';
 
   //$nombre=$data->{'nombre'};
 
@@ -23,9 +33,9 @@ if ($type_accion==="buscar_dpto") {*/
       trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
       }
 
-      // $desc="%".$criterio."%";    
+      //$desc="%".$criterio."%";    
 
-      $stmt->bind_param('s',$nombre); 
+      $stmt->bind_param('s',$criterio); 
 
       $stmt->execute(); 
 
@@ -35,9 +45,9 @@ if ($type_accion==="buscar_dpto") {*/
 
       	 $response = array();
 
-      	 do{
+         echo "entro al if";
 
-      			$message="Los datos del dpto encontrado son:";			
+      	 do{	
       			
       			$temp=array('id_dpto'=>utf8_encode($row['id_dpto']),
       						'nombre'=>utf8_encode($row['nombre'])
@@ -46,23 +56,18 @@ if ($type_accion==="buscar_dpto") {*/
       			$response[]=$temp;
       		
       		} while ($row=$rs->fetch_assoc());
-      		echo '</table></div><br><br>';
 
-	} else { 
-		 $message="No se encontró el dpto con el nombre ingresado";
-		 $response[]=Null;
-	} 
+	     } else { 
+		      $mensaje=array($message=>utf8_encode("No se encontró un dpto con el nombre ingresado"));
+          $response[]=$mensaje;
+	     } 
 
   //***************************************************************************************///
 
-  $item2=array('Mensaje' => utf8_encode($message));
-  $json = json_encode($item2);
-  echo $json.'<br>';
-
-  $item=array('dpto' => $response);
+  $item=array('Respuesta' => $response);
   $json = json_encode($item);
   echo $json;
 
-  //}//if ($type_accion==="buscar_cliente") 
+ // }//if ($type_accion==="buscar_cliente") 
 
 ?>		

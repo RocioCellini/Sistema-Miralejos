@@ -4,49 +4,47 @@
 
   var app=_angular.module("GestionVentas");
 
-  app.controller("NuevoDpto", NuevoDpto);
+  app.controller("Dpto", Dpto);
   
-  NuevoDpto.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
+  Dpto.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "dptoFactory"];
 
   //Controller
-  function NuevoDpto ($scope, $sce, $state,  $stateParams,  $window,
+  function Dpto ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, dptoFactory) {
                                  
-     var $ctrl_nd = this;
-     
-     $ctrl_nd.objDataDpto={};
-     $ctrl_nd.allow_disable=false;
-     $ctrl_nd.allow_visible=true;
+    var $ctrl_d = this;
 
-    
-     $ctrl_nd.Init = Init;
-     $ctrl_nd.upDate = upDate;
-     $ctrl_nd.NuevoDpto=NuevoDpto;
+    $ctrl_d.objDataDpto={};
+    $ctrl_d.allow_disable=false;
+    $ctrl_d.allow_visible=true;
+
+    $ctrl_d.Init = Init;
+    $ctrl_d.upDate = upDate;
+    $ctrl_d.NuevoDpto=NuevoDpto;
         
 
-      function Init () {
+    function Init () {
+    };    
 
-      };    
+    function upDate () { 
+    }
 
-      function upDate () { 
-      }
+    function NuevoDpto () {
+              
+      //$ctrl_d.allow_disable=true;
 
-      function NuevoDpto () {
-                
-        //$ctrl_nd.allow_disable=true;
-
-        $ctrl_nd.objDataDpto.type_accion="nuevo_dpto";
-        
-        dptoFactory.nuevoDpto($ctrl_nd.objDataDpto).then(function(d) {                   
-                $ctrl_nd.Mensaje=d.Mensaje;
-                //$ctrl_nd.allow_disable=false;
-    
-         }).catch(function (err) {
-              console.log(err);
-              //$ctrl_nd.allow_disable=false;
-         });                
-      };
+      $ctrl_d.objDataDpto.type_accion="nuevo_dpto";
+      
+      dptoFactory.nuevoDpto($ctrl_d.objDataDpto).then(function(d) {                   
+              $ctrl_d.Mensaje=d.Mensaje;
+              //$ctrl_d.allow_disable=false;
+  
+       }).catch(function (err) {
+            console.log(err);
+            //$ctrl_d.allow_disable=false;
+       });                
+    };
       
      Init();
 
