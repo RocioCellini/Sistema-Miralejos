@@ -4,13 +4,13 @@
 
   var app=_angular.module("GestionVentas");
 
-  app.controller("NuevaPlanta", NuevaPlanta);
+  app.controller("Planta", Planta);
   
-  NuevaPlanta.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
+  Planta.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "plantaFactory"];
 
   //Controller
-  function NuevaPlanta ($scope, $sce, $state,  $stateParams,  $window,
+  function Planta ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, plantaFactory) {
                                  
      var $ctrl_np = this;

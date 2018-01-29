@@ -102,14 +102,9 @@
       .state('GestionVentas.nuevaPlanta',{
         url:'/NuevaPlanta',
         templateUrl:'templates/abm_planta.html',
-        controller: 'NuevaPlanta as $ctrl_np'
+        controller: 'Planta as $ctrl_p'
       })
 
-       /*   .state('GestionVentas.nuevoCliente',{
-        url:'/NuevoCliente',
-        templateUrl:'templates/abm_cliente.html',
-        controller: 'Cliente as $ctrl_c'
-      })*/
       .state('GestionVentas.buscarDpto',{
         url:'/BuscarDpto',
         templateUrl:'templates/buscar_dpto.html',
