@@ -8,7 +8,7 @@
 
     var promisedata;
       
-    var ingresoLocalidad = {
+    var Localidad = {
             
         nuevaLocalidad: function(params) {
             promisedata=$http.post('php/sections/localidad/nueva_localidad.php', params).then(function (response) {
@@ -20,7 +20,7 @@
 
       };//RETURN API
 
-      return ingresoLocalidad;      
+      return Localidad;      
     });//  app.factory
 
 })(window.angular);

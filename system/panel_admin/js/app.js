@@ -78,7 +78,7 @@
       .state('GestionVentas.nuevoVendedor',{
         url:'/NuevoVendedor',
         templateUrl:'templates/abm_vendedor.html',
-        controller: 'NuevoVendedor as $ctrl_v'
+        controller: 'Vendedor as $ctrl_v'
       }) 
 
       .state('GestionVentas.buscarEdificio',{

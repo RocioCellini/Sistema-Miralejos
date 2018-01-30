@@ -11,23 +11,31 @@ $data=json_decode($json);
 
 $type_accion=$data->{'type_accion'};
 
-if($type_accion==="nueva_localidad"){
+//$type_accion="nueva_localidad";
 
-//************************************************************************************************//	
+if($type_accion==="nueva_localidad"){	
+
 	include "../../conexion.php";	
 	
 	$id_provincia =$data->{'id_provincia'};
 	$nombre =$data->{'nombre'};
 
-  $sql_insert='INSERT INTO localidad (id_localidad, id_provincia, nombre) VALUES (?,?,?)';
+  //$id_provincia=22;
+ // $nombre="Casas";
+
+  $sql_insert='INSERT INTO localidad (id_localidad, id_provincia, nombre) VALUES
+  (?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
   trigger_error('Wrong SQL: ' . $sql_insert . ' Error: ' . $conn->error, E_USER_ERROR);
   }
 
+  $idfirst=NULL; 
+  echo $id_provincia."<br>";
+  echo $nombre."<br>";
 
-  $stmt_insert->bind_param('iis',$id_localidad, $id_provincia, $nombre);
+  $stmt_insert->bind_param('iis',$idfirst, $id_provincia, $nombre);
 
   $stmt_insert->execute();
 
@@ -38,12 +46,14 @@ if($type_accion==="nueva_localidad"){
   }else{
     $message="La nueva localidad no se guardó";
   }
+
+
   //***************************************************************************************///
 
   $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
-   } //if($type_accion==="nueva_localidad")
+ } //if($type_accion==="nueva_localidad")
 
 ?>      

@@ -9,7 +9,8 @@
         <div class="col-sm-4" >
               <select name="provincia" id="provincia" class="form-control campoform"
               ng-options="option.name for option in $ctrl_loc.dataprovincia.availableOptions track by option.id"
-              ng-model="$ctrl_loc.dataprovincia.selectedOption"></select>                 
+              ng-model="$ctrl_loc.dataprovincia.selectedOption"></select>    
+              <!-- option.name y option.id son los valores del array en datos_relacionados.php -->       
         </div>
         <div class="col-sm-4" ></div>
       </div>

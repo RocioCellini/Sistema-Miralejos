@@ -58,10 +58,17 @@
         $ctrl_loc.objDataLocalidad.type_accion="nueva_localidad";
    
         $ctrl_loc.objDataLocalidad.id_provincia=$ctrl_loc.dataprovincia.selectedOption.id;
+
+        console.log("el id de la provincia es: "+$ctrl_loc.dataprovincia.selectedOption.id);
+
+        console.log("params enviados: "+$ctrl_loc.objDataLocalidad);
+
+        console.log("nombre de la loc enviada: "+$ctrl_loc.objDataLocalidad.nombre);
         
         localidadFactory.nuevaLocalidad($ctrl_loc.objDataLocalidad).then(function(d) {                   
                 $ctrl_loc.Mensaje=d.Mensaje;
                 //$ctrl_loc.allow_disable=false;
+                console.log("respuesta: "+d);
     
          }).catch(function (err) {
               console.log(err);
