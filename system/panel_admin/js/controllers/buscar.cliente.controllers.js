@@ -54,14 +54,15 @@
               //console.log(valorIngresado);   
 
               $ctrl_bc.objSearch.type_accion="buscar_cliente";
+              
               //$ctrl_bc.objSearch.email="maria@miralejos.net";
                 
               clienteFactory.buscarCliente($ctrl_bc.objSearch).then(function(d) {
 
-                 // console.log('JSON: '+d);
-                 console.log($ctrl_bc.objSearch);
+              // console.log('JSON: '+d);
+              console.log($ctrl_bc.objSearch);
              
-                  $ctrl_bc.tableParams.settings({dataset: d.Respuesta});   
+              $ctrl_bc.tableParams.settings({dataset: d.Respuesta});   
 
                   // console.log('Datos enviados a tableParams: '+d.Respuesta);       
 

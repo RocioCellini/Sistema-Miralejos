@@ -3,13 +3,17 @@
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'};
-$criterio=$data->{'criterio'};
+//$type_accion=$data->{'type_accion'};
+//$criterio=$data->{'criterio'};
 
-	echo $type_accion;
-	echo $criterio;
+//	echo $type_accion;
+//	echo $criterio;
 
 //$email=$data->{'email'};
+
+
+$type_accion="buscar_cliente";
+
 
 if ($type_accion==="buscar_cliente") {
 
@@ -41,7 +45,7 @@ if ($type_accion==="buscar_cliente") {
 	/*Consulta que anda bien
 		$result = 'SELECT * FROM cliente WHERE email=?';*/
 
-	  $result = 'SELECT * FROM cliente WHERE (nombre Like ? OR apellido like ? OR dni like ? OR telefono Like ? OR email Like ? OR id_provincia Like ? OR id_localidad like ? OR actividad like ? conoce like ?) ORDER BY nombre';
+	 $result = 'SELECT * FROM cliente WHERE (nombre Like ? OR apellido like ? OR dni like ? OR telefono Like ? OR email Like ? OR id_provincia Like ? OR id_localidad like ? OR actividad like ? conoce like ?) ORDER BY nombre';
 
 	  $stmt = $conn->prepare($result);
 
