@@ -32,8 +32,7 @@ if($type_accion==="nueva_localidad"){
   }
 
   $idfirst=NULL; 
-  echo $id_provincia."<br>";
-  echo $nombre."<br>";
+
 
   $stmt_insert->bind_param('iis',$idfirst, $id_provincia, $nombre);
 
