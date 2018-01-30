@@ -63,7 +63,7 @@
 
         console.log("params enviados: "+$ctrl_loc.objDataLocalidad);
 
-        console.log("nombre de la loc enviada: "+$ctrl_loc.objDataLocalidad.nombre);
+        console.log("nombre de la localidad enviada: "+$ctrl_loc.objDataLocalidad.nombre);
         
         localidadFactory.nuevaLocalidad($ctrl_loc.objDataLocalidad).then(function(d) {                   
                 $ctrl_loc.Mensaje=d.Mensaje;
