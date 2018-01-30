@@ -7,11 +7,11 @@
   app.controller("Cliente", Cliente);
   
   Cliente.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "clienteDataFactory", "defaultdataFactory", "$filter", "$location"];
+   "clienteFactory", "defaultdataFactory", "$filter", "$location"];
 
     //Controller
     function Cliente ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, clienteDataFactory, defaultdataFactory, $filter, $location) {
+     $uibModal, $document, clienteFactory, defaultdataFactory, $filter, $location) {
                                    
        var path = $location.path();
        console.log(path);
@@ -87,7 +87,7 @@
           $ctrl_c.objDataCliente.id_localidad=$ctrl_c.datalocalidad.selectedOption.id;
           $ctrl_c.objDataCliente.conoce=$ctrl_c.data.selectedOption.id;
 
-          clienteDataFactory.nuevoCliente($ctrl_c.objDataCliente).then(function(d) {                   
+          clienteFactory.nuevoCliente($ctrl_c.objDataCliente).then(function(d) {                   
                   $ctrl_c.Mensaje=d.Mensaje;
                   //$ctrl_c.allow_disable=false;
       
