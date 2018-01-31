@@ -5,9 +5,38 @@
 		<form name="FormBuscarCliente" class="form-horizontal" role="form"> 
 			<legend>Buscar Contacto</legend>
 			<fieldset>
-			<input  type="text" class="form-control campoform" ng-model="$ctrl_bc.objSearch.criterio">
-			<p>* ingrese el correo electrónico de la persona</p><br>
+
+        <div class="form-group">
+         <label class="col-sm-4 control-label">Provincia:</label>
+            <div class="col-sm-6" >
+                  <select name="provincia" id="provincia" class="form-control campoform"
+                  ng-options="option.name for option in $ctrl_bc.dataprovincia.availableOptions track by option.id"
+                  ng-model="$ctrl_bc.dataprovincia.selectedOption" ng-change='$ctrl_bc.upDate($ctrl_bc.dataprovincia.selectedOption)'></select>                 
+            </div>
+            <div class="col-sm-2" ></div>
+         </div>
+
+        <div class="form-group">
+         <label  class="col-sm-4 control-label">Ciudad:</label>
+            <div class="col-sm-6">
+              <select  name="localidad" id="localidad" class="form-control campoform"
+              ng-options="option.name for option in $ctrl_bc.datalocalidad.availableOptions track by option.id"
+              ng-model="$ctrl_bc.datalocalidad.selectedOption"></select>
+            </div><!-- ng-disabled="!$ctrl_bc.datalocalidad"-->
+            <div class="col-sm-2" ></div>
+        </div>
+
+        <div class="form-group">
+         <label  class="col-sm-4 control-label">Dato:</label>
+            <div class="col-sm-6">
+			       <input  type="text" class="form-control campoform" ng-model="$ctrl_bc.objSearch.criterio">
+			       <p>* ingrese nombre, apellido, dni, teléfono, email o actividad de la persona</p><br>
+            </div><!-- ng-disabled="!$ctrl_bc.datalocalidad"-->
+            <div class="col-sm-2" ></div>
+        </div>
+
 			<button ng-click='$ctrl_bc.BuscarCliente($ctrl_bc.objSearch.criterio)' class="btn btn-default">Buscar</button>
+
 			</fieldset>			
 		</form> 
 	</div>
