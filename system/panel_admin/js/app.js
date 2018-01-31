@@ -47,7 +47,7 @@
       .state('GestionVentas.index',{
         url:'/Estadisticas',
         templateUrl:'templates/estadisticas.html',
-        controller: 'Estadisticas as $ctrl_e'
+        controller: 'Estadistica as $ctrl_e'
       })
 
        .state('GestionVentas.planilla',{

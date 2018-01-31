@@ -12,14 +12,14 @@
             link: "#",
             subtree: [{
               name: "Ver Estadisticas",
-              link: "GestionVentas.estadisticas",
+              link: "GestionVentas.index",
             }]
           }, {
             name: "Planilla",
             link: "#",
             subtree: [{
               name: "Visualizar",
-              link: "#!/Planilla"
+              link: "GestionVentas.planilla"
             }]
           }, {
             name: "Contactos",
