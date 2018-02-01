@@ -22,16 +22,15 @@
         $ctrl_c.objDataCliente={};
         $ctrl_c.defaultparams={};
         $ctrl_c.allow_disable=false;
-        $ctrl_c.allow_visible=true;
-                     
-         // For Modal
-        $ctrl_c.itemsModals=[];
-        $ctrl_c.itemWarning=[];
-        $ctrl_c.animationsEnabled=true;
+        $ctrl_c.allow_visible=true;       
          
         $ctrl_c.Init = Init;
         $ctrl_c.upDate = upDate;
-        $ctrl_c.NuevoCliente=NuevoCliente;        
+        $ctrl_c.NuevoCliente=NuevoCliente;     
+
+        //for combos
+        $ctrl_c.comboDisable=false;
+        $ctrl_c.comboProvHide=false;   
 
         $ctrl_c.data = {
           availableOptions: [
@@ -45,13 +44,12 @@
 
         function Init () {
                     
-          $ctrl_c.defaultparams.type_accion="search_provincialocalidad";
-          defaultdataFactory.buscarProvinciaLocalidad($ctrl_c.defaultparams).then(function(d) {    
+            $ctrl_c.defaultparams.type_accion="search_provincialocalidad";
+            defaultdataFactory.buscarProvinciaLocalidad($ctrl_c.defaultparams).then(function(d) {    
     
             console.log(d);
 
             $ctrl_c.datalocalidad2=d.localidad;
-
 
             $ctrl_c.dataprovincia = {
                 availableOptions: d.provincia,
