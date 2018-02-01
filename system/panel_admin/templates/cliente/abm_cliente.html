@@ -2,26 +2,31 @@
 <hr>
 
 <div class="row" align="center">
-<form name="FormNuevoCliente" class="form-horizontal" role="form">
+<form name="form" class="form-horizontal" role="form" novalidate>
       
            <div class="form-group">
              <label class="col-sm-4 control-label">Nombre:</label>
              <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.nombre">
+              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.nombre" ng-pattern="/^[a-zA-Z\s]+$/" ng-minlength="3" ng-required="true">
             </div>
             <div class="col-sm-4" ></div>
           </div>
            <div class="form-group">
              <label class="col-sm-4 control-label">Apelldio:</label>
              <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.apellido">
+                <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.apellido" min="3" max="25" ng-pattern="/^[a-zA-Z\s]+$/" ng-minlength="3"  ng-required="true">
+                <span class="errorform" ng-show="form.apellido.$error.pattern">El Apellido No es Válido!</span>
+                <span class="errorform" ng-show="form.apellido.$error.minlength">Debe Ingresar Minimo 3 Caracteres</span>
+                <span class="errorform" ng-show="form.apellido.$error.required">El Campo es Requerido!</span>
             </div>
             <div class="col-sm-4" ></div>
           </div>
           <div class="form-group">
              <label class="col-sm-4 control-label">Dni:</label>
              <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.dni">
+              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.dni" ng-pattern="/^([0-9])*$/">
+              <span class="errorform" ng-show="form.dni.$error.pattern">Ingresar Solo Numeros Enteros!</span>
+              <span class="errorform" ng-show="form.dni.$error.min || form.dni.$error.max">Maximo 10 Caracteres</span>
             </div>
             <div class="col-sm-4" ></div>
           </div>
@@ -29,7 +34,10 @@
         <div class="form-group">
            <label class="col-sm-4 control-label">Telefono:</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.telefono">
+              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.telefono" min="0" max="18"   ng-pattern="/^([0-9])*$/" ng-required="true">
+              <span class="errorform" ng-show="form.tel.$error.pattern">Ingresar Solo Numeros Enteros!</span>
+              <span class="errorform" ng-show="form.tel.$error.min || form.tel.$error.max">Maximo 18 Caracteres</span>
+              <span class="errorform" ng-show="form.tel.$error.required">El Campo es Requerido!</span>
             </div>
              <div class="col-sm-4" ></div>
         </div>
@@ -37,9 +45,10 @@
       <div class="form-group">
          <label class="col-sm-4 control-label">Provincia:</label>
             <div class="col-sm-4" >
-                  <select name="provincia" id="provincia" class="form-control campoform"
+                  <select name="provincia" id="provincia" class="form-control campoform" ng-disabled="comboDisable"
                   ng-options="option.name for option in $ctrl_c.dataprovincia.availableOptions track by option.id"
-                  ng-model="$ctrl_c.dataprovincia.selectedOption" ng-change='$ctrl_c.upDate($ctrl_c.dataprovincia.selectedOption)'></select>                 
+                  ng-model="$ctrl_c.dataprovincia.selectedOption" ng-change='$ctrl_c.upDate($ctrl_c.dataprovincia.selectedOption)'></select>    
+                  <span class="errorform" ng-show="optionComboValidate.availableOptions0">Debe Seleccionar una Provincia</span>             
             </div>
             <div class="col-sm-4" ></div>
          </div>
