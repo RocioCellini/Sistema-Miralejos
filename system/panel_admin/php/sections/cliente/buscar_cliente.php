@@ -171,7 +171,7 @@ if ($type_accion==="buscar_cliente") {
 		} while ($row=$rs->fetch_assoc());		
 
 	} else { 
-		 $mensaje=array('message'=>utf8_encode("No se encontró un cliente con el email ingresado"));
+		 $mensaje=array('message'=>"No se encontrÃ³ un cliente con el email ingresado");
 		 $response[]=$mensaje;
 	} 
 
