@@ -159,6 +159,44 @@
         
         $state.go('GestionVentas.index');
       
-      }).controller('FooterController', function() {})
+      }).controller('FooterController', function() {
+
+      })
+
+      /*.controller('Cliente', ['$scope', function ($scope) {
+         var mailList = [
+          'john@example.com',
+          'jane@example.com',
+          'jimmy@example.com' 
+          ];
+          $scope.isUnique = function(val){
+              var res;
+              for (var i = 0; i < mailList.length; i++) {
+                if (mailList[i] == val) {
+                  res = false;
+                  break;
+                } else res = true;
+              }
+                return res;
+            };
+        }]); .directive('unique', [ function() { 
+          return { 
+                  require: 'ngModel',
+                  link: function(scope, elem, attrs, ctrl){
+                        var original;
+                        ctrl.$formatters.unshift( function(modelValue) {
+                                                          original = modelValue;
+                                                          return modelValue;
+                                                          });
+                        ctrl.$parsers.push(function(val){
+                              if (val && val !== original) { 
+                                ctrl.$setValidity( 'unique' , scope[attrs.unique](val));
+                              } 
+                              return val;
+                            })
+                         }
+                  };
+          }]);
+*/
 
 })(window.angular);

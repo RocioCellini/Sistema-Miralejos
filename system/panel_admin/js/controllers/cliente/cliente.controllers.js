@@ -47,7 +47,7 @@
             $ctrl_c.defaultparams.type_accion="search_provincialocalidad";
             defaultdataFactory.buscarProvinciaLocalidad($ctrl_c.defaultparams).then(function(d) {    
     
-            console.log(d);
+            //console.log(d);
 
             $ctrl_c.datalocalidad2=d.localidad;
 
