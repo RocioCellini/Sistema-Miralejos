@@ -4,37 +4,24 @@ $json=file_get_contents('php://input');
 $data=json_decode($json);
 
 //$type_accion=$data->{'type_accion'};
-//$criterio=$data->{'criterio'};
-
-//	echo $type_accion;
-//	echo $criterio;
-
-//$email=$data->{'email'};
-
 
 $type_accion="buscar_cliente";
-
-
 if ($type_accion==="buscar_cliente") {
 
 	include "../../conexion.php";
 
-	 /*
-	 $criterio=$data->{'criterio'}; 
-	 $id_provincia=$data->{'id_provincia'};
-	 $id_localidad=$data->{'id_localidad'};
-	*/
-
-	 $id_provincia="";
-     $id_localidad="";
- 	 
-     $criterio="";	
+	
+	$criterio=$data->{'criterio'}; 
+    $id_provincia=$data->{'id_provincia'};
+	$id_localidad=$data->{'id_localidad'};
+	
+	
 
  	 $type_data=null;
      $data_query[0]=$type_data;
      $subconsulta="";
 
-	    if($criterio!==""){
+	    if($criterio!=="") {    	
 
 			    if(is_numeric($criterio)) {		
 			     	
@@ -44,6 +31,8 @@ if ($type_accion==="buscar_cliente") {
 			     	
 			     
 			     } else {
+			     	
+			     	$criterio=utf8_decode($criterio);
 
 			        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ? OR actividad like ?)";
 			        $type_data='ssss';
@@ -56,43 +45,64 @@ if ($type_accion==="buscar_cliente") {
 			     }
 	   }
 
-     if($id_provincia!=="") {
-     	$subconsulta.=' AND id_provincia=?';
-     	 $type_data.='i';
+     if($id_provincia!==-1) {
+
+     	if($subconsulta=="") {
+
+     			 $subconsulta.=' WHERE id_provincia=?';
+     			 $type_data='i';
+
+     		} else {
+
+     			 $subconsulta.=' AND id_provincia=?';
+     			 $type_data.='i';
+     	}
+
+     	
+     
 		 $data_query[]=$id_provincia;
      }
 
-     if($id_localidad!=="") {
-     	 $subconsulta.=' AND id_localidad=?';
+
+
+     if($id_localidad!==-1) {
+     
+     	 if($subconsulta!=="") {
+
+     			 $subconsulta.=' AND id_localidad=?';
+     	}
+
+
      	 $type_data.='i';
 		 $data_query[]=$id_localidad;
+     
      }
 
      $data_query[0]=$type_data;
 
 
-	 $result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
+    
 
-
+	  $result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
 	  $stmt = $conn->prepare($result);
 
       if($stmt===false) {
       	trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
       }
 
-    
-
+      
       if($subconsulta!==""){
-
+      	
       	 foreach($data_query as $key => $value) {
-                $data[$key] = &$data_query[$key];
-     	 } 
+                $data_bind[$key] = &$data_query[$key];
+          } 
 
-     	 call_user_func_array(array($stmt, 'bind_param'), $data);
+     	 
+     	 call_user_func_array(array($stmt, 'bind_param'), $data_bind);
 
       }
-     
-
+      
+ 	 //print_r($data_bind);
 
 
       $stmt->execute(); 
@@ -161,7 +171,7 @@ if ($type_accion==="buscar_cliente") {
 		} while ($row=$rs->fetch_assoc());		
 
 	} else { 
-		 $mensaje=array('message'=>utf8_encode("No se encontrÃ³ un cliente con el email ingresado"));
+		 $mensaje=array('message'=>utf8_encode("No se encontró un cliente con el email ingresado"));
 		 $response[]=$mensaje;
 	} 
 

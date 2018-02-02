@@ -20,7 +20,10 @@
        
                 $ctrl_bc.defaultparams={};
 
-                $ctrl_bc.allow_disable=true;          
+                $ctrl_bc.allow_disable=true;
+
+                $ctrl_bc.combo_ciudad=true;
+                $ctrl_bc.boton_submmit=false;          
 
                 $ctrl_bc.Init = Init;
                 $ctrl_bc.upDate = upDate;
@@ -88,8 +91,21 @@
           //-------------------------------------------------------------------------------------------------  
 
           function upDate (objprov) { 
-           $ctrl_bc.datalocalidad.availableOptions = $filter('filter')($ctrl_bc.datalocalidad2 ,{id_provincia:objprov.id});
-           $ctrl_bc.datalocalidad.selectedOption={id: $ctrl_bc.datalocalidad.availableOptions[0].id};                                                                         
+
+            if(objprov.id!==-1) {
+
+                     $ctrl_bc.combo_ciudad=false;
+
+              $ctrl_bc.datalocalidad.availableOptions = $filter('filter')($ctrl_bc.datalocalidad2 ,{id_provincia:objprov.id});
+              $ctrl_bc.datalocalidad.selectedOption={id: $ctrl_bc.datalocalidad.availableOptions[0].id}; 
+
+              $ctrl_bc.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl_bc.datalocalidad.selectedOption.id=-1;
+
+                  } else {
+
+                      $ctrl_bc.combo_ciudad=true;
+              }                                                                         
           }
 
              
@@ -99,19 +115,19 @@
               
               //console.log(valorIngresado);   
 
+              $ctrl_bc.boton_submmit=true;
+
               $ctrl_bc.objSearch.type_accion="buscar_cliente";              
               $ctrl_bc.objSearch.id_provincia=$ctrl_bc.dataprovincia.selectedOption.id;
               $ctrl_bc.objSearch.id_localidad=$ctrl_bc.datalocalidad.selectedOption.id;
              
-              $ctrl_bc.objSearch.id_provincia="";
-              $ctrl_bc.objSearch.id_localidad="";
 
-
-              console.log('id de prov seleccionada: '+$ctrl_bc.objSearch.id_provincia);
-              console.log('id de loc seleccionada: '+$ctrl_bc.objSearch.id_localidad);
+            
 
 
               $ctrl_bc.objSearch.criterio=valorIngresado;
+
+              console.log($ctrl_bc.objSearch);
                 
               clienteFactory.buscarCliente($ctrl_bc.objSearch).then(function(d) {
 
@@ -120,7 +136,9 @@
              
               $ctrl_bc.tableParams.settings({dataset: d.Respuesta});   
 
-                  // console.log('Datos enviados a tableParams: '+d.Respuesta);       
+                  // console.log('Datos enviados a tableParams: '+d.Respuesta); 
+
+              $ctrl_bc.boton_submmit=false;      
 
               }).catch(function (err) {
                   console.log(err);
