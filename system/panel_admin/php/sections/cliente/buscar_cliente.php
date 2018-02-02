@@ -25,34 +25,36 @@ if ($type_accion==="buscar_cliente") {
 	 $id_localidad=$data->{'id_localidad'};
 	*/
 
-	 $id_provincia="3";
-     $id_localidad="5";
+	 $id_provincia="";
+     $id_localidad="";
  	 
-     $criterio="Maria";	
+     $criterio="";	
 
  	 $type_data=null;
      $data_query[0]=$type_data;
+     $subconsulta="";
 
-    if(is_numeric($criterio)) {		
-     	
-     	$subconsulta=" WHERE telefono=? OR dni=?";
-     	$type_data='ii';
-     	$count_criteria=2;
-     	
-     
-     } else {
+	    if($criterio!==""){
 
-        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ? OR actividad like ?)";
-        $type_data='ssss';
-        $count_criteria=4;
+			    if(is_numeric($criterio)) {		
+			     	
+			     	$subconsulta=" WHERE telefono=? OR dni=?";
+			     	$type_data='ii';
+			     	$count_criteria=2;
+			     	
+			     
+			     } else {
 
-     }
+			        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ? OR actividad like ?)";
+			        $type_data='ssss';
+			        $count_criteria=4;
 
-     for ($i=1;$i<=$count_criteria ;$i++){
-     		$data_query[]=$criterio;
-     }
+			     }
 
-
+			     for ($i=1;$i<=$count_criteria ;$i++){
+			     		$data_query[]=$criterio;
+			     }
+	   }
 
      if($id_provincia!=="") {
      	$subconsulta.=' AND id_provincia=?';
@@ -71,6 +73,7 @@ if ($type_accion==="buscar_cliente") {
 
 	 $result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
 
+
 	  $stmt = $conn->prepare($result);
 
       if($stmt===false) {
@@ -79,12 +82,16 @@ if ($type_accion==="buscar_cliente") {
 
     
 
+      if($subconsulta!==""){
 
-      foreach($data_query as $key => $value) {
+      	 foreach($data_query as $key => $value) {
                 $data[$key] = &$data_query[$key];
-      } 
+     	 } 
 
-      call_user_func_array(array($stmt, 'bind_param'), $data);
+     	 call_user_func_array(array($stmt, 'bind_param'), $data);
+
+      }
+     
 
 
 

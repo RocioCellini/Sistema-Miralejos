@@ -53,19 +53,31 @@
             $ctrl_bc.defaultparams.type_accion="search_provincialocalidad";
             defaultdataFactory.buscarProvinciaLocalidad($ctrl_bc.defaultparams).then(function(d) {    
     
-            console.log(d);
+            //console.log(d);
 
             $ctrl_bc.datalocalidad2=d.localidad;
+            
 
             $ctrl_bc.dataprovincia = {
                 availableOptions: d.provincia,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
-              };
+
+            };
+           
+            $ctrl_bc.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
+            $ctrl_bc.dataprovincia.selectedOption.id=-1; 
+
 
             $ctrl_bc.datalocalidad = {
                 availableOptions: d.localidad,
-                selectedOption: {id: '1'} //This sets the default value of the select in the ui
-              };
+                selectedOption: {id: '1'} 
+            };
+
+        
+
+            $ctrl_bc.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+            $ctrl_bc.datalocalidad.selectedOption.id=-1; 
+                
 
            }).catch(function (err) {
                 console.log(err);
@@ -90,7 +102,10 @@
               $ctrl_bc.objSearch.type_accion="buscar_cliente";              
               $ctrl_bc.objSearch.id_provincia=$ctrl_bc.dataprovincia.selectedOption.id;
               $ctrl_bc.objSearch.id_localidad=$ctrl_bc.datalocalidad.selectedOption.id;
-              //$ctrl_bc.objSearch.email="maria@miralejos.net";
+             
+              $ctrl_bc.objSearch.id_provincia="";
+              $ctrl_bc.objSearch.id_localidad="";
+
 
               console.log('id de prov seleccionada: '+$ctrl_bc.objSearch.id_provincia);
               console.log('id de loc seleccionada: '+$ctrl_bc.objSearch.id_localidad);
@@ -101,7 +116,7 @@
               clienteFactory.buscarCliente($ctrl_bc.objSearch).then(function(d) {
 
               //console.log('JSON: '+d);
-              //console.log($ctrl_bc.objSearch);
+              console.log(d.Respuesta);
              
               $ctrl_bc.tableParams.settings({dataset: d.Respuesta});   
 
