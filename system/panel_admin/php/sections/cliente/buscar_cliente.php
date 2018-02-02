@@ -19,11 +19,15 @@ if ($type_accion==="buscar_cliente") {
 
 	include "../../conexion.php";
 
+	 /*
+	 $criterio=$data->{'criterio'}; 
+	 $id_provincia=$data->{'id_provincia'};
+	 $id_localidad=$data->{'id_localidad'};
+	*/
 
 	 $id_provincia="3";
      $id_localidad="5";
- 	   
-
+ 	 
      $criterio="Maria";	
 
  	 $type_data=null;
