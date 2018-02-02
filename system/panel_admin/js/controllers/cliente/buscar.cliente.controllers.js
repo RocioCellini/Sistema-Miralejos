@@ -94,6 +94,9 @@
 
               console.log('id de prov seleccionada: '+$ctrl_bc.objSearch.id_provincia);
               console.log('id de loc seleccionada: '+$ctrl_bc.objSearch.id_localidad);
+
+
+              $ctrl_bc.objSearch.criterio=valorIngresado;
                 
               clienteFactory.buscarCliente($ctrl_bc.objSearch).then(function(d) {
 

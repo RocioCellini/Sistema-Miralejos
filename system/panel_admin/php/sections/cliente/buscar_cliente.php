@@ -19,45 +19,70 @@ if ($type_accion==="buscar_cliente") {
 
 	include "../../conexion.php";
 
-	echo "ingresÛ en el php";
 
-	/*$nombre='Maria';
-	$apellido='Cellini';
-	$dni=555;	
-    $telefono=54545;
-    $email='maria@miralejos.net';
-    $id_provincia=3;                
-    $id_localidad=5;
-    $actividad='abogada';
-    $conoce=0;*/
+	 $id_provincia="3";
+     $id_localidad="5";
+ 	   
 
-    //$email=$data->{'email'};
+     $criterio="Maria";	
 
-	/* Ejemplo
+ 	 $type_data=null;
+     $data_query[0]=$type_data;
 
-		$result = 'SELECT * FROM Sis_Personas WHERE (Nombre Like ? OR Apellido like ? OR Mail like ? OR TelefonoFijo Like ? OR Cel1 Like ? OR Cel2 Like ? OR DNI like ?) AND (Set_Historial=?) ORDER BY Nombre';
+    if(is_numeric($criterio)) {		
+     	
+     	$subconsulta=" WHERE telefono=? OR dni=?";
+     	$type_data='ii';
+     	$count_criteria=2;
+     	
+     
+     } else {
 
-	   Ejemplo aplicado
+        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ? OR actividad like ?)";
+        $type_data='ssss';
+        $count_criteria=4;
 
-		$result = 'SELECT * FROM cliente WHERE (nombre Like ? OR apellido like ? OR dni like ? OR telefono Like ? OR email Like ? OR id_provincia Like ? OR id_localidad like ? OR actividad like ? conoce like ?) ORDER BY nombre';
-    */
+     }
 
-	/*Consulta que anda bien
-		$result = 'SELECT * FROM cliente WHERE email=?';*/
+     for ($i=1;$i<=$count_criteria ;$i++){
+     		$data_query[]=$criterio;
+     }
 
-	 $result = 'SELECT * FROM cliente WHERE (nombre Like ? OR apellido like ? OR dni like ? OR telefono Like ? OR email Like ? OR id_provincia Like ? OR id_localidad like ? OR actividad like ? conoce like ?) ORDER BY nombre';
+
+
+     if($id_provincia!=="") {
+     	$subconsulta.=' AND id_provincia=?';
+     	 $type_data.='i';
+		 $data_query[]=$id_provincia;
+     }
+
+     if($id_localidad!=="") {
+     	 $subconsulta.=' AND id_localidad=?';
+     	 $type_data.='i';
+		 $data_query[]=$id_localidad;
+     }
+
+     $data_query[0]=$type_data;
+
+
+	 $result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
 
 	  $stmt = $conn->prepare($result);
 
       if($stmt===false) {
-      trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
+      	trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
       }
 
-      $desc="%".$criterio."%";    
+    
 
-      // $stmt->bind_param('ssiisiisi',$nombre, $apellido, $dni, $telefono, $email, $id_provincia, $id_localidad, $actividad, $conoce); 
 
-      $stmt->bind_param('s',$desc);
+      foreach($data_query as $key => $value) {
+                $data[$key] = &$data_query[$key];
+      } 
+
+      call_user_func_array(array($stmt, 'bind_param'), $data);
+
+
 
       $stmt->execute(); 
 
@@ -125,7 +150,7 @@ if ($type_accion==="buscar_cliente") {
 		} while ($row=$rs->fetch_assoc());		
 
 	} else { 
-		 $mensaje=array($message=>utf8_encode("No se encontrÛ un cliente con el email ingresado"));
+		 $mensaje=array('message'=>utf8_encode("No se encontr√≥ un cliente con el email ingresado"));
 		 $response[]=$mensaje;
 	} 
 
