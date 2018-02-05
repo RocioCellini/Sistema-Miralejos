@@ -60,7 +60,6 @@
 
             $ctrl_bc.datalocalidad2=d.localidad;
             
-
             $ctrl_bc.dataprovincia = {
                 availableOptions: d.provincia,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
@@ -70,13 +69,10 @@
             $ctrl_bc.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
             $ctrl_bc.dataprovincia.selectedOption.id=-1; 
 
-
             $ctrl_bc.datalocalidad = {
                 availableOptions: d.localidad,
                 selectedOption: {id: '1'} 
-            };
-
-        
+            };     
 
             $ctrl_bc.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
             $ctrl_bc.datalocalidad.selectedOption.id=-1; 
@@ -94,17 +90,17 @@
 
             if(objprov.id!==-1) {
 
-                     $ctrl_bc.combo_ciudad=false;
+                $ctrl_bc.combo_ciudad=false;
 
-              $ctrl_bc.datalocalidad.availableOptions = $filter('filter')($ctrl_bc.datalocalidad2 ,{id_provincia:objprov.id});
-              $ctrl_bc.datalocalidad.selectedOption={id: $ctrl_bc.datalocalidad.availableOptions[0].id}; 
+                $ctrl_bc.datalocalidad.availableOptions = $filter('filter')($ctrl_bc.datalocalidad2 ,{id_provincia:objprov.id});
+                $ctrl_bc.datalocalidad.selectedOption={id: $ctrl_bc.datalocalidad.availableOptions[0].id}; 
 
-              $ctrl_bc.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-              $ctrl_bc.datalocalidad.selectedOption.id=-1;
+                $ctrl_bc.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+                $ctrl_bc.datalocalidad.selectedOption.id=-1;
 
-                  } else {
+                } else {
 
-                      $ctrl_bc.combo_ciudad=true;
+                    $ctrl_bc.combo_ciudad=true;
               }                                                                         
           }
 
@@ -120,10 +116,6 @@
               $ctrl_bc.objSearch.type_accion="buscar_cliente";              
               $ctrl_bc.objSearch.id_provincia=$ctrl_bc.dataprovincia.selectedOption.id;
               $ctrl_bc.objSearch.id_localidad=$ctrl_bc.datalocalidad.selectedOption.id;
-             
-
-            
-
 
               $ctrl_bc.objSearch.criterio=valorIngresado;
 
