@@ -16,105 +16,101 @@ if ($type_accion==="buscar_cliente") {
     $id_provincia=$data->{'id_provincia'};
 	$id_localidad=$data->{'id_localidad'};
 	
-	
+	$type_data=null;
+	$data_query[0]=$type_data;
+	$subconsulta="";
 
- 	 $type_data=null;
-     $data_query[0]=$type_data;
-     $subconsulta="";
+    if($criterio!=="") {    
 
-	    if($criterio!=="") {    	
+		$criterio_partes="%".$criterio."%"; 	
 
-			    if(is_numeric($criterio)) {		
-			     	
-			     	$subconsulta=" WHERE telefono=? OR dni=?";
-			     	$type_data='ii';
-			     	$count_criteria=2;
-			     	
-			     
-			     } else {
-			     	
-			     	$criterio=utf8_decode($criterio);
+	    if(is_numeric($criterio)) {		
+	     	
+	     	$subconsulta=" WHERE telefono=? OR dni=?"; //al ser enteros nose como hacer para buscarlos de a partes
+	     	$type_data='ii';
+	     	$count_criterio=2;	     	
+	     
+	     } else {
+	     	
+	     	$criterio=utf8_decode($criterio_partes);
 
-			        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ? OR actividad like ?)";
-			        $type_data='ssss';
-			        $count_criteria=4;
+	        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ? OR actividad like ?)";
+	        $type_data='ssss';
+	        $count_criterio=4;
 
-			     }
+	     }
 
-			     for ($i=1;$i<=$count_criteria ;$i++){
-			     		$data_query[]=$criterio;
-			     }
-	   }
+	     for ($i=1;$i<=$count_criterio ;$i++){
+	     	$data_query[]=$criterio;
+	     }
+    }
 
-     if($id_provincia!==-1) {
+
+
+    if($id_provincia!==-1) {
 
      	if($subconsulta=="") {
 
-     			 $subconsulta.=' WHERE id_provincia=?';
-     			 $type_data='i';
+     			$subconsulta.=' WHERE id_provincia=?';
+     			$type_data='i';
 
      		} else {
 
-     			 $subconsulta.=' AND id_provincia=?';
-     			 $type_data.='i';
-     	}
-
-     	
+     			$subconsulta.=' AND id_provincia=?';
+     			$type_data.='i';
+     	}    	
      
-		 $data_query[]=$id_provincia;
-     }
+		$data_query[]=$id_provincia;
+    }
 
 
 
-     if($id_localidad!==-1) {
+    if($id_localidad!==-1) {
      
      	 if($subconsulta!=="") {
 
      			 $subconsulta.=' AND id_localidad=?';
      	}
 
-
-     	 $type_data.='i';
-		 $data_query[]=$id_localidad;
+     	$type_data.='i';
+		$data_query[]=$id_localidad;
      
-     }
+    }
 
-     $data_query[0]=$type_data;
+    $data_query[0]=$type_data;
 
 
-    
 
-	  $result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
-	  $stmt = $conn->prepare($result);
+	$result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
+	$stmt = $conn->prepare($result);
 
-      if($stmt===false) {
+    if($stmt===false) {
       	trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
-      }
+    }
 
       
-      if($subconsulta!==""){
+    if($subconsulta!==""){
       	
-      	 foreach($data_query as $key => $value) {
+      	foreach($data_query as $key => $value) {
                 $data_bind[$key] = &$data_query[$key];
-          } 
-
+        } 
      	 
-     	 call_user_func_array(array($stmt, 'bind_param'), $data_bind);
+     	call_user_func_array(array($stmt, 'bind_param'), $data_bind);
 
-      }
+    }
       
- 	 //print_r($data_bind);
+ 	//print_r($data_bind);
 
 
-      $stmt->execute(); 
+    $stmt->execute(); 
 
-      $rs=$stmt->get_result(); 
+    $rs=$stmt->get_result(); 
 
-      if($row=$rs->fetch_assoc()){
+    if($row=$rs->fetch_assoc()){
 
-      	 $response = array();
+      	$response = array();
 
-      	 do{
+      	do{
 		
 			$id_provincia=$row["id_provincia"];
 			$id_localidad=$row["id_localidad"];			
