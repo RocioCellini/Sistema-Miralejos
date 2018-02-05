@@ -44,7 +44,7 @@
 
       <div class="form-group" ng-hide="comboProvHide">
        <label class="col-sm-4 control-label">Provincia:</label>
-          <div class="col-sm-4" >
+          <div class="col-sm-4">
                 <select name="provincia" id="provincia" class="form-control campoform" ng-disabled="comboDisable"
                 ng-options="option.name for option in $ctrl_c.dataprovincia.availableOptions track by option.id"
                 ng-model="$ctrl_c.dataprovincia.selectedOption" ng-change='$ctrl_c.upDate($ctrl_c.dataprovincia.selectedOption)'></select>    
