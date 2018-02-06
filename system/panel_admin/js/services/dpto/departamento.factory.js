@@ -9,7 +9,7 @@
      var promisedata;
       
 
-     var ingresoDpto = {
+     var Dpto = {
             
         nuevoDpto: function(params) {
             promisedata=$http.post('php/sections/dpto/nuevo_dpto.php', params).then(function (response) {
@@ -29,7 +29,7 @@
 
       };//RETURN API
 
-      return ingresoDpto;      
+      return Dpto;      
     });//  app.factory
 
 

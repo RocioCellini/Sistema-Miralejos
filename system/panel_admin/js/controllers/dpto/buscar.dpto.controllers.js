@@ -3,8 +3,7 @@
   var app=_angular.module("GestionVentas");
 
   app.controller("BuscarDpto", BuscarDpto);
-  BuscarDpto.$inject = ["$scope", "$state", "$stateParams",
-  "dptoFactory", "NgTableParams","$window", "$filter"];
+  BuscarDpto.$inject = ["$scope", "$state", "$stateParams", "dptoFactory", "NgTableParams","$window", "$filter"];
 
           //Controller
           function BuscarDpto($scope, $state, $stateParams , dptoFactory,  
@@ -14,9 +13,7 @@
 
                 $ctrl_bd.objSearch={
                        criterio:""
-                };
-
-                $ctrl_bd.allow_disable=true;          
+                };       
 
                 $ctrl_bd.Init = Init;
                 $ctrl_bd.BuscarDpto = BuscarDpto;
@@ -49,22 +46,29 @@
              
          // Searching data        
          //**********************************************************************************************//  
-          function BuscarDpto () {     
-              
-              //console.log(valorIngresado);   
+          function BuscarDpto (valorIngresado) {     
 
-              $ctrl_bd.objSearch.type_accion="buscar_dpto";
-              $ctrl_bd.objSearch.criterio="A";
-                
-              dptoFactory.buscarDpto($ctrl_bd.objSearch).then(function(d) {
+                //console.log(valorIngresado);   
 
-                 //console.log('JSON: '+d);
-                 console.log($ctrl_bd.objSearch);
-             
-                  $ctrl_bd.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl_bd.boton_submmit=true;
 
-                  console.log('Datos enviados a tableParams: '+d.Respuesta);       
+                $ctrl_bd.objSearch.type_accion="buscar_dpto";              
 
+                $ctrl_bd.objSearch.criterio=valorIngresado;
+
+               //console.log($ctrl_bd.objSearch);
+                  
+                dptoFactory.buscarDpto($ctrl_bd.objSearch).then(function(d) {
+
+                //console.log('JSON: '+d);
+                console.log(d.Respuesta); 
+               
+                $ctrl_bd.tableParams.settings({dataset: d.Respuesta});   
+
+                    // console.log('Datos enviados a tableParams: '+d.Respuesta); 
+
+                $ctrl_bd.boton_submmit=false;      
+    
               }).catch(function (err) {
                   console.log(err);
                 });

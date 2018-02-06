@@ -4,9 +4,9 @@
 		<form name="FormBuscarDpto" class="form-horizontal" role="form"> 
 			<legend>Buscar Dpto</legend>
 			<fieldset>
-			<input type="text" class="form-control" name="buscar" nng-model="$ctrl_bd.objSearch.criterio">
+			<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bd.objSearch.criterio">
 			<p>* ingrese el nombre del dpto</p><br>
-			<button ng-click='$ctrl_bd.BuscarDpto($ctrl_bd.objSearch.criterio)' class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl_bd.BuscarDpto($ctrl_bd.objSearch.criterio)' ng-disabled="$ctrl_bd.boton_submmit" class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
