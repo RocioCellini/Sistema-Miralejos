@@ -14,9 +14,7 @@
 
         $ctrl_bv.objSearch={
              criterio:""
-        };
-
-        $ctrl_bv.allow_disable2=true;          
+        };      
 
         $ctrl_bv.Init = Init;
         $ctrl_bv.BuscarVendedor = BuscarVendedor;

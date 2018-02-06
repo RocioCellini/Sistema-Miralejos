@@ -11,8 +11,6 @@ if ($type_accion==="buscar_vendedor") {*/
 
     include "../../conexion.php";
 
-   // $email='farraras@miralejos.net';
-
    // $criterio=$data->{'criterio'}; 
 
     $criterio="silvina";
