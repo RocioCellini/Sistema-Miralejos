@@ -11,11 +11,37 @@ if ($type_accion==="buscar_vendedor") {*/
 
     include "../../conexion.php";
 
-    $email='farraras@miralejos.net';
+   // $email='farraras@miralejos.net';
 
-    //$email=$data->{'email'};
+   // $criterio=$data->{'criterio'}; 
 
-    $result = 'SELECT * FROM vendedor WHERE email=?';
+   $criterio="silvina";
+
+    $type_data=null;
+    $data_query[0]=$type_data;
+    $subconsulta="";
+
+
+    if($criterio!=="") {    
+
+      $criterio_partes="%".$criterio."%";   
+        
+      $criterio_partes_utf=utf8_decode($criterio_partes);
+
+      $subconsulta=" WHERE (nombre Like ? OR email like ?)";
+      $type_data='ss';
+      $count_criterio=2;  
+
+      for ($i=1;$i<=$count_criterio;$i++){
+        $data_query[]=$criterio_partes_utf;
+      }
+
+      //echo $criterio_partes_utf;
+
+    }
+
+
+    $result = 'SELECT * FROM vendedor'.$subconsulta.' ORDER BY nombre';
 
     $stmt = $conn->prepare($result);
 
@@ -23,9 +49,18 @@ if ($type_accion==="buscar_vendedor") {*/
     trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
     }
 
-    // $desc="%".$criterio."%";    
+    if($subconsulta!==""){
+        
+        foreach($data_query as $key => $value) {
+                $data_bind[$key] = &$data_query[$key];
+        } 
+       
+      call_user_func_array(array($stmt, 'bind_param'), $data_bind);
 
-    $stmt->bind_param('s',$email); 
+    }
+
+      
+    //print_r($data_bind);  
 
     $stmt->execute(); 
 
@@ -33,23 +68,23 @@ if ($type_accion==="buscar_vendedor") {*/
 
     if($row=$rs->fetch_assoc()){
 
-         $response = array();
+       $response = array();
 
-         do{
+       do {
 
-            $temp=array('id_vendedor'=>utf8_encode($row['id_vendedor']),
-                        'nombre'=>utf8_encode($row['nombre']),              
-                        'email'=>utf8_encode($row['email'])                       
-                      );
+          $temp=array('id_vendedor'=>utf8_encode($row['id_vendedor']),
+                      'nombre'=>utf8_encode($row['nombre']),              
+                      'email'=>utf8_encode($row['email'])                       
+                    );
 
-            $response[]=$temp;
-  
-          } while ($row=$rs->fetch_assoc());    
+          $response[]=$temp;
+
+        } while ($row=$rs->fetch_assoc());    
 
     } else { 
 
-          $mensaje=array($message=>utf8_encode("No se encontró un vendedor con el email ingresado"));
-          $response[]=$mensaje;
+        $mensaje=array($message=>utf8_encode("No se encontró un vendedor con el email ingresado"));
+        $response[]=$mensaje;
     } 
 
     //**************************************************************************///
@@ -58,6 +93,6 @@ if ($type_accion==="buscar_vendedor") {*/
     $json = json_encode($item);
     echo $json;
 
-  //}//if ($type_accion==="buscar_vendedor") 
+ // }//if ($type_accion==="buscar_vendedor") 
 
 ?>    

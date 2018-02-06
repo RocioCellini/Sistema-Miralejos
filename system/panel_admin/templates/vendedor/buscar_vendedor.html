@@ -7,7 +7,7 @@
 			<fieldset>
 			<input type="text" class="form-control" ng-model="$ctrl_bv.objSearch.criterio">
 			<p>* ingrese el correo electrónico de la persona</p><br>
-			<button ng-click='$ctrl_bv.BuscarVendedor($ctrl_bv.objSearch.criterio)' class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl_bv.BuscarVendedor($ctrl_bv.objSearch.criterio)' ng-disabled="$ctrl_bv.boton_submmit" class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
