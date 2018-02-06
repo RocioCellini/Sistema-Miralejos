@@ -15,7 +15,7 @@ if ($type_accion==="buscar_vendedor") {*/
 
    // $criterio=$data->{'criterio'}; 
 
-   $criterio="silvina";
+    $criterio="silvina";
 
     $type_data=null;
     $data_query[0]=$type_data;
