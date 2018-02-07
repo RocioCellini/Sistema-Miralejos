@@ -17,6 +17,14 @@
         });
            
           return promisedata;
+        },
+
+        buscarLlamado: function(params) {
+            promisedata=$http.post('php/sections/llamado/buscar_llamado.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API

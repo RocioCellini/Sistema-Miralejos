@@ -1,15 +1,48 @@
-
 <div class="row">
 	<div class="col-md-2"></div>
     <div class="col-md-4 well">
 		<form method="post" action=""> 
 			<legend>Buscar Llamado</legend>
 			<fieldset>
-			<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bl.objDataLlamado.nombre">
+			<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bl.objSearch.criterio">
 			<p>* ingrese la fecha del llamado</p><br>
-			<button ng-click='$ctrl_bl.BuscarLlamado()' class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl_bl.BuscarLlamado($ctrl_bl.objSearch.criterio)' ng-disabled="$ctrl_bl.boton_submmit" class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
 	<div class="col-md-8"></div>
+</div>
+
+<div class="mensajesistema">{{$ctrl_bl.Mensaje}}</div><br><br>
+
+<div class="row">
+  <div class="col-md-3"></div>
+    <div class="col-md-6"  align="center">
+
+      <table ng-table="$ctrl_bl.tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in $data">
+
+            <td data-title="'Vendedor'">{{row.vendedor}}</td>
+            <td data-title="'Nombre Cliente'">{{row.nombre_cliente}}</td>
+            <td data-title="'Apellido Cliente'">{{row.apellido_cliente}}</td>
+            <td data-title="'Fecha'">{{row.fecha_llamado}}</td>
+            <td data-title="'Hora'">{{row.hora_llamado}}</td>
+            <td data-title="'Edificio'">{{row.edificio}}</td>
+            <td data-title="'Planta'">{{row.planta}}</td>
+            <td data-title="'Dpto'">{{row.dpto}}</td>
+            <td data-title="'Grado de Interes'">{{row.grado_interes}}</td>
+            <td data-title="'Origen del dato'">{{row.nombre_origen_dato}}</td>
+            <td data-title="'Fecha Origen del dato'">{{row.fecha_origen_dato}}</td>
+            <td data-title="'Anotaciones'">{{row.anotaciones}}</td>            
+
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bl.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bl.GoDataEdit(row)'>
+             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
+            </td>
+            
+        </tr>
+      </table>
+
+    </div>
+  <div class="col-md-3"> </div>
 </div>
