@@ -8,7 +8,7 @@
 
     var promisedata;
       
-    var ingresoEdificio = {
+    var Edificio = {
             
         nuevoEdificio: function(params) {
             promisedata=$http.post('php/sections/edificio/nuevo_edificio.php', params).then(function (response) {
@@ -28,7 +28,7 @@
 
       };//RETURN API
 
-      return ingresoEdificio;      
+      return Edificio;      
     });//  app.factory
 
 })(window.angular);
