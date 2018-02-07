@@ -1,15 +1,37 @@
-
 <div class="row">
 	<div class="col-md-2"></div>
     <div class="col-md-4 well">
 		<form method="post" action=""> 
 			<legend>Buscar Planta</legend>
 			<fieldset>
-			<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bp.objDataPlanta.nombre">
-			<p>* ingrese el nombre de la planta</p><br>
-			<button ng-click='$ctrl_bp.BuscarPlanta()' class="btn btn-default">Buscar</button>
+				<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bp.objSearch.criterio">
+				<p>* ingrese el nombre de la planta</p><br>
+				<button ng-click='$ctrl_bp.BuscarPlanta($ctrl_bp.objSearch.criterio)' ng-disabled="$ctrl_bp.boton_submmit" class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
 	<div class="col-md-8"></div>
+</div>
+
+<div class="mensajesistema">{{$ctrl_bp.Mensaje}}</div><br><br>
+
+<div class="row">
+  <div class="col-md-3"></div>
+    <div class="col-md-6"  align="center">
+
+      <table ng-table="$ctrl_bp.tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in $data">
+
+            <td data-title="'Nombre'">{{row.nombre}}</td>
+
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bp.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bp.GoDataEdit(row)'>
+             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
+            </td>
+            
+        </tr>
+      </table>
+
+    </div>
+  <div class="col-md-3"> </div>
 </div>

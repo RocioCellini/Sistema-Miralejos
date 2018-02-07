@@ -8,10 +8,18 @@
 
      var promisedata;      
 
-     var ingresoPlanta = {
+     var Planta = {
             
         nuevaPlanta: function(params) {
             promisedata=$http.post('php/sections/planta/nueva_planta.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
+        },
+        
+        buscarPlanta: function(params) {
+            promisedata=$http.post('php/sections/planta/buscar_planta.php', params).then(function (response) {
                   return response.data;
         });
            
@@ -20,7 +28,7 @@
 
       };//RETURN API
 
-      return ingresoPlanta;      
+      return Planta;      
     });//  app.factory
 
 })(window.angular);
