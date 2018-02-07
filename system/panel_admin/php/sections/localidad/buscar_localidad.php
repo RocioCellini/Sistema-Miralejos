@@ -3,29 +3,36 @@
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-/*$type_accion=$data->{'type_accion'};
 
-$type_accion==="buscar_localidad";
+$type_accion=$data->{'type_accion'};
 
-if ($type_accion==="buscar_localidad") {*/
+//$type_accion=="buscar_localidad";
 
-	include "../../conexion.php";
+if ($type_accion==="buscar_localidad") {
 
-	$nombre='3 de febrero';
+  $criterio=$data->{'criterio'};
+  
+  //echo $criterio;
 
-  //$nombre=$data->{'nombre'};
+  include "../../conexion.php";
 
-	$result = 'SELECT * FROM localidad WHERE nombre=?';
+  //$criterio="Balcarce";
 
-	$stmt = $conn->prepare($result);
+  if($criterio!=="") {  
+
+      //$criterio_en_partes="%".$criterio."%"; 
+
+      $result = 'SELECT * FROM localidad WHERE nombre=?';
+
+      $stmt = $conn->prepare($result);
 
       if($stmt===false) {
       trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
       }
 
-    // $desc="%".$criterio."%";    
+      //$stmt->bind_param('s',$criterio_en_partes); 
 
-      $stmt->bind_param('s',$nombre); 
+      $stmt->bind_param('s',$criterio); 
 
       $stmt->execute(); 
 
@@ -33,36 +40,34 @@ if ($type_accion==="buscar_localidad") {*/
 
       if($row=$rs->fetch_assoc()){
 
-      	$response = array();
+         $response = array();
 
-      	do{
+         //echo "entro al if";
 
-    			$message="Los datos de la localidad encontrada son:";
-    			
-    			$temp=array('id_localidad'=> utf8_encode($row['id_localidad']),
-                      'nombre'=>utf8_encode($row['nombre'])                     
-                      );
+         do{  
+            
+            $temp=array('id_localidad'=>utf8_encode($row['id_localidad']),
+                  'nombre'=>utf8_encode($row['nombre'])
+                            );
 
-    			$response[]=$temp;
-    		
-    		} while ($row=$rs->fetch_assoc());
-    		echo '</table></div><br><br>';
+            $response[]=$temp;
+          
+          } while ($row=$rs->fetch_assoc());
 
-	} else { 
-		 $message="No se encontró la localidad con el nombre ingresado";
-     $response[]=Null;
-	} 
+       } else { 
+          
+            $mensaje=array($message=>utf8_encode("No se encontró una localidad con el nombre ingresado"));
+            $response[]=$mensaje;
+       } 
 
-  //***************************************************************************************///
+      //***************************************************************************************///
 
-  $item2=array('Mensaje' => utf8_encode($message));
-  $json = json_encode($item2);
-  echo $json.'<br>';
+      $item=array('Respuesta' => $response);
+      $json = json_encode($item);
+      echo $json;  
 
-  $item=array('localidad' => $response);
-  $json = json_encode($item);
-  echo $json;
+    }
 
-  //}//if ($type_accion==="buscar_localidad") 
+}//if ($type_accion==="buscar_localidad") 
 
-?>		
+?>    
