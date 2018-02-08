@@ -25,7 +25,7 @@
         });
            
           return promisedata;
-        }
+        },
 
       };//RETURN API
 

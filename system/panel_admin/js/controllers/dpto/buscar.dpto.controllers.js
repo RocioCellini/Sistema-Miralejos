@@ -17,7 +17,7 @@
 
                 $ctrl_bd.Init = Init;
                 $ctrl_bd.BuscarDpto = BuscarDpto;
-                $ctrl_bd.GoDataEdit = GoDataEdit;
+                $ctrl_bd.EditarDpto = EditarDpto;
 
                 $ctrl_bd.Init();
 
@@ -78,7 +78,7 @@
 
           // To go to modify form for pacient suscribers      
          //**********************************************************************************************// 
-          function GoDataEdit (objuser) {             
+          function EditarDpto (objuser) {             
             
             // $state.go('GestionVentas.modificarDpto');
             var celda = document.getElementsByTagName("td");
@@ -95,6 +95,28 @@
             console.log(celda.item(0));
             console.log(objuser.nombre);
 
+          };
+
+
+          function EliminarDpto (objuser) { 
+          };
+
+          function GuardarDpto (objuser) { 
+
+            /*    $ctrl_bd.boton_submmit=true;
+
+                $ctrl_bd.objSearch.type_accion="guardar_dpto";              
+                  
+                dptoFactory.guardarCambiosDpto($ctrl_bd.objSearch).then(function(d) {
+               
+                $ctrl_bd.tableParams.settings({dataset: d.Respuesta});   
+
+                $ctrl_bd.boton_submmit=false;      
+    
+              }).catch(function (err) {
+                  console.log(err);
+                });
+            */
           };
     
       }// DataSendController

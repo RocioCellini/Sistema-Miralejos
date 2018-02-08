@@ -24,9 +24,19 @@
 
             <td data-title="'Nombre'" name="nombre">{{row.nombre}}</td>
 
-            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bd.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
-             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bd.GoDataEdit(row)'>
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bd.EditarDpto(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bd.EditarDpto(row)'>
              <span class="glyphicon glyphicon-pencil" aria-hidden="true">Editar</a> 
+            </td>
+
+             <td data-title="'Eliminar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bd.EliminarDpto(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Eliminar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bd.EliminarDpto(row)'>
+             <span class="glyphicon glyphicon-pencil" aria-hidden="true">Eliminar</a> 
+            </td>
+
+             <td data-title="'Guardar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bd.GuardarDpto(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Guardar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bd.GuardarDpto(row)'>
+             <span class="glyphicon glyphicon-pencil" aria-hidden="true">Guardar</a> 
             </td>
             
         </tr>
@@ -35,3 +45,4 @@
     </div>
   <div class="col-md-3"> </div>
 </div>
+
