@@ -16,13 +16,15 @@ if ($type_accion==="buscar_edificio") {
 
   include "../../conexion.php";
 
-  //$criterio="M1";
+  //$criterio="M";
 
   if($criterio!=="") {  
 
-      //$criterio_en_partes="%".$criterio."%"; 
+      $criterio=utf8_decode($criterio);
 
-      $result = 'SELECT * FROM edificio WHERE nombre=?';
+      $criterio="%".$criterio."%"; 
+
+      $result = 'SELECT * FROM edificio WHERE nombre like ?';
 
       $stmt = $conn->prepare($result);
 
@@ -30,9 +32,9 @@ if ($type_accion==="buscar_edificio") {
         trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
       }
 
-      //$stmt->bind_param('s',$criterio_en_partes); 
+      $stmt->bind_param('s',$criterio); 
 
-      $stmt->bind_param('s', $criterio); 
+      //$stmt->bind_param('s', $criterio); 
 
       $stmt->execute(); 
 
@@ -55,7 +57,7 @@ if ($type_accion==="buscar_edificio") {
           } while ($row=$rs->fetch_assoc());
 
        } else { 
-          $mensaje=array($message=>utf8_encode("No se encontró un edificio con el nombre ingresado"));
+          $mensaje=array('message'=>utf8_encode("No se encontró un edificio con el nombre ingresado"));
           $response[]=$mensaje;
        } 
 
