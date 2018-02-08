@@ -17,7 +17,7 @@ if ($type_accion==="buscar_cliente") {
 	$id_localidad=$data->{'id_localidad'};
 	
 	$type_data=null;
-	$data_query[0]=$type_data;
+	$data_query[0]=&$type_data;
 	$subconsulta="";
 
     if($criterio!=="") {    
@@ -77,9 +77,7 @@ if ($type_accion==="buscar_cliente") {
      
     }
 
-    $data_query[0]=$type_data;
-
-
+   
 
 	$result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
 	$stmt = $conn->prepare($result);

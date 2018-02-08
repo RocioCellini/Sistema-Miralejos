@@ -27,12 +27,12 @@ if ($type_accion==="buscar_edificio") {
       $stmt = $conn->prepare($result);
 
       if($stmt===false) {
-      trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
+        trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
       }
 
       //$stmt->bind_param('s',$criterio_en_partes); 
 
-      $stmt->bind_param('s',$criterio); 
+      $stmt->bind_param('s', $criterio); 
 
       $stmt->execute(); 
 

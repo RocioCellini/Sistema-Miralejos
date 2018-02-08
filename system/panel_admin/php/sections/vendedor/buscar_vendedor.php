@@ -3,20 +3,20 @@
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-/*$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'};
 
-$type_accion=="buscar_vendedor";
+//$type_accion=="buscar_vendedor";
 
-if ($type_accion==="buscar_vendedor") {*/
+if ($type_accion==="buscar_vendedor") {
 
     include "../../conexion.php";
 
-   // $criterio=$data->{'criterio'}; 
+    $criterio=$data->{'criterio'}; 
 
-    $criterio="silvina";
+    //$criterio="pablo";
 
     $type_data=null;
-    $data_query[0]=$type_data;
+    $data_query[0]=&$type_data;
     $subconsulta="";
 
 
@@ -28,7 +28,9 @@ if ($type_accion==="buscar_vendedor") {*/
 
       $subconsulta=" WHERE (nombre Like ? OR email like ?)";
       $type_data='ss';
-      $count_criterio=2;  
+      $count_criterio=2; 
+
+
 
       for ($i=1;$i<=$count_criterio;$i++){
         $data_query[]=$criterio_partes_utf;
@@ -91,6 +93,6 @@ if ($type_accion==="buscar_vendedor") {*/
     $json = json_encode($item);
     echo $json;
 
- // }//if ($type_accion==="buscar_vendedor") 
+  }//if ($type_accion==="buscar_vendedor") 
 
 ?>    
