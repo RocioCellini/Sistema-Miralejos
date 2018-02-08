@@ -62,18 +62,18 @@
               link: "GestionVentas.plantas",
               subtree: [{
                           name: "Buscar",
-                          link: "GestionVentas.buscarPlantas"
+                          link: "GestionVentas.buscarPlanta"
                         },
                         {
                           name: "Añadir",
-                          link: "GestionVentas.nuevaPlantas"
+                          link: "GestionVentas.nuevaPlanta"
                         }]
               },{
               name: "Dptos",
               link: "GestionVentas.dptos",
               subtree: [{
                           name: "Buscar",
-                          link: "GestionVentas.buscarDptos"
+                          link: "GestionVentas.buscarDpto"
                         },
                         {
                           name: "Añadir",

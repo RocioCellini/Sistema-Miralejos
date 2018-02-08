@@ -135,7 +135,7 @@
         controller: 'Localidad as $ctrl_loc'
       })
 
-      .state('GestionVentas.BuscarLlamado',{
+      .state('GestionVentas.buscarLlamado',{
         url:'/BuscarLlamado',
         templateUrl:'templates/llamado/buscar_llamado.html',
         controller: 'BuscarLlamado as $ctrl_bl'
