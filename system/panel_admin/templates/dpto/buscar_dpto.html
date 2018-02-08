@@ -22,11 +22,11 @@
       <table ng-table="$ctrl_bd.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
 
-            <td data-title="'Nombre'">{{row.nombre}}</td>
+            <td data-title="'Nombre'" name="nombre">{{row.nombre}}</td>
 
             <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bd.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
              <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bd.GoDataEdit(row)'>
-             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
+             <span class="glyphicon glyphicon-pencil" aria-hidden="true">Editar</a> 
             </td>
             
         </tr>

@@ -61,7 +61,7 @@
                 dptoFactory.buscarDpto($ctrl_bd.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
-                console.log(d.Respuesta); 
+               // console.log(d.Respuesta); 
                
                 $ctrl_bd.tableParams.settings({dataset: d.Respuesta});   
 
@@ -80,7 +80,20 @@
          //**********************************************************************************************// 
           function GoDataEdit (objuser) {             
             
-             // $state.go('GestionVentas.modificarCliente');
+            // $state.go('GestionVentas.modificarDpto');
+            var celda = document.getElementsByTagName("td");
+            var contenido = document.getElementsByTagName("td")[0].textContent;
+            
+            //celda.appendChild(document.createElement("input"));  //celda.appendChild is not a function
+
+            celda.item(0).innerHTML='<input type="text" class="form-control">'; 
+            //var parrafo= document.getElementsByTagName("input").appendChild('p');
+            //parrafo.textContent=contenido;
+            //document.getElementsByTagName("input").textContent=contenido;
+
+            console.log(contenido);
+            console.log(celda.item(0));
+            console.log(objuser.nombre);
 
           };
     
