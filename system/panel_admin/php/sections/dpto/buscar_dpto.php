@@ -3,36 +3,31 @@
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
 $type_accion=$data->{'type_accion'};
 
-//$type_accion=="buscar_dpto";
+//$type_accion="buscar_dpto";
 
 if ($type_accion==="buscar_dpto") {
 
   $criterio=$data->{'criterio'};
-  
-  //echo $criterio;
 
 	include "../../conexion.php";
 
-  //$criterio="A";
-
-  $type_data=null;
-  $data_query[0]=$type_data;
-  $subconsulta="";
+  //$criterio="local";
 
   if($criterio!=="") {  
 
-      $result = 'SELECT * FROM departamento WHERE nombre=?';
+      $criterio=utf8_decode($criterio);
+
+      $criterio="%".$criterio."%"; 
+
+      $result = 'SELECT * FROM departamento WHERE nombre like ?';
 
       $stmt = $conn->prepare($result);
 
       if($stmt===false) {
       trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
-      }
-
-      //$desc="%".$criterio."%";    
+      } 
 
       $stmt->bind_param('s',$criterio); 
 
@@ -43,8 +38,6 @@ if ($type_accion==="buscar_dpto") {
       if($row=$rs->fetch_assoc()){
 
          $response = array();
-
-         //echo "entro al if";
 
          do{  
             
@@ -57,7 +50,7 @@ if ($type_accion==="buscar_dpto") {
           } while ($row=$rs->fetch_assoc());
 
        } else { 
-          $mensaje=array($message=>utf8_encode("No se encontró un dpto con el nombre ingresado"));
+          $mensaje=array('message'=>utf8_encode("No se encontró un dpto con el nombre ingresado"));
           $response[]=$mensaje;
        } 
 
