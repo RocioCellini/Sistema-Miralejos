@@ -11,8 +11,6 @@ $type_accion=$data->{'type_accion'};
 if ($type_accion==="buscar_localidad") {
 
   $criterio=$data->{'criterio'};
-  
-  //echo $criterio;
 
   include "../../conexion.php";
 
@@ -20,9 +18,11 @@ if ($type_accion==="buscar_localidad") {
 
   if($criterio!=="") {  
 
-      //$criterio_en_partes="%".$criterio."%"; 
+      $criterio=utf8_decode($criterio);
 
-      $result = 'SELECT * FROM localidad WHERE nombre=?';
+      $criterio="%".$criterio."%"; 
+
+      $result = 'SELECT * FROM localidad WHERE nombre like ?';
 
       $stmt = $conn->prepare($result);
 
@@ -56,7 +56,7 @@ if ($type_accion==="buscar_localidad") {
 
        } else { 
           
-            $mensaje=array($message=>utf8_encode("No se encontró una localidad con el nombre ingresado"));
+            $mensaje=array('message'=>utf8_encode("No se encontró una localidad con el nombre ingresado"));
             $response[]=$mensaje;
        } 
 
