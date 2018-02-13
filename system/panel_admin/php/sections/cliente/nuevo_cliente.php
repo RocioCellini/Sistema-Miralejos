@@ -20,15 +20,16 @@ if ($type_accion==="nuevo_cliente") {
 	$nombre=$data->{'nombre'};
   $apellido=$data->{'apellido'};
   $dni =$data->{'dni'};
-	$telefono =$data->{'telefono'};
+	$telefono1 =$data->{'telefono1'};
+  $telefono2 =$data->{'telefono2'};
   $email =$data->{'email'};
   $id_provincia=$data->{'id_provincia'};
   $id_localidad=$data->{'id_localidad'};  
 	$actividad =$data->{'actividad'};
   $conoce=$data->{'conoce'};
  
-  $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, dni, telefono, email, id_provincia, id_localidad, actividad, conoce) VALUES
-  (?,?,?,?,?,?,?,?,?,?)';
+  $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, dni, telefono1, telefono2, email, id_provincia, id_localidad, actividad, conoce) VALUES
+  (?,?,?,?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -37,7 +38,7 @@ if ($type_accion==="nuevo_cliente") {
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('issiisiiss',$idfirst, $nombre, $apellido, $dni, $telefono, $email, $id_provincia, $id_localidad, $actividad, $conoce);
+  $stmt_insert->bind_param('issiisiiss',$idfirst, $nombre, $apellido, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $actividad, $conoce);
 
   $stmt_insert->execute();
 
