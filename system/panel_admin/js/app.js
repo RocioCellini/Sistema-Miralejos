@@ -153,6 +153,18 @@
         controller: 'CerrarOperacion as $ctrl_co'
       })
 
+      .state('GestionVentas.buscarActividad',{
+        url:'/BuscarActividad',
+        templateUrl:'templates/actividad/buscar_actividad.html',
+        controller: 'BuscarActividad as $ctrl_ba'
+      })
+
+      .state('GestionVentas.nuevaActividad',{
+        url:'/NuevaActividad',
+        templateUrl:'templates/actividad/abm_actividad.html',
+        controller: 'Actividad as $ctrl_a'
+      })
+
    
 
       }).run(function($state) {

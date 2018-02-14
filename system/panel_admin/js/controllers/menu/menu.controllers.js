@@ -112,7 +112,19 @@
               name: "Cerrar Operación",
               link: "GestionVentas.cerrarOperacion"
             }]
+          },{
+            name: "Actividad",
+            link: "#",
+            subtree: [{
+              name: "Buscar",
+              link: "GestionVentas.buscarActividad"
+            },
+            {
+              name: "Añadir",
+              link: "GestionVentas.nuevaActividad"
+            }]
           }
+
 
           ]// $ctrl_m.itemsMenu 
 
