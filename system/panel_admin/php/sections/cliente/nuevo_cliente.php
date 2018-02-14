@@ -11,12 +11,13 @@ $data=json_decode($json);
 
 $type_accion=$data->{'type_accion'};
 
+//$type_accion="nuevo_cliente";
+
 if ($type_accion==="nuevo_cliente") {
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
 	
-
 	$nombre=$data->{'nombre'};
   $apellido=$data->{'apellido'};
   $dni =$data->{'dni'};
@@ -27,7 +28,19 @@ if ($type_accion==="nuevo_cliente") {
   $id_localidad=$data->{'id_localidad'};  
 	$actividad =$data->{'actividad'};
   $conoce=$data->{'conoce'};
- 
+
+/*
+  $nombre="mariana";
+  $apellido="colidio";
+  $dni =3345566;
+  $telefono1 =455664;
+  $telefono2 =344567;
+  $email ="mariana@gmail.com";
+  $id_provincia=1;
+  $id_localidad=26;  
+  $actividad ="escribana";
+  $conoce=1;
+ */
   $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, dni, telefono1, telefono2, email, id_provincia, id_localidad, actividad, conoce) VALUES
   (?,?,?,?,?,?,?,?,?,?,?)';
 
@@ -38,7 +51,7 @@ if ($type_accion==="nuevo_cliente") {
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('issiisiiss',$idfirst, $nombre, $apellido, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $actividad, $conoce);
+  $stmt_insert->bind_param('issiiisiiss',$idfirst, $nombre, $apellido, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $actividad, $conoce);
 
   $stmt_insert->execute();
 

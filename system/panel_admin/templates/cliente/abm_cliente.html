@@ -25,6 +25,7 @@
            <label class="col-sm-4 control-label">Dni:</label>
            <div class="col-sm-4" >
             <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.dni" ng-pattern="/^([0-9])*$/" ng-minlength="7">
+            *ingrese entre 7 y 10 dígitos.
             <span class="errorform" ng-show="form.dni.$error.pattern">Ingresar Solo Numeros Enteros!</span>
             <span class="errorform" ng-show="form.dni.$error.min || form.dni.$error.max">Maximo 10 Caracteres</span>
           </div>

@@ -85,9 +85,13 @@
           $ctrl_c.objDataCliente.id_localidad=$ctrl_c.datalocalidad.selectedOption.id;
           $ctrl_c.objDataCliente.conoce=$ctrl_c.data.selectedOption.id;
 
+          //console.log($ctrl_c.objDataCliente); bien
+
           clienteFactory.nuevoCliente($ctrl_c.objDataCliente).then(function(d) {                   
                   $ctrl_c.Mensaje=d.Mensaje;
                   //$ctrl_c.allow_disable=false;
+
+                  console.log('JSON: '+d);
       
            }).catch(function (err) {
                 console.log(err);
