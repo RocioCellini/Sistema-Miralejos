@@ -30,13 +30,22 @@
 		</tr>
 		<tr>
 			<td><input type="" name="" size="8"></td>
+			<td>
+				<select name="tipo_cliente" id="tipo_cliente" class="form-control campoform"
+                ng-options="option.tipo for option in $ctrl_c.tipo_cliente.availableOptions track by option.id"
+                ng-model="$ctrl_c.tipo_cliente.selectedOption"></select> 
+			</td>
+			<td><select name="grado_interes" id="grado_interes" class="form-control campoform"
+                ng-options="option.grado for option in $ctrl_c.grado_interes.availableOptions track by option.id"
+                ng-model="$ctrl_c.grado_interes.selectedOption"></select></td>
 			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="10"></td>
+			<td><select name="actividad" id="actividad" class="form-control campoform"
+                ng-options="option.nombre for option in $ctrl_c.actividad.availableOptions track by option.id"
+                ng-model="$ctrl_c.actividad.selectedOption"></select> 
+            </td>
 			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="8"></td>

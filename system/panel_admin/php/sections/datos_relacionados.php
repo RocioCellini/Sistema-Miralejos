@@ -5,9 +5,9 @@
 
     $type_accion=$data->{'type_accion'};
     
-    // $type_accion='search_edificio_planta_dpto';
+    // $type_accion='search_data_combos';
      
-      if ($type_accion==="search_provincialocalidad") {
+      if ($type_accion==="search_data_combos") {
 
 
         include "../conexion.php";  
@@ -70,7 +70,39 @@
         $json = json_encode($item);
         echo $json;
 
-}  //if ($type_accion==="search_provincialocalidad")
+
+        //Actividades
+
+        $result_act = "SELECT * FROM actividad";
+        $stmt_act = $conn->prepare($result_act);
+
+        if($stmt_act === false) {
+            trigger_error('Wrong SQL: ' . $result_act . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+          
+        $stmt_act->execute();
+        $rs_act=$stmt_act->get_result();
+
+        if($row_act = $rs_act->fetch_assoc()) {
+        
+            $response_act = array();
+
+            do  {
+
+                $temp_act=array('id'=>utf8_encode($row_act['id_actividad']),
+                            'name'=> utf8_encode($row_act['nombre'])
+                );
+
+                $response_act[]=$temp_act;
+
+            }  while ($row_act= $rs_act->fetch_assoc());
+        }   
+     
+        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'actividad' => $response_act);
+        $json = json_encode($item);
+        echo $json;
+
+}  //if ($type_accion==="search_data_combos")
 
 
 //******************************************************************************************

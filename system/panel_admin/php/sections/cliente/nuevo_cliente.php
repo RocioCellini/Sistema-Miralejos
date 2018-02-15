@@ -20,6 +20,7 @@ if ($type_accion==="nuevo_cliente") {
 	
 	$nombre=$data->{'nombre'};
   $apellido=$data->{'apellido'};
+  $tipo_cliente=$data->{'tipo_cliente'};
   $dni =$data->{'dni'};
 	$telefono1 =$data->{'telefono1'};
   $telefono2 =$data->{'telefono2'};
@@ -30,19 +31,21 @@ if ($type_accion==="nuevo_cliente") {
   $conoce=$data->{'conoce'};
 
 /*
-  $nombre="mariana";
-  $apellido="colidio";
-  $dni =3345566;
+  $nombre="caro";
+  $apellido="lopez";
+  $tipo_cliente=1;
+  $dni =4455667;
   $telefono1 =455664;
   $telefono2 =344567;
-  $email ="mariana@gmail.com";
+  $email ="caro@gmail.com";
   $id_provincia=1;
   $id_localidad=26;  
-  $actividad ="escribana";
+  $actividad ="agro";
   $conoce=1;
- */
-  $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, dni, telefono1, telefono2, email, id_provincia, id_localidad, actividad, conoce) VALUES
-  (?,?,?,?,?,?,?,?,?,?,?)';
+  */
+ 
+  $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, tipo_cliente, dni, telefono1, telefono2, email, id_provincia, id_localidad, actividad, conoce) VALUES
+  (?,?,?,?,?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -51,7 +54,7 @@ if ($type_accion==="nuevo_cliente") {
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('issiiisiiss',$idfirst, $nombre, $apellido, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $actividad, $conoce);
+  $stmt_insert->bind_param('issiiiisiiss',$idfirst, $nombre, $apellido, $tipo_cliente, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $actividad, $conoce);
 
   $stmt_insert->execute();
 

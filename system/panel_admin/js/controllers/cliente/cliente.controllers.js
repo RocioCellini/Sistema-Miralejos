@@ -1,4 +1,4 @@
-(function(_angular) {
+(function(_angular){
 
   "use strict";
 
@@ -11,10 +11,10 @@
 
     //Controller
     function Cliente ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, clienteFactory, defaultdataFactory, $filter, $location) {
+     $uibModal, $document, clienteFactory, defaultdataFactory, $filter, $location){
                                    
        var path = $location.path();
-       console.log(path);
+       //console.log(path);
 
         var $ctrl_c = this;
 
@@ -38,14 +38,34 @@
             {id: '0', name: 'No'},
             {id: '1', name: 'Si'}
           ],
-            selectedOption: {id: '-1'} //This sets the default value of the select in the ui
+            selectedOption: {id: '-1'} 
+        };
+
+        $ctrl_c.tipo_cliente = {
+          availableOptions: [
+            {id: '-1', tipo: 'Seleccionar'},
+            {id: '0', tipo: 'Comprador'},
+            {id: '1', tipo: 'Propietario'}
+          ],
+            selectedOption: {id: '-1'} 
+        };
+
+          $ctrl_c.grado_interes = {
+          availableOptions: [
+            {id: '-1', tipo: 'Seleccionar'},
+            {id: '0', tipo: '1'},
+            {id: '1', tipo: '2'},
+            {id: '2', tipo: '3'},
+            {id: '3', tipo: '4'}
+          ],
+            selectedOption: {id: '-1'} 
         };
 
 
         function Init () {
                     
-            $ctrl_c.defaultparams.type_accion="search_provincialocalidad";
-            defaultdataFactory.buscarProvinciaLocalidad($ctrl_c.defaultparams).then(function(d) {    
+            $ctrl_c.defaultparams.type_accion="search_data_combos";
+            defaultdataFactory.buscar_datos_combos($ctrl_c.defaultparams).then(function(d){    
     
             //console.log(d);
 
@@ -53,29 +73,37 @@
 
             $ctrl_c.dataprovincia = {
                 availableOptions: d.provincia,
-                selectedOption: {id: '1'} //This sets the default value of the select in the ui
+                selectedOption: {id: '1'} 
               };
 
             $ctrl_c.datalocalidad = {
                 availableOptions: d.localidad,
-                selectedOption: {id: '1'} //This sets the default value of the select in the ui
+                selectedOption: {id: '1'} 
               };
+
+            $ctrl_c.actividad = {
+                availableOptions: d.actividad,
+                selectedOption: {id: '1'} 
+              };//This sets the default value of the select in the ui
 
          }).catch(function (err) {
               console.log(err);
-         });                
+            });
+
+         } // Init()            
           
-        };    
+    
 
       //-------------------------------------------------------------------------------------------------  
 
         function upDate (objprov) { 
            $ctrl_c.datalocalidad.availableOptions = $filter('filter')($ctrl_c.datalocalidad2 ,{id_provincia:objprov.id});
            $ctrl_c.datalocalidad.selectedOption={id: $ctrl_c.datalocalidad.availableOptions[0].id};                                                                         
+           //$ctrl_c.actividad.selectedOption={id: $ctrl_c.actividad.availableOptions[0].id};                                                                         
        }
 
 
-      function NuevoCliente () {
+      function NuevoCliente(){
                 
           //$ctrl_c.allow_disable=true;
 
@@ -83,6 +111,7 @@
      
           $ctrl_c.objDataCliente.id_provincia=$ctrl_c.dataprovincia.selectedOption.id;
           $ctrl_c.objDataCliente.id_localidad=$ctrl_c.datalocalidad.selectedOption.id;
+          $ctrl_c.objDataCliente.id_actividad=$ctrl_c.actividad.selectedOption.id;
           $ctrl_c.objDataCliente.conoce=$ctrl_c.data.selectedOption.id;
 
           //console.log($ctrl_c.objDataCliente); bien
@@ -96,12 +125,13 @@
            }).catch(function (err) {
                 console.log(err);
                 //$ctrl_c.allow_disable=false;
-           });                
+           });               
+      }   //NuevoCliente
 
-      };     
+    Init();
 
-      Init();
+   }// DataSendController
 
-    }// DataSendController
+  } //con esta llave muestra los errores
 
 })(window.angular);

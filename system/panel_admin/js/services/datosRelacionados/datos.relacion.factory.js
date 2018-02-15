@@ -9,7 +9,7 @@
 
     var defaultdata = {
 
-        buscarProvinciaLocalidad: function(paramsearch) {
+        buscar_datos_combos: function(paramsearch) {
             promisedata=$http.post('php/sections/datos_relacionados.php', paramsearch).then(function (response) {
                   return response.data;
               });
