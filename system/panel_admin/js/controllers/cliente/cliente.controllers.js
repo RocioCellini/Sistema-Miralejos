@@ -50,17 +50,6 @@
             selectedOption: {id: '-1'} 
         };
 
-          $ctrl_c.grado_interes = {
-          availableOptions: [
-            {id: '-1', tipo: 'Seleccionar'},
-            {id: '0', tipo: '1'},
-            {id: '1', tipo: '2'},
-            {id: '2', tipo: '3'},
-            {id: '3', tipo: '4'}
-          ],
-            selectedOption: {id: '-1'} 
-        };
-
 
         function Init () {
                     
