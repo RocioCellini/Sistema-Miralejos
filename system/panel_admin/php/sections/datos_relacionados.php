@@ -65,10 +65,6 @@
 
             }  while ($row_loc= $rs_loc->fetch_assoc());
         }   
-     
-        $item=array('provincia' => $response_prov, 'localidad' => $response_loc);
-        $json = json_encode($item);
-        echo $json;
 
 
         //Actividades

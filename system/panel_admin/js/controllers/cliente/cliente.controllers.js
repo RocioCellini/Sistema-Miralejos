@@ -121,6 +121,4 @@
 
    }// DataSendController
 
-  } //con esta llave muestra los errores
-
 })(window.angular);
