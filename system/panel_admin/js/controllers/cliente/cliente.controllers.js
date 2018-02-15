@@ -101,6 +101,7 @@
           $ctrl_c.objDataCliente.id_provincia=$ctrl_c.dataprovincia.selectedOption.id;
           $ctrl_c.objDataCliente.id_localidad=$ctrl_c.datalocalidad.selectedOption.id;
           $ctrl_c.objDataCliente.id_actividad=$ctrl_c.actividad.selectedOption.id;
+          $ctrl_c.objDataCliente.tipo_cliente=$ctrl_c.tipo_cliente.selectedOption.id;
           $ctrl_c.objDataCliente.conoce=$ctrl_c.data.selectedOption.id;
 
           //console.log($ctrl_c.objDataCliente); bien
