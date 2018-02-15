@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-01-2018 a las 20:19:16
+-- Tiempo de generación: 15-02-2018 a las 17:37:32
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -19,6 +19,183 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `sistema_miralejos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `actividad`
+--
+
+CREATE TABLE `actividad` (
+  `id_actividad` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `actividad`
+--
+
+INSERT INTO `actividad` (`id_actividad`, `nombre`) VALUES
+(1, 'agro'),
+(2, 'abogado/a'),
+(3, 'agrimensor'),
+(4, 'médico');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente`
+--
+
+CREATE TABLE `cliente` (
+  `id_cliente` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL,
+  `apellido` text COLLATE latin1_spanish_ci NOT NULL,
+  `tipo_cliente` int(11) NOT NULL,
+  `dni` int(11) NOT NULL,
+  `telefono1` int(11) NOT NULL,
+  `telefono2` int(11) NOT NULL,
+  `email` text COLLATE latin1_spanish_ci NOT NULL,
+  `id_provincia` int(11) NOT NULL,
+  `id_localidad` int(11) NOT NULL,
+  `id_actividad` int(11) NOT NULL,
+  `conoce` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `tipo_cliente`, `dni`, `telefono1`, `telefono2`, `email`, `id_provincia`, `id_localidad`, `id_actividad`, `conoce`) VALUES
+(1, 'Maria', 'Cellini', 0, 555, 54545, 344444, 'maria@miralejos.net', 3, 303, 1, 0),
+(3, 'Rocio', 'Cellini', 0, 33444444, 3541222, 332234, 'rcellini@miralejos.net', 3, 303, 1, 0),
+(4, 'carlos', 'cellini', 0, 333, 333, 4445, 'carlin@hotmail.com', 1, 5, 2, 0),
+(5, 'flor', 'rrr', 0, 77, 77, 6665, 'yuy@hh.com', 1, 5, 4, 0),
+(15, 'Rocío', 'cabrera', 0, 33444455, 44444, 33565, 'cabrera@gmail.com', 3, 303, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `departamento`
+--
+
+CREATE TABLE `departamento` (
+  `id_dpto` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `departamento`
+--
+
+INSERT INTO `departamento` (`id_dpto`, `nombre`) VALUES
+(1, 'A'),
+(2, 'B'),
+(3, 'C'),
+(4, 'D'),
+(5, 'E'),
+(6, 'F'),
+(7, 'G'),
+(8, 'H'),
+(9, 'I'),
+(10, 'J'),
+(11, 'K'),
+(12, 'L'),
+(13, 'M'),
+(14, 'N'),
+(15, 'O'),
+(16, 'P'),
+(17, 'Q'),
+(18, 'R'),
+(19, 'S'),
+(20, 'T'),
+(21, 'U'),
+(22, 'V'),
+(23, 'W'),
+(24, 'X'),
+(25, 'Y'),
+(26, 'Z'),
+(27, 'LL'),
+(28, 'ñ'),
+(29, 'Local 1'),
+(30, 'Local 2'),
+(31, 'Local 3'),
+(32, 'Local A'),
+(33, 'Local B'),
+(34, 'Local C'),
+(35, 'Local D'),
+(36, 'Local E'),
+(37, 'Local F'),
+(38, 'Local G'),
+(39, 'Local 4'),
+(40, 'Local 5'),
+(41, 'Local 6'),
+(42, 'Local 7'),
+(43, 'Local 8'),
+(44, 'Local 9'),
+(45, 'Local 10'),
+(46, 'Local 11'),
+(47, 'Local 12');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `edificio`
+--
+
+CREATE TABLE `edificio` (
+  `id_edificio` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `edificio`
+--
+
+INSERT INTO `edificio` (`id_edificio`, `nombre`) VALUES
+(1, 'M1'),
+(2, 'M2'),
+(3, 'M3'),
+(4, 'M4'),
+(5, 'M5'),
+(6, 'M6'),
+(7, 'M7'),
+(8, 'M8'),
+(9, 'M9'),
+(10, 'M10'),
+(11, 'M11'),
+(12, 'M12'),
+(13, 'M13'),
+(14, 'M14'),
+(15, 'M15');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `llamado`
+--
+
+CREATE TABLE `llamado` (
+  `id_llamado` int(11) NOT NULL,
+  `id_vendedor` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `fecha_llamado` date NOT NULL,
+  `hora_llamado` time NOT NULL,
+  `id_edificio` int(11) NOT NULL,
+  `id_planta` int(11) NOT NULL,
+  `id_dpto` int(11) NOT NULL,
+  `grado_interes` int(11) NOT NULL,
+  `nombre_origen_dato` text COLLATE latin1_spanish_ci NOT NULL,
+  `fecha_origen_dato` date NOT NULL,
+  `anotaciones` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `llamado`
+--
+
+INSERT INTO `llamado` (`id_llamado`, `id_vendedor`, `id_cliente`, `fecha_llamado`, `hora_llamado`, `id_edificio`, `id_planta`, `id_dpto`, `grado_interes`, `nombre_origen_dato`, `fecha_origen_dato`, `anotaciones`) VALUES
+(1, 2, 3, '2011-03-14', '17:00:01', 2, 1, 5, 2, 'letrero', '2017-06-14', 'respondió en forma cortante');
 
 -- --------------------------------------------------------
 
@@ -2420,9 +2597,923 @@ INSERT INTO `localidad` (`id_localidad`, `id_provincia`, `nombre`) VALUES
 (2381, 25, 'Yerba Buena'),
 (2382, 25, 'Yerba Buena (S)');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `operacion`
+--
+
+CREATE TABLE `operacion` (
+  `id_operacion` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `id_vendedor` int(11) NOT NULL,
+  `fecha_ultimo_llamado` date NOT NULL,
+  `cant_llamados` int(11) NOT NULL,
+  `fecha_cierre_operacion` date NOT NULL,
+  `hora_cierre_operacion` time NOT NULL,
+  `id_edificio` int(11) NOT NULL,
+  `id_planta` int(11) NOT NULL,
+  `id_dpto` int(11) NOT NULL,
+  `observaciones` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `operacion`
+--
+
+INSERT INTO `operacion` (`id_operacion`, `id_cliente`, `id_vendedor`, `fecha_ultimo_llamado`, `cant_llamados`, `fecha_cierre_operacion`, `hora_cierre_operacion`, `id_edificio`, `id_planta`, `id_dpto`, `observaciones`) VALUES
+(1, 3, 2, '2015-03-14', 5, '2015-04-16', '16:00:01', 3, 2, 1, 'excelente');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `planta`
+--
+
+CREATE TABLE `planta` (
+  `id_planta` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `planta`
+--
+
+INSERT INTO `planta` (`id_planta`, `nombre`) VALUES
+(1, '3er Subsuelo'),
+(2, '2do Subsuelo'),
+(3, '1er Subsuelo'),
+(4, 'Planta Intermedia'),
+(5, 'Planta Baja'),
+(6, 'Piso 1'),
+(7, 'Piso 2'),
+(8, 'Piso 3'),
+(9, 'Piso 4'),
+(10, 'Piso 5'),
+(11, 'Piso 6'),
+(12, 'Piso 7'),
+(13, 'Piso 8'),
+(14, 'Piso 9'),
+(15, 'Piso 10'),
+(16, 'Piso 11'),
+(17, 'Piso 12'),
+(18, 'Piso 13'),
+(19, 'Piso 14');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `provincia`
+--
+
+CREATE TABLE `provincia` (
+  `id_provincia` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `provincia`
+--
+
+INSERT INTO `provincia` (`id_provincia`, `nombre`) VALUES
+(1, 'Buenos Aires'),
+(2, 'Buenos Aires-GBA'),
+(3, 'Capital Federal'),
+(4, 'Catamarca'),
+(5, 'Chaco'),
+(6, 'Chubut'),
+(7, 'Córdoba'),
+(8, 'Corrientes'),
+(9, 'Entre Ríos'),
+(10, 'Formosa'),
+(11, 'Jujuy'),
+(12, 'La Pampa'),
+(13, 'La Rioja'),
+(14, 'Mendoza'),
+(15, 'Misiones'),
+(16, 'Neuquén'),
+(17, 'Río Negro'),
+(18, 'Salta'),
+(19, 'San Juan'),
+(20, 'San Luis'),
+(21, 'Santa Cruz'),
+(22, 'Santa Fe'),
+(23, 'Santiago del Estero'),
+(24, 'Tierra del Fuego'),
+(25, 'Tucumán');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tabla_intermedia_dpto`
+--
+
+CREATE TABLE `tabla_intermedia_dpto` (
+  `id_tabla` int(11) NOT NULL,
+  `id_dpto` int(11) NOT NULL,
+  `id_planta` int(11) NOT NULL,
+  `id_edificio` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tabla_intermedia_dpto`
+--
+
+INSERT INTO `tabla_intermedia_dpto` (`id_tabla`, `id_dpto`, `id_planta`, `id_edificio`) VALUES
+(1, 1, 5, 1),
+(2, 2, 5, 1),
+(3, 3, 5, 1),
+(4, 4, 5, 1),
+(5, 5, 5, 1),
+(6, 6, 5, 1),
+(7, 7, 5, 1),
+(8, 8, 5, 1),
+(9, 1, 6, 1),
+(10, 2, 6, 1),
+(11, 3, 6, 1),
+(12, 4, 6, 1),
+(13, 5, 6, 1),
+(14, 6, 6, 1),
+(15, 7, 6, 1),
+(16, 8, 6, 1),
+(17, 1, 7, 1),
+(18, 2, 7, 1),
+(19, 3, 7, 1),
+(20, 4, 7, 1),
+(21, 5, 7, 1),
+(22, 6, 7, 1),
+(23, 7, 7, 1),
+(24, 8, 7, 1),
+(25, 1, 8, 1),
+(26, 2, 8, 1),
+(27, 3, 8, 1),
+(28, 4, 8, 1),
+(29, 5, 8, 1),
+(30, 6, 8, 1),
+(31, 7, 8, 1),
+(32, 8, 8, 1),
+(33, 1, 5, 2),
+(34, 2, 5, 2),
+(35, 3, 5, 2),
+(36, 4, 5, 2),
+(37, 5, 5, 2),
+(38, 6, 5, 2),
+(39, 7, 5, 2),
+(40, 8, 5, 2),
+(41, 9, 5, 2),
+(42, 10, 5, 2),
+(43, 11, 5, 2),
+(44, 12, 5, 2),
+(45, 13, 5, 2),
+(46, 14, 5, 2),
+(47, 15, 5, 2),
+(48, 16, 5, 2),
+(49, 17, 5, 2),
+(50, 18, 5, 2),
+(51, 19, 5, 2),
+(52, 20, 5, 2),
+(53, 21, 5, 2),
+(54, 22, 5, 2),
+(55, 23, 5, 2),
+(56, 24, 5, 2),
+(57, 25, 5, 2),
+(58, 26, 5, 2),
+(59, 1, 6, 2),
+(60, 2, 6, 2),
+(61, 3, 6, 2),
+(62, 4, 6, 2),
+(63, 5, 6, 2),
+(64, 6, 6, 2),
+(65, 7, 6, 2),
+(66, 8, 6, 2),
+(67, 9, 6, 2),
+(68, 10, 6, 2),
+(69, 11, 6, 2),
+(70, 12, 6, 2),
+(71, 13, 6, 2),
+(72, 14, 6, 2),
+(73, 15, 6, 2),
+(74, 16, 6, 2),
+(75, 17, 6, 2),
+(76, 18, 6, 2),
+(77, 19, 6, 2),
+(78, 20, 6, 2),
+(79, 21, 6, 2),
+(80, 22, 6, 2),
+(81, 23, 6, 2),
+(82, 24, 6, 2),
+(83, 25, 6, 2),
+(84, 26, 6, 2),
+(85, 1, 7, 2),
+(86, 2, 7, 2),
+(87, 3, 7, 2),
+(88, 4, 7, 2),
+(89, 5, 7, 2),
+(90, 6, 7, 2),
+(91, 7, 7, 2),
+(92, 8, 7, 2),
+(93, 9, 7, 2),
+(94, 10, 7, 2),
+(95, 11, 7, 2),
+(96, 12, 7, 2),
+(97, 13, 7, 2),
+(98, 14, 7, 2),
+(99, 15, 7, 2),
+(100, 16, 7, 2),
+(101, 17, 7, 2),
+(102, 18, 7, 2),
+(103, 19, 7, 2),
+(104, 20, 7, 2),
+(105, 21, 7, 2),
+(106, 22, 7, 2),
+(107, 23, 7, 2),
+(108, 24, 7, 2),
+(109, 25, 7, 2),
+(110, 26, 7, 2),
+(111, 1, 8, 2),
+(112, 2, 8, 2),
+(113, 3, 8, 2),
+(114, 4, 8, 2),
+(115, 5, 8, 2),
+(116, 6, 8, 2),
+(117, 7, 8, 2),
+(118, 8, 8, 2),
+(119, 9, 8, 2),
+(120, 10, 8, 2),
+(121, 11, 8, 2),
+(122, 12, 8, 2),
+(123, 13, 8, 2),
+(124, 14, 8, 2),
+(125, 15, 8, 2),
+(126, 16, 8, 2),
+(127, 17, 8, 2),
+(128, 18, 8, 2),
+(129, 19, 8, 2),
+(130, 20, 8, 2),
+(131, 21, 8, 2),
+(132, 22, 8, 2),
+(133, 23, 8, 2),
+(134, 24, 8, 2),
+(135, 25, 8, 2),
+(136, 26, 8, 2),
+(137, 29, 5, 3),
+(138, 30, 5, 3),
+(139, 31, 5, 3),
+(140, 2, 5, 3),
+(141, 3, 5, 3),
+(142, 4, 5, 3),
+(143, 5, 5, 3),
+(144, 6, 5, 3),
+(145, 9, 5, 3),
+(146, 10, 5, 3),
+(147, 11, 5, 3),
+(148, 12, 5, 3),
+(149, 27, 5, 3),
+(150, 13, 5, 3),
+(151, 14, 5, 3),
+(152, 28, 5, 3),
+(153, 15, 5, 3),
+(154, 16, 5, 3),
+(155, 17, 5, 3),
+(156, 18, 5, 3),
+(157, 19, 5, 3),
+(158, 20, 5, 3),
+(159, 21, 5, 3),
+(160, 22, 5, 3),
+(161, 23, 5, 3),
+(162, 24, 5, 3),
+(163, 25, 5, 3),
+(164, 26, 5, 3),
+(165, 1, 6, 3),
+(166, 2, 6, 3),
+(167, 3, 6, 3),
+(168, 4, 6, 3),
+(169, 5, 6, 3),
+(170, 6, 6, 3),
+(171, 7, 6, 3),
+(172, 8, 6, 3),
+(173, 9, 6, 3),
+(174, 10, 6, 3),
+(175, 11, 6, 3),
+(176, 12, 6, 3),
+(177, 27, 6, 3),
+(178, 13, 6, 3),
+(179, 14, 6, 3),
+(180, 28, 6, 3),
+(181, 15, 6, 3),
+(182, 16, 6, 3),
+(183, 17, 6, 3),
+(184, 18, 6, 3),
+(185, 19, 6, 3),
+(186, 20, 6, 3),
+(187, 21, 6, 3),
+(188, 22, 6, 3),
+(189, 23, 6, 3),
+(190, 24, 6, 3),
+(191, 25, 6, 3),
+(192, 26, 6, 3),
+(193, 1, 7, 3),
+(194, 2, 7, 3),
+(195, 3, 7, 3),
+(196, 4, 7, 3),
+(197, 5, 7, 3),
+(198, 6, 7, 3),
+(199, 7, 7, 3),
+(200, 8, 7, 3),
+(201, 9, 7, 3),
+(202, 10, 7, 3),
+(203, 11, 7, 3),
+(204, 12, 7, 3),
+(205, 27, 7, 3),
+(206, 13, 7, 3),
+(207, 14, 7, 3),
+(208, 28, 7, 3),
+(209, 15, 7, 3),
+(210, 16, 7, 3),
+(211, 17, 7, 3),
+(212, 18, 7, 3),
+(213, 19, 7, 3),
+(214, 20, 7, 3),
+(215, 21, 7, 3),
+(216, 22, 7, 3),
+(217, 23, 7, 3),
+(218, 24, 7, 3),
+(219, 25, 7, 3),
+(220, 26, 7, 3),
+(221, 1, 8, 3),
+(222, 2, 8, 3),
+(223, 3, 8, 3),
+(224, 4, 8, 3),
+(225, 5, 8, 3),
+(226, 6, 8, 3),
+(227, 7, 8, 3),
+(228, 8, 8, 3),
+(229, 9, 8, 3),
+(230, 10, 8, 3),
+(231, 11, 8, 3),
+(232, 12, 8, 3),
+(233, 27, 8, 3),
+(234, 13, 8, 3),
+(235, 14, 8, 3),
+(236, 28, 8, 3),
+(237, 15, 8, 3),
+(238, 16, 8, 3),
+(239, 17, 8, 3),
+(240, 18, 8, 3),
+(241, 19, 8, 3),
+(242, 20, 8, 3),
+(243, 21, 8, 3),
+(244, 22, 8, 3),
+(245, 23, 8, 3),
+(246, 24, 8, 3),
+(247, 25, 8, 3),
+(248, 26, 8, 3),
+(249, 1, 5, 4),
+(250, 2, 5, 4),
+(251, 3, 5, 4),
+(252, 4, 5, 4),
+(253, 5, 5, 4),
+(254, 6, 5, 4),
+(255, 7, 5, 4),
+(256, 1, 6, 4),
+(257, 2, 6, 4),
+(258, 3, 6, 4),
+(259, 4, 6, 4),
+(260, 5, 6, 4),
+(261, 6, 6, 4),
+(262, 7, 6, 4),
+(263, 1, 7, 4),
+(264, 2, 7, 4),
+(265, 3, 7, 4),
+(266, 4, 7, 4),
+(267, 5, 7, 4),
+(268, 6, 7, 4),
+(269, 7, 7, 4),
+(270, 1, 8, 4),
+(271, 2, 8, 4),
+(272, 3, 8, 4),
+(273, 4, 8, 4),
+(274, 5, 8, 4),
+(275, 6, 8, 4),
+(276, 7, 8, 4),
+(277, 29, 5, 5),
+(278, 30, 5, 5),
+(279, 31, 5, 5),
+(280, 1, 5, 5),
+(281, 7, 5, 5),
+(282, 8, 5, 5),
+(283, 9, 5, 5),
+(284, 10, 5, 5),
+(285, 11, 5, 5),
+(286, 14, 5, 5),
+(287, 15, 5, 5),
+(288, 2, 6, 5),
+(289, 3, 6, 5),
+(290, 4, 6, 5),
+(291, 5, 6, 5),
+(292, 6, 6, 5),
+(293, 7, 6, 5),
+(294, 8, 6, 5),
+(295, 9, 6, 5),
+(296, 10, 6, 5),
+(297, 11, 6, 5),
+(298, 12, 6, 5),
+(299, 13, 6, 5),
+(300, 2, 7, 5),
+(301, 3, 7, 5),
+(302, 4, 7, 5),
+(303, 5, 7, 5),
+(304, 6, 7, 5),
+(305, 7, 7, 5),
+(306, 8, 7, 5),
+(307, 9, 7, 5),
+(308, 10, 7, 5),
+(309, 11, 7, 5),
+(310, 12, 7, 5),
+(311, 13, 7, 5),
+(312, 2, 8, 5),
+(313, 3, 8, 5),
+(314, 4, 8, 5),
+(315, 5, 8, 5),
+(316, 6, 8, 5),
+(317, 7, 8, 5),
+(318, 8, 8, 5),
+(319, 9, 8, 5),
+(320, 10, 8, 5),
+(321, 11, 8, 5),
+(322, 12, 8, 5),
+(323, 13, 8, 5),
+(324, 1, 5, 6),
+(325, 3, 5, 6),
+(326, 4, 5, 6),
+(327, 5, 5, 6),
+(328, 6, 5, 6),
+(329, 7, 5, 6),
+(330, 8, 5, 6),
+(331, 9, 5, 6),
+(332, 1, 6, 6),
+(333, 2, 6, 6),
+(334, 3, 6, 6),
+(335, 4, 6, 6),
+(336, 5, 6, 6),
+(337, 6, 6, 6),
+(338, 7, 6, 6),
+(339, 8, 6, 6),
+(340, 9, 6, 6),
+(341, 1, 7, 6),
+(342, 2, 7, 6),
+(343, 3, 7, 6),
+(344, 4, 7, 6),
+(345, 5, 7, 6),
+(346, 6, 7, 6),
+(347, 7, 7, 6),
+(348, 8, 7, 6),
+(349, 9, 7, 6),
+(350, 32, 4, 7),
+(351, 33, 4, 7),
+(352, 34, 4, 7),
+(353, 35, 4, 7),
+(354, 36, 4, 7),
+(355, 37, 4, 7),
+(356, 38, 4, 7),
+(357, 1, 5, 7),
+(358, 2, 5, 7),
+(359, 3, 5, 7),
+(360, 4, 5, 7),
+(361, 5, 5, 7),
+(362, 6, 5, 7),
+(363, 7, 5, 7),
+(364, 8, 5, 7),
+(365, 9, 5, 7),
+(366, 1, 6, 7),
+(367, 2, 6, 7),
+(368, 3, 6, 7),
+(369, 4, 6, 7),
+(370, 5, 6, 7),
+(371, 6, 6, 7),
+(372, 7, 6, 7),
+(373, 8, 6, 7),
+(374, 9, 6, 7),
+(375, 10, 6, 7),
+(376, 11, 6, 7),
+(377, 12, 6, 7),
+(378, 13, 6, 7),
+(379, 14, 6, 7),
+(380, 15, 6, 7),
+(381, 16, 6, 7),
+(382, 1, 7, 7),
+(383, 2, 7, 7),
+(384, 3, 7, 7),
+(385, 4, 7, 7),
+(386, 5, 7, 7),
+(387, 6, 7, 7),
+(388, 7, 7, 7),
+(389, 8, 7, 7),
+(390, 9, 7, 7),
+(391, 10, 7, 7),
+(392, 11, 7, 7),
+(393, 12, 7, 7),
+(394, 13, 7, 7),
+(395, 14, 7, 7),
+(396, 15, 7, 7),
+(397, 16, 7, 7),
+(398, 1, 8, 7),
+(399, 2, 8, 7),
+(400, 3, 8, 7),
+(401, 4, 8, 7),
+(402, 5, 8, 7),
+(403, 6, 8, 7),
+(404, 7, 8, 7),
+(405, 8, 8, 7),
+(406, 9, 8, 7),
+(407, 10, 8, 7),
+(408, 11, 8, 7),
+(409, 12, 8, 7),
+(410, 1, 9, 7),
+(411, 2, 9, 7),
+(412, 3, 9, 7),
+(413, 4, 9, 7),
+(414, 5, 9, 7),
+(415, 6, 9, 7),
+(416, 7, 9, 7),
+(417, 8, 9, 7),
+(418, 9, 9, 7),
+(419, 10, 9, 7),
+(420, 11, 9, 7),
+(421, 12, 9, 7),
+(422, 1, 10, 7),
+(423, 2, 10, 7),
+(424, 3, 10, 7),
+(425, 4, 10, 7),
+(426, 5, 10, 7),
+(427, 6, 10, 7),
+(428, 7, 10, 7),
+(429, 8, 10, 7),
+(430, 9, 10, 7),
+(431, 10, 10, 7),
+(432, 11, 10, 7),
+(433, 12, 10, 7),
+(434, 1, 11, 7),
+(435, 2, 11, 7),
+(436, 3, 11, 7),
+(437, 4, 11, 7),
+(438, 5, 11, 7),
+(439, 6, 11, 7),
+(440, 7, 11, 7),
+(441, 8, 11, 7),
+(442, 9, 11, 7),
+(443, 10, 11, 7),
+(444, 11, 11, 7),
+(445, 12, 11, 7),
+(446, 1, 12, 7),
+(447, 2, 12, 7),
+(448, 3, 12, 7),
+(449, 4, 12, 7),
+(450, 5, 12, 7),
+(451, 6, 12, 7),
+(452, 7, 12, 7),
+(453, 8, 12, 7),
+(454, 9, 12, 7),
+(455, 10, 12, 7),
+(456, 11, 12, 7),
+(457, 12, 12, 7),
+(458, 1, 13, 7),
+(459, 2, 13, 7),
+(460, 3, 13, 7),
+(461, 4, 13, 7),
+(462, 5, 13, 7),
+(463, 6, 13, 7),
+(464, 7, 13, 7),
+(465, 8, 13, 7),
+(466, 9, 13, 7),
+(467, 10, 13, 7),
+(468, 11, 13, 7),
+(469, 12, 13, 7),
+(470, 1, 14, 7),
+(471, 2, 14, 7),
+(472, 3, 14, 7),
+(473, 4, 14, 7),
+(474, 5, 14, 7),
+(475, 6, 14, 7),
+(476, 7, 14, 7),
+(477, 8, 14, 7),
+(478, 9, 14, 7),
+(479, 10, 14, 7),
+(480, 11, 14, 7),
+(481, 12, 14, 7),
+(482, 1, 15, 7),
+(483, 2, 15, 7),
+(484, 3, 15, 7),
+(485, 4, 15, 7),
+(486, 5, 15, 7),
+(487, 6, 15, 7),
+(488, 7, 15, 7),
+(489, 8, 15, 7),
+(490, 9, 15, 7),
+(491, 10, 15, 7),
+(492, 11, 15, 7),
+(493, 12, 15, 7),
+(494, 1, 16, 7),
+(495, 2, 16, 7),
+(496, 3, 16, 7),
+(497, 4, 16, 7),
+(498, 5, 16, 7),
+(499, 6, 16, 7),
+(500, 7, 16, 7),
+(501, 8, 16, 7),
+(502, 9, 16, 7),
+(503, 10, 16, 7),
+(504, 11, 16, 7),
+(505, 12, 16, 7),
+(506, 29, 5, 9),
+(507, 30, 5, 9),
+(508, 1, 5, 9),
+(509, 2, 5, 9),
+(510, 3, 5, 9),
+(511, 4, 5, 9),
+(512, 5, 5, 9),
+(513, 6, 5, 9),
+(514, 1, 6, 9),
+(515, 2, 6, 9),
+(516, 3, 6, 9),
+(517, 4, 6, 9),
+(518, 5, 6, 9),
+(519, 6, 6, 9),
+(520, 1, 7, 9),
+(521, 2, 7, 9),
+(522, 3, 7, 9),
+(523, 4, 7, 9),
+(524, 5, 7, 9),
+(525, 6, 7, 9),
+(526, 7, 7, 9),
+(527, 8, 7, 9),
+(528, 9, 7, 9),
+(529, 10, 7, 9),
+(530, 1, 8, 9),
+(531, 2, 8, 9),
+(532, 3, 8, 9),
+(533, 4, 8, 9),
+(534, 5, 8, 9),
+(535, 1, 9, 9),
+(536, 2, 9, 9),
+(537, 3, 9, 9),
+(538, 4, 9, 9),
+(539, 5, 9, 9),
+(540, 1, 10, 9),
+(541, 2, 10, 9),
+(542, 3, 10, 9),
+(543, 4, 10, 9),
+(544, 5, 10, 9),
+(545, 1, 11, 9),
+(546, 2, 11, 9),
+(547, 3, 11, 9),
+(548, 4, 11, 9),
+(549, 5, 11, 9),
+(550, 1, 12, 9),
+(551, 2, 12, 9),
+(552, 3, 12, 9),
+(553, 4, 12, 9),
+(554, 5, 12, 9),
+(555, 1, 13, 9),
+(556, 2, 13, 9),
+(557, 3, 13, 9),
+(558, 4, 13, 9),
+(559, 5, 13, 9),
+(560, 1, 14, 9),
+(561, 2, 14, 9),
+(562, 3, 14, 9),
+(563, 4, 14, 9),
+(564, 5, 14, 9),
+(565, 1, 15, 9),
+(566, 2, 15, 9),
+(567, 3, 15, 9),
+(568, 4, 15, 9),
+(569, 5, 15, 9),
+(570, 1, 16, 9),
+(571, 2, 16, 9),
+(572, 3, 16, 9),
+(573, 4, 16, 9),
+(574, 5, 16, 9),
+(575, 1, 5, 11),
+(576, 2, 5, 11),
+(577, 3, 5, 11),
+(578, 4, 5, 11),
+(579, 5, 5, 11),
+(580, 6, 5, 11),
+(581, 7, 5, 11),
+(582, 8, 5, 11),
+(583, 9, 5, 11),
+(584, 10, 5, 11),
+(585, 11, 5, 11),
+(586, 1, 6, 11),
+(587, 2, 6, 11),
+(588, 3, 6, 11),
+(589, 4, 6, 11),
+(590, 5, 6, 11),
+(591, 6, 6, 11),
+(592, 7, 6, 11),
+(593, 8, 6, 11),
+(594, 9, 6, 11),
+(595, 10, 6, 11),
+(596, 11, 6, 11),
+(597, 12, 6, 11),
+(598, 1, 7, 11),
+(599, 2, 7, 11),
+(600, 3, 7, 11),
+(601, 4, 7, 11),
+(602, 5, 7, 11),
+(603, 6, 7, 11),
+(604, 7, 7, 11),
+(605, 8, 7, 11),
+(606, 9, 7, 11),
+(607, 10, 7, 11),
+(608, 11, 7, 11),
+(609, 29, 5, 12),
+(610, 30, 5, 12),
+(611, 31, 5, 12),
+(612, 39, 5, 12),
+(613, 40, 5, 12),
+(614, 41, 5, 12),
+(615, 42, 5, 12),
+(616, 43, 5, 12),
+(617, 44, 4, 12),
+(618, 45, 4, 12),
+(619, 46, 4, 12),
+(620, 1, 6, 12),
+(621, 2, 6, 12),
+(622, 3, 6, 12),
+(623, 4, 6, 12),
+(624, 5, 6, 12),
+(625, 6, 6, 12),
+(626, 7, 6, 12),
+(627, 8, 6, 12),
+(628, 9, 6, 12),
+(629, 10, 6, 12),
+(630, 1, 7, 12),
+(631, 2, 7, 12),
+(632, 3, 7, 12),
+(633, 4, 7, 12),
+(634, 5, 7, 12),
+(635, 6, 7, 12),
+(636, 1, 5, 14),
+(637, 2, 5, 14),
+(638, 3, 5, 14),
+(639, 4, 5, 14),
+(640, 5, 5, 14),
+(641, 1, 6, 14),
+(642, 2, 6, 14),
+(643, 3, 6, 14),
+(644, 4, 6, 14),
+(645, 5, 6, 14),
+(646, 6, 6, 14),
+(647, 1, 7, 14),
+(648, 2, 7, 14),
+(649, 3, 7, 14),
+(650, 4, 7, 14),
+(651, 5, 7, 14),
+(652, 1, 8, 14),
+(653, 2, 8, 14),
+(654, 3, 8, 14),
+(655, 1, 6, 15),
+(656, 2, 6, 15),
+(657, 3, 6, 15),
+(658, 4, 6, 15),
+(659, 5, 6, 15),
+(660, 6, 6, 15),
+(661, 7, 6, 15),
+(662, 8, 6, 15),
+(663, 9, 6, 15),
+(664, 10, 6, 15),
+(665, 1, 7, 15),
+(666, 2, 7, 15),
+(667, 3, 7, 15),
+(668, 4, 7, 15),
+(669, 5, 7, 15),
+(670, 6, 7, 15),
+(671, 7, 7, 15),
+(672, 8, 7, 15),
+(673, 9, 7, 15),
+(674, 10, 7, 15),
+(675, 11, 7, 15),
+(676, 12, 7, 15),
+(677, 1, 8, 15),
+(678, 2, 8, 15),
+(679, 3, 8, 15),
+(680, 4, 8, 15),
+(681, 5, 8, 15),
+(682, 6, 8, 15),
+(683, 7, 8, 15),
+(684, 8, 8, 15),
+(685, 9, 8, 15),
+(686, 10, 8, 15),
+(687, 11, 8, 15),
+(688, 12, 8, 15),
+(689, 1, 9, 15),
+(690, 2, 9, 15),
+(691, 3, 9, 15),
+(692, 4, 9, 15),
+(693, 5, 9, 15),
+(694, 6, 9, 15),
+(695, 7, 9, 15),
+(696, 8, 9, 15),
+(697, 9, 9, 15),
+(698, 10, 9, 15),
+(699, 11, 9, 15),
+(700, 12, 9, 15),
+(701, 1, 10, 15),
+(702, 2, 10, 15),
+(703, 3, 10, 15),
+(704, 4, 10, 15),
+(705, 5, 10, 15),
+(706, 6, 10, 15),
+(707, 7, 10, 15),
+(708, 8, 10, 15),
+(709, 9, 10, 15),
+(710, 10, 10, 15),
+(711, 11, 10, 15),
+(712, 12, 10, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tabla_intermedia_planilla`
+--
+
+CREATE TABLE `tabla_intermedia_planilla` (
+  `id_planilla` int(11) NOT NULL,
+  `cliente` text COLLATE latin1_spanish_ci NOT NULL,
+  `tipo_cliente` text COLLATE latin1_spanish_ci NOT NULL,
+  `grado_interes` int(11) NOT NULL,
+  `telefono1` int(11) NOT NULL,
+  `telefono2` int(11) NOT NULL,
+  `id_localidad` int(11) NOT NULL,
+  `id_provincia` int(11) NOT NULL,
+  `origen_dato` text COLLATE latin1_spanish_ci NOT NULL,
+  `actividad` text COLLATE latin1_spanish_ci NOT NULL,
+  `conoce` int(11) NOT NULL,
+  `fecha_origen_dato` date NOT NULL,
+  `fecha_ult_llamado` date NOT NULL,
+  `cant_de_llamados` int(11) NOT NULL,
+  `fecha_cierre_operacion` date NOT NULL,
+  `id_edificio` int(11) NOT NULL,
+  `id_planta` int(11) NOT NULL,
+  `id_dpto` int(11) NOT NULL,
+  `email` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vendedor`
+--
+
+CREATE TABLE `vendedor` (
+  `id_vendedor` int(11) NOT NULL,
+  `nombre` text COLLATE latin1_spanish_ci NOT NULL,
+  `email` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `vendedor`
+--
+
+INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `email`) VALUES
+(1, 'Florencia', 'farraras@miralejos.net'),
+(2, 'Silvina', 'ssoria@miralejos.net');
+
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `actividad`
+--
+ALTER TABLE `actividad`
+  ADD PRIMARY KEY (`id_actividad`);
+
+--
+-- Indices de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Indices de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+  ADD PRIMARY KEY (`id_dpto`);
+
+--
+-- Indices de la tabla `edificio`
+--
+ALTER TABLE `edificio`
+  ADD PRIMARY KEY (`id_edificio`);
+
+--
+-- Indices de la tabla `llamado`
+--
+ALTER TABLE `llamado`
+  ADD PRIMARY KEY (`id_llamado`);
 
 --
 -- Indices de la tabla `localidad`
@@ -2430,6 +3521,101 @@ INSERT INTO `localidad` (`id_localidad`, `id_provincia`, `nombre`) VALUES
 ALTER TABLE `localidad`
   ADD PRIMARY KEY (`id_localidad`);
 
+--
+-- Indices de la tabla `operacion`
+--
+ALTER TABLE `operacion`
+  ADD PRIMARY KEY (`id_operacion`);
+
+--
+-- Indices de la tabla `planta`
+--
+ALTER TABLE `planta`
+  ADD PRIMARY KEY (`id_planta`);
+
+--
+-- Indices de la tabla `provincia`
+--
+ALTER TABLE `provincia`
+  ADD PRIMARY KEY (`id_provincia`);
+
+--
+-- Indices de la tabla `tabla_intermedia_dpto`
+--
+ALTER TABLE `tabla_intermedia_dpto`
+  ADD PRIMARY KEY (`id_tabla`);
+
+--
+-- Indices de la tabla `tabla_intermedia_planilla`
+--
+ALTER TABLE `tabla_intermedia_planilla`
+  ADD PRIMARY KEY (`id_planilla`);
+
+--
+-- Indices de la tabla `vendedor`
+--
+ALTER TABLE `vendedor`
+  ADD PRIMARY KEY (`id_vendedor`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `actividad`
+--
+ALTER TABLE `actividad`
+  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+--
+-- AUTO_INCREMENT de la tabla `edificio`
+--
+ALTER TABLE `edificio`
+  MODIFY `id_edificio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT de la tabla `llamado`
+--
+ALTER TABLE `llamado`
+  MODIFY `id_llamado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `operacion`
+--
+ALTER TABLE `operacion`
+  MODIFY `id_operacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `planta`
+--
+ALTER TABLE `planta`
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT de la tabla `provincia`
+--
+ALTER TABLE `provincia`
+  MODIFY `id_provincia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT de la tabla `tabla_intermedia_dpto`
+--
+ALTER TABLE `tabla_intermedia_dpto`
+  MODIFY `id_tabla` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=749;
+--
+-- AUTO_INCREMENT de la tabla `tabla_intermedia_planilla`
+--
+ALTER TABLE `tabla_intermedia_planilla`
+  MODIFY `id_planilla` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `vendedor`
+--
+ALTER TABLE `vendedor`
+  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
