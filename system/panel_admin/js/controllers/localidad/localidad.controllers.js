@@ -31,8 +31,8 @@
 
           function Init () {
                       
-                $ctrl_loc.defaultparams.type_accion="search_provincialocalidad";
-                defaultdataFactory.buscarProvinciaLocalidad($ctrl_loc.defaultparams).then(function(d) {        
+                $ctrl_loc.defaultparams.type_accion="search_data_combos";
+                defaultdataFactory.buscar_datos_combos($ctrl_loc.defaultparams).then(function(d) {        
 
                 $ctrl_loc.dataprovincia = {
                     availableOptions: d.provincia,
