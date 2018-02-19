@@ -11,7 +11,7 @@
      var Planilla = {
             
         nuevaPlanilla: function(params) {
-            promisedata=$http.post('php/sections/planilla/nueva_planilla.php', params).then(function (response) {
+            promisedata=$http.post('php/sections/planilla/agregar_datos.php', params).then(function (response) {
                   return response.data;
         });
            
