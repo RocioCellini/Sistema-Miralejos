@@ -55,7 +55,13 @@
         templateUrl:'templates/planilla/planilla.html',
         controller: 'Planilla as $ctrl_p'
       })
-
+/*
+      .state('GestionVentas.planilla.agregar_datos',{
+        url:'/AgregarDatos',
+        templateUrl:'templates/planilla/agregar_datos.html',
+        controller: 'AgregarDatos as $ctrl_ad'
+      })
+*/
        .state('GestionVentas.buscarCliente',{
         url:'/BuscarCliente',
         templateUrl:'templates/cliente/buscar_cliente.html',
