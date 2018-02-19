@@ -13,7 +13,7 @@ if ($type_accion==="buscar_act") {
 
 	include "../../conexion.php";
 
-  //$criterio="local";
+ // $criterio="agri";
 
   if($criterio!=="") {  
 

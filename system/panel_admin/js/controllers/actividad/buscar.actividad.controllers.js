@@ -56,7 +56,7 @@
 
                 $ctrl_ba.objSearch.criterio=valorIngresado;
 
-               //console.log($ctrl_ba.objSearch);
+               console.log($ctrl_ba.objSearch);
                   
                 actividadFactory.buscarAct($ctrl_ba.objSearch).then(function(d) {
 

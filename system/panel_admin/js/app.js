@@ -156,7 +156,7 @@
       .state('GestionVentas.buscarActividad',{
         url:'/BuscarActividad',
         templateUrl:'templates/actividad/buscar_actividad.html',
-        controller: 'BuscarActividad as $ctrl_ba'
+        controller: 'BuscarAct as $ctrl_ba'
       })
 
       .state('GestionVentas.nuevaActividad',{
