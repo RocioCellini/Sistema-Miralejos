@@ -105,14 +105,16 @@
               name: "Añadir",
               link: "GestionVentas.nuevoLlamado"
             }]
-          },{
+          },
+
+          /*{
             name: "Cierre de Operación",
             link: "#",
             subtree: [{
               name: "Cerrar Operación",
               link: "GestionVentas.cerrarOperacion"
             }]
-          },{
+          },*/{
             name: "Actividad",
             link: "#",
             subtree: [{

@@ -146,13 +146,13 @@
         templateUrl:'templates/llamado/abm_llamado.html',
         controller: 'Llamado as $ctrl_ll'
       })
-
+/*
       .state('GestionVentas.cerrarOperacion',{
         url:'/CerrarOperacion',
         templateUrl:'templates/operacion/cerrar_operacion.html',
         controller: 'CerrarOperacion as $ctrl_co'
       })
-
+*/
       .state('GestionVentas.buscarActividad',{
         url:'/BuscarActividad',
         templateUrl:'templates/actividad/buscar_actividad.html',
