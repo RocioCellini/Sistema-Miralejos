@@ -4,9 +4,30 @@
 		<form method="post" action=""> 
 			<legend>Buscar Llamado</legend>
 			<fieldset>
-			<input type="text" class="form-control" name="buscar" ng-model="$ctrl_bl.objSearch.criterio">
+			 <!-- <input type="text" class="form-control" name="buscar" ng-model="$ctrl_bl.objSearch.criterio">
 			<p>* ingrese la fecha del llamado</p><br>
-			<button ng-click='$ctrl_bl.BuscarLlamado($ctrl_bl.objSearch.criterio)' ng-disabled="$ctrl_bl.boton_submmit" class="btn btn-default">Buscar</button>
+     -->
+      <div class="form-group">
+          <label  class="col-sm-4 control-label">Ingrese la fecha:</label>
+            <div class="col-sm-4" >
+               <div class="input-group">
+                  <p class="input-group">
+                    <input type="text" class="form-control"
+                     uib-datepicker-popup="{{self.format}}" 
+                     ng-model="self.dt1" is-open="self.popup1.opened" 
+                     datepicker-options="self.dateOptions" 
+                     ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
+                     alt-input-formats="altInputFormats" readonly="readonly" />
+                      <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="self.open1()">
+                      <i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                  </p>   
+                </div>                           
+          </div>
+     </div><br><br>
+     <!-- 
+			<button ng-click='$ctrl_bl.BuscarLlamado($ctrl_bl.objSearch.criterio)' ng-disabled="$ctrl_bl.boton_submmit" class="btn btn-default">Buscar</button>-->
 			</fieldset>
 		</form> 
 	</div>

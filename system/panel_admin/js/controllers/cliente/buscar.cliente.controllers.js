@@ -53,8 +53,8 @@
 
             $ctrl_bc.tableParams = new NgTableParams(initialParams, initialSettings); 
 
-            $ctrl_bc.defaultparams.type_accion="search_provincialocalidad";
-            defaultdataFactory.buscarProvinciaLocalidad($ctrl_bc.defaultparams).then(function(d) {    
+            $ctrl_bc.defaultparams.type_accion="search_data_combos";
+            defaultdataFactory.buscar_datos_combos($ctrl_bc.defaultparams).then(function(d) {    
     
             //console.log(d);
 
