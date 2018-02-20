@@ -3,18 +3,22 @@
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'};
+//$type_accion=$data->{'type_accion'};
 
-//$type_accion="buscar_cliente";
+$type_accion="buscar_cliente";
 
 if ($type_accion==="buscar_cliente") {
 
 	include "../../conexion.php";
 
-	
+	/*
 	$criterio=$data->{'criterio'}; 
     $id_provincia=$data->{'id_provincia'};
 	$id_localidad=$data->{'id_localidad'};
+*/
+	$criterio="flor"; 
+    $id_provincia=-1;
+	$id_localidad=-1;
 	
 	$type_data=null;
 	$data_query[0]=&$type_data;
@@ -34,9 +38,9 @@ if ($type_accion==="buscar_cliente") {
 	     	
 	     	$criterio=utf8_decode($criterio_partes);
 
-	        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ? OR actividad like ?)";
-	        $type_data='ssss';
-	        $count_criterio=4;
+	        $subconsulta=" WHERE (nombre Like ? OR apellido like ? OR email Like ?)";
+	        $type_data='sss';
+	        $count_criterio=3;
 
 	     }
 
@@ -112,6 +116,7 @@ if ($type_accion==="buscar_cliente") {
 		
 			$id_provincia=$row["id_provincia"];
 			$id_localidad=$row["id_localidad"];			
+			$id_actividad=$row["id_actividad"];	
 
 			$result_prov = 'SELECT * FROM provincia WHERE id_provincia=?';
 
@@ -148,17 +153,52 @@ if ($type_accion==="buscar_cliente") {
 				if($row_loc=$rs_loc->fetch_assoc()){
 					$localidad=$row_loc["nombre"];
 				}
+
+			$result_act = 'SELECT * FROM actividad WHERE id_actividad=?';
+
+				$stmt_act = $conn->prepare($result_act);
+
+				if($stmt_act===false) {
+					trigger_error('Wrong SQL: ' . $result_act . ' Error: ' . $conn->error, E_USER_ERROR);
+				} 
+
+				$stmt_act->bind_param('i',$id_actalidad); 
+
+				$stmt_act->execute(); 
+
+				$rs_act=$stmt_act->get_result(); 
+
+				if($row_act=$rs_act->fetch_assoc()){
+					$actividad=$row_act["nombre"];
+				}
+
+			$tipo_cliente=$row['tipo_cliente'];
+			$conoce=$row['conoce'];
+
+			if($tipo_cliente=0){
+				$tipo_cliente="Comprador";
+			}else{
+				$tipo_cliente="Propietario";
+			}
+
+			if($conoce=0){
+				$conoce="No";
+			}else{
+				$conoce="Si";
+			}
 			
 			$temp=array('id_cliente'=>utf8_encode($row['id_cliente']),
-						'nombre'=>utf8_encode($row['nombre']),
+						'nombre'=>utf8_encode($row['nombre']),						
                         'apellido'=> utf8_encode($row['apellido']), 
+                        'tipo_cliente'=>utf8_encode($tipo_cliente),
                         'dni'=>utf8_encode($row['dni']),
-                        'telefono'=>utf8_encode($row['telefono']),
+                        'telefono1'=>utf8_encode($row['telefono1']),
+                        'telefono2'=>utf8_encode($row['telefono2']),
                         'email'=>utf8_encode($row['email']),
                         'provincia'=>utf8_encode($provincia),                    
                         'localidad'=>utf8_encode($localidad),
-                        'actividad'=>utf8_encode($row['actividad']),
-                        'conoce'=>utf8_encode($row['conoce'])
+                        'actividad'=>utf8_encode($actividad),
+                        'conoce'=>utf8_encode($conoce)
                     	);
 
 			$response[]=$temp;

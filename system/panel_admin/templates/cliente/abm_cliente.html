@@ -7,16 +7,16 @@
         <div class="form-group">
            <label class="col-sm-4 control-label">Nombre:</label>
            <div class="col-sm-4" >
-            <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.nombre" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
-            <span class="errorform" ng-show="form.apellido.$error.pattern">El Nombre no es válido!</span>            
-            <span class="errorform" ng-show="form.apellido.$error.required">El campo es Requerido!</span>
+            <input type="text" name="nombre" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.nombre" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
+            <span class="errorform" ng-show="form.nombre.$error.pattern">El Nombre no es válido!</span>            
+            <span class="errorform" ng-show="form.nombre.$error.required">El campo es Requerido!</span>
           </div>
           <div class="col-sm-4" ></div>
         </div>
          <div class="form-group">
            <label class="col-sm-4 control-label">Apelldio:</label>
            <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.apellido" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
+              <input type="text" name="apellido" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.apellido" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
               <span class="errorform" ng-show="form.apellido.$error.pattern">El Apellido no es válido!</span>               
               <span class="errorform" ng-show="form.apellido.$error.required">El campo es Requerido!</span>
           </div>
@@ -36,7 +36,7 @@
         <div class="form-group">
            <label class="col-sm-4 control-label">Dni:</label>
            <div class="col-sm-4" >
-            <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.dni" ng-pattern="/^([0-9])*$/" min="7" max="10">
+            <input type="text" name="dni" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.dni" ng-pattern="/^([0-9])*$/" min="7" max="10">
             <span class="errorform" ng-show="form.dni.$error.pattern">Ingresar solo números enteros</span>
             <span class="errorform" ng-show="form.dni.$error.min || form.dni.$error.max">Ingrese entre 7 y 10 caracteres</span>
           </div>
@@ -46,9 +46,9 @@
       <div class="form-group">
          <label class="col-sm-4 control-label">Telefono 1:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.telefono1" ng-pattern="/^([0-9])*$/" ng-required="true">
-            <span class="errorform" ng-show="form.tel.$error.pattern">Ingresar solo números enteros</span>           
-            <span class="errorform" ng-show="form.tel.$error.required">El campo es Requerido!</span>
+            <input type="text" name="telefono1" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.telefono1" ng-pattern="/^([0-9])*$/" ng-required="true">
+            <span class="errorform" ng-show="form.telefono1.$error.pattern">Ingresar solo números enteros</span>           
+            <span class="errorform" ng-show="form.telefono1.$error.required">El campo es Requerido!</span>
           </div>
           <div class="col-sm-4" ></div>
       </div>
@@ -56,8 +56,8 @@
       <div class="form-group">
          <label class="col-sm-4 control-label">Telefono 2:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.telefono2" ng-pattern="/^([0-9])*$/" ng-required="true">
-            <span class="errorform" ng-show="form.tel.$error.pattern">Ingresar solo números enteros</span>         
+            <input type="text" name="telefono2" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.telefono2" ng-pattern="/^([0-9])*$/" ng-required="true">
+            <span class="errorform" ng-show="form.telefono2.$error.pattern">Ingresar solo números enteros</span>         
           </div>
           <div class="col-sm-4" ></div>
       </div>
@@ -98,7 +98,7 @@
       <div class="form-group">
          <label class="col-sm-4 control-label">Correo Electrónico:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.email" ng-required="true"  unique="isUnique">
+            <input type="text" name="email" class="form-control campoform" ng-model="$ctrl_c.objDataCliente.email" ng-required="true"  unique="isUnique">
             <span class="errorform" ng-show="form.email.$error.required">El campo es Requerido!</span>
           </div>
            <div class="col-sm-4" ></div>
@@ -118,7 +118,7 @@
       <div class="col-sm-4" ></div>
         <div class=" col-sm-4">
         <button class="btn btn-default" ng-disabled="$ctrl_c.allow_disable"  ng-show="$ctrl_c.allow_visible" 
-        ng-click='$ctrl_c.NuevoCliente()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+        ng-click='Cliente.$valid && $ctrl_c.NuevoCliente()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
            </div>
         <div class="col-sm-4" ></div>
       </div>
