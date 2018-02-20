@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-md-2"></div>
     <div class="col-md-4 well">
-		<form method="post" action=""> 
+		<form name="buscarLlamado"> 
 			<legend>Buscar Llamado</legend>
 			<fieldset>
-			 <!-- <input type="text" class="form-control" name="buscar" ng-model="$ctrl_bl.objSearch.criterio">
+			 <!-- <input type="text" class="form-control" name="buscar" ng-model="$ctrl.objSearch.criterio">
 			<p>* ingrese la fecha del llamado</p><br>
      -->
       <div class="form-group">
@@ -13,34 +13,34 @@
                <div class="input-group">
                   <p class="input-group">
                     <input type="text" class="form-control"
-                     uib-datepicker-popup="{{self.format}}" 
-                     ng-model="self.dt1" is-open="self.popup1.opened" 
-                     datepicker-options="self.dateOptions" 
+                     uib-datepicker-popup="{{$ctrl.format}}" 
+                     ng-model="$ctrl.dt1" is-open="$ctrl.popup1.opened" 
+                     datepicker-options="$ctrl.dateOptions" 
                      ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
                      alt-input-formats="altInputFormats" readonly="readonly" />
                       <span class="input-group-btn">
-                      <button type="button" class="btn btn-default" ng-click="self.open1()">
+                      <button type="button" class="btn btn-default" ng-click="$ctrl.open1()">
                       <i class="glyphicon glyphicon-calendar"></i></button>
                       </span>
                   </p>   
                 </div>                           
           </div>
      </div><br><br>
-     <!-- 
-			<button ng-click='$ctrl_bl.BuscarLlamado($ctrl_bl.objSearch.criterio)' ng-disabled="$ctrl_bl.boton_submmit" class="btn btn-default">Buscar</button>-->
+     
+			<button ng-click='$ctrl.BuscarLlamado()' ng-disabled="$ctrl.boton_submmit" class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
 	<div class="col-md-8"></div>
 </div>
 
-<div class="mensajesistema">{{$ctrl_bl.Mensaje}}</div><br><br>
+<div class="mensajesistema">{{$ctrl.Mensaje}}</div><br><br>
 
 <div class="row">
   <div class="col-md-3"></div>
     <div class="col-md-6"  align="center">
 
-      <table ng-table="$ctrl_bl.tableParams" class="table table-condensed table-bordered table-striped">
+      <table ng-table="$ctrl.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
 
             <td data-title="'Vendedor'">{{row.vendedor}}</td>
@@ -56,8 +56,8 @@
             <td data-title="'Fecha Origen del dato'">{{row.fecha_origen_dato}}</td>
             <td data-title="'Anotaciones'">{{row.anotaciones}}</td>            
 
-            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bl.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
-             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bl.GoDataEdit(row)'>
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl.GoDataEdit(row)'>
              <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
             </td>
             

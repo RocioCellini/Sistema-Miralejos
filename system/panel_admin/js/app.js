@@ -144,7 +144,7 @@
       .state('GestionVentas.buscarLlamado',{
         url:'/BuscarLlamado',
         templateUrl:'templates/llamado/buscar_llamado.html',
-        controller: 'BuscarLlamado as $ctrl_bl'
+        controller: 'BuscarLlamado as $ctrl'
       })
 
       .state('GestionVentas.nuevoLlamado',{

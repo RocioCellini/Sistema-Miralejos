@@ -1,30 +1,22 @@
 <?php
 
+
+
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
 
 $type_accion=$data->{'type_accion'};
 
-//$type_accion=="buscar_llamado";
-
-/* Nuevo llamado
-$this_day=date("Y-m-d");
-$dd=explode('-',$this_day);
-$this_day=$dd[2]."/".$dd[1]."/".$dd[0];
 
 
-$arr2=array('fechareal'=>$this_day);
 
-$json = json_encode($arr2);
-echo $json; 
-*/
 
 if ($type_accion==="buscar_llamado") {
 
   $criterio=$data->{'criterio'};
   
-  //echo $criterio;
+  
 
   include "../../conexion.php";
 
@@ -50,7 +42,7 @@ if ($type_accion==="buscar_llamado") {
 
          $response = array();
 
-         //echo "entro al if";
+    
 
          do{  
 
@@ -177,7 +169,7 @@ if ($type_accion==="buscar_llamado") {
           } while ($row=$rs->fetch_assoc());
 
        } else { 
-          $mensaje=array($message=>utf8_encode("No se encontró un llamado con el nombre ingresado"));
+          $mensaje=array('Mensaje'=>utf8_encode("No se encontró un llamado con el nombre ingresado"));
           $response[]=$mensaje;
        } 
 

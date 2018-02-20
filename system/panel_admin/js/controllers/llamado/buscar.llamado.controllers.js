@@ -1,53 +1,37 @@
 (function(_angular) {
   
+
+
   var app=_angular.module("GestionVentas");
 
   app.controller("BuscarLlamado", BuscarLlamado);
+
+
   BuscarLlamado.$inject = ["$scope", "$state", "$stateParams", "llamadoFactory", "NgTableParams","$window", "$filter"];
 
-        //Show calendary
-        //*****************************************************************************//    
-
-        self.open1 = function() {
-                self.popup1.opened = true;
-              };
-
-              self.open2 = function() {
-                 self.popup2.opened = true;
-              };
-
-              self.setDate = function(year, month, day) {
-                self.dt1 = new Date(year, month, day)
-                self.dt2 = new Date(year, month, day);
-              };
-
-              self.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
-              self.format = self.formats[1];
-              self.altInputFormats = ['dd/MM/yyyy'];
-
-              self.popup1 = {
-                opened: false
-              };
-
-              self.popup2 = {
-                opened: false
-              };    
-
+    
+      
         //Controller
-        function BuscarLlamado($scope, $state, $stateParams , llamadoFactory,  
+        function BuscarLlamado ( $scope, $state, $stateParams , llamadoFactory,  
            NgTableParams, $window, $filter) {
                         
-              var $ctrl_bl=this;
+              var $ctrl=this;
 
-              $ctrl_bl.objSearch={
+              $ctrl.objSearch={
                      criterio:""
               };       
 
-              $ctrl_bl.Init = Init;
-              $ctrl_bl.BuscarLlamado = BuscarLlamado;
-              $ctrl_bl.GoDataEdit = GoDataEdit;
+              $ctrl.boton_submmit=false;
 
-              $ctrl_bl.Init();
+              $ctrl.popup1 = {
+                opened: false
+              };
+
+              $ctrl.Init = Init;
+              $ctrl.BuscarLlamado = BuscarLlamado;
+              $ctrl.GoDataEdit = GoDataEdit;
+
+              $ctrl.Init();
 
 
           // To configure table   
@@ -66,39 +50,82 @@
        // To go to modify form for pacient suscribers      
        //**********************************************************************************************// 
         function Init () {
-           $ctrl_bl.tableParams = new NgTableParams(initialParams, initialSettings);   
+           $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);   
         };
 
            
+
+            //Show calendary
+           //*****************************************************************************//    
+ 
+
+             $ctrl.open1 = function() {
+                $ctrl.popup1.opened = true;
+
+              };
+
+            
+
+              $ctrl.setDate = function(year, month, day) {
+                $ctrl.dt1 = new Date(year, month, day)
+              
+              };
+
+              $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
+              $ctrl.format = $ctrl.formats[1];
+              $ctrl.altInputFormats = ['dd/MM/yyyy'];
+
+
+           
+
+
+
        // Searching data        
        //**********************************************************************************************//  
-        function BuscarLlamado (valorIngresado) {     
+        function BuscarLlamado () {     
 
-              //console.log(valorIngresado);   
+             $ctrl.Mensaje="";
+             $ctrl.boton_submmit=true; 
+           
+              
 
-              $ctrl_bl.boton_submmit=true;
+               var date=$filter('date')($ctrl.dt1, 'yyyy-MM-dd');
+               console.log(date);
 
-              $ctrl_bl.objSearch.type_accion="buscar_llamado";              
-
-              $ctrl_bl.objSearch.criterio=valorIngresado;
-
-              //console.log($ctrl_bl.objSearch);
-                
-              llamadoFactory.buscarLlamado($ctrl_bl.objSearch).then(function(d) {
-
-              //console.log('JSON: '+d);
-              //console.log(d.Respuesta); 
+              
              
-              $ctrl_bl.tableParams.settings({dataset: d.Respuesta});   
 
-                  // console.log('Datos enviados a tableParams: '+d.Respuesta); 
+              $ctrl.objSearch.type_accion="buscar_llamado";              
 
-              $ctrl_bl.boton_submmit=false;      
+              $ctrl.objSearch.criterio=date;
+
+            
+                
+              llamadoFactory.buscarLlamado($ctrl.objSearch).then(function(d) {
+
+
+             // Se llama ternaria y reemplaza al if
+              angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
+
+            
+
+              function LoadTable (d) {
+                 $ctrl.tableParams.settings({dataset: d.Respuesta})
+              }
+
+              function ShowMessage (d) { 
+                  $ctrl.Mensaje=d.Respuesta[0].Mensaje;
+              }
+      
+        
+              $ctrl.boton_submmit=false;      
   
             }).catch(function (err) {
+               $ctrl.boton_submmit=false;
+                $ctrl.Mensaje="Intente Mas Tarde";  
                 console.log(err);
-              });
-                       
+            });
+                
         };
 
 
