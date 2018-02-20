@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-02-2018 a las 17:37:32
+-- Tiempo de generación: 20-02-2018 a las 14:18:28
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -71,7 +71,8 @@ INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `tipo_cliente`, `dni`
 (3, 'Rocio', 'Cellini', 0, 33444444, 3541222, 332234, 'rcellini@miralejos.net', 3, 303, 1, 0),
 (4, 'carlos', 'cellini', 0, 333, 333, 4445, 'carlin@hotmail.com', 1, 5, 2, 0),
 (5, 'flor', 'rrr', 0, 77, 77, 6665, 'yuy@hh.com', 1, 5, 4, 0),
-(15, 'Rocío', 'cabrera', 0, 33444455, 44444, 33565, 'cabrera@gmail.com', 3, 303, 3, 1);
+(15, 'Rocío', 'cabrera', 0, 33444455, 44444, 33565, 'cabrera@gmail.com', 3, 303, 3, 1),
+(22, 'roberto', 'lopez', 1, 555464, 56, 636, 'rob@dfsff', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -3441,7 +3442,7 @@ INSERT INTO `tabla_intermedia_dpto` (`id_tabla`, `id_dpto`, `id_planta`, `id_edi
 
 CREATE TABLE `tabla_intermedia_planilla` (
   `id_planilla` int(11) NOT NULL,
-  `cliente` text COLLATE latin1_spanish_ci NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `tipo_cliente` text COLLATE latin1_spanish_ci NOT NULL,
   `grado_interes` int(11) NOT NULL,
   `telefono1` int(11) NOT NULL,
@@ -3570,7 +3571,7 @@ ALTER TABLE `actividad`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
