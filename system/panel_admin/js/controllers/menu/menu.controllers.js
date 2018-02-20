@@ -20,6 +20,9 @@
             subtree: [{
               name: "Visualizar",
               link: "GestionVentas.planilla"
+            },{
+              name: "Agregar Datos",
+              link: "GestionVentas.agregarDatos"
             }]
           }, {
             name: "Contactos",
