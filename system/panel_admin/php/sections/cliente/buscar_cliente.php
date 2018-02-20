@@ -3,7 +3,7 @@
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-//$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'};
 
 $type_accion="buscar_cliente";
 
@@ -11,15 +11,17 @@ if ($type_accion==="buscar_cliente") {
 
 	include "../../conexion.php";
 
-	/*
+	
 	$criterio=$data->{'criterio'}; 
     $id_provincia=$data->{'id_provincia'};
 	$id_localidad=$data->{'id_localidad'};
-*/
+
+	/*
 	$criterio="flor"; 
     $id_provincia=-1;
 	$id_localidad=-1;
-	
+	*/
+
 	$type_data=null;
 	$data_query[0]=&$type_data;
 	$subconsulta="";
@@ -118,6 +120,8 @@ if ($type_accion==="buscar_cliente") {
 			$id_localidad=$row["id_localidad"];			
 			$id_actividad=$row["id_actividad"];	
 
+			
+
 			$result_prov = 'SELECT * FROM provincia WHERE id_provincia=?';
 
 				$stmt_prov = $conn->prepare($result_prov);
@@ -162,13 +166,13 @@ if ($type_accion==="buscar_cliente") {
 					trigger_error('Wrong SQL: ' . $result_act . ' Error: ' . $conn->error, E_USER_ERROR);
 				} 
 
-				$stmt_act->bind_param('i',$id_actalidad); 
+				$stmt_act->bind_param('i', $id_actividad); 
 
 				$stmt_act->execute(); 
 
 				$rs_act=$stmt_act->get_result(); 
 
-				if($row_act=$rs_act->fetch_assoc()){
+				if($row_act=$rs_act->fetch_assoc()) {
 					$actividad=$row_act["nombre"];
 				}
 
