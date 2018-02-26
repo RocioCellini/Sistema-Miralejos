@@ -2,33 +2,38 @@
 <br><br>
 
 <div class="row" align="center">
-<form name="FormNuevoVendedor" class="form-horizontal" role="form">
-      
+<form name="form" class="form-horizontal" autocomplete="off" role="form" novalidate>
+    <fieldset>
       <div class="form-group">
          <label class="col-sm-4 control-label">Nombre:</label>
-         <div class="col-sm-4" >
-          <input type="text" class="form-control campoform" ng-model="$ctrl_v.objDataVendedor.nombre">
+         <div class="col-sm-4">
+          <input type="text" name="nombre" class="form-control campoform" ng-model="$ctrl_v.objDataVendedor.nombre" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
+          <span class="errorform" ng-show="form.$submitted && form.nombre.$error.pattern">El Nombre no es válido.</span> 
+          <span class="errorform" ng-show="form.$submitted && form.nombre.$error.required">El campo es Requerido.</span>
         </div>
         <div class="col-sm-4" ></div>
-      </div>          
-    
+      </div>     
+
       <div class="form-group">
-           <label class="col-sm-4 control-label">Correo Electrónico:</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control campoform" ng-model="$ctrl_v.objDataVendedor.email">
-            </div>
-             <div class="col-sm-4" ></div>
-        </div>
-      
+         <label class="col-sm-4 control-label">Correo Electrónico:</label>
+          <div class="col-sm-4">
+            <input type="text" name="email" class="form-control campoform" ng-model="$ctrl_v.objDataVendedor.email" ng-pattern="/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/" ng-required="true">
+            <span class="errorform" ng-show="form.$submitted && form.email.$error.pattern">No es una dirección de correo válida.</span>
+            <span class="errorform" ng-show="form.$submitted && form.email.$error.required">El campo es Requerido.</span>
+          </div>
+          <div class="col-sm-4"></div>
+      </div>
+
       <div class="form-group">
         <div class="col-sm-4" ></div>
           <div class=" col-sm-4">
-          <button class="btn btn-default" ng-disabled="$ctrl_v.allow_disable"  ng-show="$ctrl_v.allow_visible" 
-          ng-click='$ctrl_v.NuevoVendedor()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
-             </div>
+            <button type="submit" ng-disabled="$ctrl_v.allow_disable" class="btn btn-default"
+            ng-click='form.$valid && $ctrl_v.NuevoVendedor()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+          </div>
           <div class="col-sm-4" ></div>
         </div>
         <div class="mensajesistema">{{$ctrl_v.Mensaje}}</div>
+  </fieldset>  
 </form>
 </div>
 <div style="height:100px"></div>
