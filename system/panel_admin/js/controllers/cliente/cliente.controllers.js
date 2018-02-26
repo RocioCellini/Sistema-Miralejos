@@ -55,8 +55,6 @@
                     
             $ctrl_c.defaultparams.type_accion="search_data_combos";
             defaultdataFactory.buscar_datos_combos($ctrl_c.defaultparams).then(function(d){    
-    
-            //console.log(d);
 
             $ctrl_c.datalocalidad2=d.localidad;
 
@@ -103,8 +101,6 @@
           $ctrl_c.objDataCliente.id_actividad=$ctrl_c.actividad.selectedOption.id;
           $ctrl_c.objDataCliente.tipo_cliente=$ctrl_c.tipo_cliente.selectedOption.id;
           $ctrl_c.objDataCliente.conoce=$ctrl_c.data.selectedOption.id;
-
-          //console.log($ctrl_c.objDataCliente); bien
 
           clienteFactory.nuevoCliente($ctrl_c.objDataCliente).then(function(d) {                   
                   $ctrl_c.Mensaje=d.Mensaje;
