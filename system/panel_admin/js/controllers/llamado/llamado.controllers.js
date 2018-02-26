@@ -20,6 +20,10 @@
      $ctrl_ll.allow_disable = false;
      $ctrl_ll.allow_visible = true;
 
+     $ctrl_ll.popup1 = {
+        opened: false
+      };
+
      $ctrl_ll.Init = Init;
      $ctrl_ll.upDateEdificio = upDateEdificio;
      $ctrl_ll.upDatePlanta = upDatePlanta;
@@ -44,10 +48,11 @@
 
       };    
 
-        //-------------------------------------------------------------------------------------------------  
+      
+      //upDate
+      //*****************************************************************************//
 
-
-     function upDateEdificio(obj_edificio) { 
+      function upDateEdificio(obj_edificio) { 
 
           console.log(obj_edificio);
 
@@ -82,6 +87,23 @@
           };                                                                     
       }
 
+    //Show calendary
+    //*****************************************************************************//    
+
+    $ctrl_ll.open1 = function() {
+      $ctrl_ll.popup1.opened = true;
+    };
+
+    $ctrl_ll.setDate = function(year, month, day) {
+      $ctrl_ll.dt1 = new Date(year, month, day)
+    };
+
+    $ctrl_ll.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
+    $ctrl_ll.format = $ctrl_ll.formats[1];
+    $ctrl_ll.altInputFormats = ['dd/MM/yyyy'];
+
+    //New Call
+    //*****************************************************************************//
 
     function NuevoLlamado () {
                 
