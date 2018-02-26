@@ -2,12 +2,13 @@
 <br><br>
 
 <div class="row" align="center">
-<form name="FormNuevaPlanta" class="form-horizontal" role="form">
+<form name="form" class="form-horizontal" autocomplete="off" role="form" novalidate>
       
        <div class="form-group">
          <label class="col-sm-4 control-label">Nombre:</label>
          <div class="col-sm-4" >
-          <input type="text" class="form-control campoform" ng-model="$ctrl_p.objDataPlanta.nombre">
+          <input type="text" name="nombre" class="form-control campoform" ng-model="$ctrl_p.objDataPlanta.nombre" ng-required="true">          
+          <span class="errorform" ng-show="form.$submitted && form.nombre.$error.required">El campo es Requerido.</span>
         </div>
         <div class="col-sm-4" ></div>
       </div>
@@ -23,4 +24,4 @@
         <div class="mensajesistema">{{$ctrl_p.Mensaje}}</div>
 </form>
 </div>
-<div style="height:100px"></div>
+
