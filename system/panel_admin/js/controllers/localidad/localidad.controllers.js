@@ -69,6 +69,7 @@
                 $ctrl_loc.Mensaje=d.Mensaje;
                 //$ctrl_loc.allow_disable=false;
                 console.log("respuesta: "+d);
+                console.log("localidad: "+$ctrl_loc.objDataLocalidad.nombre);
     
          }).catch(function (err) {
               console.log(err);

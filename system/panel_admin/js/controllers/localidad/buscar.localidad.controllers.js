@@ -49,7 +49,8 @@
           function BuscarLocalidad (valorIngresado) {     
 
                 //console.log(valorIngresado);   
-
+                $ctrl_bloc.Mensaje="";
+                
                 $ctrl_bloc.boton_submmit=true;
 
                 $ctrl_bloc.objSearch.type_accion="buscar_localidad";              
@@ -60,17 +61,25 @@
                   
                 localidadFactory.buscarLocalidad($ctrl_bloc.objSearch).then(function(d) {
 
-                //console.log('JSON: '+d);
-                //console.log(d.Respuesta); 
-               
-                $ctrl_bloc.tableParams.settings({dataset: d.Respuesta});   
+                // Se llama ternaria y reemplaza al if
+                angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
+              
+                function LoadTable (d) {
+                   $ctrl_bloc.tableParams.settings({dataset: d.Respuesta})
+                }
 
-                    // console.log('Datos enviados a tableParams: '+d.Respuesta); 
+                function ShowMessage (d) { 
+                    $ctrl_bloc.Mensaje=d.Respuesta[0].Mensaje;
+                }      
 
                 $ctrl_bloc.boton_submmit=false;      
     
               }).catch(function (err) {
+
+                  $ctrl.boton_submmit=false;
+                  $ctrl.Mensaje="Intente más tarde";  
                   console.log(err);
+
                 });
                          
           };

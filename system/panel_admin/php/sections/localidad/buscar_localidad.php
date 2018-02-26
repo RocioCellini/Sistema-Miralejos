@@ -6,7 +6,7 @@ $data=json_decode($json);
 
 $type_accion=$data->{'type_accion'};
 
-//$type_accion=="buscar_localidad";
+//$type_accion="buscar_localidad";
 
 if ($type_accion==="buscar_localidad") {
 
@@ -56,7 +56,7 @@ if ($type_accion==="buscar_localidad") {
 
        } else { 
           
-            $mensaje=array('message'=>utf8_encode("No se encontró una localidad con el nombre ingresado"));
+            $mensaje=array('message'=>"No se encontró una localidad con el nombre ingresado");
             $response[]=$mensaje;
        } 
 
