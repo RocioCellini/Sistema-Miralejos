@@ -1,7 +1,7 @@
 
 <div class="row" align="center">
-	<div class="col-md-2"></div>
-    <div class="col-md-4 well">
+	<div class="col-md-3"></div>
+    <div class="col-md-6 well">
 		<form name="FormBuscarCliente" class="form-horizontal" role="form"> 
 			<legend>Buscar Contacto</legend>
 			<fieldset>
@@ -30,7 +30,7 @@
          <label  class="col-sm-4 control-label">Dato:</label>
             <div class="col-sm-6">
 			       <input  type="text" class="form-control campoform" ng-model="$ctrl_bc.objSearch.criterio">
-			       <p>* ingrese nombre, apellido, dni, teléfono o email de la persona</p><br>
+			       <p>* ingrese nombre, apellido, dni, teléfono o email de la persona. Las entradas numéricas deben estar completas.</p><br>            
             </div><!-- ng-disabled="!$ctrl_bc.datalocalidad"-->
             <div class="col-sm-2" ></div>
         </div>
@@ -41,7 +41,7 @@
 			</fieldset>			
 		</form> 
 	</div>
-	<div class="col-md-8"></div>
+	<div class="col-md-3"></div>
 </div>
 
 <div class="mensajesistema">{{$ctrl_bc.Mensaje}}</div><br><br>
