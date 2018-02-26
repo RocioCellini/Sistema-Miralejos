@@ -50,9 +50,21 @@
 			<td><input type="" name="" size="8"></td>
 			<td><input type="" name="" size="3"></td>
 			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="3"></td>
-			<td><input type="" name="" size="3"></td>
-			<td><input type="" name="" size="3"></td>
+			<td>
+				<select name="edificio" id="edificio" class="form-control campoform"
+                ng-options="option.tipo for option in $ctrl_c.edificio.availableOptions track by option.id"
+                ng-model="$ctrl_c.edificio.selectedOption"></select> 
+			</td>
+			<td>
+				<select name="planta" id="planta" class="form-control campoform"
+                ng-options="option.tipo for option in $ctrl_c.planta.availableOptions track by option.id"
+                ng-model="$ctrl_c.planta.selectedOption"></select> 
+			</td>
+			<td>
+				<select name="dpto" id="dpto" class="form-control campoform"
+                ng-options="option.tipo for option in $ctrl_c.dpto.availableOptions track by option.id"
+                ng-model="$ctrl_c.dpto.selectedOption"></select> 
+			</td>
 			<td><input type="" name="" size="20"></td>
 			<td></td>
 			<td></td>
