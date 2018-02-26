@@ -32,9 +32,9 @@ if ($type_accion==="buscar_cliente") {
 
 	    if(is_numeric($criterio)) {		
 	     	
-	     	$subconsulta=" WHERE telefono=? OR dni=?"; //al ser enteros nose como hacer para buscarlos de a partes
-	     	$type_data='ii';
-	     	$count_criterio=2;	     	
+	     	$subconsulta=" WHERE telefono1=? OR telefono2=? OR dni=?"; //al ser enteros nose como hacer para buscarlos de a partes
+	     	$type_data='iii';
+	     	$count_criterio=3;	     	
 	     
 	     } else {
 	     	
