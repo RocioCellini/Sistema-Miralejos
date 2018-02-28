@@ -1,15 +1,93 @@
+<div class="row" align="center">
+  <div class="col-md-2"></div>
+    <div class="col-md-4 well">
+    <form name="FormBuscarCliente" class="form-horizontal" role="form"> 
+      <legend>Buscar Contacto</legend>
+      <fieldset>
+
+        <div class="form-group">
+         <label class="col-sm-4 control-label">Provincia:</label>
+            <div class="col-sm-6" >
+                  <select name="provincia" id="provincia" class="form-control campoform"
+                  ng-options="option.name for option in $ctrl_ll.dataprovincia.availableOptions track by option.id"
+                  ng-model="$ctrl_ll.dataprovincia.selectedOption" ng-change='$ctrl_ll.upDateProvincia($ctrl_ll.dataprovincia.selectedOption)'></select>                 
+            </div>
+            <div class="col-sm-2" ></div>
+         </div>
+
+        <div class="form-group">
+         <label  class="col-sm-4 control-label">Ciudad:</label>
+            <div class="col-sm-6">
+              <select ng-disabled="$ctrl_ll.combo_ciudad"  name="localidad" id="localidad" class="form-control campoform"
+              ng-options="option.name for option in $ctrl_ll.datalocalidad.availableOptions track by option.id"
+              ng-model="$ctrl_ll.datalocalidad.selectedOption"></select>
+            </div>
+            <div class="col-sm-2" ></div>
+        </div>
+
+        <div class="form-group">
+         <label  class="col-sm-4 control-label">Dato:</label>
+            <div class="col-sm-6">
+             <input  type="text" class="form-control campoform" ng-model="$ctrl_ll.objDataLlamado.criterio">
+             <p>* ingrese nombre, apellido, dni, teléfono, email o actividad de la persona</p><br>
+            </div>
+            <div class="col-sm-2" ></div>
+        </div>
+
+      <button  ng-click='$ctrl_ll.BuscarCliente($ctrl_ll.objDataLlamado.criterio)'  ng-disabled="$ctrl_ll.boton_submmit" class="btn btn-default">Buscar</button>
+
+      </fieldset>     
+    </form> 
+  </div>
+  <div class="col-md-8"></div>
+</div>
+
+<div class="mensajesistema">{{$ctrl_ll.Mensaje}}</div><br><br>
+
+<div class="row" >
+  <div class="col-md-3"  ></div>
+    <div class="col-md-6"  align="center">
+
+      <table ng-table="$ctrl_ll.tableParams" class="table table-condensed table-bordered table-striped">
+        <tr ng-repeat="row in $data">
+
+            <td data-title="'Nombre'">{{row.nombre}}</td>
+            <td data-title="'Apellido'">{{row.apellido}}</td>
+            <td data-title="'Apellido'">{{row.tipo_cliente}}</td>
+            <td data-title="'Dni'">{{row.dni}}</td>
+            <td data-title="'Telefono 1'">{{row.telefono1}}</td>
+            <td data-title="'Telefono 2'">{{row.telefono2}}</td>
+            <td data-title="'Email'">{{row.email}}</td>
+            <td data-title="'Provincia'">{{row.provincia}}</td>
+            <td data-title="'Localidad'">{{row.localidad}}</td>
+            <td data-title="'Actividad'">{{row.actividad}}</td>
+            <td data-title="'Conoce'">{{row.conoce}}</td>
+
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_ll.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_ll.GoDataEdit(row)'>
+             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
+            </td>
+            
+        </tr>
+      </table>
+
+    </div>
+  <div class="col-md-3" > </div>
+</div>
+
 <h3>Nuevo Llamado</h3>
 <br><br>
 
 <div class="row" align="center">
 <form name="FormNuevoLlamado" class="form-horizontal" role="form">
-        <div class="form-group">
-          <label class="col-sm-4 control-label">Vendedor:</label> <!--vendedor traído por el inicio de sesión-->
-           
-          <div class="col-sm-4" >
-            <input type="text" class="form-control campoform" ng-model="$ctrl_ll.objDataLlamado.vendedor">
+        <div class="form-group" ng-hide="comboProvHide">
+          <label class="col-sm-4 control-label">Vendedor:</label>      
+          <div class="col-sm-4">
+                <select name="vendedor" id="vendedor" class="form-control campoform"
+                ng-options="option.name for option in $ctrl_ll.data_vendedor.availableOptions track by option.id"
+                ng-model="$ctrl_ll.data_vendedor.selectedOption"></select>    
           </div>
-          <div class="col-sm-4" ></div>
+          <div class="col-sm-4"></div>
         </div>
 
         <div class="form-group">
@@ -21,15 +99,34 @@
         </div>
 
         <div class="form-group">
-         <label class="col-sm-4 control-label">Fecha del Llamado</label>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4" ></div>
+          <label class="col-sm-4 control-label">Fecha del Llamado</label>
+          <div class="col-sm-4" align="left">
+            <div class="input-group">
+              <p class="input-group">
+                <input type="text" class="form-control"
+                 uib-datepicker-popup="{{$ctrl_ll.format}}" 
+                 ng-model="$ctrl_ll.dt1" is-open="$ctrl_ll.popup1.opened" 
+                 datepicker-options="$ctrl_ll.dateOptions" 
+                 ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
+                 alt-input-formats="altInputFormats" readonly="readonly" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="$ctrl_ll.open1()">
+                  <i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>   
+            </div>                           
+          </div>
          </div>
 
         <div class="form-group">
             <label class="col-sm-4 control-label">Hora del Llamado:</label> 
-            <!--hora traída de la pc. Ver cap 64 de aprender a prog-->            
-            <div class="col-sm-4" id="displayReloj"></div>          
+                
+            <div class="col-sm-4">
+              <input type="time" class="form-control campoform" ng-model="$ctrl_ll.time.value" placeholder="HH:mm:ss" min="08:00:00" max="17:00:00">
+              <!--<span class="error" ng-show="myForm.input.$error.required">
+              El campo es Requerido.</span>-->
+              <tt>value = {{example.value | date: "HH:mm:ss"}}</tt><br/>
+            </div>          
             <div class="col-sm-4"></div>
         </div>
 
@@ -63,23 +160,27 @@
             </div><!--  ng-disabled="!data_dpto.selectedOption"  -->
             <div class="col-sm-4" ></div>
       </div>
-<!--
-       <div class="form-group">
-          <label  class="col-sm-4 control-label" >Grado de Interés:</label>
-           <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"
-      ng-options="option.Grado de Interés for option in $ctrl_ll.data_edit.availableOptions track by option.id"
-      ng-model="$ctrl_ll.data_edit.selectedOption"  ng-change="upDate()"></select></div>
-            <div class="col-sm-4" ></div>
-        </div>
 
       <div class="form-group">
-          <label  class="col-sm-4 control-label" >Origen del Dato:</label>
-           <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"
-      ng-options="option.Grado de Interés for option in $ctrl_ll.data_edit.availableOptions track by option.id"
-      ng-model="$ctrl_ll.data_edit.selectedOption"  ng-change="upDate()"></select></div>
-            <div class="col-sm-4" ></div>
+          <label  class="col-sm-4 control-label">Grado de Interés:</label>
+          <div class="col-sm-4">
+            <select class="form-control campoform" name="grado_interes" id="mySelect" ng-options="option.name for option in $ctrl_ll.grado_interes.availableOptions track by option.id" ng-model="$ctrl_ll.grado_interes.selectedOption"  ng-change="upDate()">        
+            </select>
+          </div>
+          <div class="col-sm-4"></div>
+      </div>
+
+      <div class="form-group">
+        <label  class="col-sm-4 control-label">Origen del Dato:</label>
+        <div class="col-sm-4">
+          <select class="form-control campoform" name="origen_dato" id="mySelect"
+          ng-options="option.name for option in $ctrl_ll.origen_dato.availableOptions track by option.id"
+          ng-model="$ctrl_ll.origen_dato.selectedOption"  ng-change="upDate()">          
+          </select>
         </div>
-      -->
+        <div class="col-sm-4"></div>
+      </div>
+     
 
       <div class="form-group">
         <label  class="col-sm-4 control-label">Fecha Origen del Dato:</label>
@@ -88,12 +189,12 @@
               <p class="input-group">
                 <input type="text" class="form-control"
                  uib-datepicker-popup="{{$ctrl_ll.format}}" 
-                 ng-model="$ctrl_ll.dt1" is-open="$ctrl_ll.popup1.opened" 
+                 ng-model="$ctrl_ll.dt2" is-open="$ctrl_ll.popup2.opened" 
                  datepicker-options="$ctrl_ll.dateOptions" 
                  ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
                  alt-input-formats="altInputFormats" readonly="readonly" />
                 <span class="input-group-btn">
-                  <button type="button" class="btn btn-default" ng-click="$ctrl_ll.open1()">
+                  <button type="button" class="btn btn-default" ng-click="$ctrl_ll.open2()">
                   <i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
               </p>   
