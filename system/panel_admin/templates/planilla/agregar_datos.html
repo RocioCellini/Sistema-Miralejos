@@ -24,18 +24,18 @@
 </div>
 
 <div class="row" align="center">
-	<div class="col-md-2"></div>
+  <div class="col-md-2"></div>
     <div class="col-md-4 well">
-		<form name="FormBuscarCliente" class="form-horizontal" role="form"> 
-			<legend>Buscar Contacto</legend>
-			<fieldset>
+    <form name="FormBuscarCliente" class="form-horizontal" role="form"> 
+      <legend>Buscar Contacto</legend>
+      <fieldset>
 
         <div class="form-group">
          <label class="col-sm-4 control-label">Provincia:</label>
             <div class="col-sm-6" >
                   <select name="provincia" id="provincia" class="form-control campoform"
-                  ng-options="option.name for option in $ctrl_bc.dataprovincia.availableOptions track by option.id"
-                  ng-model="$ctrl_bc.dataprovincia.selectedOption" ng-change='$ctrl_bc.upDate($ctrl_bc.dataprovincia.selectedOption)'></select>                 
+                  ng-options="option.name for option in $ctrl_ad.dataprovincia.availableOptions track by option.id"
+                  ng-model="$ctrl_ad.dataprovincia.selectedOption" ng-change='$ctrl_ad.upDateProvincia($ctrl_ad.dataprovincia.selectedOption)'></select>                 
             </div>
             <div class="col-sm-2" ></div>
          </div>
@@ -43,52 +43,53 @@
         <div class="form-group">
          <label  class="col-sm-4 control-label">Ciudad:</label>
             <div class="col-sm-6">
-              <select ng-disabled="$ctrl_bc.combo_ciudad"  name="localidad" id="localidad" class="form-control campoform"
-              ng-options="option.name for option in $ctrl_bc.datalocalidad.availableOptions track by option.id"
-              ng-model="$ctrl_bc.datalocalidad.selectedOption"></select>
-            </div><!-- ng-disabled="!$ctrl_bc.datalocalidad"-->
+              <select ng-disabled="$ctrl_ad.combo_ciudad"  name="localidad" id="localidad" class="form-control campoform"
+              ng-options="option.name for option in $ctrl_ad.datalocalidad.availableOptions track by option.id"
+              ng-model="$ctrl_ad.datalocalidad.selectedOption"></select>
+            </div>
             <div class="col-sm-2" ></div>
         </div>
 
         <div class="form-group">
          <label  class="col-sm-4 control-label">Dato:</label>
             <div class="col-sm-6">
-			       <input  type="text" class="form-control campoform" ng-model="$ctrl_bc.objSearch.criterio">
-			       <p>* ingrese nombre, apellido, dni, teléfono, email o actividad de la persona</p><br>
-            </div><!-- ng-disabled="!$ctrl_bc.datalocalidad"-->
+             <input  type="text" class="form-control campoform" ng-model="$ctrl_ad.objDataLlamado.criterio">
+             <p>* ingrese nombre, apellido, dni, teléfono, email o actividad de la persona</p><br>
+            </div>
             <div class="col-sm-2" ></div>
         </div>
 
-			<button  ng-click='$ctrl_bc.BuscarCliente($ctrl_bc.objSearch.criterio)'  ng-disabled="$ctrl_bc.boton_submmit" 
-      class="btn btn-default">Buscar</button>
+      <button  ng-click='$ctrl_ad.BuscarCliente($ctrl_ad.objDataLlamado.criterio)'  ng-disabled="$ctrl_ad.boton_submmit" class="btn btn-default">Buscar</button>
 
-			</fieldset>			
-		</form> 
-	</div>
-	<div class="col-md-8"></div>
+      </fieldset>     
+    </form> 
+  </div>
+  <div class="col-md-8"></div>
 </div>
-<!--
+
 <div class="mensajesistema">{{$ctrl_bc.Mensaje}}</div><br><br>
--->
+
 <div class="row" >
   <div class="col-md-3"  ></div>
     <div class="col-md-6"  align="center">
 
-      <table ng-table="$ctrl_bc.tableParams" class="table table-condensed table-bordered table-striped">
+      <table ng-table="$ctrl_ad.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
 
             <td data-title="'Nombre'">{{row.nombre}}</td>
             <td data-title="'Apellido'">{{row.apellido}}</td>
+            <td data-title="'Apellido'">{{row.tipo_cliente}}</td>
             <td data-title="'Dni'">{{row.dni}}</td>
-            <td data-title="'Telefono'">{{row.telefono}}</td>
+            <td data-title="'Telefono 1'">{{row.telefono1}}</td>
+            <td data-title="'Telefono 2'">{{row.telefono2}}</td>
             <td data-title="'Email'">{{row.email}}</td>
             <td data-title="'Provincia'">{{row.provincia}}</td>
             <td data-title="'Localidad'">{{row.localidad}}</td>
             <td data-title="'Actividad'">{{row.actividad}}</td>
             <td data-title="'Conoce'">{{row.conoce}}</td>
 
-            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bc.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
-             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bc.GoDataEdit(row)'>
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_ad.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_ad.GoDataEdit(row)'>
              <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
             </td>
             
@@ -98,84 +99,220 @@
     </div>
   <div class="col-md-3" > </div>
 </div>
+<br><br><br><br>
 
-<form>
-	<div class="row">
+<form name="form" class="form-horizontal" role="form">
+
+	<div class="row" align="center">
 	<div class="col-md-2"></div>
     <div class="col-md-4">
 		
-		  <div class="form-group">
-		    <label>Cliente</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Tipo de Cliente</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>GI</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Teléfono</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Ciudad</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Provincia</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Origen Dato</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Actividad</label>
-		    <input type="" class="form-control">
-		  </div>
-		  
-		</div>
+		<div class="form-group">
+          <label class="col-sm-4 control-label">Cliente:</label><!--persona seleccionada -->
+          <div class="col-sm-6">
+            <input type="text" class="form-control campoform" ng-model="$ctrl_ad.objDataLlamado.contacto">
+          </div>
+          <div class="col-sm-2" ></div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Tipo de Cliente:</label>
+          <div class="col-sm-6">
+            <select class="form-control campoform" name="tipo_cliente" id="mySelect" ng-options="option.name for option in $ctrl_ad.tipo_cliente.availableOptions track by option.id" ng-model="$ctrl_ad.tipo_cliente.selectedOption"  ng-change="upDate()">        
+            </select>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Grado de Interés:</label>
+          <div class="col-sm-6">
+            <select class="form-control campoform" name="grado_interes" id="mySelect" ng-options="option.name for option in $ctrl_ad.grado_interes.availableOptions track by option.id" ng-model="$ctrl_ad.grado_interes.selectedOption"  ng-change="upDate()">        
+            </select>
+          </div>
+          <div class="col-sm-2"></div>
+      	</div>
+
+      	<div class="form-group">
+         <label class="col-sm-4 control-label">Telefono 1:</label>
+          <div class="col-sm-6">
+            <input type="text" name="telefono1" class="form-control campoform" ng-model="$ctrl_ad.objDataCliente.telefono1" ng-pattern="/^([0-9])*$/" ng-required="true">
+            <span class="errorform" ng-show="form.$submitted && form.telefono1.$error.pattern">Ingresar solo números enteros.</span>           
+            <span class="errorform" ng-show="form.$submitted && form.telefono1.$error.required">El campo es Requerido.</span>
+          </div>
+          <div class="col-sm-2"></div>
+	    </div>
+
+	    <div class="form-group">
+          <label class="col-sm-4 control-label">Telefono 2:</label>
+          <div class="col-sm-6">
+            <input type="text" name="telefono2" class="form-control campoform" ng-model="$ctrl_ad.objDataCliente.telefono2" ng-pattern="/^([0-9])*$/" ng-required="true">
+            <span class="errorform" ng-show="form.$submitted && form.telefono2.$error.pattern">Ingresar solo números enteros.</span>         
+          </div>
+          <div class="col-sm-2"></div>
+	    </div>
+
+		<div class="form-group" ng-hide="comboProvHide">
+        <label class="col-sm-4 control-label">Provincia:</label>
+          <div class="col-sm-6">
+                <select name="provincia" id="provincia" class="form-control campoform" ng-disabled="comboDisable"
+                ng-options="option.name for option in $ctrl_ad.dataprovincia.availableOptions track by option.id"
+                ng-model="$ctrl_ad.dataprovincia.selectedOption" ng-change='$ctrl_ad.upDateProvincia($ctrl_ad.dataprovincia.selectedOption)'></select>    
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-sm-4 control-label">Ciudad:</label>
+          <div class="col-sm-6">
+            <select  name="localidad" id="localidad" class="form-control campoform"
+            ng-options="option.name for option in $ctrl_ad.datalocalidad.availableOptions track by option.id"
+            ng-model="$ctrl_ad.datalocalidad.selectedOption" ></select>  
+          </div><!-- ng-disabled="!$ctrl_ad.datalocalidad"-->
+          <div class="col-sm-2"></div>
+        </div>
+
+		<div class="form-group">
+	        <label  class="col-sm-4 control-label">Origen del Dato:</label>
+	        <div class="col-sm-6">
+	          <select class="form-control campoform" name="origen_dato" id="mySelect"
+	          ng-options="option.name for option in $ctrl_ad.origen_dato.availableOptions track by option.id"
+	          ng-model="$ctrl_ad.origen_dato.selectedOption"  ng-change="upDate()">          
+	          </select>
+	        </div>
+	        <div class="col-sm-2"></div>
+	    </div>     
+
+		<div class="form-group" ng-hide="comboProvHide">
+          <label class="col-sm-4 control-label">Actividad:</label>
+          <div class="col-sm-6">
+                <select name="actividad" id="actividad" class="form-control campoform" ng-disabled="comboDisable"
+                ng-options="option.name for option in $ctrl_ad.actividad.availableOptions track by option.id"
+                ng-model="$ctrl_ad.actividad.selectedOption"></select>    
+          </div>
+          <div class="col-sm-2"></div>
+      	</div>
+
+      	<div class="form-group">
+	       <label class="col-sm-4 control-label">Conoce:</label>
+	          <div class="col-sm-6">
+	            <select name="conoce" id="conoce" class="form-control campoform"
+	            ng-options="option.name for option in $ctrl_ad.data.availableOptions track by option.id"
+	            ng-model="$ctrl_ad.data.selectedOption"></select>                 
+	          </div>
+	          <div class="col-sm-2"></div>
+	    </div>
+
+      	</div>
+		 
 
 		<div class="col-md-4">
+
+		  
+
 		  <div class="form-group">
-		    <label>Conoce</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Fecha origen dato</label>
-		    <input type="" class="form-control">
-		  </div>
+	        <label  class="col-sm-4 control-label">Fecha Origen del Dato:</label>
+	        <div class="col-sm-6" align="left">
+	           <div class="input-group">
+	              <p class="input-group">
+	                <input type="text" class="form-control"
+	                 uib-datepicker-popup="{{$ctrl_ad.format}}" 
+	                 ng-model="$ctrl_ad.dt2" is-open="$ctrl_ad.popup2.opened" 
+	                 datepicker-options="$ctrl_ad.dateOptions" 
+	                 ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
+	                 alt-input-formats="altInputFormats" readonly="readonly" />
+	                <span class="input-group-btn">
+	                  <button type="button" class="btn btn-default" ng-click="$ctrl_ad.open2()">
+	                  <i class="glyphicon glyphicon-calendar"></i></button>
+	                </span>
+	              </p>   
+	            </div>                           
+	        </div>
+	        <div class="col-sm-2"></div>
+	      </div>
+
 		   <div class="form-group">
-		    <label>Fecha ultimo contacto</label>
-		    <input type="" class="form-control">
+		    <label class="col-sm-4 control-label">Fecha ultimo contacto</label><!-- traer de la bd, cuando seleccioné el cliente arriba luego de buscarlo, tabla llamado -->
+		    <div class="col-sm-6">
+	            <input type="text" class="form-control campoform" ng-model="$ctrl_ad.objDataLlamado.contacto">
+	        </div>
+	        <div class="col-sm-2"></div>
 		  </div>
+
 		   <div class="form-group">
-		    <label>Nº Llamados</label>
-		    <input type="" class="form-control">
+		    <label class="col-sm-4 control-label">Nº Llamados</label>
+		    <div class="col-sm-6"><!-- traer de la bd, cuando seleccioné el cliente arriba luego de buscarlo, tabla llamado -->
+	            <input type="text" class="form-control campoform" ng-model="$ctrl_ad.objDataLlamado.contacto">
+	        </div>
+	        <div class="col-sm-2"></div>
 		  </div>
+
 		   <div class="form-group">
-		    <label>Fecha cierre operación</label>
-		    <input type="" class="form-control">
-		  </div>
+	        <label  class="col-sm-4 control-label">Fecha de Cierre de Operación:</label>
+	        <div class="col-sm-6" align="left">
+	           <div class="input-group">
+	              <p class="input-group">
+	                <input type="text" class="form-control"
+	                 uib-datepicker-popup="{{$ctrl_ad.format}}" 
+	                 ng-model="$ctrl_ad.dt1" is-open="$ctrl_ad.popup1.opened" 
+	                 datepicker-options="$ctrl_ad.dateOptions" 
+	                 ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
+	                 alt-input-formats="altInputFormats" readonly="readonly" />
+	                <span class="input-group-btn">
+	                  <button type="button" class="btn btn-default" ng-click="$ctrl_ad.open1()">
+	                  <i class="glyphicon glyphicon-calendar"></i></button>
+	                </span>
+	              </p>   
+	            </div>                           
+	        </div>
+	        <div class="col-sm-2"></div>
+	      </div>
+
 		  <div class="form-group">
-		    <label>Edificio</label>
-		    <input type="" class="form-control">
-		  </div>
+	         <label class="col-sm-4 control-label">Edificio:</label>
+	            <div class="col-sm-6">
+	                  <select name="edificio" id="edificio" class="form-control campoform"
+	                  ng-options="option.nombre for option in $ctrl_ad.data_edificio.availableOptions track by option.id_edificio"
+	                  ng-model="$ctrl_ad.data_edificio.selectedOption"  ng-change='$ctrl_ad.upDateEdificio($ctrl_ad.data_edificio.selectedOption)'></select>
+	            </div>
+	            <div class="col-sm-2"></div>
+	      </div>
+
+	      <div class="form-group">
+	         <label class="col-sm-4 control-label">Planta:</label>
+	            <div class="col-sm-6">
+	                  <select name="planta" id="planta" class="form-control campoform"
+	                  ng-options="option.nombre for option in $ctrl_ad.data_planta.availableOptions track by option.id_planta"             
+	                  ng-model="$ctrl_ad.data_planta.selectedOption"
+	                  ng-change='$ctrl_ad.upDatePlanta($ctrl_ad.data_planta.selectedOption)'></select>                 
+	            </div><!-- ng-disabled="!data_edificio.selectedOption"  -->
+	            <div class="col-sm-2"></div>
+	      </div>
+
+	       <div class="form-group">
+	         <label class="col-sm-4 control-label">Departamento:</label>
+	            <div class="col-sm-6" >
+	                  <select name="dpto" id="dpto" class="form-control campoform"
+	                  ng-options="option.nombre for option in $ctrl_ad.data_dpto.availableOptions track by option.id_dpto"               
+	                  ng-model="$ctrl_ad.data_dpto.selectedOption"></select>                 
+	            </div><!--  ng-disabled="!data_dpto.selectedOption"  -->
+	            <div class="col-sm-2" ></div>
+	      </div>
+
 		  <div class="form-group">
-		    <label>Dpto Vendido</label>
-		    <input type="" class="form-control">
-		  </div>
-		  <div class="form-group">
-		    <label>Correo Electrónico</label>
-		    <input type="" class="form-control">
-		  </div>
+	         <label class="col-sm-4 control-label">Correo Electrónico:</label>
+	          <div class="col-sm-6">
+	            <input type="text" name="email" class="form-control campoform" ng-model="$ctrl_ad.objDataCliente.email" ng-pattern="/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/" ng-required="true" unique="isUnique">
+	            <span class="errorform" ng-show="form.$submitted && form.email.$error.pattern">No es una dirección de correo válida.</span>
+	            <span class="errorform" ng-show="form.$submitted && form.email.$error.required">El campo es Requerido.</span>
+	          </div>
+	           <div class="col-sm-2"></div>
+	      </div>
 		 
 	</div>
 	<div class="col-md-2"></div>
 	</div>
+
 	<br><br>
 	<div class="row">
 	<div class="col-md-2"></div>
@@ -185,6 +322,7 @@
 	<div class="col-md-2"></div>
 	</div>
 	<br><br>
+
 </form>
 
 </body>
