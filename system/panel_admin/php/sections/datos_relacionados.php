@@ -66,35 +66,8 @@
             }  while ($row_loc= $rs_loc->fetch_assoc());
         }   
 
-
-        //Actividades
-
-        $result_act = "SELECT * FROM actividad";
-        $stmt_act = $conn->prepare($result_act);
-
-        if($stmt_act === false) {
-            trigger_error('Wrong SQL: ' . $result_act . ' Error: ' . $conn->error, E_USER_ERROR);
-        }
-          
-        $stmt_act->execute();
-        $rs_act=$stmt_act->get_result();
-
-        if($row_act = $rs_act->fetch_assoc()) {
-        
-            $response_act = array();
-
-            do  {
-
-                $temp_act=array('id'=>utf8_encode($row_act['id_actividad']),
-                            'name'=> utf8_encode($row_act['nombre'])
-                );
-
-                $response_act[]=$temp_act;
-
-            }  while ($row_act= $rs_act->fetch_assoc());
-        }   
      
-        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'actividad' => $response_act);
+        $item=array('provincia' => $response_prov, 'localidad' => $response_loc);
         $json = json_encode($item);
         echo $json;
 
