@@ -108,16 +108,7 @@
               name: "Añadir",
               link: "GestionVentas.nuevoLlamado"
             }]
-          },
-
-          /*{
-            name: "Cierre de Operación",
-            link: "#",
-            subtree: [{
-              name: "Cerrar Operación",
-              link: "GestionVentas.cerrarOperacion"
-            }]
-          },*/{
+          },{
             name: "Actividad",
             link: "#",
             subtree: [{
@@ -127,6 +118,17 @@
             {
               name: "Añadir",
               link: "GestionVentas.nuevaActividad"
+            }]
+          },{
+            name: "Origen del Dato",
+            link: "#",
+            subtree: [{
+              name: "Buscar",
+              link: "GestionVentas.buscarOrigen"
+            },
+            {
+              name: "Añadir",
+              link: "GestionVentas.nuevoOrigen"
             }]
           }
 
