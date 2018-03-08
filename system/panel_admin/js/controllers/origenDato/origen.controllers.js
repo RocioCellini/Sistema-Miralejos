@@ -33,13 +33,17 @@
 
       function NuevoOrigen () {
                 
-        //$ctrl_o.allow_disable=true;
+        $ctrl_o.allow_disable=true;
 
         $ctrl_o.objDataOrigen.type_accion="nuevo_origen";
         
         origenDatoFactory.nuevoOrigen($ctrl_o.objDataOrigen).then(function(d) {                   
-                $ctrl_o.Mensaje=d.Mensaje;
+               // $ctrl_o.Mensaje=d.Mensaje;
                 //$ctrl_o.allow_disable=false;
+                $ctrl_o.Mensaje=d.Mensaje;
+                console.log($ctrl_o.objDataOrigen);
+                console.log(d);
+                console.log(d.Mensaje);
     
          }).catch(function (err) {
               console.log(err);

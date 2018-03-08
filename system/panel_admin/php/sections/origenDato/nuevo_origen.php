@@ -41,7 +41,7 @@ if($type_accion==="nuevo_origen"){
   if($last_id!=0){
     $message="Se guardo un nuevo origen";
   }else{
-    $message="El nuevo origen no se guardÃ³";
+    $message="El nuevo origen no se guardó";
   }
 
   //***************************************************************************************///
