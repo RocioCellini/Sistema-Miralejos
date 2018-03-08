@@ -21,7 +21,7 @@ if($type_accion==="nuevo_origen"){
 	$origen_dato =$data->{'origen_dato'};
   //$origen_dato="Letrero";
 
-  $sql_insert='INSERT INTO origen_dato (id_origen_dato, origen_dato) VALUES (?,?)';
+  $sql_insert='INSERT INTO origen_dato (id_origen_dato, origen_dato) VALUES ( ?,? )';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -30,7 +30,7 @@ if($type_accion==="nuevo_origen"){
 
   $idfirst=NULL; 
 
-  echo($origen_dato);
+  //echo($origen_dato);
 
   $stmt_insert->bind_param('is',$idfirst, $origen_dato);
 
@@ -38,10 +38,14 @@ if($type_accion==="nuevo_origen"){
 
   $last_id=mysqli_insert_id($conn);
 
-  if($last_id!=0){
+  if( $last_id!=0 ) {
+   
     $message="Se guardo un nuevo origen";
+  
   }else{
+  
     $message="El nuevo origen no se guardó";
+  
   }
 
   //***************************************************************************************///

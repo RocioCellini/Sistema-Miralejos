@@ -35,8 +35,8 @@
 
      $ctrl_ll.CurrentDate = new Date();
 
-     $ctrl_ll.time = {
-       value: new Date(2018, 0, 1, 14, 57, 0) //nose que parámetros tiene, 14:57 es la hora que aparece por defecto
+     $ctrl_ll.objDataLlamado = {
+       time: new Date(2018, 0, 1, 8, 0, 0)
      };
 
      $ctrl_ll.grado_interes = {
@@ -261,11 +261,23 @@
 
         $ctrl_ll.objDataLlamado.type_accion = "nuevo_llamado";
 
-        $ctrl_ll.objDataLlamado.id_edificio = $ctrl_ll.data_edificio.selectedOption.id;
-        $ctrl_ll.objDataLlamado.id_planta = $ctrl_ll.data_planta.selectedOption.id;
-        $ctrl_ll.objDataLlamado.id_dpto = $ctrl_ll.data_dpto.selectedOption.id;
+
+        $ctrl_ll.objDataLlamado.fecha_llamado = $filter('date')($ctrl_ll.objDataLlamado.dt1, 'yyyy-MM-dd'); 
+        $ctrl_ll.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl_ll.objDataLlamado.dt2, 'yyyy-MM-dd'); 
+        $ctrl_ll.objDataLlamado.hora_llamado = $filter('date')($ctrl_ll.objDataLlamado.time, 'HH:mm:ss'); 
+
+        $ctrl_ll.objDataLlamado.id_cliente=1;
+
+
+        $ctrl_ll.objDataLlamado.id_edificio = $ctrl_ll.data_edificio.selectedOption.id_edificio;
+        $ctrl_ll.objDataLlamado.id_planta = $ctrl_ll.data_planta.selectedOption.id_planta;
+        $ctrl_ll.objDataLlamado.id_dpto = $ctrl_ll.data_dpto.selectedOption.id_dpto;
+
+
+
+          console.log($ctrl_ll.objDataLlamado);
         
-    
+      /*    
         clienteFactory.nuevoLlamado($ctrl_ll.objDataLlamado).then(function(d) {                   
                 $ctrl_ll.Mensaje = d.Mensaje;
                 //$ctrl_ll.allow_disable=false;
@@ -273,7 +285,8 @@
          }).catch(function (err) {
               console.log(err);
               //$ctrl_ll.allow_disable=false;
-         });                 
+         });      
+      */
     };
       
      Init();

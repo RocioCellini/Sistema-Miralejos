@@ -105,7 +105,7 @@
               <p class="input-group">
                 <input type="text" class="form-control"
                  uib-datepicker-popup="{{$ctrl_ll.format}}" 
-                 ng-model="$ctrl_ll.dt1" is-open="$ctrl_ll.popup1.opened" 
+                 ng-model="$ctrl_ll.objDataLlamado.dt1" is-open="$ctrl_ll.popup1.opened" 
                  datepicker-options="$ctrl_ll.dateOptions" 
                  ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
                  alt-input-formats="altInputFormats" readonly="readonly" />
@@ -122,10 +122,11 @@
             <label class="col-sm-4 control-label">Hora del Llamado:</label> 
                 
             <div class="col-sm-4">
-              <input type="time" class="form-control campoform" ng-model="$ctrl_ll.time.value" placeholder="HH:mm:ss" min="08:00:00" max="17:00:00">
+              <input type="time" class="form-control campoform" ng-model=" $ctrl_ll.objDataLlamado.time" 
+              >
               <!--<span class="error" ng-show="myForm.input.$error.required">
               El campo es Requerido.</span>-->
-              <tt>value = {{example.value | date: "HH:mm:ss"}}</tt><br/>
+           
             </div>          
             <div class="col-sm-4"></div>
         </div>
@@ -188,7 +189,7 @@
               <p class="input-group">
                 <input type="text" class="form-control"
                  uib-datepicker-popup="{{$ctrl_ll.format}}" 
-                 ng-model="$ctrl_ll.dt2" is-open="$ctrl_ll.popup2.opened" 
+                 ng-model="$ctrl_ll.objDataLlamado.dt2" is-open="$ctrl_ll.popup2.opened" 
                  datepicker-options="$ctrl_ll.dateOptions" 
                  ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
                  alt-input-formats="altInputFormats" readonly="readonly" />

@@ -29,7 +29,7 @@
       };    
 
       function upDate () { 
-      }
+      };
 
       function NuevoOrigen () {
                 
@@ -37,13 +37,13 @@
 
         $ctrl_o.objDataOrigen.type_accion="nuevo_origen";
         
-        origenDatoFactory.nuevoOrigen($ctrl_o.objDataOrigen).then(function(d) {                   
+        origenDatoFactory.nuevoOrigen( $ctrl_o.objDataOrigen ).then ( function( d ) {                   
                // $ctrl_o.Mensaje=d.Mensaje;
                 //$ctrl_o.allow_disable=false;
                 $ctrl_o.Mensaje=d.Mensaje;
                 console.log($ctrl_o.objDataOrigen);
-                console.log(d);
-                console.log(d.Mensaje);
+                //console.log(d);
+                //console.log(d.Mensaje);
     
          }).catch(function (err) {
               console.log(err);
@@ -55,24 +55,5 @@
 
   }// DataSendController
 
-  function BuscarOrigen ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, OrigenFactory, $filter) {
-
-        $ctrl_be=this;
-        $ctrl_be.objDataOrigen={};        
-        $ctrl_be.Buscar=Buscar;
-
-        function Buscar() {
-
-          $ctrl_be.objDataOrigen.type_accion="buscar_origen";
-
-          OrigenFactory.buscarOrigen($ctrl_be.objDataOrigen).then(function(d) {                   
-                  $ctrl_be.Mensaje=d.Mensaje;     
-      
-           }).catch(function (err) {
-                console.log(err);          
-           });                
-      };
-    }
 
 })(window.angular);
