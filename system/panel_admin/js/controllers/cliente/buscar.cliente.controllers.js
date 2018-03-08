@@ -126,7 +126,7 @@
               //console.log('JSON: '+d);
               console.log(d.Respuesta);
              
-              $ctrl_bc.tableParams.settings({dataset: d.Respuesta});   
+              $ctrl_bc.tableParams.settings({dataset: d.Respuesta});  //dataset es cada row  que encuentra 
 
                   // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
@@ -141,9 +141,10 @@
 
           // To go to modify form for pacient suscribers      
          //**********************************************************************************************// 
-          function GoDataEdit (objuser) {             
+          function TraerCliente(row) {             
             
-             // $state.go('GestionVentas.modificarCliente');
+             $ctrl_ll.objDataLlamado.id_cliente=row.id_cliente;
+             $ctrl_ll.objDataLlamado.contato= row.nombre +" ,"+ row.apellido;
 
           };
     
