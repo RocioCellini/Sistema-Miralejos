@@ -171,16 +171,15 @@
       </div>
 
       <div class="form-group">
-        <label  class="col-sm-4 control-label">Origen del Dato:</label>
-        <div class="col-sm-4">
-          <select class="form-control campoform" name="origen_dato" id="mySelect"
-          ng-options="option.name for option in $ctrl_ll.origen_dato.availableOptions track by option.id"
-          ng-model="$ctrl_ll.origen_dato.selectedOption"  ng-change="upDate()">          
-          </select>
-        </div>
-        <div class="col-sm-4"></div>
-      </div>
-     
+          <label  class="col-sm-4 control-label">Origen del Dato:</label>
+          <div class="col-sm-4">
+            <select class="form-control campoform" name="origen_dato" id="mySelect"
+            ng-options="option.origen_dato for option in $ctrl_ll.data_origen_dato.availableOptions track by option.id"
+            ng-model="$ctrl_ll.data_origen_dato.selectedOption"  ng-change="upDate()">          
+            </select>
+          </div>
+          <div class="col-sm-4"></div>
+      </div>     
 
       <div class="form-group">
         <label  class="col-sm-4 control-label">Fecha Origen del Dato:</label>

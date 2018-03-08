@@ -55,36 +55,6 @@
             ],
               selectedOption: {id: '-1'} 
           };
-
-          $ctrl_ad.origen_dato = {
-          availableOptions: [
-              {id: '-1', name: 'Seleccionar'},
-              {id: '0', name: 'Letrero'},
-              {id: '1', name: 'Oficina'},
-              {id: '2', name: 'w p.p'},
-              {id: '3', name: 'Temp L Lopez'},
-              {id: '4', name: 'Ex AA'},
-              {id: '5', name: 'Inm. Chaves'},
-              {id: '6', name: 'Grupo Miralejos'},
-              {id: '7', name: 'Cesión'},
-              {id: '8', name: 'Eliseo'},
-              {id: '9', name: 'Comincini'},
-              {id: '10', name: 'Pablo'},
-              {id: '11', name: 'Piloni'},
-              {id: '12', name: 'Armesto'},
-              {id: '13', name: 'Cernotto'},
-              {id: '14', name: 'Temp Fa'},
-              {id: '15', name: 'Churrasquita'},
-              {id: '16', name: 'Guven'},
-              {id: '17', name: 'D. Sandrone'},
-              {id: '18', name: 'S. Gomez'},
-              {id: '19', name: 'T Piovano'},
-              {id: '20', name: 'Cravero S - Eliseo'},
-              {id: '21', name: 'A Cismondi'}
-            ],
-              selectedOption: {id: '-1'} 
-          };
-
       
           $ctrl_ad.Init = Init;
           $ctrl_ad.NuevaFila=NuevaFila;
@@ -111,7 +81,7 @@
 
               $ctrl_ad.tableParams = new NgTableParams(initialParams, initialSettings); 
 
-              $ctrl_ad.defaultparams.type_accion="buscar_datos_llamado";
+              $ctrl_ad.defaultparams.type_accion="combos_agregar_datos";
               defaultdataFactory.buscar_datos_combos($ctrl_ad.defaultparams).then(function(d){    
 
               $ctrl_ad.datalocalidad2=d.localidad;
@@ -134,8 +104,20 @@
 
               $ctrl_ad.data_edificio = {
                 availableOptions: d.edificio,
-                selectedOption: {id_edificio: '1'} 
+                selectedOption: {id: '1'} 
               };
+
+              $ctrl_ad.data_edificio.availableOptions.unshift({id:-1, nombre:'Seleccionar'});
+              $ctrl_ad.data_edificio.selectedOption.id=-1;     
+
+
+               $ctrl_ad.data_origen_dato = {
+                  availableOptions: d.origen_dato,
+                  selectedOption: {id: '1'} 
+              };    
+              
+              $ctrl_ad.data_origen_dato.availableOptions.unshift({id:-1, origen_dato:'Seleccionar'});
+              $ctrl_ad.data_origen_dato.selectedOption.id=-1;   
 
             }).catch(function (err) {
                 console.log(err);

@@ -5,7 +5,7 @@
 
     $type_accion=$data->{'type_accion'};
     
-    // $type_accion='search_data_combos';
+    //$type_accion='combos_agregar_datos';
      
       if ($type_accion==="search_data_combos") {
 
@@ -77,7 +77,7 @@
 //******************************************************************************************
 
 
-if ($type_accion==="buscar_datos_llamado") {
+if ($type_accion==="combos_agregar_datos") {
 
      include "../conexion.php";  
 
@@ -135,8 +135,7 @@ if ($type_accion==="buscar_datos_llamado") {
             }  while ($row_loc= $rs_loc->fetch_assoc());
         }   
 
-
-        //Vendedor
+         //Vendedor
         //-----------------------------------------------------     
         $result_vend = "SELECT * FROM vendedor";
         $stmt_vend = $conn->prepare($result_vend);
@@ -248,13 +247,42 @@ if ($type_accion==="buscar_datos_llamado") {
 
             }  while ($row_dpto= $rs_dpto->fetch_assoc());
         }
+
+
+        //Origen Datos
+        //-----------------------------------------------------
+
+        $result_origen = "SELECT * FROM origen_dato";
+
+        $stmt_origen = $conn->prepare($result_origen);
+
+        if($stmt_origen === false) {
+            trigger_error('Wrong SQL: ' . $result_origen . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+      
+        $stmt_origen->execute();
+        $rs_origen=$stmt_origen->get_result();
+
+        if($row_origen = $rs_origen->fetch_assoc()) {
+        
+            $response_origen = array();
+
+            do  {
+
+                $temp_origen=array('id_origen_dato'=>utf8_encode($row_origen['id_origen_dato']),
+                            'origen_dato'=> utf8_encode($row_origen['origen_dato'])
+                );
+
+                $response_origen[]=$temp_origen;
+
+            }  while ($row_origen= $rs_origen->fetch_assoc());
+        }
     
-        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'vendedor' => $response_vend, 'edificio' => $response_edificio, 'planta' => $response_planta, 'dpto' => $response_dpto);
+        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'vendedor' => $response_vend, 'edificio' => $response_edificio, 'planta' => $response_planta, 'dpto' => $response_dpto, 'origen_dato' => $response_origen);
         $json = json_encode($item);
         echo $json;
 
-} //if ($type_accion==="buscar_datos_llamado")
-
+} //if ($type_accion==="combos_agregar_datos")
 
 
 
