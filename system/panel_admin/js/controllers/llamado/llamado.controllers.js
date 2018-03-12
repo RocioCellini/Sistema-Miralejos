@@ -245,7 +245,7 @@
       function CompletarDatos(row) {             
             
         $ctrl_ll.objDataLlamado.id_cliente=row.id_cliente;
-        $ctrl_ll.objDataLlamado.contacto= row.nombre +" ,"+ row.apellido;
+        $ctrl_ll.objDataLlamado.contacto= row.apellido +" ,"+ row.nombre;
 
       };
 

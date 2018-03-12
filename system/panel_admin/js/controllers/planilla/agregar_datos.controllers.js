@@ -36,15 +36,6 @@
 
           $ctrl_ad.CurrentDate = new Date();
 
-          $ctrl_ad.tipo_cliente = {
-          availableOptions: [
-            {id: '-1', name: 'Seleccionar'},
-            {id: '0', name: 'Comprador'},
-            {id: '1', name: 'Propietario'}
-            ],
-              selectedOption: {id: '-1'} 
-          };
-
           $ctrl_ad.grado_interes = {
           availableOptions: [
             {id: '-1', name: 'Seleccionar'},
@@ -57,11 +48,11 @@
           };
       
           $ctrl_ad.Init = Init;
-          $ctrl_ad.NuevaFila=NuevaFila;
-          $ctrl_ad.upDateProvincia = upDateProvincia;       
+          $ctrl_ad.NuevaFila=NuevaFila;      
           $ctrl_ad.upDateEdificio = upDateEdificio;
           $ctrl_ad.upDatePlanta = upDatePlanta;
           $ctrl_ad.BuscarCliente = BuscarCliente;
+          $ctrl_ad.CompletarDatos = CompletarDatos;
 
           $ctrl_ad.Init();
 
@@ -126,24 +117,6 @@
 
           //upDate
           //*****************************************************************************//
-
-          function upDateProvincia (obj_prov) { 
-
-                if(obj_prov.id!==-1) {
-
-                    $ctrl_ad.combo_ciudad=false;
-
-                    $ctrl_ad.datalocalidad.availableOptions = $filter('filter')($ctrl_ad.datalocalidad2 ,{id_provincia:obj_prov.id});
-                    $ctrl_ad.datalocalidad.selectedOption={id: $ctrl_ad.datalocalidad.availableOptions[0].id}; 
-
-                    $ctrl_ad.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-                    $ctrl_ad.datalocalidad.selectedOption.id=-1;
-
-                    } else {
-
-                        $ctrl_ad.combo_ciudad=true;
-                  }                                                                         
-              }
 
           function upDateEdificio(obj_edificio) { 
 
@@ -237,8 +210,30 @@
                        
         };
 
-          //New Row
-          //*****************************************************************************//
+
+        // Get Cliente
+        //**********************************************************************************************//
+
+          function CompletarDatos(row) {   
+
+          console.log(row);          
+                
+            $ctrl_ad.objAgregarDatos.id_cliente= row.id_cliente;
+            $ctrl_ad.objAgregarDatos.contacto= row.apellido +" ,"+ row.nombre;
+            $ctrl_ad.objAgregarDatos.tipo_cliente= row.tipo_cliente;
+            $ctrl_ad.objAgregarDatos.telefono1= row.telefono1;
+            $ctrl_ad.objAgregarDatos.telefono2= row.telefono2;
+            $ctrl_ad.objAgregarDatos.email= row.email;
+            $ctrl_ad.objAgregarDatos.provincia= row.provincia;
+            $ctrl_ad.objAgregarDatos.localidad= row.localidad;
+            $ctrl_ad.objAgregarDatos.actividad= row.actividad;
+            $ctrl_ad.objAgregarDatos.conoce= row.conoce;
+
+          };
+
+
+        //New Row
+        //*****************************************************************************//
 
           function NuevaFila() {
               
