@@ -29,8 +29,6 @@
                 $ctrl_bc.upDate = upDate;
                 $ctrl_bc.BuscarCliente = BuscarCliente;
 
-                $ctrl_bc.GoDataEdit = GoDataEdit;
-
                 $ctrl_bc.Init();
 
 
@@ -138,15 +136,6 @@
                          
           };
 
-
-          // To go to modify form for pacient suscribers      
-         //**********************************************************************************************// 
-          function TraerCliente(row) {             
-            
-             $ctrl_ll.objDataLlamado.id_cliente=row.id_cliente;
-             $ctrl_ll.objDataLlamado.contato= row.nombre +" ,"+ row.apellido;
-
-          };
     
       }// DataSendController
 

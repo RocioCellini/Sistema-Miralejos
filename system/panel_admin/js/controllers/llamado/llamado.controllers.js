@@ -35,9 +35,9 @@
 
      $ctrl_ll.CurrentDate = new Date();
 
-     $ctrl_ll.objDataLlamado = {
+   /*  $ctrl_ll.objDataLlamado = {
        time: new Date(2018, 0, 1, 8, 0, 0)
-     };
+     };*/
 
      $ctrl_ll.grado_interes = {
           availableOptions: [
@@ -56,6 +56,7 @@
         $ctrl_ll.upDatePlanta = upDatePlanta;
         $ctrl_ll.NuevoLlamado = NuevoLlamado;
         $ctrl_ll.BuscarCliente = BuscarCliente;
+        $ctrl_ll.CompletarDatos = CompletarDatos;
         
         $ctrl_ll.Init();
 
@@ -73,21 +74,7 @@
             };         
 
      function Init () {
-/*
-      $ctrl_ll.defaultparams.type_accion = "buscar_edificio_planta_dpto";
-      defaultdataFactory.buscar_edificio_planta_dpto($ctrl_ll.defaultparams).then(function(d) {                            
-        
-      console.log(d);
 
-      $ctrl_ll.data_edificio = {
-          availableOptions: d.edificio,
-          selectedOption: {id_edificio: '1'} 
-        };
-  
-       }).catch(function (err) {
-            console.log(err);
-       });  
-*/
        $ctrl_ll.tableParams = new NgTableParams(initialParams, initialSettings); 
 
        $ctrl_ll.defaultparams.type_accion="combos_agregar_datos";
@@ -255,12 +242,12 @@
     // Get Cliente
     //**********************************************************************************************//
 
-      function TraerCliente(row) {             
+      function CompletarDatos(row) {             
             
-             $ctrl_ll.objDataLlamado.id_cliente=row.id_cliente;
-             $ctrl_ll.objDataLlamado.contato= row.nombre +" ,"+ row.apellido;
+        $ctrl_ll.objDataLlamado.id_cliente=row.id_cliente;
+        $ctrl_ll.objDataLlamado.contacto= row.nombre +" ,"+ row.apellido;
 
-          };
+      };
 
 
     //New Call
@@ -272,24 +259,19 @@
 
         $ctrl_ll.objDataLlamado.type_accion = "nuevo_llamado";
 
-
         $ctrl_ll.objDataLlamado.fecha_llamado = $filter('date')($ctrl_ll.objDataLlamado.dt1, 'yyyy-MM-dd'); 
         $ctrl_ll.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl_ll.objDataLlamado.dt2, 'yyyy-MM-dd'); 
         $ctrl_ll.objDataLlamado.hora_llamado = $filter('date')($ctrl_ll.objDataLlamado.time, 'HH:mm:ss'); 
 
         $ctrl_ll.objDataLlamado.id_cliente=1;
 
-
         $ctrl_ll.objDataLlamado.id_edificio = $ctrl_ll.data_edificio.selectedOption.id_edificio;
         $ctrl_ll.objDataLlamado.id_planta = $ctrl_ll.data_planta.selectedOption.id_planta;
         $ctrl_ll.objDataLlamado.id_dpto = $ctrl_ll.data_dpto.selectedOption.id_dpto;
 
-
-
-          console.log($ctrl_ll.objDataLlamado);
-        
-      /*    
-        clienteFactory.nuevoLlamado($ctrl_ll.objDataLlamado).then(function(d) {                   
+        console.log($ctrl_ll.objDataLlamado);    
+         
+        llamadoFactory.nuevoLlamado($ctrl_ll.objDataLlamado).then(function(d) {                   
                 $ctrl_ll.Mensaje = d.Mensaje;
                 //$ctrl_ll.allow_disable=false;
     
@@ -297,10 +279,10 @@
               console.log(err);
               //$ctrl_ll.allow_disable=false;
          });      
-      */
+      
     };
       
-     Init();
+    Init();
 
   }// DataSendController
 

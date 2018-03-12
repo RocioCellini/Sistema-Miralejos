@@ -63,9 +63,8 @@
             <td data-title="'Actividad'">{{row.actividad}}</td>
             <td data-title="'Conoce'">{{row.conoce}}</td>
 
-            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_ll.TraerCliente(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Seleccionar</a>
-             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_ll.GoDataEdit(row)'>
-             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
+            <td data-title="'Seleccionar'"><a ng-show="row.seleccionar" class="button-table"  ><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a>
+              <input type="checkbox" name="seleccionado" value="" ng-click='$ctrl_ll.CompletarDatos(row)'>
             </td>
             
         </tr>
