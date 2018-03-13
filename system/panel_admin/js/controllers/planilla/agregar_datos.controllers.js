@@ -7,11 +7,11 @@
   app.controller("AgregarDatos", AgregarDatos);
   
   AgregarDatos.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "AgregarDatosFactory", "defaultdataFactory", "clienteFactory", "NgTableParams", "$filter"];
+   "AgregarDatosFactory", "defaultdataFactory", "clienteFactory", "llamadoFactory", "NgTableParams", "$filter"];
 
     //Controller
     function AgregarDatos ($scope, $sce, $state, $stateParams, $window,
-     $uibModal, $document, AgregarDatosFactory, defaultdataFactory, clienteFactory, NgTableParams, $filter) {
+     $uibModal, $document, AgregarDatosFactory, defaultdataFactory, clienteFactory, llamadoFactory, NgTableParams, $filter) {
                                    
           var $ctrl_ad = this;
 
@@ -191,12 +191,12 @@
 
             $ctrl_ad.objAgregarDatos.criterio=valorIngresado;
 
-            console.log($ctrl_ad.objAgregarDatos);
+           // console.log($ctrl_ad.objAgregarDatos);
               
             clienteFactory.buscarCliente($ctrl_ad.objAgregarDatos).then(function(d) {
 
             //console.log('JSON: '+d);
-            console.log(d.Respuesta);
+           // console.log(d.Respuesta);
            
             $ctrl_ad.tableParams.settings({dataset: d.Respuesta});   
 
@@ -228,6 +228,21 @@
             $ctrl_ad.objAgregarDatos.localidad= row.localidad;
             $ctrl_ad.objAgregarDatos.actividad= row.actividad;
             $ctrl_ad.objAgregarDatos.conoce= row.conoce;
+
+            $ctrl_ad.objAgregarDatos.type_accion="detalle_llamados";    
+
+            llamadoFactory.detalleLlamados($ctrl_ad.objAgregarDatos).then(function(d) {
+
+              console.log(d.Respuesta); 
+
+              $ctrl_ad.objAgregarDatos.num_llamados= d.Respuesta[0].contador;  
+              $ctrl_ad.objAgregarDatos.fecha_ult_llamado= d.Respuesta[0].fecha_ult_llamado;                   
+              $ctrl_ad.objAgregarDatos.nombre_origen_dato= d.Respuesta[0].nombre_origen_dato;
+              $ctrl_ad.objAgregarDatos.fecha_origen_dato= d.Respuesta[0].fecha_origen_dato;
+
+            }).catch(function (err) {
+                console.log(err);
+            });
 
           };
 
