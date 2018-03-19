@@ -11,23 +11,19 @@ $data=json_decode($json);
 
 $type_accion=$data->{'type_accion'};
 
-if($type_accion==="agregar_datos"){
+//$type_accion="nueva_fila";
 
-//***************** FALTA PROBARLO ***************************************//	
+if($type_accion==="nueva_fila"){
   
 	include "../../conexion.php";	
 	
-	//$nombre=$data->{'nombre'};
-
+	
   $id_cliente=$data->{'id_cliente'}; 
   $tipo_cliente=$data->{'tipo_cliente'};
   $grado_interes=$data->{'grado_interes'};
   $telefono1=$data->{'telefono1'}; 
   $telefono2=$data->{'telefono2'}; 
-  $id_localidad=$data->{'id_localidad'}; 
-  $id_provincia=$data->{'id_provincia'};
   $origen_dato=$data->{'origen_dato'};
-  $actividad=$data->{'actividad'};
   $conoce=$data->{'conoce'};
   $fecha_origen_dato=$data->{'fecha_origen_dato'};
   $fecha_ult_llamado=$data->{'fecha_ult_llamado'};
@@ -38,7 +34,53 @@ if($type_accion==="agregar_datos"){
   $id_dpto=$data->{'id_dpto'};
   $email=$data->{'email'};
 
-  $sql_insert='INSERT INTO tabla_intermedia_planilla (id_planilla, id_cliente, tipo_cliente, grado_interes, telefono1, telefono2, id_localidad, id_provincia, origen_dato, actividad, conoce, fecha_origen_dato, fecha_ult_llamado, cant_de_llamados, fecha_cierre_operacion, id_edificio, id_planta, id_dpto, email) VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+
+/*
+
+  $id_cliente=15; 
+  $tipo_cliente=0;
+  $grado_interes=2;
+  $telefono1=54552; 
+  $telefono2=5225; 
+  $origen_dato="Letrero";
+  $conoce=0;
+  $fecha_origen_dato="2018-03-06";
+  $fecha_ult_llamado="2018-02-07";
+  $cant_de_llamados=2;
+  $fecha_cierre_operacion="2018-03-12";
+  $id_edificio=2;
+  $id_planta=4;
+  $id_dpto=3;
+  $email="maria@miralejos.net";
+*/
+
+  //Buscar el cliente para traer los datos de los id
+
+   $result = 'SELECT * FROM cliente WHERE id_cliente=?';
+
+      $stmt = $conn->prepare($result);
+
+      if($stmt===false) {
+      trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
+      } 
+
+      $stmt->bind_param('i',$id_cliente); 
+
+      $stmt->execute(); 
+
+      $rs=$stmt->get_result(); 
+
+      if($row=$rs->fetch_assoc()){
+
+          $id_localidad=$row["id_localidad"];
+          $id_provincia=$row["id_provincia"];
+          $id_actividad=$row["id_actividad"];
+       } 
+  
+  
+  //Insertamos los datos en la tabla de la BD
+
+  $sql_insert='INSERT INTO tabla_intermedia_planilla (id_planilla, id_cliente, tipo_cliente, grado_interes, telefono1, telefono2, id_localidad, id_provincia, origen_dato, id_actividad, conoce, fecha_origen_dato, fecha_ult_llamado, cant_de_llamados, fecha_cierre_operacion, id_edificio, id_planta, id_dpto, email) VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -47,7 +89,7 @@ if($type_accion==="agregar_datos"){
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('iisiiiiississisiiis',$idfirst, $id_cliente, $tipo_cliente, $grado_interes, $telefono1, $telefono2, $id_localidad, $id_provincia, $origen_dato, $actividad, $conoce, $fecha_origen_dato, $fecha_ult_llamado, $cant_de_llamados, $fecha_cierre_operacion, $id_edificio, $id_planta, $id_dpto, $email);
+  $stmt_insert->bind_param('iisiiiiisiissisiiis',$idfirst, $id_cliente, $tipo_cliente, $grado_interes, $telefono1, $telefono2, $id_localidad, $id_provincia, $origen_dato, $id_actividad, $conoce, $fecha_origen_dato, $fecha_ult_llamado, $cant_de_llamados, $fecha_cierre_operacion, $id_edificio, $id_planta, $id_dpto, $email);
 
   $stmt_insert->execute();
 

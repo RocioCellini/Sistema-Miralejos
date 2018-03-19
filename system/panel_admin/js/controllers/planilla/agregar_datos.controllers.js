@@ -120,7 +120,7 @@
 
           function upDateEdificio(obj_edificio) { 
 
-              console.log(obj_edificio);
+              //console.log(obj_edificio);
 
               $ctrl_ad.defaultparams.type_accion = "relacion_edificio_planta_dpto";
 
@@ -161,15 +161,7 @@
         };
 
         $ctrl_ad.setDate = function(year, month, day) {
-          $ctrl_ad.dt1 = new Date(year, month, day)
-        };
-
-        $ctrl_ad.open2 = function() {
-          $ctrl_ad.popup2.opened = true;
-        };
-
-        $ctrl_ad.setDate = function(year, month, day) {
-          $ctrl_ad.dt2 = new Date(year, month, day)
+          $ctrl_ad.objAgregarDatos.fecha_cierre_operacion = new Date(year, month, day)
         };
 
         $ctrl_ad.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
@@ -196,7 +188,7 @@
             clienteFactory.buscarCliente($ctrl_ad.objAgregarDatos).then(function(d) {
 
             //console.log('JSON: '+d);
-           // console.log(d.Respuesta);
+          // console.log(d.Respuesta);
            
             $ctrl_ad.tableParams.settings({dataset: d.Respuesta});   
 
@@ -216,7 +208,7 @@
 
           function CompletarDatos(row) {   
 
-          console.log(row);          
+          //console.log(row);          
                 
             $ctrl_ad.objAgregarDatos.id_cliente= row.id_cliente;
             $ctrl_ad.objAgregarDatos.contacto= row.apellido +" ,"+ row.nombre;
@@ -233,7 +225,7 @@
 
             llamadoFactory.detalleLlamados($ctrl_ad.objAgregarDatos).then(function(d) {
 
-              console.log(d.Respuesta); 
+             // console.log(d.Respuesta); 
 
               $ctrl_ad.objAgregarDatos.num_llamados= d.Respuesta[0].contador;  
               $ctrl_ad.objAgregarDatos.fecha_ult_llamado= d.Respuesta[0].fecha_ult_llamado;                   
@@ -254,12 +246,21 @@
               
             //$ctrl_ad.allow_disable=true;
 
+            var date=$filter('date')($ctrl_ad.objAgregarDatos.fecha_cierre_operacion, 'yyyy-MM-dd');
+            
+            $ctrl_ad.objAgregarDatos.fecha_cierre_operacion=date;
+           // console.log(date);   
+
             $ctrl_ad.objAgregarDatos.type_accion="nueva_fila";
          
             AgregarDatosFactory.nuevaFila($ctrl_ad.objAgregarDatos).then(function(d) {  
                                
                     $ctrl_ad.Mensaje=d.Mensaje;
                     //$ctrl_ad.allow_disable=false;
+
+                    console.log($ctrl_ad.objAgregarDatos);
+
+                    console.log(d.Mensaje);
         
              }).catch(function (err) {
                   console.log(err);

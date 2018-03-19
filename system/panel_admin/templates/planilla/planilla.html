@@ -3,197 +3,154 @@
 <br><br>
 
 <div class="row">
+	<div class="col-md-12">
+	<table ng-table="$ctrl_p.tableParams" class="table table-bordered table-hover table-condensed editable-table demoTable" ng-form="$ctrl_p.tableForm" disable-filter="$ctrl_p.isAdding" demo-tracked-table="$ctrl_p.tableTracker"> 
+		<colgroup>
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+          <col width="5%" />
+        </colgroup>
 
-	<table class="table">
-		<tr>
-			<th>Cliente</th>
-			<th>Tipo de Cliente</th>
-			<th>GI</th>
-			<th>Teléfono 1</th>
-			<th>Teléfono 2</th>
-			<th>Provincia</th>
-			<th>Ciudad</th>			
-			<th>Origen Dato</th>
-			<th>Actividad</th>
-			<th>Conoce</th>
-			<th>Fecha origen dato</th>
-			<th>Fecha último llamado</th>
-			<th>Nº Llamados</th>
-			<th>Fecha cierre operación</th>
-			<th>Edificio</th>
-			<th>Planta</th>
-			<th>Dpto</th>
-			<th>Correo Electrónico</th>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><input type="" name="" size="8"></td>
-			<td>
-				<select name="tipo_cliente" id="tipo_cliente" class="form-control campoform"
-                ng-options="option.tipo for option in $ctrl_c.tipo_cliente.availableOptions track by option.id"
-                ng-model="$ctrl_c.tipo_cliente.selectedOption"></select> 
-			</td>
-			<td><select name="grado_interes" id="grado_interes" class="form-control campoform"
-                ng-options="option.grado for option in $ctrl_c.grado_interes.availableOptions track by option.id"
-                ng-model="$ctrl_c.grado_interes.selectedOption"></select></td>
-			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="8"></td>
-			<td><select name="actividad" id="actividad" class="form-control campoform"
-                ng-options="option.nombre for option in $ctrl_c.actividad.availableOptions track by option.id"
-                ng-model="$ctrl_c.actividad.selectedOption"></select> 
-            </td>
-			<td><input type="" name="" size="3"></td>
-			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="8"></td>
-			<td><input type="" name="" size="3"></td>
-			<td><input type="" name="" size="8"></td>
-			<td>
-				<select name="edificio" id="edificio" class="form-control campoform"
-                ng-options="option.tipo for option in $ctrl_c.edificio.availableOptions track by option.id"
-                ng-model="$ctrl_c.edificio.selectedOption"></select> 
-			</td>
-			<td>
-				<select name="planta" id="planta" class="form-control campoform"
-                ng-options="option.tipo for option in $ctrl_c.planta.availableOptions track by option.id"
-                ng-model="$ctrl_c.planta.selectedOption"></select> 
-			</td>
-			<td>
-				<select name="dpto" id="dpto" class="form-control campoform"
-                ng-options="option.tipo for option in $ctrl_c.dpto.availableOptions track by option.id"
-                ng-model="$ctrl_c.dpto.selectedOption"></select> 
-			</td>
-			<td><input type="" name="" size="20"></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>Chain Julio</td>
-			<td>Comprador</td>
-			<td>2</td>
-			<td>351-6790054</td>
-			<td>351-6790054</td>
-			<td>Córdoba</td>
-			<td>Córdoba</td>
-			<td>Letrero</td>
-			<td>Py Construcción</td>
-			<td>Si</td>
-			<td>28/3/2016</td>
-			<td>10/6/2016</td>
-			<td>5</td>
-			<td>4/4/2016</td>
-			<td>M2</td>
-			<td>B</td>
-			<td>3</td>
-			<td>anguinegra@hotmail.com</td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="images/edit.png" border="0" title="Modificar"/></a></font></td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
-         	<img src="images/delete.png" border="0" title="Eliminar"/></a></font></td>
-         	<td><a href="historial.php">Ver Historial</a></td>
-		</tr>
-		<tr>
-			<td>Cornelli Ada</td>
-			<td>Comprador</td>
-			<td>2</td>
-			<td>03576-15-523090</td>
-			<td>03576-15-523090</td>
-			<td>Córdoba</td>
-			<td>Córdoba</td>
-			<td>Oficina</td>
-			<td>Prof Arq</td>
-			<td>Si</td>
-			<td>7/9/20163/8/2016</td>
-			<td>12/6/2016</td>
-			<td>5</td>
-			<td></td>
-			<td>M3</td>
-			<td>B</td>
-			<td>3</td>
-			<td>georginabertone@hotmail.com</td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="images/edit.png" border="0" title="Modificar"/></a></font></td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
-         	<img src="images/delete.png" border="0" title="Eliminar"/></a></font></td>
-         	<td><a href="historial.php">Ver Historial</a></td>
-		</tr>
-		<tr>
-			<td>Bobbio, Raúl</td>
-			<td>Propietario</td>
-			<td>2</td>
-			<td>3576-493158</td>
-			<td>412392</td>
-			<td>Córdoba</td>
-			<td>El Tío</td>			
-			<td>Cesión</td>
-			<td>Py Construcción</td>
-			<td>Si</td>
-			<td>28/3/2016</td>
-			<td>10/6/2016</td>
-			<td>5</td>
-			<td>4/4/2016</td>
-			<td>M2</td>
-			<td>B</td>
-			<td>3</td>
-			<td>fsfarmacia@hotmail.com</td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="images/edit.png" border="0" title="Modificar"/></a></font></td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
-         	<img src="images/delete.png" border="0" title="Eliminar"/></a></font></td>
-         	<td><a href="historial.php">Ver Historial</a></td>
-		</tr>
+         <tr ng-repeat="row in $data" ng-form="rowForm" demo-tracked-table-row="row">
+          <td title="'Cliente'" filter="{cliente: 'text'}" sortable="'cliente'" ng-switch="row.isEditing" ng-class="cliente.$dirty ? 'bg-warning' : ''" ng-form="cliente" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.id_cliente}}</span>
+            <!-- Recordar que debe ser el nombre completo -->
+            <div class="controls" ng-class="cliente.$invalid && cliente.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="cliente" ng-model="$ctrl_p.objDataPlanilla.cliente" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+          <td title="'Tipo de Cliente'" filter="{tipo_cliente: 'text'}" sortable="'tipo_cliente'" ng-switch="row.isEditing" ng-class="tipo_cliente.$dirty ? 'bg-warning' : ''" ng-form="tipo_cliente" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.tipo_cliente}}</span>
+            <div class="controls" ng-class="tipo_cliente.$invalid && tipo_cliente.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="tipo_cliente" ng-model="$ctrl_p.objDataPlanilla.tipo_cliente" class="editable-input form-control input-sm" required/>
+            </div>
+          </td>
+          <td title="'GI'" filter="{grado_int: 'number'}" sortable="'grado_int'" ng-switch="row.isEditing" ng-class="grado_int.$dirty ? 'bg-warning' : ''" ng-form="grado_int" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.grado_interes}}</span>
+            <div class="controls" ng-class="grado_int.$invalid && grado_int.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="number" name="grado_int" ng-model="$ctrl_p.objDataPlanilla.grado_int" class="editable-input form-control input-sm" required/>
+            </div>
+          </td>
+             <td title="'Teléfono 1'" filter="{tel1: 'number'}" sortable="'tel1'" ng-switch="row.isEditing" ng-class="tel.$dirty ? 'bg-warning' : ''" ng-form="tel1" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.telefono1}}</span>
+            <div class="controls" ng-class="tel1.$invalid && tel1.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="number" name="tel1" ng-model="$ctrl_p.objDataPlanilla.tel1" class="editable-input form-control input-sm" required/>
+            </div>
+          </td>
+          <td title="'Teléfono 2'" filter="{tel2: 'number'}" sortable="'tel2'" ng-switch="row.isEditing" ng-class="tel2.$dirty ? 'bg-warning' : ''" ng-form="tel2" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.telefono2}}</span>
+            <div class="controls" ng-class="tel2.$invalid && tel2.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="number" name="tel2" ng-model="$ctrl_p.objDataPlanilla.tel2" class="editable-input form-control input-sm" required/>
+            </div>
+          </td>
+          <td title="'Provincia'" filter="{prov: 'text'}" sortable="'prov'" ng-switch="row.isEditing" ng-class="prov.$dirty ? 'bg-warning' : ''" ng-form="prov" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.id_provincia}}</span>
+            <div class="controls" ng-class="prov.$invalid && prov.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="prov" ng-model="$ctrl_p.objDataPlanilla.prov" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+          <td title="'Ciudad'" filter="{ciudad: 'text'}" sortable="'ciudad'" ng-switch="row.isEditing" ng-class="ciudad.$dirty ? 'bg-warning' : ''" ng-form="ciudad" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.id_localidad}}</span>
+            <div class="controls" ng-class="ciudad.$invalid && ciudad.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="ciudad" ng-model="$ctrl_p.objDataPlanilla.ciudad" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+          <td title="'Origen Dato'" filter="{origen: 'text'}" sortable="'origen'" ng-switch="row.isEditing" ng-class="origen.$dirty ? 'bg-warning' : ''" ng-form="origen" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.origen_dato}}</span>
+            <div class="controls" ng-class="origen.$invalid && origen.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="origen" ng-model="$ctrl_p.objDataPlanilla.origen" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+           <td title="'Actividad'" filter="{act: 'text'}" sortable="'act'" ng-switch="row.isEditing" ng-class="act.$dirty ? 'bg-warning' : ''" ng-form="act" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.id_actividad}}</span>
+            <div class="controls" ng-class="act.$invalid && act.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="act" ng-model="$ctrl_p.objDataPlanilla.act" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+           <td title="'Conoce'" filter="{conoce: 'text'}" sortable="'conoce'" ng-switch="row.isEditing" ng-class="conoce.$dirty ? 'bg-warning' : ''" ng-form="conoce" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.conoce}}</span>
+            <div class="controls" ng-class="conoce.$invalid && conoce.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="conoce" ng-model="$ctrl_p.objDataPlanilla.conoce" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+           <td title="'Fecha origen dato'" filter="{fecha_origen: 'text'}" sortable="'fecha_origen'" ng-switch="row.isEditing" ng-class="fecha_origen.$dirty ? 'bg-warning' : ''" ng-form="fecha_origen" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.fecha_origen_dato}}</span>
+            <div class="controls" ng-class="fecha_origen.$invalid && fecha_origen.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="fecha_origen" ng-model="$ctrl_p.objDataPlanilla.fecha_origen" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+           <td title="'Fecha último llamado'" filter="{fecha_ul: 'text'}" sortable="'fecha_ul'" ng-switch="row.isEditing" ng-class="fecha_ul.$dirty ? 'bg-warning' : ''" ng-form="fecha_ul" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.fecha_ult_llamado}}</span>
+            <div class="controls" ng-class="fecha_ul.$invalid && fecha_ul.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="fecha_ul" ng-model="$ctrl_p.objDataPlanilla.fecha_ul" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
 
-		<tr>
-			<td>Pesco, Gabriel y José</td>
-			<td>Propietario</td>
-			<td>2</td>
-			<td>358-5629374</td>
-			<td>358-5629374</td>
-			<td>Córdoba</td>
-			<td>General Cabrera</td>		
-			<td>w p.p</td>
-			<td>Com Acopio Cereal</td>
-			<td>Si</td>
-			<td>28/9/2016</td>
-			<td>5/10/2016</td>
-			<td>5</td>
-			<td>4/4/2016</td>
-			<td>M2</td>
-			<td>B</td>
-			<td>3</td>
-			<td>gmacagno@cotagro.com.ar</td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="images/edit.png" border="0" title="Modificar"/></a></font></td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
-         	<img src="images/delete.png" border="0" title="Eliminar"/></a></font></td>
-         	<td><a href="historial.php">Ver Historial</a></td>
-		</tr>
-		<tr>
-			<td>Panero, Rodolfo</td>
-			<td>Comprador</td>
-			<td></td>
-			<td>3533-435505</td>
-			<td>3533-435505</td>			
-			<td>Córdoba</td>
-			<td>El Arañado</td>
-			<td>Eliseo</td>
-			<td>Pr Agr</td>
-			<td>Si</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>nov-13</td>
-			<td>M7</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/edit_edificio.php?id='.$row["id_edificio"].'"><img src="images/edit.png" border="0" title="Modificar"/></a></font></td>
-			<td align="center" class="tablalistado_td"><font size="-1"><a href="../sections/eliminar_edificio.php?id='.$row["id_edificio"].'&accion=Eliminar" onClick="javascript:return confirm(\'¿Desea eliminar el edificio seleccionado?.\')">
-         	<img src="images/delete.png" border="0" title="Eliminar"/></a></font></td>
-         	<td><a href="historial.php">Ver Historial</a></td>
-		</tr>
-		
+           <td title="'Nº Llamados'" filter="{cant_llamados: 'number'}" sortable="'cant_llamados'" ng-switch="row.isEditing" ng-class="cant_llamados.$dirty ? 'bg-warning' : ''" ng-form="cant_llamados" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.cant_de_llamados}}</span>
+            <div class="controls" ng-class="cant_llamados.$invalid && cant_llamados.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="number" name="cant_llamados" ng-model="$ctrl_p.objDataPlanilla.cant_llamados" class="editable-input form-control input-sm" required/>
+            </div>
+          </td>
+
+            <td title="'Fecha cierre operación'" filter="{fecha_cierre: 'text'}" sortable="'fecha_cierre'" ng-switch="row.isEditing" ng-class="fecha_cierre.$dirty ? 'bg-warning' : ''" ng-form="fecha_cierre" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.fecha_cierre_operacion}}</span>
+            <div class="controls" ng-class="fecha_cierre.$invalid && fecha_cierre.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="fecha_cierre" ng-model="$ctrl_p.objDataPlanilla.fecha_cierre" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+
+          <td title="'Edificio'" filter="{edificio: 'text'}" sortable="'edificio'" ng-switch="row.isEditing" ng-class="edificio.$dirty ? 'bg-warning' : ''" ng-form="edificio" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.id_edificio}}</span>
+            <div class="controls" ng-class="edificio.$invalid && edificio.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="edificio" ng-model="$ctrl_p.objDataPlanilla.edificio" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+          <td title="'Planta'" filter="{planta: 'text'}" sortable="'planta'" ng-switch="row.isEditing" ng-class="planta.$dirty ? 'bg-warning' : ''" ng-form="planta" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.id_planta}}</span>
+            <div class="controls" ng-class="planta.$invalid && planta.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="planta" ng-model="$ctrl_p.objDataPlanilla.planta" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+          <td title="'Dpto'" filter="{dpto: 'text'}" sortable="'dpto'" ng-switch="row.isEditing" ng-class="dpto.$dirty ? 'bg-warning' : ''" ng-form="dpto" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.id_dpto}}</span>
+            <div class="controls" ng-class="dpto.$invalid && dpto.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="dpto" ng-model="$ctrl_p.objDataPlanilla.dpto" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+
+           <td title="'Correo Electrónico'" filter="{email: 'text'}" sortable="'email'" ng-switch="row.isEditing" ng-class="email.$dirty ? 'bg-warning' : ''" ng-form="email" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.email}}</span>
+            <div class="controls" ng-class="email.$invalid && email.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="email" ng-model="$ctrl_p.objDataPlanilla.email" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+
+          <td>
+            <button class="btn btn-primary btn-sm" ng-click="demo.save(row, rowForm)" ng-if="row.isEditing" ng-disabled="rowForm.$pristine || rowForm.$invalid"><span class="glyphicon glyphicon-ok"></span></button>
+            <button class="btn btn-default btn-sm" ng-click="demo.cancel(row, rowForm)" ng-if="row.isEditing"><span class="glyphicon glyphicon-remove"></span></button>
+            <button class="btn btn-default btn-sm" ng-click="row.isEditing = true" ng-if="!row.isEditing"><span class="glyphicon glyphicon-pencil"></span></button>
+            <button class="btn btn-danger btn-sm" ng-click="demo.del(row)" ng-if="!row.isEditing"><span class="glyphicon glyphicon-trash"></span></button>
+          </td>
+        </tr>
+
 	</table>
 
+	</div>
 </div>
