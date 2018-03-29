@@ -1,0 +1,166 @@
+/*FOOTER*/
+
+@media (max-width: 800px){
+    #footerRight{
+	    background-color: #990000;
+	    padding-bottom: 5%;
+	}
+}
+
+
+.footer-primary{
+    background-color: #aa211e;
+    color: #FFF;
+    overflow: hidden;
+    padding: 0px 20px;
+    text-align: center;
+}
+
+.footer-primary h1{
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.footer-primary p, .footer-primary h3{
+    font-size: 2em;      
+}
+
+.footer-primary p.titulo, .footer-primary h3.titulo{
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.footer-primary a{
+    color: #fff;
+    font-size: 0.8em;    
+    line-height: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+
+.footer-primary a:hover{
+    text-decoration: none; 
+    color: #3B240B;
+}
+
+.h2-footer{
+    color: #ffffff;
+    font-size: 2em;
+    font-family: 'Crimson Text', serif;   
+    line-height: 2em;
+    margin: 0 2%;
+}
+
+div.texto-footer{
+    color: #ffffff;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: "Georgia", Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    line-height: 2em;
+    letter-spacing: 0.5px;
+}
+
+.footer-secondary{
+    height: 50px;
+    background-color: #990000;
+    width: 100%;    
+}
+
+.footer-secondary p{
+    margin: 0;
+    color: #fff;
+    text-align: left;
+}
+
+#footerRight{
+    float: right;
+    padding: 0.7em;
+}
+
+#footerLeft{
+	padding-top: 1em;
+}
+
+span.marca{
+   font-family: 'Satisfy', cursive; 
+   font-size: 1.5em;
+}
+
+.footer-secondary a{
+    color: #fff;
+}
+
+/*SOCIAL*/
+
+.social{
+    padding: 0 20%;
+    text-align: center;
+}
+
+img.threed{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+/*EFECTOS HOVER SOCIAL*/
+
+.threed:hover
+{
+    box-shadow:
+    1px 1px #d8bf86,
+    2px 2px #d8bf86,
+    3px 3px #d8bf86;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+}
+
+/*FOOTER BUTTON*/
+
+.form-control {
+    background-color: #d8bf86;
+    color: #3B240B;
+}
+
+.btn{
+    width: 30%;
+    float: right;
+    color: #fff;    
+    border: 1px solid #d8bf86;
+    background-color: #990000;    
+}
+
+.btn:hover{
+    color: #990000;
+    background-color: #d8bf86; 
+    font-weight: 600;
+}
+
+
+/*MODAL CONTACT*/
+
+.modal-content.mensaje{
+  background-color: #eee;
+}
+
+.modal-content h4{
+    color: #6e141b;
+    margin-bottom: 1%;
+    text-align: center;
+    font-size: 2em;
+}
+
+.modal-content p{
+    text-align: center;
+}
+
+.modal-content .btn{
+    background-color: #990000;
+}
+
+.modal-content .btn:hover{
+    color: #990000;
+    background-color: #d8bf86; 
+    font-weight: 600;
+}
+
