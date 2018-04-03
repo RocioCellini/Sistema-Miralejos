@@ -1,6 +1,6 @@
 <?php
- 	Dantecaba
-$pass="789_Cabadante";
+
+$pass="adminFlor7";
 
 $options = [
 			'cost' => 10,

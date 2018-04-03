@@ -3,7 +3,7 @@
 
 $DBServer = 'localhost'; // e.g 'localhost' or '192.168.1.100'
 $DBUser   = 'miralejos_flor';
-$DBPass   = 'pROeLYzR';
+$DBPass   = 'hKIh9E6XP';
 $DBName   = 'miralejos_sistema';
 
 $conn = new mysqli($DBServer, $DBUser, $DBPass, $DBName);
