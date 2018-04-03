@@ -6,13 +6,24 @@
 
           var $ctrl_m = this;
 
-
+          /*
           $ctrl_m.itemsMenu = [{
             name: "Estadisticas",
             link: "#",
             subtree: [{
               name: "Ver Estadisticas",
               link: "GestionVentas.index",
+            }]
+          }, 
+
+          */
+
+          $ctrl_m.itemsMenu = [{
+            name: "Estadisticas",
+            link: "#",
+            subtree: [{
+              name: "Ver Estadisticas",
+              link: "GestionVentas.estadisticas",
             }]
           }, {
             name: "Planilla",

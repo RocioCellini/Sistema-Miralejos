@@ -7,7 +7,7 @@
 
 
   app.config(function($stateProvider, $urlRouterProvider){ 
-  // $urlRouterProvider.otherwise('/home');
+  //$urlRouterProvider.otherwise('/Logueo');
 
       $urlRouterProvider.rule(function ($injector, $location) {
 
@@ -44,7 +44,19 @@
         }
       }) 
 
+       .state('GestionVentas.index',{
+        url:'/Logueo',
+        templateUrl:'templates/formLogueo.html',
+        controller: 'formController as $ctrl'
+      })
+/*
       .state('GestionVentas.index',{
+        url:'/Estadisticas',
+        templateUrl:'templates/estadistica/estadisticas.html',
+        controller: 'Estadistica as $ctrl_e'
+      })
+*/
+       .state('GestionVentas.estadisticas',{
         url:'/Estadisticas',
         templateUrl:'templates/estadistica/estadisticas.html',
         controller: 'Estadistica as $ctrl_e'

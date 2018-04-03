@@ -9,22 +9,29 @@ session_start();
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
 $type_accion=$data->{'type_accion'};
 
+//$type_accion="log_in";
 
 if($type_accion==="log_in"){
 
-//************************************************************************************************//	
+//************************************************************************************************//
+//user:rocio-miralejos
+//password: adminFlor7
+
 	include "conexion.php";	
 	
-	$usuario = $data->{'user'};
+	$user = $data->{'user'};
 	$password =$data->{'password'};
+
+	//$user="rocio-miralejos";
+	//$password="adminFlor7";
+
 	$item="";
 	$message="Datos Incorrectos";
 
 
-	$result="SELECT * FROM Administracion WHERE Usuario=?";
+	$result="SELECT * FROM administracion WHERE user=?";
 	
 	$stmt = $conn->prepare($result);
 
@@ -33,17 +40,18 @@ if($type_accion==="log_in"){
 	}
 
 		/* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */
-	$stmt->bind_param('s',$usuario);
+	$stmt->bind_param('s',$user);
 	$stmt->execute();
 	$rs=$stmt->get_result();
 
 	if($row = $rs->fetch_assoc()){
-		//echo $row["Password"]."<br>";
-		//echo $row["Usuario"]."<br>";
-		if(password_verify($password, $row["Password"])) {
-			$_SESSION['Usuario']=$row['Usuario'];
 
-			if($row['Id']==1){
+		echo("encontro una fila");
+
+		if(password_verify($password, $row["password"])) {
+			$_SESSION['Usuario']=$row['user'];
+
+			if($row['id_admin']==1){
 				$obj_edit=true;
 			}else {
 				$obj_edit=false;
@@ -53,7 +61,7 @@ if($type_accion==="log_in"){
 			$stmt->close();
 			$rs->free();
 		
-			$url="myAppPanel.main";
+			$url="http://localhost/MiralejosNew/Sistema/#!/Estadisticas";
 			$item=array('setUrl' => utf8_encode($url), 'obj_edit' => $obj_edit);
 			$json = json_encode($item);
 			echo $json; 
@@ -62,7 +70,7 @@ if($type_accion==="log_in"){
 			$item=array('Message' => utf8_encode($message));
 		    $json = json_encode($item);
 			echo $json; 
-		}//passowrd
+		}//password
 
 	}else{
 			$item=array('Message' => utf8_encode($message));

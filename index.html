@@ -21,18 +21,20 @@
 </head>
 
 <body>
-
+<!--
 <div class="row" style="height:100px;">
     <div ui-view="nav"></div>
 </div>
+-->
 
+<ui-view name="nav"></ui-view>
 
-<div  align="center" class="col-xs-12 container-fluid">
+<div align="center" class="col-xs-12 container-fluid">
            <ui-view name="content"></ui-view>
            <div style="height:50px"></div>
 </div>
 
-<ui-view  name="footer"></ui-view>
+<ui-view name="footer"></ui-view>
 
 <!--Angular -->
 <script src="libraries/js/angular-1.6.1/angular.min.js"></script>
@@ -52,6 +54,10 @@
 
 <!--Directives-->
 <script src="js/directives/ui-navbar.js"></script>
+
+<!-- Logueo -->
+<script src="js/controllers/formLogueo.controllers.js"></script>
+<script src="js/services/formLogueo.factory.js"></script>
 
 <!-- Estadistica -->
 <script src="js/controllers/estadistica/estadistica.controllers.js"></script>
