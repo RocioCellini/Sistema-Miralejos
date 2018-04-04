@@ -2,21 +2,19 @@
 
           var app=_angular.module("GestionVentas");
 
-          app.controller('NavigationController', function($scope) {
+          app.controller('NavigationController', function( $scope, $state ) {
 
           var $ctrl_m = this;
 
-          /*
-          $ctrl_m.itemsMenu = [{
-            name: "Estadisticas",
-            link: "#",
-            subtree: [{
-              name: "Ver Estadisticas",
-              link: "GestionVentas.index",
-            }]
-          }, 
-
-          */
+          $ctrl_m.allow_visible=true;
+              
+           $scope.$watch( function()  {
+                  return $state.$current.name
+            }, function( newVal, oldVal )  {
+              
+             newVal==='GestionVentas.index'? $ctrl_m.allow_visible=false: $ctrl_m.allow_visible=true;             
+            
+          }); 
 
           $ctrl_m.itemsMenu = [{
             name: "Estadisticas",

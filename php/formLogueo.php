@@ -24,12 +24,8 @@ if($type_accion==="log_in"){
 	$user = $data->{'user'};
 	$password =$data->{'password'};
 
-	//$user="rocio-miralejos";
-	//$password="adminFlor7";
-
 	$item="";
 	$message="Datos Incorrectos";
-
 
 	$result="SELECT * FROM administracion WHERE user=?";
 	
@@ -39,14 +35,11 @@ if($type_accion==="log_in"){
 		trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
 	}
 
-		/* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */
 	$stmt->bind_param('s',$user);
 	$stmt->execute();
 	$rs=$stmt->get_result();
 
-	if($row = $rs->fetch_assoc()){
-
-		echo("encontro una fila");
+	if($row = $rs->fetch_assoc()){		
 
 		if(password_verify($password, $row["password"])) {
 			$_SESSION['Usuario']=$row['user'];
@@ -57,14 +50,11 @@ if($type_accion==="log_in"){
 				$obj_edit=false;
 			}
 
-
 			$stmt->close();
-			$rs->free();
-			
-			//http://localhost/MiralejosNew/Sistema/#!/Estadisticas
-			//$url="#!/Estadisticas";
+			$rs->free();			
+		
 			$url="GestionVentas.estadisticas";
-			$item=array('setUrl' => utf8_encode($url), 'obj_edit' => $obj_edit);
+			$item=array('setUrl' => utf8_encode($url));
 			$json = json_encode($item);
 			echo $json; 
 			

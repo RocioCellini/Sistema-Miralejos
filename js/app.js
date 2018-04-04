@@ -47,10 +47,7 @@
        .state('GestionVentas.index',{
         url:'/Logueo',
         templateUrl:'templates/formLogueo.html',
-        controller: 'formController as $ctrl',
-        data: {
-          css: 'css/styles-logueo.css'
-        }
+        controller: 'LoginController as $ctrl',
       })
 /*
       .state('GestionVentas.index',{
