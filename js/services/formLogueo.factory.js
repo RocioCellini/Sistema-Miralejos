@@ -17,6 +17,7 @@
                 return promise;
           },
 
+        /*
         sendEdit: function () {
 
           return allow_edit.btn_edit;
@@ -24,7 +25,7 @@
         setEdit: function setEdit (value) {
             console.log(value);
              allow_edit.btn_edit=value;
-        },
+        },*/
 
       };//ServiceLogIn  
       

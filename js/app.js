@@ -5,7 +5,7 @@
   var app = _angular.module("GestionVentas", ["ngSanitize", "ngAnimate", "ui.navbar",
             "ngTable", "ui.router", "ui.bootstrap"]);
 
-
+  //usar servicio uiRouterStyles
   app.config(function($stateProvider, $urlRouterProvider){ 
   //$urlRouterProvider.otherwise('/Logueo');
 
@@ -47,7 +47,10 @@
        .state('GestionVentas.index',{
         url:'/Logueo',
         templateUrl:'templates/formLogueo.html',
-        controller: 'formController as $ctrl'
+        controller: 'formController as $ctrl',
+        data: {
+          css: 'css/styles-logueo.css'
+        }
       })
 /*
       .state('GestionVentas.index',{

@@ -23,11 +23,14 @@
            
             	  formFactory.setLogIn($ctrl.objLogIn).then(function(d){
             	
-                          angular.isDefined(d.Message)?enabledButton(d.Message):null;
-                          angular.isDefined(d.setUrl)?goUrl(d):null;
+                          //angular.isDefined(d.Message)?enabledButton(d.Message):null;
+                          //angular.isDefined(d.setUrl)?goUrl(d.setUrl):null;
 
                           console.log($ctrl.objLogIn);
-
+                           console.log(d);
+                           $state.go(d.setUrl);
+                            console.log(d.setUrl);
+                            /*
                             function enabledButton (d) {
                                 $ctrl.Message=d;
                                 $ctrl.logbutton=false;
@@ -37,7 +40,9 @@
                               
                                 formFactory.setEdit(d.obj_edit);
                                 $state.go(d.setUrl);
+                                console.log(d.setUrl);
                             }
+                            */
 
             	}); //d es la promise que está en el factory y devuelve el mensaje que está en el php
        

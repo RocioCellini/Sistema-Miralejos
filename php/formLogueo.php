@@ -60,11 +60,14 @@ if($type_accion==="log_in"){
 
 			$stmt->close();
 			$rs->free();
-		
-			$url="http://localhost/MiralejosNew/Sistema/#!/Estadisticas";
+			
+			//http://localhost/MiralejosNew/Sistema/#!/Estadisticas
+			//$url="#!/Estadisticas";
+			$url="GestionVentas.estadisticas";
 			$item=array('setUrl' => utf8_encode($url), 'obj_edit' => $obj_edit);
 			$json = json_encode($item);
 			echo $json; 
+			
 		}else{
 
 			$item=array('Message' => utf8_encode($message));
