@@ -7,16 +7,27 @@
   app.controller("Cliente", Cliente);
   
   Cliente.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "clienteFactory", "defaultdataFactory", "$filter", "$location"];
+   "clienteFactory", "defaultdataFactory", "$filter", "$location", "formLoginFactory"];
 
     //Controller
     function Cliente ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, clienteFactory, defaultdataFactory, $filter, $location){
+     $uibModal, $document, clienteFactory, defaultdataFactory, $filter, $location, formLoginFactory ){
                                    
        var path = $location.path();
        //console.log(path);
 
         var $ctrl_c = this;
+
+
+          $ctrl_c.objLogin ={};
+
+          Object.defineProperty ( $ctrl_c.objLogin, "type_accion", {
+              value: "checkSession",
+              writable: false,
+              enumerable: true,
+              configurable: false
+          }); // Esto hace que la propiedad type_accion no se pueda modificar
+
 
         $ctrl_c.datalocalidad2={};
         $ctrl_c.objDataCliente={};
@@ -52,6 +63,23 @@
 
 
         function Init () {
+
+
+        
+        formLoginFactory.checkSession( $ctrl_c.objLogin ).then( function( d ) {
+
+                       angular.isDefined(d.setUrl)?goUrl( d ):null;
+                                      
+                            function goUrl ( d ) {
+                                 
+                                $state.go( d.setUrl );
+                               
+                            }
+                        
+
+        }); //d es la promise que está en el factory y devuelve el mensaje que está en el php
+
+
                     
             $ctrl_c.defaultparams.type_accion="search_data_combos";
             defaultdataFactory.buscar_datos_combos($ctrl_c.defaultparams).then(function(d){    

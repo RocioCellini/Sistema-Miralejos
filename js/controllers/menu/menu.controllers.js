@@ -139,6 +139,14 @@
               name: "Añadir",
               link: "GestionVentas.nuevoOrigen"
             }]
+          },
+          {
+            name: "Salir",
+            link: "#",
+            subtree: [{
+              name: "Cerrar Sesion",
+              link: "GestionVentas.logOut"
+            }]
           }
 
 

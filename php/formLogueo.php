@@ -72,4 +72,30 @@ if($type_accion==="log_in"){
 	}// User
 }
 
+if($type_accion==="checkSession") {
+
+	if(!isset($_SESSION['Usuario'])) {
+	
+		$url="GestionVentas.index";
+		$item=array('setUrl' => utf8_encode($url));
+		$json = json_encode($item);
+		echo $json; 
+
+	}
+}
+
+
+if($type_accion==="logout") {
+
+	unset($_SESSION['Usuario']);
+	
+	$url="GestionVentas.index";
+	$item=array('setUrl' => utf8_encode($url));
+	$json = json_encode($item);
+	echo $json; 
+
+	session_destroy();
+
+}
+
 ?>      

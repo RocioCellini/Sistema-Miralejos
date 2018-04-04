@@ -187,6 +187,12 @@
         url:'/NuevoOrigen',
         templateUrl:'templates/origenDato/abm_origen.html',
         controller: 'OrigenDato as $ctrl_o'
+      }) 
+
+       .state('GestionVentas.logOut',{
+        url:'/logOut',
+        templateUrl:'templates/cerrar_sesion.html',
+        controller: 'LogOutController as $ctrl'
       })   
 
       }).run(function($state) {

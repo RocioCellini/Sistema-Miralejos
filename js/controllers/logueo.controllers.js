@@ -1,28 +1,33 @@
-(function(_angular){
+(function( _angular ){
 
   "use strict";
 
   var app=_angular.module("GestionVentas");
 
     app.controller("LoginController", LoginController);
-    LoginController.$inject = ["$scope","$http","$state","formFactory"];
+    LoginController.$inject = ["$scope","$http","$state","formLoginFactory"];
 
-    function LoginController($scope, $http, $state, formFactory) {
+    function LoginController( $scope, $http, $state, formLoginFactory ) {
     
         var $ctrl=this;
 
         $ctrl.LogIn = LogIn;
-        $ctrl.objLogIn={};
+        $ctrl.objLogin={};
         $ctrl.Message="";
         $ctrl.logbutton=false;
 
-        function LogIn (){
-        
-            $ctrl.logbutton=true;
+      Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+              value: "log_in",
+              writable: false,
+              enumerable: true,
+              configurable: false
+          }); 
 
-            $ctrl.objLogIn.type_accion="log_in"; 
-           
-            	  formFactory.setLogIn( $ctrl.objLogIn ).then( function( d ) {
+        function LogIn () {
+        
+             $ctrl.logbutton=true;
+        
+            	  formLoginFactory.setLogin( $ctrl.objLogin ).then( function( d ) {
 
             	
                           angular.isDefined(d.Message)?enabledButton(d.Message):null;
@@ -48,4 +53,4 @@
  
     }// formController
 
-})(window.angular);
+})( window.angular );
