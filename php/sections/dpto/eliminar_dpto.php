@@ -15,7 +15,7 @@ $data=json_decode($json);
 
 $type_accion='eliminar_dpto';
 
-if($type_accion==="eliminar_dpto"){
+if($type_accion==="eliminar_dpto" && isset($_SESSION['Usuario'])){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
@@ -7,7 +9,7 @@ $data=json_decode($json);
 
 $type_accion="detalle_llamados";
 
-if ($type_accion==="detalle_llamados") {
+if ($type_accion==="detalle_llamados" && isset($_SESSION['Usuario'])) {
 
  // $id_cliente=$data->{'id_cliente'};
     

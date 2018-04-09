@@ -13,7 +13,7 @@ $type_accion=$data->{'type_accion'};
 
 //$type_accion="nueva_fila";
 
-if($type_accion==="nueva_fila"){
+if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
   
 	include "../../conexion.php";	
 	

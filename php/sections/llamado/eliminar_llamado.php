@@ -15,7 +15,7 @@ $data=json_decode($json);
 
 $type_accion='eliminar_llamado';
 
-if($type_accion==="eliminar_llamado"){
+if($type_accion==="eliminar_llamado" && isset($_SESSION['Usuario'])){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	

@@ -4,16 +4,14 @@
 //header('X-XSS-Protection: 1;mode=block');
 //header("Content-type: text/plain"); 
 session_start();
-//if(isset($_SESSION['Id_Usuario'])) {
 
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-
 //$type_accion=$data->{'type_accion'};
 $type_accion='editar_vendedor';
 
-if($type_accion==="editar_vendedor"){
+if($type_accion==="editar_vendedor" && isset($_SESSION['Usuario'])){
 
 //********************************************************************************************//  
   

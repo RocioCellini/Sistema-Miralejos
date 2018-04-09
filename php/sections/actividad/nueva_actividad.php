@@ -11,7 +11,7 @@ $data=json_decode($json);
 
 $type_accion=$data->{'type_accion'};
 
-if($type_accion==="nueva_actividad"){
+if($type_accion==="nueva_actividad" && isset($_SESSION['Usuario'])){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	

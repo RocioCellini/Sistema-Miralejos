@@ -4,7 +4,6 @@
 //header('X-XSS-Protection: 1;mode=block');
 //header("Content-type: text/plain");	
 session_start();
-//if(isset($_SESSION['Id_Usuario'])) {
 
 $json = file_get_contents('php://input');
 $data=json_decode($json);
@@ -15,7 +14,7 @@ $data=json_decode($json);
 
 $type_accion='eliminar_ti_dpto';
 
-if($type_accion==="eliminar_ti_dpto"){
+if($type_accion==="eliminar_ti_dpto" && isset($_SESSION['Usuario'])){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	

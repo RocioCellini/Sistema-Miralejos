@@ -1,4 +1,6 @@
 <?php
+
+    session_start();
              
     $json = file_get_contents('php://input');
     $data=json_decode($json);  
@@ -7,7 +9,7 @@
     
     //$type_accion='combos_agregar_datos';
      
-      if ($type_accion==="search_data_combos") {
+      if ($type_accion==="search_data_combos" && isset($_SESSION['Usuario'])) {
 
 
         include "../conexion.php";  

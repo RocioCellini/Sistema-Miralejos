@@ -13,7 +13,7 @@ $data=json_decode($json);
 //$type_accion=$data->{'type_accion'};
 $type_accion='editar_dpto';
 
-if($type_accion==="editar_dpto"){
+if($type_accion==="editar_dpto" && isset($_SESSION['Usuario'])){
 
 //********************************************************************************************//  
   

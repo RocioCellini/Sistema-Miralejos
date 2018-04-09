@@ -8,7 +8,7 @@ $type_accion=$data->{'type_accion'};
 
 //$type_accion=="buscar_edificio";
 
-if ($type_accion==="buscar_edificio") {
+if ($type_accion==="buscar_edificio" && isset($_SESSION['Usuario'])) {
 
   $criterio=$data->{'criterio'};
   

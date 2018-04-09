@@ -4,7 +4,6 @@
 //header('X-XSS-Protection: 1;mode=block');
 //header("Content-type: text/plain");	
 session_start();
-//if(isset($_SESSION['Id_Usuario'])) {
 
 /*
 $json = file_get_contents('php://input');
@@ -14,7 +13,7 @@ $type_accion=$data->{'type_accion'};*/
 
 $type_accion="nueva_localidad";
 
-if($type_accion==="nueva_localidad"){	
+if($type_accion==="nueva_localidad" && isset($_SESSION['Usuario'])){	
 
 	include "../../conexion.php";	
 	

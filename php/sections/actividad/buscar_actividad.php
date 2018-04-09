@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
@@ -7,7 +9,7 @@ $type_accion=$data->{'type_accion'};
 
 //$type_accion="buscar_act";
 
-if ($type_accion==="buscar_act") {
+if ($type_accion==="buscar_act" && isset($_SESSION['Usuario'])) {
 
   $criterio=$data->{'criterio'};
 
