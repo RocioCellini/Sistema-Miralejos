@@ -7,15 +7,25 @@
   app.controller("OrigenDato", OrigenDato);
   
   OrigenDato.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "origenDatoFactory"];
+   "origenDatoFactory",  "formLoginFactory"];
 
   //Controller
   function OrigenDato ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, origenDatoFactory) {
+   $uibModal, $document, origenDatoFactory, formLoginFactory) {
                                  
      var $ctrl_o = this;
      
      $ctrl_o.objDataOrigen={};
+
+     $ctrl_o.objLogin ={};
+
+      Object.defineProperty ( $ctrl_o.objLogin, "type_accion", {
+            value: "checkSession",
+            writable: false,
+            enumerable: true,
+            configurable: false
+      }); 
+
      $ctrl_o.allow_disable=false;
      $ctrl_o.allow_visible=true;
 
@@ -26,6 +36,17 @@
         
 
       function Init () {
+
+         formLoginFactory.checkSession($ctrl_o.objLogin).then( function(d) {
+
+             angular.isDefined(d.setUrl)?goUrl(d):null;
+                            
+                  function goUrl (d) {                                 
+                      $state.go( d.setUrl );                               
+                  }
+                        
+          });       
+
       };    
 
       function upDate () { 

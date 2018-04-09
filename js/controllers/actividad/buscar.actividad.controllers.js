@@ -3,17 +3,26 @@
   var app=_angular.module("GestionVentas");
 
   app.controller("BuscarAct", BuscarAct);
-  BuscarAct.$inject = ["$scope", "$state", "$stateParams", "actividadFactory", "NgTableParams","$window", "$filter"];
+  BuscarAct.$inject = ["$scope", "$state", "$stateParams", "actividadFactory", "NgTableParams","$window", "$filter",  "formLoginFactory"];
 
           //Controller
           function BuscarAct($scope, $state, $stateParams , actividadFactory,  
-             NgTableParams, $window, $filter) {
+             NgTableParams, $window, $filter, formLoginFactory) {
                           
                 var $ctrl_ba=this;
 
                 $ctrl_ba.objSearch={
                        criterio:""
                 };       
+
+                $ctrl_ba.objLogin ={};
+
+                Object.defineProperty ( $ctrl_ba.objLogin, "type_accion", {
+                    value: "checkSession",
+                    writable: false,
+                    enumerable: true,
+                    configurable: false
+                }); // Esto hace que la propiedad type_accion no se pueda modificar
 
                 $ctrl_ba.Init = Init;
                 $ctrl_ba.BuscarAct = BuscarAct;
@@ -39,8 +48,16 @@
          //**********************************************************************************************// 
           function Init () {
 
-             $ctrl_ba.tableParams = new NgTableParams(initialParams, initialSettings);            
-      
+             $ctrl_ba.tableParams = new NgTableParams(initialParams, initialSettings);    
+
+              formLoginFactory.checkSession($ctrl_ba.objLogin).then( function(d) {
+
+                       angular.isDefined(d.setUrl)?goUrl(d):null;
+                                      
+                            function goUrl (d) {                                 
+                                $state.go( d.setUrl );                               
+                            }
+              });         
           };
 
              

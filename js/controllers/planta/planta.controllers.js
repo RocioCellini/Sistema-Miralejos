@@ -7,15 +7,25 @@
   app.controller("Planta", Planta);
   
   Planta.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "plantaFactory"];
+   "plantaFactory", "formLoginFactory"];
 
   //Controller
   function Planta ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, plantaFactory) {
+   $uibModal, $document, plantaFactory, formLoginFactory) {
                                  
      var $ctrl_np = this;
      
      $ctrl_np.objDataPlanta={};
+
+     $ctrl_np.objLogin ={};
+
+     Object.defineProperty ( $ctrl_np.objLogin, "type_accion", {
+            value: "checkSession",
+            writable: false,
+            enumerable: true,
+            configurable: false
+     }); 
+
      $ctrl_np.allow_disable=false;
      $ctrl_np.allow_visible=true;
 
@@ -26,6 +36,17 @@
         
 
       function Init () {
+
+        formLoginFactory.checkSession($ctrl_np.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                            
+              });       
+        
       };    
 
       function upDate () { 

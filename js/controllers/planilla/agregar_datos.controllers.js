@@ -7,11 +7,11 @@
   app.controller("AgregarDatos", AgregarDatos);
   
   AgregarDatos.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "AgregarDatosFactory", "defaultdataFactory", "clienteFactory", "llamadoFactory", "NgTableParams", "$filter"];
+   "AgregarDatosFactory", "defaultdataFactory", "clienteFactory", "llamadoFactory", "NgTableParams", "$filter", "formLoginFactory"];
 
     //Controller
     function AgregarDatos ($scope, $sce, $state, $stateParams, $window,
-     $uibModal, $document, AgregarDatosFactory, defaultdataFactory, clienteFactory, llamadoFactory, NgTableParams, $filter) {
+     $uibModal, $document, AgregarDatosFactory, defaultdataFactory, clienteFactory, llamadoFactory, NgTableParams, $filter, formLoginFactory) {
                                    
           var $ctrl_ad = this;
 
@@ -19,6 +19,15 @@
           $ctrl_ad.objAgregarDatos={
            criterio:""
           };
+
+          $ctrl_ad.objLogin ={};
+
+          Object.defineProperty ( $ctrl_ad.objLogin, "type_accion", {
+                value: "checkSession",
+                writable: false,
+                enumerable: true,
+                configurable: false
+          }); 
 
           $ctrl_ad.allow_disable = false;
           $ctrl_ad.allow_visible = true;
@@ -72,6 +81,16 @@
           function Init () {
 
               $ctrl_ad.tableParams = new NgTableParams(initialParams, initialSettings); 
+
+              formLoginFactory.checkSession($ctrl_ad.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                            
+              });       
 
               $ctrl_ad.defaultparams.type_accion="combos_agregar_datos";
               defaultdataFactory.buscar_datos_combos($ctrl_ad.defaultparams).then(function(d){    

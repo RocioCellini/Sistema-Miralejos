@@ -7,20 +7,41 @@
   app.controller("Estadistica", Estadistica);
   
   Estadistica.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "estadisticaFactory"];
+   "estadisticaFactory", "formLoginFactory"];
 
     //Controller
     function Estadistica ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, estadisticaFactory) {
+     $uibModal, $document, estadisticaFactory, formLoginFactory) {
                                    
           var $ctrl_e = this;
 
           $ctrl_e.objDataEstagistica={};
+
+          $ctrl_e.objLogin ={};
+
+          Object.defineProperty ( $ctrl_e.objLogin, "type_accion", {
+              value: "checkSession",
+              writable: false,
+              enumerable: true,
+              configurable: false
+          }); 
       
           $ctrl_e.Init = Init;
           $ctrl_e.NuevaEstadistica=NuevaEstadistica;
 
-          function Init () { }
+          function Init () {
+
+              formLoginFactory.checkSession($ctrl_e.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                      
+              });    
+
+           }
 
           function NuevaEstadistica() {
               

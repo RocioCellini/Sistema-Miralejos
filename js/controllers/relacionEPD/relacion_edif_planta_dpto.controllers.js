@@ -7,16 +7,26 @@
   app.controller("NuevaRelacion", NuevaRelacion);
   
   NuevaRelacion.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-  "relacionFactory", "defaultdataFactory"];
+  "relacionFactory", "defaultdataFactory", "formLoginFactory"];
 
   //Controller
   function NuevaRelacion ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, relacionFactory, defaultdataFactory) {
+   $uibModal, $document, relacionFactory, defaultdataFactory, formLoginFactory) {
                                  
      var $ctrl_nr = this;
 
      $ctrl_nr.defaultparams={};
      $ctrl_nr.objDataRelacion={};
+
+     $ctrl_nr.objLogin ={};
+
+     Object.defineProperty ( $ctrl_nr.objLogin, "type_accion", {
+              value: "checkSession",
+              writable: false,
+              enumerable: true,
+              configurable: false
+     }); 
+
      $ctrl_nr.allow_disable=false;
      $ctrl_nr.allow_visible=true;
 
@@ -26,6 +36,16 @@
         
 
       function Init () {      
+
+          formLoginFactory.checkSession($ctrl_nr.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                            
+          });       
 
           $ctrl_nr.defaultparams.type_accion="buscar_edificio_planta_dpto";
 

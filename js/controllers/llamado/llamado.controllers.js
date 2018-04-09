@@ -7,11 +7,11 @@
   app.controller("Llamado", Llamado);
   
   Llamado.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "llamadoFactory", "defaultdataFactory", "clienteFactory", "NgTableParams", "$filter"];
+   "llamadoFactory", "defaultdataFactory", "clienteFactory", "NgTableParams", "$filter", "formLoginFactory"];
 
   //Controller
   function Llamado ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, llamadoFactory, defaultdataFactory, clienteFactory, NgTableParams, $filter) {
+   $uibModal, $document, llamadoFactory, defaultdataFactory, clienteFactory, NgTableParams, $filter, formLoginFactory) {
                                  
      var $ctrl_ll = this;
      
@@ -19,6 +19,16 @@
      $ctrl_ll.objDataLlamado = {
         criterio:""
      };
+
+    $ctrl_ll.objLogin ={};
+
+        Object.defineProperty ( $ctrl_ll.objLogin, "type_accion", {
+              value: "checkSession",
+              writable: false,
+              enumerable: true,
+              configurable: false
+        }); 
+
      $ctrl_ll.allow_disable = false;
      $ctrl_ll.allow_visible = true;
      $ctrl_ll.datalocalidad2={};
@@ -75,7 +85,17 @@
 
      function Init () {
 
-       $ctrl_ll.tableParams = new NgTableParams(initialParams, initialSettings); 
+       $ctrl_ll.tableParams = new NgTableParams(initialParams, initialSettings);  
+
+           formLoginFactory.checkSession($ctrl_ll.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                      
+            });    
 
        $ctrl_ll.defaultparams.type_accion="combos_agregar_datos";
             defaultdataFactory.buscar_datos_combos($ctrl_ll.defaultparams).then(function(d){

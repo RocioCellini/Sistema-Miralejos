@@ -7,15 +7,24 @@
   app.controller("Dpto", Dpto);
   
   Dpto.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "dptoFactory"];
+   "dptoFactory", "formLoginFactory"];
 
   //Controller
   function Dpto ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, dptoFactory) {
+   $uibModal, $document, dptoFactory, formLoginFactory) {
                                  
     var $ctrl_d = this;
 
     $ctrl_d.objDataDpto={};
+
+    $ctrl_d.objLogin ={};
+
+              Object.defineProperty ( $ctrl_d.objLogin, "type_accion", {
+                  value: "checkSession",
+                  writable: false,
+                  enumerable: true,
+                  configurable: false
+              }); 
     $ctrl_d.allow_disable=false;
     $ctrl_d.allow_visible=true;
 
@@ -25,6 +34,17 @@
         
 
     function Init () {
+
+      formLoginFactory.checkSession($ctrl_d.objLogin).then( function(d) {
+
+           angular.isDefined(d.setUrl)?goUrl(d):null;
+                          
+              function goUrl (d) {                                 
+                  $state.go( d.setUrl );                               
+              }
+                
+      }); 
+      
     };    
 
     function upDate () { 

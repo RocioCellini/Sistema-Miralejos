@@ -3,17 +3,26 @@
   var app=_angular.module("GestionVentas");
 
   app.controller("BuscarLocalidad", BuscarLocalidad);
-  BuscarLocalidad.$inject = ["$scope", "$state", "$stateParams", "localidadFactory", "NgTableParams","$window", "$filter"];
+  BuscarLocalidad.$inject = ["$scope", "$state", "$stateParams", "localidadFactory", "NgTableParams","$window", "$filter", "formLoginFactory"];
 
           //Controller
           function BuscarLocalidad($scope, $state, $stateParams , localidadFactory,  
-             NgTableParams, $window, $filter) {
+             NgTableParams, $window, $filter, formLoginFactory) {
                           
                 var $ctrl_bloc=this;
 
                 $ctrl_bloc.objSearch={
                        criterio:""
                 };       
+
+                $ctrl_bloc.objLogin ={};
+
+                Object.defineProperty ( $ctrl_bloc.objLogin, "type_accion", {
+                      value: "checkSession",
+                      writable: false,
+                      enumerable: true,
+                      configurable: false
+                }); 
 
                 $ctrl_bloc.Init = Init;
                 $ctrl_bloc.BuscarLocalidad = BuscarLocalidad;
@@ -39,7 +48,17 @@
          //**********************************************************************************************// 
           function Init () {
 
-             $ctrl_bloc.tableParams = new NgTableParams(initialParams, initialSettings);            
+             $ctrl_bloc.tableParams = new NgTableParams(initialParams, initialSettings);      
+
+              formLoginFactory.checkSession($ctrl_bloc.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                      
+            });          
       
           };
 

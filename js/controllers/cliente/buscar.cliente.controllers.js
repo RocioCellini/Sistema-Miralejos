@@ -4,17 +4,26 @@
 
   app.controller("BuscarCliente", BuscarCliente);
   BuscarCliente.$inject = ["$scope", "$state", "$stateParams",
-  "clienteFactory", "NgTableParams","$window", "defaultdataFactory", "$filter"];
+  "clienteFactory", "NgTableParams","$window", "defaultdataFactory", "$filter",  "formLoginFactory"];
 
           //Controller
           function BuscarCliente($scope, $state, $stateParams , clienteFactory,  
-             NgTableParams, $window, defaultdataFactory, $filter) {
+             NgTableParams, $window, defaultdataFactory, $filter, formLoginFactory) {
                           
                 var $ctrl_bc=this;
 
                 $ctrl_bc.objSearch={
                        criterio:""
                 };
+
+                $ctrl_bc.objLogin ={};
+
+                Object.defineProperty ( $ctrl_bc.objLogin, "type_accion", {
+                    value: "checkSession",
+                    writable: false,
+                    enumerable: true,
+                    configurable: false
+                }); 
 
                 $ctrl_bc.datalocalidad2={};
        
@@ -51,8 +60,19 @@
 
             $ctrl_bc.tableParams = new NgTableParams(initialParams, initialSettings); 
 
+            formLoginFactory.checkSession($ctrl_bc.objLogin).then( function(d) {
+
+                       angular.isDefined(d.setUrl)?goUrl(d):null;
+                                      
+                            function goUrl (d) {                                 
+                                $state.go( d.setUrl );                               
+                            }
+              });    
+
             $ctrl_bc.defaultparams.type_accion="search_data_combos";
             defaultdataFactory.buscar_datos_combos($ctrl_bc.defaultparams).then(function(d) {    
+
+
     
             //console.log(d);
 

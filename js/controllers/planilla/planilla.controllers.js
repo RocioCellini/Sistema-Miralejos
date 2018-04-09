@@ -7,15 +7,24 @@
   app.controller("Planilla", Planilla);
   
   Planilla.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "planillaFactory", "NgTableParams"];
+   "planillaFactory", "NgTableParams", "formLoginFactory"];
 
     //Controller
     function Planilla ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, planillaFactory, NgTableParams) {
+     $uibModal, $document, planillaFactory, NgTableParams, formLoginFactory) {
                                    
         var $ctrl_p = this;
 
         $ctrl_p.objDataPlanilla={};
+
+        $ctrl_p.objLogin ={};
+
+        Object.defineProperty ( $ctrl_p.objLogin, "type_accion", {
+                value: "checkSession",
+                writable: false,
+                enumerable: true,
+                configurable: false
+        }); 
     
         $ctrl_p.Init = Init;
         $ctrl_p.NuevaPlanilla=NuevaPlanilla;
@@ -43,6 +52,16 @@
         function Init () { 
 
           $ctrl_p.tableParams = new NgTableParams(initialParams, initialSettings);   
+
+           formLoginFactory.checkSession($ctrl_p.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                            
+              });       
 
         }
 

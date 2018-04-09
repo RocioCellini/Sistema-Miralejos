@@ -3,23 +3,33 @@
   var app=_angular.module("GestionVentas");
 
   app.controller("BuscarEdificio", BuscarEdificio);
-  BuscarEdificio.$inject = ["$scope", "$state", "$stateParams", "edificioFactory", "NgTableParams","$window", "$filter"];
+  BuscarEdificio.$inject = ["$scope", "$state", "$stateParams", "edificioFactory", "NgTableParams","$window", "$filter",  "formLoginFactory"];
 
           //Controller
           function BuscarEdificio($scope, $state, $stateParams , edificioFactory,  
-             NgTableParams, $window, $filter) {
+             NgTableParams, $window, $filter, formLoginFactory) {
                           
-                var $ctrl_bp=this;
+                var $ctrl_be=this;
 
-                $ctrl_bp.objSearch={
+                $ctrl_be.objSearch={
                        criterio:""
                 };       
 
-                $ctrl_bp.Init = Init;
-                $ctrl_bp.BuscarEdificio = BuscarEdificio;
-                $ctrl_bp.GoDataEdit = GoDataEdit;
+                $ctrl_be.objLogin ={};
 
-                $ctrl_bp.Init();
+                Object.defineProperty ( $ctrl_be.objLogin, "type_accion", {
+                    value: "checkSession",
+                    writable: false,
+                    enumerable: true,
+                    configurable: false
+                }); 
+
+
+                $ctrl_be.Init = Init;
+                $ctrl_be.BuscarEdificio = BuscarEdificio;
+                $ctrl_be.GoDataEdit = GoDataEdit;
+
+                $ctrl_be.Init();
 
 
             // To configure table   
@@ -39,7 +49,17 @@
          //**********************************************************************************************// 
           function Init () {
 
-             $ctrl_bp.tableParams = new NgTableParams(initialParams, initialSettings);            
+            $ctrl_be.tableParams = new NgTableParams(initialParams, initialSettings);    
+
+            formLoginFactory.checkSession($ctrl_be.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                      
+            });               
       
           };
 
@@ -50,24 +70,24 @@
 
                 //console.log(valorIngresado);   
 
-                $ctrl_bp.boton_submmit=true;
+                $ctrl_be.boton_submmit=true;
 
-                $ctrl_bp.objSearch.type_accion="buscar_edificio";              
+                $ctrl_be.objSearch.type_accion="buscar_edificio";              
 
-                $ctrl_bp.objSearch.criterio=valorIngresado;
+                $ctrl_be.objSearch.criterio=valorIngresado;
 
-               //console.log($ctrl_bp.objSearch);
+               //console.log($ctrl_be.objSearch);
                   
-                edificioFactory.buscarEdificio($ctrl_bp.objSearch).then(function(d) {
+                edificioFactory.buscarEdificio($ctrl_be.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
                 console.log(d.Respuesta); 
                
-                $ctrl_bp.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl_be.tableParams.settings({dataset: d.Respuesta});   
 
                     // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-                $ctrl_bp.boton_submmit=false;      
+                $ctrl_be.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);

@@ -4,17 +4,26 @@
   var app=_angular.module("GestionVentas");
 
   app.controller("BuscarVendedor", BuscarVendedor);
-  BuscarVendedor.$inject = ["$scope", "$state", "$stateParams", "vendedorFactory", "NgTableParams","$window", "$filter"];
+  BuscarVendedor.$inject = ["$scope", "$state", "$stateParams", "vendedorFactory", "NgTableParams","$window", "$filter", "formLoginFactory"];
 
   //Controller
   function BuscarVendedor($scope, $state,$stateParams , vendedorFactory,  
-       NgTableParams, $window, $filter) {
+       NgTableParams, $window, $filter, formLoginFactory) {
                     
         var $ctrl_bv=this;
 
         $ctrl_bv.objSearch={
              criterio:""
         };      
+
+        $ctrl_bv.objLogin ={};
+
+         Object.defineProperty ( $ctrl_bv.objLogin, "type_accion", {
+                  value: "checkSession",
+                  writable: false,
+                  enumerable: true,
+                  configurable: false
+         }); 
 
         $ctrl_bv.Init = Init;
         $ctrl_bv.BuscarVendedor = BuscarVendedor;
@@ -44,7 +53,17 @@
 
         function Init () {
 
-              $ctrl_bv.tableParams = new NgTableParams(initialParams, initialSettings);            
+            $ctrl_bv.tableParams = new NgTableParams(initialParams, initialSettings);    
+
+            formLoginFactory.checkSession($ctrl_bv.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                            
+            });               
 
           };
 

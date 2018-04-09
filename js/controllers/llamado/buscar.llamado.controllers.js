@@ -4,17 +4,26 @@
 
   app.controller("BuscarLlamado", BuscarLlamado);
 
-  BuscarLlamado.$inject = ["$scope", "$state", "$stateParams", "llamadoFactory", "NgTableParams","$window", "$filter"];
+  BuscarLlamado.$inject = ["$scope", "$state", "$stateParams", "llamadoFactory", "NgTableParams","$window", "$filter", "formLoginFactory"];
 
   //Controller
   function BuscarLlamado ( $scope, $state, $stateParams , llamadoFactory,  
-     NgTableParams, $window, $filter) {
+     NgTableParams, $window, $filter, formLoginFactory) {
                   
         var $ctrl=this;
 
         $ctrl.objSearch={
                criterio:""
         };       
+
+        $ctrl.objLogin ={};
+
+        Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+              value: "checkSession",
+              writable: false,
+              enumerable: true,
+              configurable: false
+        }); 
 
         $ctrl.boton_submmit=false;
 
@@ -45,7 +54,18 @@
        // To go to modify form for pacient suscribers      
        //**********************************************************************************************// 
         function Init () {
+
            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);   
+
+           formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                      
+            });    
         };
           
 

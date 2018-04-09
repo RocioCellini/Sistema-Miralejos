@@ -7,15 +7,25 @@
   app.controller("Localidad", Localidad);
   
   Localidad.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "localidadFactory", "defaultdataFactory"];
+   "localidadFactory", "defaultdataFactory", "formLoginFactory"];
 
           //Controller
           function Localidad ($scope, $sce, $state,  $stateParams,  $window,
-           $uibModal, $document, localidadFactory, defaultdataFactory) {
+           $uibModal, $document, localidadFactory, defaultdataFactory, formLoginFactory) {
                                          
             var $ctrl_loc = this;
 
             $ctrl_loc.objDataLocalidad={};
+
+            $ctrl_loc.objLogin ={};
+
+            Object.defineProperty ( $ctrl_loc.objLogin, "type_accion", {
+                  value: "checkSession",
+                  writable: false,
+                  enumerable: true,
+                  configurable: false
+            }); 
+
             $ctrl_loc.defaultparams={};
             $ctrl_loc.allow_disable=false;
             $ctrl_loc.allow_visible=true;
@@ -30,18 +40,28 @@
             $ctrl_loc.NuevaLocalidad=NuevaLocalidad;
 
           function Init () {
-                      
-                $ctrl_loc.defaultparams.type_accion="search_data_combos";
-                defaultdataFactory.buscar_datos_combos($ctrl_loc.defaultparams).then(function(d) {        
 
-                $ctrl_loc.dataprovincia = {
-                    availableOptions: d.provincia,
-                    selectedOption: {id: '1'} //This sets the default value of the select in the ui
-               };
+              formLoginFactory.checkSession($ctrl_loc.objLogin).then( function(d) {
+
+                   angular.isDefined(d.setUrl)?goUrl(d):null;
+                                  
+                        function goUrl (d) {                                 
+                            $state.go( d.setUrl );                               
+                        }
+                        
+              });       
+                      
+              $ctrl_loc.defaultparams.type_accion="search_data_combos";
+              defaultdataFactory.buscar_datos_combos($ctrl_loc.defaultparams).then(function(d) {        
+
+                  $ctrl_loc.dataprovincia = {
+                        availableOptions: d.provincia,
+                        selectedOption: {id: '1'} //This sets the default value of the select in the ui
+                  };
           
-               }).catch(function (err) {
+              }).catch(function (err) {
                     console.log(err);
-               });                
+              });                
              
           };    
 

@@ -7,15 +7,25 @@
   app.controller("Edificio", Edificio);
   
   Edificio.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
-   "edificioFactory"];
+   "edificioFactory",  "formLoginFactory"];
 
   //Controller
   function Edificio ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, edificioFactory) {
+   $uibModal, $document, edificioFactory, formLoginFactory) {
                                  
      var $ctrl_e = this;
      
      $ctrl_e.objDataEdificio={};
+
+     $ctrl_e.objLogin ={};
+
+     Object.defineProperty ( $ctrl_e.objLogin, "type_accion", {
+        value: "checkSession",
+        writable: false,
+        enumerable: true,
+        configurable: false
+     }); 
+
      $ctrl_e.allow_disable=false;
      $ctrl_e.allow_visible=true;
 
@@ -26,6 +36,16 @@
         
 
       function Init () {
+        
+         formLoginFactory.checkSession($ctrl_e.objLogin).then( function(d) {
+
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                      function goUrl (d) {                                 
+                          $state.go( d.setUrl );                               
+                      }
+                      
+            });          
       };    
 
       function upDate () { 
