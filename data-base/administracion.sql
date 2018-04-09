@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-04-2018 a las 18:22:18
+-- Tiempo de generación: 09-04-2018 a las 19:50:03
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -37,7 +37,7 @@ CREATE TABLE `administracion` (
 --
 
 INSERT INTO `administracion` (`id_admin`, `user`, `password`) VALUES
-(1, 'rocio-miralejos', '$2y$10$FLjmqmxvQWr/Ch53VRhMgOt7/jIK2kliSGUNVRl4GMoa.444HGuUu');
+(1, 'rocio-miralejos', '$2y$10$SPoB5srz8G7C1QKzp1LSVe.yf6ILBueVUVVzXBq4USFGFWiy0nrJm');
 
 --
 -- Índices para tablas volcadas
