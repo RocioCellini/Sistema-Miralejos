@@ -15,12 +15,21 @@
                                    
           var $ctrl = this;
 
-          $ctrl.objDataEstagistica={};
+          $ctrl.objDataEstagistica={
+            CantContactos:""
+          };
 
           $ctrl.objLogin ={};
 
           Object.defineProperty ( $ctrl.objLogin, "type_accion", {
               value: "checkSession",
+              writable: false,
+              enumerable: true,
+              configurable: false
+          }); 
+
+          Object.defineProperty ( $ctrl.objDataEstagistica, "type_accion", {
+              value: "set_data",
               writable: false,
               enumerable: true,
               configurable: false
@@ -40,6 +49,18 @@
                       }
                       
               });    
+
+              estadisticaFactory.setData($ctrl.objDataEstagistica).then(function(response){  
+
+                console.log($ctrl.objDataEstagistica);
+
+                console.log(response);
+         
+                $ctrl.objDataEstagistica.CantContactos = response;
+
+               }).catch(function (err) {
+                    console.log(err);
+                  });
 
            }
 

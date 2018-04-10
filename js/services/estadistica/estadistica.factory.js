@@ -9,8 +9,8 @@
      var promisedata;
       
      var Estadistica = {
-            
-        nuevaEstadistica: function(params) {
+
+        setData: function(params) {
             promisedata=$http.post('php/sections/estadistica/nueva_estadistica.php', params).then(function (response) {
                   return response.data;
         });
