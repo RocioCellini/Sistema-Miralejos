@@ -201,8 +201,11 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
                         'telefono1'=>utf8_encode($row['telefono1']),
                         'telefono2'=>utf8_encode($row['telefono2']),
                         'email'=>utf8_encode($row['email']),
-                        'provincia'=>utf8_encode($provincia),                    
+                        'id_provincia'=>utf8_encode($id_provincia),
+                        'provincia'=>utf8_encode($provincia), 
+                        'id_localidad'=>utf8_encode($id_localidad),                   
                         'localidad'=>utf8_encode($localidad),
+                        'id_actividad'=>utf8_encode($id_actividad),
                         'actividad'=>utf8_encode($actividad),
                         'conoce'=>utf8_encode($conoce)
                     	);
