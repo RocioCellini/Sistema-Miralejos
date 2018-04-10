@@ -37,4 +37,11 @@ El dni que se ingresa en el template Cerrar operacion se guarda en la tabla Clie
               selectedOption: {id: '-1'} 
           };
 
+**********************************************************************************************
+Error al loguearse en el sistema
+Msj al hacer clic sobre formLogueo.php:
 
+    <b>Deprecated</b>:  Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set 'always_populate_raw_post_data' to '-1' in php.ini and use the php://input stream instead. in <b>Unknown</b> on line <b>0</b><br />
+    <b>Warning</b>:  Cannot modify header information - headers already sent in <b>Unknown</b> on line <b>0</b>
+
+en la ruta: wamp/.../php.ini buscar donde dice "$HTTP_RAW_POST_DATA" y descomentar(borrando el ;) la última linea
