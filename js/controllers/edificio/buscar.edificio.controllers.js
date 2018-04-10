@@ -9,15 +9,15 @@
           function BuscarEdificio($scope, $state, $stateParams , edificioFactory,  
              NgTableParams, $window, $filter, formLoginFactory) {
                           
-                var $ctrl=this;
+                var $ctrl_be=this;
 
-                $ctrl.objSearch={
+                $ctrl_be.objSearch={
                        criterio:""
                 };       
 
-                $ctrl.objLogin ={};
+                $ctrl_be.objLogin ={};
 
-                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+                Object.defineProperty ( $ctrl_be.objLogin, "type_accion", {
                     value: "checkSession",
                     writable: false,
                     enumerable: true,
@@ -25,11 +25,11 @@
                 }); 
 
 
-                $ctrl.Init = Init;
-                $ctrl.BuscarEdificio = BuscarEdificio;
-                $ctrl.GoDataEdit = GoDataEdit;
+                $ctrl_be.Init = Init;
+                $ctrl_be.BuscarEdificio = BuscarEdificio;
+                $ctrl_be.GoDataEdit = GoDataEdit;
 
-                $ctrl.Init();
+                $ctrl_be.Init();
 
 
             // To configure table   
@@ -49,9 +49,9 @@
          //**********************************************************************************************// 
           function Init () {
 
-            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);    
+            $ctrl_be.tableParams = new NgTableParams(initialParams, initialSettings);    
 
-            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+            formLoginFactory.checkSession($ctrl_be.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -70,24 +70,24 @@
 
                 //console.log(valorIngresado);   
 
-                $ctrl.boton_submmit=true;
+                $ctrl_be.boton_submmit=true;
 
-                $ctrl.objSearch.type_accion="buscar_edificio";              
+                $ctrl_be.objSearch.type_accion="buscar_edificio";              
 
-                $ctrl.objSearch.criterio=valorIngresado;
+                $ctrl_be.objSearch.criterio=valorIngresado;
 
-               //console.log($ctrl.objSearch);
+               //console.log($ctrl_be.objSearch);
                   
-                edificioFactory.buscarEdificio($ctrl.objSearch).then(function(d) {
+                edificioFactory.buscarEdificio($ctrl_be.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
                 console.log(d.Respuesta); 
                
-                $ctrl.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl_be.tableParams.settings({dataset: d.Respuesta});   
 
                     // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-                $ctrl.boton_submmit=false;      
+                $ctrl_be.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);

@@ -9,26 +9,26 @@
           function BuscarLocalidad($scope, $state, $stateParams , localidadFactory,  
              NgTableParams, $window, $filter, formLoginFactory) {
                           
-                var $ctrl=this;
+                var $ctrl_bloc=this;
 
-                $ctrl.objSearch={
+                $ctrl_bloc.objSearch={
                        criterio:""
                 };       
 
-                $ctrl.objLogin ={};
+                $ctrl_bloc.objLogin ={};
 
-                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+                Object.defineProperty ( $ctrl_bloc.objLogin, "type_accion", {
                       value: "checkSession",
                       writable: false,
                       enumerable: true,
                       configurable: false
                 }); 
 
-                $ctrl.Init = Init;
-                $ctrl.BuscarLocalidad = BuscarLocalidad;
-                $ctrl.GoDataEdit = GoDataEdit;
+                $ctrl_bloc.Init = Init;
+                $ctrl_bloc.BuscarLocalidad = BuscarLocalidad;
+                $ctrl_bloc.GoDataEdit = GoDataEdit;
 
-                $ctrl.Init();
+                $ctrl_bloc.Init();
 
 
             // To configure table   
@@ -48,9 +48,9 @@
          //**********************************************************************************************// 
           function Init () {
 
-             $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);      
+             $ctrl_bloc.tableParams = new NgTableParams(initialParams, initialSettings);      
 
-              formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+              formLoginFactory.checkSession($ctrl_bloc.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -68,35 +68,35 @@
           function BuscarLocalidad (valorIngresado) {     
 
                 //console.log(valorIngresado);   
-                $ctrl.Mensaje="";
+                $ctrl_bloc.Mensaje="";
                 
-                $ctrl.boton_submmit=true;
+                $ctrl_bloc.boton_submmit=true;
 
-                $ctrl.objSearch.type_accion="buscar_localidad";              
+                $ctrl_bloc.objSearch.type_accion="buscar_localidad";              
 
-                $ctrl.objSearch.criterio=valorIngresado;
+                $ctrl_bloc.objSearch.criterio=valorIngresado;
 
-                //console.log($ctrl.objSearch);
+                //console.log($ctrl_bloc.objSearch);
                   
-                localidadFactory.buscarLocalidad($ctrl.objSearch).then(function(d) {
+                localidadFactory.buscarLocalidad($ctrl_bloc.objSearch).then(function(d) {
 
                 // Se llama ternaria y reemplaza al if
                 angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
               
                 function LoadTable (d) {
-                   $ctrl.tableParams.settings({dataset: d.Respuesta})
+                   $ctrl_bloc.tableParams.settings({dataset: d.Respuesta})
                 }
 
                 function ShowMessage (d) { 
-                    $ctrl.Mensaje=d.Respuesta[0].Mensaje;
+                    $ctrl_bloc.Mensaje=d.Respuesta[0].Mensaje;
                 }      
 
-                $ctrl.boton_submmit=false;      
+                $ctrl_bloc.boton_submmit=false;      
     
               }).catch(function (err) {
 
-                  $ctrl.boton_submmit=false;
-                  $ctrl.Mensaje="Intente más tarde";  
+                  $ctrl_bloc.boton_submmit=false;
+                  $ctrl_bloc.Mensaje="Intente más tarde";  
                   console.log(err);
 
                 });

@@ -10,28 +10,28 @@
   function BuscarVendedor($scope, $state,$stateParams , vendedorFactory,  
        NgTableParams, $window, $filter, formLoginFactory) {
                     
-        var $ctrl=this;
+        var $ctrl_bv=this;
 
-        $ctrl.objSearch={
+        $ctrl_bv.objSearch={
              criterio:""
         };      
 
-        $ctrl.objLogin ={};
+        $ctrl_bv.objLogin ={};
 
-         Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+         Object.defineProperty ( $ctrl_bv.objLogin, "type_accion", {
                   value: "checkSession",
                   writable: false,
                   enumerable: true,
                   configurable: false
          }); 
 
-        $ctrl.Init = Init;
-        $ctrl.BuscarVendedor = BuscarVendedor;
-        $ctrl.GoDataEdit = GoDataEdit;
+        $ctrl_bv.Init = Init;
+        $ctrl_bv.BuscarVendedor = BuscarVendedor;
+        $ctrl_bv.GoDataEdit = GoDataEdit;
 
-        $ctrl.boton_submmit=false;          
+        $ctrl_bv.boton_submmit=false;          
 
-        $ctrl.Init();
+        $ctrl_bv.Init();
 
 
       // To configure table   
@@ -53,9 +53,9 @@
 
         function Init () {
 
-            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);    
+            $ctrl_bv.tableParams = new NgTableParams(initialParams, initialSettings);    
 
-            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+            formLoginFactory.checkSession($ctrl_bv.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -74,24 +74,24 @@
               
               //console.log(valorIngresado);   da bien
 
-              $ctrl.boton_submmit=true;
+              $ctrl_bv.boton_submmit=true;
 
-              $ctrl.objSearch.type_accion="buscar_vendedor";              
+              $ctrl_bv.objSearch.type_accion="buscar_vendedor";              
 
-              $ctrl.objSearch.criterio=valorIngresado;
+              $ctrl_bv.objSearch.criterio=valorIngresado;
 
-             //console.log($ctrl.objSearch); da bien
+             //console.log($ctrl_bv.objSearch); da bien
                 
-              vendedorFactory.buscarVendedor($ctrl.objSearch).then(function(d) {
+              vendedorFactory.buscarVendedor($ctrl_bv.objSearch).then(function(d) {
 
               console.log('JSON: '+d);
               //console.log(d.Respuesta); da undefined
              
-              $ctrl.tableParams.settings({dataset: d.Respuesta});   
+              $ctrl_bv.tableParams.settings({dataset: d.Respuesta});   
 
                   // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-              $ctrl.boton_submmit=false;      
+              $ctrl_bv.boton_submmit=false;      
 
               }).catch(function (err) {
                   console.log(err);

@@ -16,12 +16,12 @@
        var path = $location.path();
        //console.log(path);
 
-        var $ctrl = this;
+        var $ctrl_c = this;
 
 
-          $ctrl.objLogin ={};
+          $ctrl_c.objLogin ={};
 
-          Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+          Object.defineProperty ( $ctrl_c.objLogin, "type_accion", {
               value: "checkSession",
               writable: false,
               enumerable: true,
@@ -29,21 +29,21 @@
           }); // Esto hace que la propiedad type_accion no se pueda modificar
 
 
-        $ctrl.datalocalidad2={};
-        $ctrl.objDataCliente={};
-        $ctrl.defaultparams={};
-        $ctrl.allow_disable=false;
-        $ctrl.allow_visible=true;       
+        $ctrl_c.datalocalidad2={};
+        $ctrl_c.objDataCliente={};
+        $ctrl_c.defaultparams={};
+        $ctrl_c.allow_disable=false;
+        $ctrl_c.allow_visible=true;       
          
-        $ctrl.Init = Init;
-        $ctrl.upDate = upDate;
-        $ctrl.NuevoCliente=NuevoCliente;     
+        $ctrl_c.Init = Init;
+        $ctrl_c.upDate = upDate;
+        $ctrl_c.NuevoCliente=NuevoCliente;     
 
         //for combos
-        $ctrl.comboDisable=false;
-        $ctrl.comboProvHide=false;   
+        $ctrl_c.comboDisable=false;
+        $ctrl_c.comboProvHide=false;   
 
-        $ctrl.data = {
+        $ctrl_c.data = {
           availableOptions: [
             {id: '-1', name: 'Seleccionar'},
             {id: '0', name: 'No'},
@@ -52,7 +52,7 @@
             selectedOption: {id: '-1'} 
         };
 
-        $ctrl.tipo_cliente = {
+        $ctrl_c.tipo_cliente = {
           availableOptions: [
             {id: '-1', tipo: 'Seleccionar'},
             {id: '0', tipo: 'Comprador'},
@@ -66,7 +66,7 @@
 
 
         
-        formLoginFactory.checkSession( $ctrl.objLogin ).then( function( d ) {
+        formLoginFactory.checkSession( $ctrl_c.objLogin ).then( function( d ) {
 
                        angular.isDefined(d.setUrl)?goUrl( d ):null;
                                       
@@ -81,22 +81,22 @@
 
 
                     
-            $ctrl.defaultparams.type_accion="search_data_combos";
-            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d){    
+            $ctrl_c.defaultparams.type_accion="search_data_combos";
+            defaultdataFactory.buscar_datos_combos($ctrl_c.defaultparams).then(function(d){    
 
-            $ctrl.datalocalidad2=d.localidad;
+            $ctrl_c.datalocalidad2=d.localidad;
 
-            $ctrl.dataprovincia = {
+            $ctrl_c.dataprovincia = {
                 availableOptions: d.provincia,
                 selectedOption: {id: '1'} 
               };
 
-            $ctrl.datalocalidad = {
+            $ctrl_c.datalocalidad = {
                 availableOptions: d.localidad,
                 selectedOption: {id: '1'} 
               };
 
-            $ctrl.actividad = {
+            $ctrl_c.actividad = {
                 availableOptions: d.actividad,
                 selectedOption: {id: '1'} 
               };//This sets the default value of the select in the ui
@@ -112,33 +112,33 @@
       //-------------------------------------------------------------------------------------------------  
 
         function upDate (objprov) { 
-           $ctrl.datalocalidad.availableOptions = $filter('filter')($ctrl.datalocalidad2 ,{id_provincia:objprov.id});
-           $ctrl.datalocalidad.selectedOption={id: $ctrl.datalocalidad.availableOptions[0].id};                                                                         
-           //$ctrl.actividad.selectedOption={id: $ctrl.actividad.availableOptions[0].id};                                                                         
+           $ctrl_c.datalocalidad.availableOptions = $filter('filter')($ctrl_c.datalocalidad2 ,{id_provincia:objprov.id});
+           $ctrl_c.datalocalidad.selectedOption={id: $ctrl_c.datalocalidad.availableOptions[0].id};                                                                         
+           //$ctrl_c.actividad.selectedOption={id: $ctrl_c.actividad.availableOptions[0].id};                                                                         
        }
 
 
       function NuevoCliente(){
                 
-          //$ctrl.allow_disable=true;
+          //$ctrl_c.allow_disable=true;
 
-          $ctrl.objDataCliente.type_accion="nuevo_cliente";
+          $ctrl_c.objDataCliente.type_accion="nuevo_cliente";
      
-          $ctrl.objDataCliente.id_provincia=$ctrl.dataprovincia.selectedOption.id;
-          $ctrl.objDataCliente.id_localidad=$ctrl.datalocalidad.selectedOption.id;
-          $ctrl.objDataCliente.id_actividad=$ctrl.actividad.selectedOption.id;
-          $ctrl.objDataCliente.tipo_cliente=$ctrl.tipo_cliente.selectedOption.id;
-          $ctrl.objDataCliente.conoce=$ctrl.data.selectedOption.id;
+          $ctrl_c.objDataCliente.id_provincia=$ctrl_c.dataprovincia.selectedOption.id;
+          $ctrl_c.objDataCliente.id_localidad=$ctrl_c.datalocalidad.selectedOption.id;
+          $ctrl_c.objDataCliente.id_actividad=$ctrl_c.actividad.selectedOption.id;
+          $ctrl_c.objDataCliente.tipo_cliente=$ctrl_c.tipo_cliente.selectedOption.id;
+          $ctrl_c.objDataCliente.conoce=$ctrl_c.data.selectedOption.id;
 
-          clienteFactory.nuevoCliente($ctrl.objDataCliente).then(function(d) {                   
-                  $ctrl.Mensaje=d.Mensaje;
-                  //$ctrl.allow_disable=false;
+          clienteFactory.nuevoCliente($ctrl_c.objDataCliente).then(function(d) {                   
+                  $ctrl_c.Mensaje=d.Mensaje;
+                  //$ctrl_c.allow_disable=false;
 
                   console.log('JSON: '+d);
       
            }).catch(function (err) {
                 console.log(err);
-                //$ctrl.allow_disable=false;
+                //$ctrl_c.allow_disable=false;
            });               
       }   //NuevoCliente
 

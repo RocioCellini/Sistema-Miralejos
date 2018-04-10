@@ -59,98 +59,98 @@
        .state('GestionVentas.estadisticas',{
         url:'/Estadisticas',
         templateUrl:'templates/estadistica/estadisticas.html',
-        controller: 'Estadistica as $ctrl'
+        controller: 'Estadistica as $ctrl_est'
       })
 
        .state('GestionVentas.planilla',{
         url:'/Planilla',
         templateUrl:'templates/planilla/planilla.html',
-        controller: 'Planilla as $ctrl'
+        controller: 'Planilla as $ctrl_p'
       })
 
       .state('GestionVentas.agregarDatos',{
         url:'/AgregarDatos',
         templateUrl:'templates/planilla/agregar_datos.html',
-        controller: 'AgregarDatos as $ctrl'
+        controller: 'AgregarDatos as $ctrl_ad'
       })
 
        .state('GestionVentas.buscarCliente',{
         url:'/BuscarCliente',
         templateUrl:'templates/cliente/buscar_cliente.html',
-        controller: 'BuscarCliente as $ctrl',
+        controller: 'BuscarCliente as $ctrl_bc',
 
       })
 
       .state('GestionVentas.nuevoCliente',{
         url:'/NuevoCliente',
         templateUrl:'templates/cliente/abm_cliente.html',
-        controller: 'Cliente as $ctrl'
+        controller: 'Cliente as $ctrl_c'
       })
 
       .state('GestionVentas.buscarVendedor',{
         url:'/BuscarVendedor',
         templateUrl:'templates/vendedor/buscar_vendedor.html',
-        controller: 'BuscarVendedor as $ctrl'
+        controller: 'BuscarVendedor as $ctrl_bv'
       }) 
 
       .state('GestionVentas.nuevoVendedor',{
         url:'/NuevoVendedor',
         templateUrl:'templates/vendedor/abm_vendedor.html',
-        controller: 'Vendedor as $ctrl'
+        controller: 'Vendedor as $ctrl_v'
       }) 
 
       .state('GestionVentas.buscarEdificio',{
         url:'/BuscarEdificio',
         templateUrl:'templates/edificio/buscar_edificio.html',
-        controller: 'BuscarEdificio as $ctrl'
+        controller: 'BuscarEdificio as $ctrl_be'
       })
 
       .state('GestionVentas.nuevoEdificio',{
         url:'/NuevoEdificio',
         templateUrl:'templates/edificio/abm_edificio.html',
-        controller: 'Edificio as $ctrl'
+        controller: 'Edificio as $ctrl_e'
       })
 
       .state('GestionVentas.buscarPlanta',{
         url:'/BuscarPlanta',
         templateUrl:'templates/planta/buscar_planta.html',
-        controller: 'BuscarPlanta as $ctrl'
+        controller: 'BuscarPlanta as $ctrl_bp'
       })
 
       .state('GestionVentas.nuevaPlanta',{
         url:'/NuevaPlanta',
         templateUrl:'templates/planta/abm_planta.html',
-        controller: 'Planta as $ctrl'
+        controller: 'Planta as $ctrl_p'
       })
 
       .state('GestionVentas.buscarDpto',{
         url:'/BuscarDpto',
         templateUrl:'templates/dpto/buscar_dpto.html',
-        controller: 'BuscarDpto as $ctrl'
+        controller: 'BuscarDpto as $ctrl_bd'
       })
 
       .state('GestionVentas.nuevoDpto',{
         url:'/NuevoDpto',
         templateUrl:'templates/dpto/abm_dpto.html',
-        controller: 'Dpto as $ctrl'
+        controller: 'Dpto as $ctrl_d'
       })
 
       .state('GestionVentas.nuevaRelacion',{
         url:'/NuevaRelacion',
         templateUrl:'templates/relacionEPD/nueva_relacion.html',
-        controller: 'NuevaRelacion as $ctrl'
+        controller: 'NuevaRelacion as $ctrl_nr'
       })
 
       .state('GestionVentas.buscarLocalidad',{
         url:'/BuscarLocalidad',
         templateUrl:'templates/localidad/buscar_localidad.html',
-        controller: 'BuscarLocalidad as $ctrl'
+        controller: 'BuscarLocalidad as $ctrl_bloc'
       })
 
       .state('GestionVentas.nuevaLocalidad',{
         url:'/NuevaLocalidad',
         templateUrl:'templates/localidad/abm_localidad.html',
-        controller: 'Localidad as $ctrl'
+        controller: 'Localidad as $ctrl_loc'
       })
 
       .state('GestionVentas.buscarLlamado',{
@@ -162,31 +162,31 @@
       .state('GestionVentas.nuevoLlamado',{
         url:'/NuevoLlamado',
         templateUrl:'templates/llamado/abm_llamado.html',
-        controller: 'Llamado as $ctrl'
+        controller: 'Llamado as $ctrl_ll'
       })
 
       .state('GestionVentas.buscarActividad',{
         url:'/BuscarActividad',
         templateUrl:'templates/actividad/buscar_actividad.html',
-        controller: 'BuscarAct as $ctrl'
+        controller: 'BuscarAct as $ctrl_ba'
       })
 
       .state('GestionVentas.nuevaActividad',{
         url:'/NuevaActividad',
         templateUrl:'templates/actividad/abm_actividad.html',
-        controller: 'Actividad as $ctrl'
+        controller: 'Actividad as $ctrl_a'
       })
 
        .state('GestionVentas.buscarOrigen',{
         url:'/BuscarOrigenDato',
         templateUrl:'templates/origenDato/buscar_origen.html',
-        controller: 'BuscarOrigen as $ctrl'
+        controller: 'BuscarOrigen as $ctrl_bo'
       })
 
       .state('GestionVentas.nuevoOrigen',{
         url:'/NuevoOrigen',
         templateUrl:'templates/origenDato/abm_origen.html',
-        controller: 'OrigenDato as $ctrl'
+        controller: 'OrigenDato as $ctrl_o'
       }) 
 
        .state('GestionVentas.logOut',{

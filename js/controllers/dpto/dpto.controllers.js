@@ -13,29 +13,29 @@
   function Dpto ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, dptoFactory, formLoginFactory) {
                                  
-    var $ctrl = this;
+    var $ctrl_d = this;
 
-    $ctrl.objDataDpto={};
+    $ctrl_d.objDataDpto={};
 
-    $ctrl.objLogin ={};
+    $ctrl_d.objLogin ={};
 
-              Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+              Object.defineProperty ( $ctrl_d.objLogin, "type_accion", {
                   value: "checkSession",
                   writable: false,
                   enumerable: true,
                   configurable: false
               }); 
-    $ctrl.allow_disable=false;
-    $ctrl.allow_visible=true;
+    $ctrl_d.allow_disable=false;
+    $ctrl_d.allow_visible=true;
 
-    $ctrl.Init = Init;
-    $ctrl.upDate = upDate;
-    $ctrl.NuevoDpto=NuevoDpto;
+    $ctrl_d.Init = Init;
+    $ctrl_d.upDate = upDate;
+    $ctrl_d.NuevoDpto=NuevoDpto;
         
 
     function Init () {
 
-      formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+      formLoginFactory.checkSession($ctrl_d.objLogin).then( function(d) {
 
            angular.isDefined(d.setUrl)?goUrl(d):null;
                           
@@ -52,17 +52,17 @@
 
     function NuevoDpto () {
               
-      //$ctrl.allow_disable=true;
+      //$ctrl_d.allow_disable=true;
 
-      $ctrl.objDataDpto.type_accion="nuevo_dpto";
+      $ctrl_d.objDataDpto.type_accion="nuevo_dpto";
       
-      dptoFactory.nuevoDpto($ctrl.objDataDpto).then(function(d) {                   
-              $ctrl.Mensaje=d.Mensaje;
-              //$ctrl.allow_disable=false;
+      dptoFactory.nuevoDpto($ctrl_d.objDataDpto).then(function(d) {                   
+              $ctrl_d.Mensaje=d.Mensaje;
+              //$ctrl_d.allow_disable=false;
   
        }).catch(function (err) {
             console.log(err);
-            //$ctrl.allow_disable=false;
+            //$ctrl_d.allow_disable=false;
        });                
     };
       

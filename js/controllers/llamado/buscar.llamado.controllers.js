@@ -10,32 +10,32 @@
   function BuscarLlamado ( $scope, $state, $stateParams , llamadoFactory,  
      NgTableParams, $window, $filter, formLoginFactory) {
                   
-        var $ctrl=this;
+        var $ctrl_bll=this;
 
-        $ctrl.objSearch={
+        $ctrl_bll.objSearch={
                criterio:""
         };       
 
-        $ctrl.objLogin ={};
+        $ctrl_bll.objLogin ={};
 
-        Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+        Object.defineProperty ( $ctrl_bll.objLogin, "type_accion", {
               value: "checkSession",
               writable: false,
               enumerable: true,
               configurable: false
         }); 
 
-        $ctrl.boton_submmit=false;
+        $ctrl_bll.boton_submmit=false;
 
-        $ctrl.popup1 = {
+        $ctrl_bll.popup1 = {
           opened: false
         };
 
-        $ctrl.Init = Init;
-        $ctrl.BuscarLlamado = BuscarLlamado;
-        $ctrl.GoDataEdit = GoDataEdit;
+        $ctrl_bll.Init = Init;
+        $ctrl_bll.BuscarLlamado = BuscarLlamado;
+        $ctrl_bll.GoDataEdit = GoDataEdit;
 
-        $ctrl.Init();
+        $ctrl_bll.Init();
 
 
     // To configure table   
@@ -55,9 +55,9 @@
        //**********************************************************************************************// 
         function Init () {
 
-           $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);   
+           $ctrl_bll.tableParams = new NgTableParams(initialParams, initialSettings);   
 
-           formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+           formLoginFactory.checkSession($ctrl_bll.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -72,52 +72,52 @@
         //Show calendary
         //*****************************************************************************//    
 
-        $ctrl.open1 = function() {
-          $ctrl.popup1.opened = true;
+        $ctrl_bll.open1 = function() {
+          $ctrl_bll.popup1.opened = true;
         };
 
-        $ctrl.setDate = function(year, month, day) {
-          $ctrl.dt1 = new Date(year, month, day)
+        $ctrl_bll.setDate = function(year, month, day) {
+          $ctrl_bll.dt1 = new Date(year, month, day)
         };
 
-        $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
-        $ctrl.format = $ctrl.formats[1];
-        $ctrl.altInputFormats = ['dd/MM/yyyy'];
+        $ctrl_bll.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
+        $ctrl_bll.format = $ctrl_bll.formats[1];
+        $ctrl_bll.altInputFormats = ['dd/MM/yyyy'];
 
 
        // Searching data        
        //**********************************************************************************************//  
         function BuscarLlamado () {     
 
-              $ctrl.Mensaje="";
-              $ctrl.boton_submmit=true;    
+              $ctrl_bll.Mensaje="";
+              $ctrl_bll.boton_submmit=true;    
               
-              var date=$filter('date')($ctrl.dt1, 'yyyy-MM-dd');
+              var date=$filter('date')($ctrl_bll.dt1, 'yyyy-MM-dd');
               console.log(date);              
              
-              $ctrl.objSearch.type_accion="buscar_llamado";              
+              $ctrl_bll.objSearch.type_accion="buscar_llamado";              
 
-              $ctrl.objSearch.criterio=date;
+              $ctrl_bll.objSearch.criterio=date;
             
                 
-              llamadoFactory.buscarLlamado($ctrl.objSearch).then(function(d) {
+              llamadoFactory.buscarLlamado($ctrl_bll.objSearch).then(function(d) {
 
              // Se llama ternaria y reemplaza al if
               angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
             
               function LoadTable (d) {
-                 $ctrl.tableParams.settings({dataset: d.Respuesta})
+                 $ctrl_bll.tableParams.settings({dataset: d.Respuesta})
               }
 
               function ShowMessage (d) { 
-                  $ctrl.Mensaje=d.Respuesta[0].Mensaje;
+                  $ctrl_bll.Mensaje=d.Respuesta[0].Mensaje;
               }      
         
-              $ctrl.boton_submmit=false;      
+              $ctrl_bll.boton_submmit=false;      
   
             }).catch(function (err) {
-               $ctrl.boton_submmit=false;
-                $ctrl.Mensaje="Intente Mas Tarde";  
+               $ctrl_bll.boton_submmit=false;
+                $ctrl_bll.Mensaje="Intente Mas Tarde";  
                 console.log(err);
             });
                 

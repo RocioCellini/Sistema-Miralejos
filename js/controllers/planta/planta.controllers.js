@@ -13,31 +13,31 @@
   function Planta ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, plantaFactory, formLoginFactory) {
                                  
-     var $ctrl = this;
+     var $ctrl_p = this;
      
-     $ctrl.objDataPlanta={};
+     $ctrl_p.objDataPlanta={};
 
-     $ctrl.objLogin ={};
+     $ctrl_p.objLogin ={};
 
-     Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+     Object.defineProperty ( $ctrl_p.objLogin, "type_accion", {
             value: "checkSession",
             writable: false,
             enumerable: true,
             configurable: false
      }); 
 
-     $ctrl.allow_disable=false;
-     $ctrl.allow_visible=true;
+     $ctrl_p.allow_disable=false;
+     $ctrl_p.allow_visible=true;
 
     
-     $ctrl.Init = Init;
-     $ctrl.upDate = upDate;
-     $ctrl.NuevaPlanta=NuevaPlanta;
+     $ctrl_p.Init = Init;
+     $ctrl_p.upDate = upDate;
+     $ctrl_p.NuevaPlanta=NuevaPlanta;
         
 
       function Init () {
 
-        formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+        formLoginFactory.checkSession($ctrl_p.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -54,17 +54,17 @@
 
       function NuevaPlanta () {
                 
-        //$ctrl.allow_disable=true;
+        //$ctrl_p.allow_disable=true;
 
-        $ctrl.objDataPlanta.type_accion="nueva_planta";
+        $ctrl_p.objDataPlanta.type_accion="nueva_planta";
         
-        plantaFactory.nuevaPlanta($ctrl.objDataPlanta).then(function(d) {                   
-                $ctrl.Mensaje=d.Mensaje;
-                //$ctrl.allow_disable=false;
+        plantaFactory.nuevaPlanta($ctrl_p.objDataPlanta).then(function(d) {                   
+                $ctrl_p.Mensaje=d.Mensaje;
+                //$ctrl_p.allow_disable=false;
     
          }).catch(function (err) {
               console.log(err);
-              //$ctrl.allow_disable=false;
+              //$ctrl_p.allow_disable=false;
          });                
       };
       

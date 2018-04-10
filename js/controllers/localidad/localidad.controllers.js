@@ -13,35 +13,35 @@
           function Localidad ($scope, $sce, $state,  $stateParams,  $window,
            $uibModal, $document, localidadFactory, defaultdataFactory, formLoginFactory) {
                                          
-            var $ctrl = this;
+            var $ctrl_loc = this;
 
-            $ctrl.objDataLocalidad={};
+            $ctrl_loc.objDataLocalidad={};
 
-            $ctrl.objLogin ={};
+            $ctrl_loc.objLogin ={};
 
-            Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+            Object.defineProperty ( $ctrl_loc.objLogin, "type_accion", {
                   value: "checkSession",
                   writable: false,
                   enumerable: true,
                   configurable: false
             }); 
 
-            $ctrl.defaultparams={};
-            $ctrl.allow_disable=false;
-            $ctrl.allow_visible=true;
+            $ctrl_loc.defaultparams={};
+            $ctrl_loc.allow_disable=false;
+            $ctrl_loc.allow_visible=true;
                        
             // For Modal
-            $ctrl.itemsModals=[];
-            $ctrl.itemWarning=[];
-            $ctrl.animationsEnabled=true;
+            $ctrl_loc.itemsModals=[];
+            $ctrl_loc.itemWarning=[];
+            $ctrl_loc.animationsEnabled=true;
 
-            $ctrl.Init = Init;
-            $ctrl.upDate = upDate;
-            $ctrl.NuevaLocalidad=NuevaLocalidad;
+            $ctrl_loc.Init = Init;
+            $ctrl_loc.upDate = upDate;
+            $ctrl_loc.NuevaLocalidad=NuevaLocalidad;
 
           function Init () {
 
-              formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+              formLoginFactory.checkSession($ctrl_loc.objLogin).then( function(d) {
 
                    angular.isDefined(d.setUrl)?goUrl(d):null;
                                   
@@ -51,10 +51,10 @@
                         
               });       
                       
-              $ctrl.defaultparams.type_accion="search_data_combos";
-              defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d) {        
+              $ctrl_loc.defaultparams.type_accion="search_data_combos";
+              defaultdataFactory.buscar_datos_combos($ctrl_loc.defaultparams).then(function(d) {        
 
-                  $ctrl.dataprovincia = {
+                  $ctrl_loc.dataprovincia = {
                         availableOptions: d.provincia,
                         selectedOption: {id: '1'} //This sets the default value of the select in the ui
                   };
@@ -73,27 +73,27 @@
 
     function NuevaLocalidad () {
               
-        //$ctrl.allow_disable=true;
+        //$ctrl_loc.allow_disable=true;
 
-        $ctrl.objDataLocalidad.type_accion="nueva_localidad";
+        $ctrl_loc.objDataLocalidad.type_accion="nueva_localidad";
    
-        $ctrl.objDataLocalidad.id_provincia=$ctrl.dataprovincia.selectedOption.id;
+        $ctrl_loc.objDataLocalidad.id_provincia=$ctrl_loc.dataprovincia.selectedOption.id;
 
-        console.log("el id de la provincia es: "+$ctrl.dataprovincia.selectedOption.id);
+        console.log("el id de la provincia es: "+$ctrl_loc.dataprovincia.selectedOption.id);
 
-        console.log("params enviados: "+$ctrl.objDataLocalidad);
+        console.log("params enviados: "+$ctrl_loc.objDataLocalidad);
 
-        console.log("nombre de la localidad enviada: "+$ctrl.objDataLocalidad.nombre);
+        console.log("nombre de la localidad enviada: "+$ctrl_loc.objDataLocalidad.nombre);
         
-        localidadFactory.nuevaLocalidad($ctrl.objDataLocalidad).then(function(d) {                   
-                $ctrl.Mensaje=d.Mensaje;
-                //$ctrl.allow_disable=false;
+        localidadFactory.nuevaLocalidad($ctrl_loc.objDataLocalidad).then(function(d) {                   
+                $ctrl_loc.Mensaje=d.Mensaje;
+                //$ctrl_loc.allow_disable=false;
                 console.log("respuesta: "+d);
-                console.log("localidad: "+$ctrl.objDataLocalidad.nombre);
+                console.log("localidad: "+$ctrl_loc.objDataLocalidad.nombre);
     
          }).catch(function (err) {
               console.log(err);
-              //$ctrl.allow_disable=false;
+              //$ctrl_loc.allow_disable=false;
          });                             
     };
 

@@ -13,43 +13,43 @@
   function Llamado ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, llamadoFactory, defaultdataFactory, clienteFactory, NgTableParams, $filter, formLoginFactory) {
                                  
-     var $ctrl = this;
+     var $ctrl_ll = this;
      
-     $ctrl.defaultparams = {};
-     $ctrl.objDataLlamado = {
+     $ctrl_ll.defaultparams = {};
+     $ctrl_ll.objDataLlamado = {
         criterio:""
      };
 
-    $ctrl.objLogin ={};
+    $ctrl_ll.objLogin ={};
 
-        Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+        Object.defineProperty ( $ctrl_ll.objLogin, "type_accion", {
               value: "checkSession",
               writable: false,
               enumerable: true,
               configurable: false
         }); 
 
-     $ctrl.allow_disable = false;
-     $ctrl.allow_visible = true;
-     $ctrl.datalocalidad2={};
+     $ctrl_ll.allow_disable = false;
+     $ctrl_ll.allow_visible = true;
+     $ctrl_ll.datalocalidad2={};
 
-     $ctrl.combo_ciudad=true;
-     $ctrl.boton_submmit=false;   
+     $ctrl_ll.combo_ciudad=true;
+     $ctrl_ll.boton_submmit=false;   
 
-     $ctrl.popup1 = {
+     $ctrl_ll.popup1 = {
         opened: false
       };
-      $ctrl.popup2 = {
+      $ctrl_ll.popup2 = {
         opened: false
       };
 
-     $ctrl.CurrentDate = new Date();
+     $ctrl_ll.CurrentDate = new Date();
 
-   /*  $ctrl.objDataLlamado = {
+   /*  $ctrl_ll.objDataLlamado = {
        time: new Date(2018, 0, 1, 8, 0, 0)
      };*/
 
-     $ctrl.grado_interes = {
+     $ctrl_ll.grado_interes = {
           availableOptions: [
             {id: '-1', name: 'Seleccionar'},
             {id: '0', name: '1'},
@@ -60,15 +60,15 @@
             selectedOption: {id: '-1'} 
         };
 
-        $ctrl.Init = Init;
-        $ctrl.upDateProvincia = upDateProvincia;       
-        $ctrl.upDateEdificio = upDateEdificio;
-        $ctrl.upDatePlanta = upDatePlanta;
-        $ctrl.NuevoLlamado = NuevoLlamado;
-        $ctrl.BuscarCliente = BuscarCliente;
-        $ctrl.CompletarDatos = CompletarDatos;
+        $ctrl_ll.Init = Init;
+        $ctrl_ll.upDateProvincia = upDateProvincia;       
+        $ctrl_ll.upDateEdificio = upDateEdificio;
+        $ctrl_ll.upDatePlanta = upDatePlanta;
+        $ctrl_ll.NuevoLlamado = NuevoLlamado;
+        $ctrl_ll.BuscarCliente = BuscarCliente;
+        $ctrl_ll.CompletarDatos = CompletarDatos;
         
-        $ctrl.Init();
+        $ctrl_ll.Init();
 
 
         // To configure table   
@@ -85,9 +85,9 @@
 
      function Init () {
 
-       $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);  
+       $ctrl_ll.tableParams = new NgTableParams(initialParams, initialSettings);  
 
-           formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+           formLoginFactory.checkSession($ctrl_ll.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -97,45 +97,45 @@
                       
             });    
 
-       $ctrl.defaultparams.type_accion="combos_agregar_datos";
-            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d){
+       $ctrl_ll.defaultparams.type_accion="combos_agregar_datos";
+            defaultdataFactory.buscar_datos_combos($ctrl_ll.defaultparams).then(function(d){
 
-              $ctrl.datalocalidad2=d.localidad;
+              $ctrl_ll.datalocalidad2=d.localidad;
               
-              $ctrl.dataprovincia = {
+              $ctrl_ll.dataprovincia = {
                   availableOptions: d.provincia,
                   selectedOption: {id: '1'} //This sets the default value of the select in the ui
 
               };
              
-              $ctrl.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
-              $ctrl.dataprovincia.selectedOption.id=-1; 
+              $ctrl_ll.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl_ll.dataprovincia.selectedOption.id=-1; 
 
-              $ctrl.datalocalidad = {
+              $ctrl_ll.datalocalidad = {
                   availableOptions: d.localidad,
                   selectedOption: {id: '1'} 
               };     
 
-              $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-              $ctrl.datalocalidad.selectedOption.id=-1;     
+              $ctrl_ll.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl_ll.datalocalidad.selectedOption.id=-1;     
 
-              $ctrl.data_vendedor = {
+              $ctrl_ll.data_vendedor = {
                   availableOptions: d.vendedor,
                   selectedOption: {id: '1'} 
               };    
 
-              $ctrl.data_edificio = {
+              $ctrl_ll.data_edificio = {
                 availableOptions: d.edificio,
                 selectedOption: {id_edificio: '1'} 
               };
 
-              $ctrl.data_origen_dato = {
+              $ctrl_ll.data_origen_dato = {
                   availableOptions: d.origen_dato,
                   selectedOption: {id: '1'} 
               };    
               
-              $ctrl.data_origen_dato.availableOptions.unshift({id:-1, origen_dato:'Seleccionar'});
-              $ctrl.data_origen_dato.selectedOption.id=-1;   
+              $ctrl_ll.data_origen_dato.availableOptions.unshift({id:-1, origen_dato:'Seleccionar'});
+              $ctrl_ll.data_origen_dato.selectedOption.id=-1;   
 
             }).catch(function (err) {
                 console.log(err);
@@ -152,17 +152,17 @@
 
             if(obj_prov.id!==-1) {
 
-                $ctrl.combo_ciudad=false;
+                $ctrl_ll.combo_ciudad=false;
 
-                $ctrl.datalocalidad.availableOptions = $filter('filter')($ctrl.datalocalidad2 ,{id_provincia:obj_prov.id});
-                $ctrl.datalocalidad.selectedOption={id: $ctrl.datalocalidad.availableOptions[0].id}; 
+                $ctrl_ll.datalocalidad.availableOptions = $filter('filter')($ctrl_ll.datalocalidad2 ,{id_provincia:obj_prov.id});
+                $ctrl_ll.datalocalidad.selectedOption={id: $ctrl_ll.datalocalidad.availableOptions[0].id}; 
 
-                $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-                $ctrl.datalocalidad.selectedOption.id=-1;
+                $ctrl_ll.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+                $ctrl_ll.datalocalidad.selectedOption.id=-1;
 
                 } else {
 
-                    $ctrl.combo_ciudad=true;
+                    $ctrl_ll.combo_ciudad=true;
               }                                                                         
           }
 
@@ -170,20 +170,20 @@
 
           console.log(obj_edificio);
 
-          $ctrl.defaultparams.type_accion = "relacion_edificio_planta_dpto";
+          $ctrl_ll.defaultparams.type_accion = "relacion_edificio_planta_dpto";
 
          // Objecto edificio contiene la propiedad ID seleccionada en ese momento por el usuario.
-          $ctrl.defaultparams.id_edificio = obj_edificio.id_edificio;
+          $ctrl_ll.defaultparams.id_edificio = obj_edificio.id_edificio;
 
-          defaultdataFactory.relacion_edificio_planta_dpto($ctrl.defaultparams).then(function(d) {                            
+          defaultdataFactory.relacion_edificio_planta_dpto($ctrl_ll.defaultparams).then(function(d) {                            
                     
 
-          $ctrl.data_planta = {
+          $ctrl_ll.data_planta = {
               availableOptions: d.plantas,
               selectedOption: {id_planta: d.plantas[0].id_planta} 
           };
 
-          $ctrl.data_dpto = {
+          $ctrl_ll.data_dpto = {
               availableOptions: d.plantas[0].dptos, 
               selectedOption: {id_dpto: d.plantas[0].dptos[0].id_dpto}
           };        
@@ -195,7 +195,7 @@
 
     function upDatePlanta (obj_planta) {
 
-        $ctrl.data_dpto = {
+        $ctrl_ll.data_dpto = {
               availableOptions: obj_planta.dptos, 
               selectedOption: {id_dpto: obj_planta.dptos[0].id_dpto}
           };                                                                     
@@ -204,25 +204,25 @@
     //Show calendary
     //*****************************************************************************//    
 
-    $ctrl.open1 = function() {
-      $ctrl.popup1.opened = true;
+    $ctrl_ll.open1 = function() {
+      $ctrl_ll.popup1.opened = true;
     };
 
-    $ctrl.setDate = function(year, month, day) {
-      $ctrl.dt1 = new Date(year, month, day)
+    $ctrl_ll.setDate = function(year, month, day) {
+      $ctrl_ll.dt1 = new Date(year, month, day)
     };
 
-    $ctrl.open2 = function() {
-      $ctrl.popup2.opened = true;
+    $ctrl_ll.open2 = function() {
+      $ctrl_ll.popup2.opened = true;
     };
 
-    $ctrl.setDate = function(year, month, day) {
-      $ctrl.dt2 = new Date(year, month, day)
+    $ctrl_ll.setDate = function(year, month, day) {
+      $ctrl_ll.dt2 = new Date(year, month, day)
     };
 
-    $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
-    $ctrl.format = $ctrl.formats[1];
-    $ctrl.altInputFormats = ['dd/MM/yyyy'];
+    $ctrl_ll.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
+    $ctrl_ll.format = $ctrl_ll.formats[1];
+    $ctrl_ll.altInputFormats = ['dd/MM/yyyy'];
 
 
     // Searching data        
@@ -231,26 +231,26 @@
         
         //console.log(valorIngresado);   
 
-        $ctrl.boton_submmit=true;
+        $ctrl_ll.boton_submmit=true;
 
-        $ctrl.objDataLlamado.type_accion="buscar_cliente";              
-        $ctrl.objDataLlamado.id_provincia=$ctrl.dataprovincia.selectedOption.id;
-        $ctrl.objDataLlamado.id_localidad=$ctrl.datalocalidad.selectedOption.id;
+        $ctrl_ll.objDataLlamado.type_accion="buscar_cliente";              
+        $ctrl_ll.objDataLlamado.id_provincia=$ctrl_ll.dataprovincia.selectedOption.id;
+        $ctrl_ll.objDataLlamado.id_localidad=$ctrl_ll.datalocalidad.selectedOption.id;
 
-        $ctrl.objDataLlamado.criterio=valorIngresado;
+        $ctrl_ll.objDataLlamado.criterio=valorIngresado;
 
-        console.log($ctrl.objDataLlamado);
+        console.log($ctrl_ll.objDataLlamado);
           
-        clienteFactory.buscarCliente($ctrl.objDataLlamado).then(function(d) {
+        clienteFactory.buscarCliente($ctrl_ll.objDataLlamado).then(function(d) {
 
         //console.log('JSON: '+d);
         console.log(d.Respuesta);
        
-        $ctrl.tableParams.settings({dataset: d.Respuesta});   //dataset es cada row  que encuentra 
+        $ctrl_ll.tableParams.settings({dataset: d.Respuesta});   //dataset es cada row  que encuentra 
 
             // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-        $ctrl.boton_submmit=false;      
+        $ctrl_ll.boton_submmit=false;      
 
         }).catch(function (err) {
             console.log(err);
@@ -264,8 +264,8 @@
 
       function CompletarDatos(row) {             
             
-        $ctrl.objDataLlamado.id_cliente=row.id_cliente;
-        $ctrl.objDataLlamado.contacto= row.apellido +" ,"+ row.nombre;
+        $ctrl_ll.objDataLlamado.id_cliente=row.id_cliente;
+        $ctrl_ll.objDataLlamado.contacto= row.apellido +" ,"+ row.nombre;
 
       };
 
@@ -275,29 +275,29 @@
 
     function NuevoLlamado () {
                 
-        //$ctrl.allow_disable=true;
+        //$ctrl_ll.allow_disable=true;
 
-        $ctrl.objDataLlamado.type_accion = "nuevo_llamado";
+        $ctrl_ll.objDataLlamado.type_accion = "nuevo_llamado";
 
-        $ctrl.objDataLlamado.fecha_llamado = $filter('date')($ctrl.objDataLlamado.dt1, 'yyyy-MM-dd'); 
-        $ctrl.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl.objDataLlamado.dt2, 'yyyy-MM-dd'); 
-        $ctrl.objDataLlamado.hora_llamado = $filter('date')($ctrl.objDataLlamado.time, 'HH:mm:ss'); 
+        $ctrl_ll.objDataLlamado.fecha_llamado = $filter('date')($ctrl_ll.objDataLlamado.dt1, 'yyyy-MM-dd'); 
+        $ctrl_ll.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl_ll.objDataLlamado.dt2, 'yyyy-MM-dd'); 
+        $ctrl_ll.objDataLlamado.hora_llamado = $filter('date')($ctrl_ll.objDataLlamado.time, 'HH:mm:ss'); 
 
-        $ctrl.objDataLlamado.id_cliente=1;
+        $ctrl_ll.objDataLlamado.id_cliente=1;
 
-        $ctrl.objDataLlamado.id_edificio = $ctrl.data_edificio.selectedOption.id_edificio;
-        $ctrl.objDataLlamado.id_planta = $ctrl.data_planta.selectedOption.id_planta;
-        $ctrl.objDataLlamado.id_dpto = $ctrl.data_dpto.selectedOption.id_dpto;
+        $ctrl_ll.objDataLlamado.id_edificio = $ctrl_ll.data_edificio.selectedOption.id_edificio;
+        $ctrl_ll.objDataLlamado.id_planta = $ctrl_ll.data_planta.selectedOption.id_planta;
+        $ctrl_ll.objDataLlamado.id_dpto = $ctrl_ll.data_dpto.selectedOption.id_dpto;
 
-        console.log($ctrl.objDataLlamado);    
+        console.log($ctrl_ll.objDataLlamado);    
          
-        llamadoFactory.nuevoLlamado($ctrl.objDataLlamado).then(function(d) {                   
-                $ctrl.Mensaje = d.Mensaje;
-                //$ctrl.allow_disable=false;
+        llamadoFactory.nuevoLlamado($ctrl_ll.objDataLlamado).then(function(d) {                   
+                $ctrl_ll.Mensaje = d.Mensaje;
+                //$ctrl_ll.allow_disable=false;
     
          }).catch(function (err) {
               console.log(err);
-              //$ctrl.allow_disable=false;
+              //$ctrl_ll.allow_disable=false;
          });      
       
     };

@@ -13,31 +13,31 @@
   function OrigenDato ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, origenDatoFactory, formLoginFactory) {
                                  
-     var $ctrl = this;
+     var $ctrl_o = this;
      
-     $ctrl.objDataOrigen={};
+     $ctrl_o.objDataOrigen={};
 
-     $ctrl.objLogin ={};
+     $ctrl_o.objLogin ={};
 
-      Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+      Object.defineProperty ( $ctrl_o.objLogin, "type_accion", {
             value: "checkSession",
             writable: false,
             enumerable: true,
             configurable: false
       }); 
 
-     $ctrl.allow_disable=false;
-     $ctrl.allow_visible=true;
+     $ctrl_o.allow_disable=false;
+     $ctrl_o.allow_visible=true;
 
     
-     $ctrl.Init = Init;
-     $ctrl.upDate = upDate;
-     $ctrl.NuevoOrigen=NuevoOrigen;
+     $ctrl_o.Init = Init;
+     $ctrl_o.upDate = upDate;
+     $ctrl_o.NuevoOrigen=NuevoOrigen;
         
 
       function Init () {
 
-         formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+         formLoginFactory.checkSession($ctrl_o.objLogin).then( function(d) {
 
              angular.isDefined(d.setUrl)?goUrl(d):null;
                             
@@ -54,21 +54,21 @@
 
       function NuevoOrigen () {
                 
-        $ctrl.allow_disable=true;
+        $ctrl_o.allow_disable=true;
 
-        $ctrl.objDataOrigen.type_accion="nuevo_origen";
+        $ctrl_o.objDataOrigen.type_accion="nuevo_origen";
         
-        origenDatoFactory.nuevoOrigen( $ctrl.objDataOrigen ).then ( function( d ) {                   
-               // $ctrl.Mensaje=d.Mensaje;
-                //$ctrl.allow_disable=false;
-                $ctrl.Mensaje=d.Mensaje;
-                console.log($ctrl.objDataOrigen);
+        origenDatoFactory.nuevoOrigen( $ctrl_o.objDataOrigen ).then ( function( d ) {                   
+               // $ctrl_o.Mensaje=d.Mensaje;
+                //$ctrl_o.allow_disable=false;
+                $ctrl_o.Mensaje=d.Mensaje;
+                console.log($ctrl_o.objDataOrigen);
                 //console.log(d);
                 //console.log(d.Mensaje);
     
          }).catch(function (err) {
               console.log(err);
-              //$ctrl.allow_disable=false;
+              //$ctrl_o.allow_disable=false;
          });                
       };
       
