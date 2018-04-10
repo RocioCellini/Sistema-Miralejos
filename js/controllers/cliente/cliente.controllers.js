@@ -52,16 +52,6 @@
             selectedOption: {id: '-1'} 
         };
 
-        $ctrl.tipo_cliente = {
-          availableOptions: [
-            {id: '-1', tipo: 'Seleccionar'},
-            {id: '0', tipo: 'Comprador'},
-            {id: '1', tipo: 'Propietario'}
-          ],
-            selectedOption: {id: '-1'} 
-        };
-
-
         function Init () {
 
 
@@ -127,7 +117,6 @@
           $ctrl.objDataCliente.id_provincia=$ctrl.dataprovincia.selectedOption.id;
           $ctrl.objDataCliente.id_localidad=$ctrl.datalocalidad.selectedOption.id;
           $ctrl.objDataCliente.id_actividad=$ctrl.actividad.selectedOption.id;
-          $ctrl.objDataCliente.tipo_cliente=$ctrl.tipo_cliente.selectedOption.id;
           $ctrl.objDataCliente.conoce=$ctrl.data.selectedOption.id;
 
           clienteFactory.nuevoCliente($ctrl.objDataCliente).then(function(d) {                   
