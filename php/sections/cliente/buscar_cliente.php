@@ -178,14 +178,7 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 					$actividad=$row_act["nombre"];
 				}
 
-			$tipo_cliente=$row['tipo_cliente'];
-			$conoce=$row['conoce'];
-
-			if($tipo_cliente=0){
-				$tipo_cliente="Comprador";
-			}else{
-				$tipo_cliente="Propietario";
-			}
+			$conoce=$row['conoce'];			
 
 			if($conoce=0){
 				$conoce="No";
@@ -196,7 +189,6 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 			$temp=array('id_cliente'=>utf8_encode($row['id_cliente']),
 						'nombre'=>utf8_encode($row['nombre']),						
                         'apellido'=> utf8_encode($row['apellido']), 
-                        'tipo_cliente'=>utf8_encode($tipo_cliente),
                         'dni'=>utf8_encode($row['dni']),
                         'telefono1'=>utf8_encode($row['telefono1']),
                         'telefono2'=>utf8_encode($row['telefono2']),

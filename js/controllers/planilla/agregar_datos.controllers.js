@@ -20,6 +20,9 @@
            criterio:""
           };
 
+          $ctrl.objDate={
+          };
+
           $ctrl.objLogin ={};
 
           Object.defineProperty ( $ctrl.objLogin, "type_accion", {
@@ -55,6 +58,15 @@
             ],
               selectedOption: {id: '-1'} 
           };
+
+          $ctrl.tipo_cliente = {
+          availableOptions: [
+            {id: '-1', tipo: 'Seleccionar'},
+            {id: '0', tipo: 'Comprador'},
+            {id: '1', tipo: 'Propietario'}
+          ],
+            selectedOption: {id: '-1'} 
+        };
       
           $ctrl.Init = Init;
           $ctrl.NuevaFila = NuevaFila;    
@@ -64,7 +76,7 @@
           $ctrl.BuscarCliente = BuscarCliente;
           $ctrl.CompletarDatos = CompletarDatos;
 
-          $ctrl.Init();
+          $ctrl.Init();// Ver si va esto
 
           // To configure table   
           //*****************************************************************************//    
@@ -200,7 +212,7 @@
         };
 
         $ctrl.setDate = function(year, month, day) {
-          $ctrl.objAgregarDatos.fecha_cierre_operacion = new Date(year, month, day)
+          $ctrl.objDate.fecha_cierre_operacion = new Date(year, month, day)
         };
 
         $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
@@ -251,7 +263,6 @@
                 
             $ctrl.objAgregarDatos.id_cliente= row.id_cliente;
             $ctrl.objAgregarDatos.contacto= row.apellido +" ,"+ row.nombre;
-            $ctrl.objAgregarDatos.tipo_cliente= row.tipo_cliente;
             $ctrl.objAgregarDatos.telefono1= row.telefono1;
             $ctrl.objAgregarDatos.telefono2= row.telefono2;
             $ctrl.objAgregarDatos.email= row.email;
@@ -285,12 +296,17 @@
               
             //$ctrl.allow_disable=true;
 
-            var date=$filter('date')($ctrl.objAgregarDatos.fecha_cierre_operacion, 'yyyy-MM-dd');
+            var fecha_cierre_operacion=$filter('date')($ctrl.objDate.fecha_cierre_operacion, 'yyyy-MM-dd');
             
-            $ctrl.objAgregarDatos.fecha_cierre_operacion=date;
-           // console.log(date);   
+            $ctrl.objAgregarDatos.fecha_cierre_operacion=fecha_cierre_operacion;
+           console.log(fecha_cierre_operacion);   
 
             $ctrl.objAgregarDatos.type_accion="nueva_fila";
+
+            $ctrl.objAgregarDatos.id_provincia=$ctrl.dataprovincia.selectedOption.id;
+            $ctrl.objAgregarDatos.id_localidad=$ctrl.datalocalidad.selectedOption.id;
+            $ctrl.objAgregarDatos.grado_interes=$ctrl.grado_interes.selectedOption.id;
+            $ctrl.objAgregarDatos.tipo_cliente=$ctrl.tipo_cliente.selectedOption.id;
          
             AgregarDatosFactory.nuevaFila($ctrl.objAgregarDatos).then(function(d) {  
                                
