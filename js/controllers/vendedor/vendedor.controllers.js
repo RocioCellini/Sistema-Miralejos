@@ -13,33 +13,33 @@
     function Vendedor ($scope, $sce, $state,  $stateParams,  $window,
      $uibModal, $document, vendedorFactory, formLoginFactory) {
                                    
-          var $ctrl_v = this;
+          var $ctrl = this;
 
-          $ctrl_v.objDataVendedor={};
+          $ctrl.objDataVendedor={};
 
-          $ctrl_v.objLogin ={};
+          $ctrl.objLogin ={};
 
-          Object.defineProperty ( $ctrl_v.objLogin, "type_accion", {
+          Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                   value: "checkSession",
                   writable: false,
                   enumerable: true,
                   configurable: false
           }); 
 
-          $ctrl_v.allow_disable=false;
-          $ctrl_v.allow_visible=true;
+          $ctrl.allow_disable=false;
+          $ctrl.allow_visible=true;
                      
           // For Modal
-          $ctrl_v.itemsModals=[];
-          $ctrl_v.itemWarning=[];
-          $ctrl_v.animationsEnabled=true;        
+          $ctrl.itemsModals=[];
+          $ctrl.itemWarning=[];
+          $ctrl.animationsEnabled=true;        
 
-          $ctrl_v.Init = Init;
-          $ctrl_v.NuevoVendedor=NuevoVendedor;
+          $ctrl.Init = Init;
+          $ctrl.NuevoVendedor=NuevoVendedor;
 
           function Init () {
 
-             formLoginFactory.checkSession($ctrl_v.objLogin).then( function(d) {
+             formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -53,18 +53,18 @@
 
           function NuevoVendedor() {
               
-            //$ctrl_v.allow_disable=true;
+            //$ctrl.allow_disable=true;
 
-            $ctrl_v.objDataVendedor.type_accion="nuevo_vendedor";
+            $ctrl.objDataVendedor.type_accion="nuevo_vendedor";
          
-            vendedorFactory.nuevoVendedor($ctrl_v.objDataVendedor).then(function(d) {  
+            vendedorFactory.nuevoVendedor($ctrl.objDataVendedor).then(function(d) {  
                                
-                    $ctrl_v.Mensaje=d.MessageComment;
-                    //$ctrl_v.allow_disable=false;
+                    $ctrl.Mensaje=d.MessageComment;
+                    //$ctrl.allow_disable=false;
         
              }).catch(function (err) {
                   console.log(err);
-                  //$ctrl_v.allow_disable=false;
+                  //$ctrl.allow_disable=false;
              });                    
         };
 

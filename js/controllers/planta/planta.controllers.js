@@ -13,31 +13,31 @@
   function Planta ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, plantaFactory, formLoginFactory) {
                                  
-     var $ctrl_np = this;
+     var $ctrl = this;
      
-     $ctrl_np.objDataPlanta={};
+     $ctrl.objDataPlanta={};
 
-     $ctrl_np.objLogin ={};
+     $ctrl.objLogin ={};
 
-     Object.defineProperty ( $ctrl_np.objLogin, "type_accion", {
+     Object.defineProperty ( $ctrl.objLogin, "type_accion", {
             value: "checkSession",
             writable: false,
             enumerable: true,
             configurable: false
      }); 
 
-     $ctrl_np.allow_disable=false;
-     $ctrl_np.allow_visible=true;
+     $ctrl.allow_disable=false;
+     $ctrl.allow_visible=true;
 
     
-     $ctrl_np.Init = Init;
-     $ctrl_np.upDate = upDate;
-     $ctrl_np.NuevaPlanta=NuevaPlanta;
+     $ctrl.Init = Init;
+     $ctrl.upDate = upDate;
+     $ctrl.NuevaPlanta=NuevaPlanta;
         
 
       function Init () {
 
-        formLoginFactory.checkSession($ctrl_np.objLogin).then( function(d) {
+        formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -54,17 +54,17 @@
 
       function NuevaPlanta () {
                 
-        //$ctrl_np.allow_disable=true;
+        //$ctrl.allow_disable=true;
 
-        $ctrl_np.objDataPlanta.type_accion="nueva_planta";
+        $ctrl.objDataPlanta.type_accion="nueva_planta";
         
-        plantaFactory.nuevaPlanta($ctrl_np.objDataPlanta).then(function(d) {                   
-                $ctrl_np.Mensaje=d.Mensaje;
-                //$ctrl_np.allow_disable=false;
+        plantaFactory.nuevaPlanta($ctrl.objDataPlanta).then(function(d) {                   
+                $ctrl.Mensaje=d.Mensaje;
+                //$ctrl.allow_disable=false;
     
          }).catch(function (err) {
               console.log(err);
-              //$ctrl_np.allow_disable=false;
+              //$ctrl.allow_disable=false;
          });                
       };
       

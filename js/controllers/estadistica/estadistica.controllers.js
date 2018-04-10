@@ -13,25 +13,25 @@
     function Estadistica ($scope, $sce, $state,  $stateParams,  $window,
      $uibModal, $document, estadisticaFactory, formLoginFactory) {
                                    
-          var $ctrl_e = this;
+          var $ctrl = this;
 
-          $ctrl_e.objDataEstagistica={};
+          $ctrl.objDataEstagistica={};
 
-          $ctrl_e.objLogin ={};
+          $ctrl.objLogin ={};
 
-          Object.defineProperty ( $ctrl_e.objLogin, "type_accion", {
+          Object.defineProperty ( $ctrl.objLogin, "type_accion", {
               value: "checkSession",
               writable: false,
               enumerable: true,
               configurable: false
           }); 
       
-          $ctrl_e.Init = Init;
-          $ctrl_e.NuevaEstadistica=NuevaEstadistica;
+          $ctrl.Init = Init;
+          $ctrl.NuevaEstadistica=NuevaEstadistica;
 
           function Init () {
 
-              formLoginFactory.checkSession($ctrl_e.objLogin).then( function(d) {
+              formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -45,18 +45,18 @@
 
           function NuevaEstadistica() {
               
-            //$ctrl_e.allow_disable=true;
+            //$ctrl.allow_disable=true;
 
-            $ctrl_e.objDataEstagistica.type_accion="nueva_estadistica";
+            $ctrl.objDataEstagistica.type_accion="nueva_estadistica";
          
-            estadisticaFactory.nuevaEstadistica($ctrl_e.objDataEstagistica).then(function(d) {  
+            estadisticaFactory.nuevaEstadistica($ctrl.objDataEstagistica).then(function(d) {  
                                
-                    $ctrl_e.Mensaje=d.MessageComment;
-                    //$ctrl_e.allow_disable=false;
+                    $ctrl.Mensaje=d.MessageComment;
+                    //$ctrl.allow_disable=false;
         
              }).catch(function (err) {
                   console.log(err);
-                  //$ctrl_e.allow_disable=false;
+                  //$ctrl.allow_disable=false;
              });                    
         };
 

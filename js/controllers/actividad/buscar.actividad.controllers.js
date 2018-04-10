@@ -9,26 +9,26 @@
           function BuscarAct($scope, $state, $stateParams , actividadFactory,  
              NgTableParams, $window, $filter, formLoginFactory) {
                           
-                var $ctrl_ba=this;
+                var $ctrl=this;
 
-                $ctrl_ba.objSearch={
+                $ctrl.objSearch={
                        criterio:""
                 };       
 
-                $ctrl_ba.objLogin ={};
+                $ctrl.objLogin ={};
 
-                Object.defineProperty ( $ctrl_ba.objLogin, "type_accion", {
+                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                     value: "checkSession",
                     writable: false,
                     enumerable: true,
                     configurable: false
                 }); // Esto hace que la propiedad type_accion no se pueda modificar
 
-                $ctrl_ba.Init = Init;
-                $ctrl_ba.BuscarAct = BuscarAct;
-                $ctrl_ba.EditarAct = EditarAct;
+                $ctrl.Init = Init;
+                $ctrl.BuscarAct = BuscarAct;
+                $ctrl.EditarAct = EditarAct;
 
-                $ctrl_ba.Init();
+                $ctrl.Init();
 
 
             // To configure table   
@@ -48,9 +48,9 @@
          //**********************************************************************************************// 
           function Init () {
 
-             $ctrl_ba.tableParams = new NgTableParams(initialParams, initialSettings);    
+             $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);    
 
-              formLoginFactory.checkSession($ctrl_ba.objLogin).then( function(d) {
+              formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                        angular.isDefined(d.setUrl)?goUrl(d):null;
                                       
@@ -67,24 +67,24 @@
 
                 //console.log(valorIngresado);   
 
-                $ctrl_ba.boton_submmit=true;
+                $ctrl.boton_submmit=true;
 
-                $ctrl_ba.objSearch.type_accion="buscar_act";              
+                $ctrl.objSearch.type_accion="buscar_act";              
 
-                $ctrl_ba.objSearch.criterio=valorIngresado;
+                $ctrl.objSearch.criterio=valorIngresado;
 
-               console.log($ctrl_ba.objSearch);
+               console.log($ctrl.objSearch);
                   
-                actividadFactory.buscarAct($ctrl_ba.objSearch).then(function(d) {
+                actividadFactory.buscarAct($ctrl.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
                // console.log(d.Respuesta); 
                
-                $ctrl_ba.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
                     // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-                $ctrl_ba.boton_submmit=false;      
+                $ctrl.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);
@@ -120,15 +120,15 @@
 
           function GuardarAct (objuser) { 
 
-            /*    $ctrl_ba.boton_submmit=true;
+            /*    $ctrl.boton_submmit=true;
 
-                $ctrl_ba.objSearch.type_accion="guardar_dpto";              
+                $ctrl.objSearch.type_accion="guardar_dpto";              
                   
-                dptoFactory.guardarCambiosDpto($ctrl_ba.objSearch).then(function(d) {
+                dptoFactory.guardarCambiosDpto($ctrl.objSearch).then(function(d) {
                
-                $ctrl_ba.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
-                $ctrl_ba.boton_submmit=false;      
+                $ctrl.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);
