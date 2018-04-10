@@ -9,26 +9,26 @@
           function BuscarDpto($scope, $state, $stateParams , dptoFactory,  
              NgTableParams, $window, $filter, formLoginFactory) {
                           
-                var $ctrl_bd=this;
+                var $ctrl=this;
 
-                $ctrl_bd.objSearch={
+                $ctrl.objSearch={
                        criterio:""
                 };       
 
-                $ctrl_bd.objLogin ={};
+                $ctrl.objLogin ={};
 
-                Object.defineProperty ( $ctrl_bd.objLogin, "type_accion", {
+                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                     value: "checkSession",
                     writable: false,
                     enumerable: true,
                     configurable: false
                 }); 
 
-                $ctrl_bd.Init = Init;
-                $ctrl_bd.BuscarDpto = BuscarDpto;
-                $ctrl_bd.EditarDpto = EditarDpto;
+                $ctrl.Init = Init;
+                $ctrl.BuscarDpto = BuscarDpto;
+                $ctrl.EditarDpto = EditarDpto;
 
-                $ctrl_bd.Init();
+                $ctrl.Init();
 
 
             // To configure table   
@@ -48,9 +48,9 @@
          //**********************************************************************************************// 
           function Init () {
 
-            $ctrl_bd.tableParams = new NgTableParams(initialParams, initialSettings);     
+            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);     
 
-            formLoginFactory.checkSession($ctrl_bd.objLogin).then( function(d) {
+            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -69,24 +69,24 @@
 
                 //console.log(valorIngresado);   
 
-                $ctrl_bd.boton_submmit=true;
+                $ctrl.boton_submmit=true;
 
-                $ctrl_bd.objSearch.type_accion="buscar_dpto";              
+                $ctrl.objSearch.type_accion="buscar_dpto";              
 
-                $ctrl_bd.objSearch.criterio=valorIngresado;
+                $ctrl.objSearch.criterio=valorIngresado;
 
-               //console.log($ctrl_bd.objSearch);
+               //console.log($ctrl.objSearch);
                   
-                dptoFactory.buscarDpto($ctrl_bd.objSearch).then(function(d) {
+                dptoFactory.buscarDpto($ctrl.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
                // console.log(d.Respuesta); 
                
-                $ctrl_bd.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
                     // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-                $ctrl_bd.boton_submmit=false;      
+                $ctrl.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);
@@ -122,15 +122,15 @@
 
           function GuardarDpto (objuser) { 
 
-            /*    $ctrl_bd.boton_submmit=true;
+            /*    $ctrl.boton_submmit=true;
 
-                $ctrl_bd.objSearch.type_accion="guardar_dpto";              
+                $ctrl.objSearch.type_accion="guardar_dpto";              
                   
-                dptoFactory.guardarCambiosDpto($ctrl_bd.objSearch).then(function(d) {
+                dptoFactory.guardarCambiosDpto($ctrl.objSearch).then(function(d) {
                
-                $ctrl_bd.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
-                $ctrl_bd.boton_submmit=false;      
+                $ctrl.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);

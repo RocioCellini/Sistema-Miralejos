@@ -9,26 +9,26 @@
           function BuscarPlanta($scope, $state, $stateParams , plantaFactory,  
              NgTableParams, $window, $filter, formLoginFactory) {
                           
-                var $ctrl_bp=this;
+                var $ctrl=this;
 
-                $ctrl_bp.objSearch={
+                $ctrl.objSearch={
                        criterio:""
                 };       
 
-                $ctrl_bp.objLogin ={};
+                $ctrl.objLogin ={};
 
-                Object.defineProperty ( $ctrl_bp.objLogin, "type_accion", {
+                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                         value: "checkSession",
                         writable: false,
                         enumerable: true,
                         configurable: false
                 }); 
 
-                $ctrl_bp.Init = Init;
-                $ctrl_bp.BuscarPlanta = BuscarPlanta;
-                $ctrl_bp.GoDataEdit = GoDataEdit;
+                $ctrl.Init = Init;
+                $ctrl.BuscarPlanta = BuscarPlanta;
+                $ctrl.GoDataEdit = GoDataEdit;
 
-                $ctrl_bp.Init();
+                $ctrl.Init();
 
 
             // To configure table   
@@ -48,9 +48,9 @@
          //**********************************************************************************************// 
           function Init () {
 
-             $ctrl_bp.tableParams = new NgTableParams(initialParams, initialSettings); 
+             $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
 
-              formLoginFactory.checkSession($ctrl_bp.objLogin).then( function(d) {
+              formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -69,24 +69,24 @@
 
                 //console.log(valorIngresado);   
 
-                $ctrl_bp.boton_submmit=true;
+                $ctrl.boton_submmit=true;
 
-                $ctrl_bp.objSearch.type_accion="buscar_planta";              
+                $ctrl.objSearch.type_accion="buscar_planta";              
 
-                $ctrl_bp.objSearch.criterio=valorIngresado;
+                $ctrl.objSearch.criterio=valorIngresado;
 
-               //console.log($ctrl_bp.objSearch);
+               //console.log($ctrl.objSearch);
                   
-                plantaFactory.buscarPlanta($ctrl_bp.objSearch).then(function(d) {
+                plantaFactory.buscarPlanta($ctrl.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
                 console.log(d.Respuesta); 
                
-                $ctrl_bp.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
                     // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-                $ctrl_bp.boton_submmit=false;      
+                $ctrl.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);

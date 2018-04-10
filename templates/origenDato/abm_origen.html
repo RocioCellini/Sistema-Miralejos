@@ -7,7 +7,7 @@
       <div class="form-group">
         <label class="col-sm-4 control-label">Origen del Dato:</label>
         <div class="col-sm-4" >
-          <input type="text" name="origen_dato" class="form-control campoform" ng-model="$ctrl_o.objDataOrigen.origen_dato" ng-required="true">
+          <input type="text" name="origen_dato" class="form-control campoform" ng-model="$ctrl.objDataOrigen.origen_dato" ng-required="true">
 
            <span class="errorform" ng-show="form.$submitted && form.origen_dato.$error.required">El campo es Requerido.</span>
 
@@ -18,12 +18,12 @@
       <div class="form-group">
         <div class="col-sm-4" ></div>
           <div class=" col-sm-4">
-            <button class="btn btn-default" ng-disabled="$ctrl_o.allow_disable"  ng-show="$ctrl_o.allow_visible" ng-click='$ctrl_o.NuevoOrigen()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+            <button class="btn btn-default" ng-disabled="$ctrl.allow_disable"  ng-show="$ctrl.allow_visible" ng-click='$ctrl.NuevoOrigen()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
           </div>
           <div class="col-sm-4" ></div>
       </div>
       
-      <div class="mensajesistema">{{$ctrl_o.Mensaje}}</div>
+      <div class="mensajesistema">{{$ctrl.Mensaje}}</div>
 </form>
 </div>
 

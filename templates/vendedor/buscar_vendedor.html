@@ -5,29 +5,29 @@
 		<form method="post" action=""> 
 			<legend>Buscar Vendedor</legend>
 			<fieldset>
-			<input type="text" class="form-control" ng-model="$ctrl_bv.objSearch.criterio">
+			<input type="text" class="form-control" ng-model="$ctrl.objSearch.criterio">
 			<p>* ingrese el correo electrónico de la persona</p><br>
-			<button ng-click='$ctrl_bv.BuscarVendedor($ctrl_bv.objSearch.criterio)' ng-disabled="$ctrl_bv.boton_submmit" class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl.BuscarVendedor($ctrl.objSearch.criterio)' ng-disabled="$ctrl.boton_submmit" class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
 	<div class="col-md-8"></div>
 </div>
 
-<div class="mensajesistema">{{$ctrl_bv.Mensaje}}</div><br><br>
+<div class="mensajesistema">{{$ctrl.Mensaje}}</div><br><br>
 
 <div class="row" >
     <div class="col-md-3"  ></div>
       <div class="col-md-6"  align="center">
   
-      <table ng-table="$ctrl_bv.tableParams" class="table table-condensed table-bordered table-striped">
+      <table ng-table="$ctrl.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
 
             <td data-title="'Nombre'">{{row.nombre}}</td>
             <td data-title="'Email'">{{row.email}}</td>
            
-            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl_bv.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
-             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl_bv.GoDataEdit(row)'>
+            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
+             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl.GoDataEdit(row)'>
              <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
             </td>
             

@@ -10,28 +10,28 @@
   function BuscarOrigen ( $scope, $state, $stateParams , origenDatoFactory,  
      NgTableParams, $window, $filter, formLoginFactory) {
                   
-        var $ctrl_bo=this;
+        var $ctrl=this;
 
-        $ctrl_bo.objSearch={
+        $ctrl.objSearch={
                criterio:""
         };       
 
-        $ctrl_bo.objLogin ={};
+        $ctrl.objLogin ={};
 
-          Object.defineProperty ( $ctrl_bo.objLogin, "type_accion", {
+          Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                 value: "checkSession",
                 writable: false,
                 enumerable: true,
                 configurable: false
           }); 
 
-        $ctrl_bo.boton_submmit=false;
+        $ctrl.boton_submmit=false;
 
-        $ctrl_bo.Init = Init;
-        $ctrl_bo.BuscarOrigen = BuscarOrigen;
-        $ctrl_bo.GoDataEdit = GoDataEdit;
+        $ctrl.Init = Init;
+        $ctrl.BuscarOrigen = BuscarOrigen;
+        $ctrl.GoDataEdit = GoDataEdit;
 
-        $ctrl_bo.Init();
+        $ctrl.Init();
 
 
     // To configure table   
@@ -51,9 +51,9 @@
        //**********************************************************************************************// 
         function Init () {
 
-            $ctrl_bo.tableParams = new NgTableParams(initialParams, initialSettings);  
+            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);  
 
-            formLoginFactory.checkSession($ctrl_bo.objLogin).then( function(d) {
+            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                    angular.isDefined(d.setUrl)?goUrl(d):null;
                                   
@@ -71,25 +71,25 @@
 
                 console.log(valorIngresado);   
 
-                $ctrl_bo.boton_submmit=true;
+                $ctrl.boton_submmit=true;
 
-                $ctrl_bo.objSearch.type_accion="buscar_origen";              
+                $ctrl.objSearch.type_accion="buscar_origen";              
 
-                $ctrl_bo.objSearch.criterio=valorIngresado;
+                $ctrl.objSearch.criterio=valorIngresado;
 
-               //console.log($ctrl_bo.objSearch);
+               //console.log($ctrl.objSearch);
                   
-                origenDatoFactory.buscarOrigen($ctrl_bo.objSearch).then(function(d) {
+                origenDatoFactory.buscarOrigen($ctrl.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
-                console.log($ctrl_bo.objSearch);
+                console.log($ctrl.objSearch);
                 console.log(d.Respuesta); 
                
-                $ctrl_bo.tableParams.settings({dataset: d.Respuesta});   
+                $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
                     // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-                $ctrl_bo.boton_submmit=false;      
+                $ctrl.boton_submmit=false;      
     
               }).catch(function (err) {
                   console.log(err);

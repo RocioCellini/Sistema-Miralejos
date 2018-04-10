@@ -7,21 +7,21 @@
            <div class="form-group">
              <label class="col-sm-4 control-label">Nombre:</label>
              <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_editc.objDataCliente.nombre">
+              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataCliente.nombre">
             </div>
             <div class="col-sm-4" ></div>
           </div>
            <div class="form-group">
              <label class="col-sm-4 control-label">Apelldio:</label>
              <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_editc.objDataCliente.apellido">
+              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataCliente.apellido">
             </div>
             <div class="col-sm-4" ></div>
           </div>
           <div class="form-group">
              <label class="col-sm-4 control-label">Dni:</label>
              <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_editc.objDataCliente.dni">
+              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataCliente.dni">
             </div>
             <div class="col-sm-4" ></div>
           </div>
@@ -29,7 +29,7 @@
         <div class="form-group">
            <label class="col-sm-4 control-label">Telefono:</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control campoform" ng-model="$ctrl_editc.objDataCliente.telefono">
+              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataCliente.telefono">
             </div>
              <div class="col-sm-4" ></div>
         </div>
@@ -37,23 +37,23 @@
       <!--<div class="form-group">
              <label  class="col-sm-4 control-label" >Provincia:</label>
            <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"
-      ng-options="option.Tipo_Pago for option in $ctrl_editc.data_edit.availableOptions track by option.id"
-      ng-model="$ctrl_editc.data_edit.selectedOption"  ng-change="upDate()"></select></div>
+      ng-options="option.Tipo_Pago for option in $ctrl.data_edit.availableOptions track by option.id"
+      ng-model="$ctrl.data_edit.selectedOption"  ng-change="upDate()"></select></div>
             <div class="col-sm-4" ></div>
         </div>
 
       <div class="form-group">
           <label  class="col-sm-4 control-label" >Ciudad:</label>
            <div class="col-sm-4" ><select class="form-control campoform" name="mySelect" id="mySelect"
-      ng-options="option.Tipo_Pago for option in $ctrl_editc.data_edit.availableOptions track by option.id"
-      ng-model="$ctrl_editc.data_edit.selectedOption"  ng-change="upDate()"></select></div>
+      ng-options="option.Tipo_Pago for option in $ctrl.data_edit.availableOptions track by option.id"
+      ng-model="$ctrl.data_edit.selectedOption"  ng-change="upDate()"></select></div>
             <div class="col-sm-4" ></div>
         </div>-->
 
         <div class="form-group">
          <label class="col-sm-4 control-label">Actividad</label>
             <div class="col-sm-4" >
-              <input type="text" class="form-control campoform" ng-model="$ctrl_editc.objDataCliente.actividad" />
+              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataCliente.actividad" />
             </div>
             <div class="col-sm-4" ></div>
          </div>
@@ -61,7 +61,7 @@
       <div class="form-group">
            <label class="col-sm-4 control-label">Correo Electrónico:</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control campoform" ng-model="$ctrl_editc.objDataCliente.email">
+              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataCliente.email">
             </div>
              <div class="col-sm-4" ></div>
         </div>
@@ -69,7 +69,7 @@
           <!--<div class="form-group">
            <label class="col-sm-4 control-label">Conoce:</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control campoform" ng-model="$ctrl_editc.objDataCliente.conoce">
+              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataCliente.conoce">
             </div>
              <div class="col-sm-4" ></div>
         </div>-->
@@ -78,8 +78,8 @@
       <div class="form-group">
         <div class="col-sm-4" ></div>
           <div class=" col-sm-4">
-          <button class="btn btn-default" ng-disabled="$ctrl_editc.allow_disable"  ng-show="$ctrl_editc.allow_visible" 
-          ng-click='$ctrl_editc.NuevoCliente()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+          <button class="btn btn-default" ng-disabled="$ctrl.allow_disable"  ng-show="$ctrl.allow_visible" 
+          ng-click='$ctrl.NuevoCliente()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
              </div>
           <div class="col-sm-4" ></div>
         </div>

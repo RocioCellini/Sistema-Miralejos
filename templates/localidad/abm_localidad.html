@@ -8,8 +8,8 @@
         <label class="col-sm-4 control-label">Provincia:</label>
         <div class="col-sm-4" >
               <select name="provincia" id="provincia" class="form-control campoform"
-              ng-options="option.name for option in $ctrl_loc.dataprovincia.availableOptions track by option.id"
-              ng-model="$ctrl_loc.dataprovincia.selectedOption"></select>    
+              ng-options="option.name for option in $ctrl.dataprovincia.availableOptions track by option.id"
+              ng-model="$ctrl.dataprovincia.selectedOption"></select>    
               <!-- option.name y option.id son los valores del array en datos_relacionados.php -->       
         </div>
         <div class="col-sm-4" ></div>
@@ -18,7 +18,7 @@
       <div class="form-group">
          <label class="col-sm-4 control-label">Nombre:</label>
          <div class="col-sm-4" >
-          <input type="text" name="nombre" class="form-control campoform" ng-model="$ctrl_loc.objDataLocalidad.nombre" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
+          <input type="text" name="nombre" class="form-control campoform" ng-model="$ctrl.objDataLocalidad.nombre" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
           <span class="errorform" ng-show="form.$submitted && form.nombre.$error.pattern">El Nombre no es válido.</span> 
           <span class="errorform" ng-show="form.$submitted && form.nombre.$error.required">El campo es Requerido.</span>
         </div>
@@ -28,12 +28,12 @@
       <div class="form-group">
         <div class="col-sm-4" ></div>
             <div class=" col-sm-4">
-              <button type="submit" class="btn btn-default" ng-disabled="$ctrl_loc.allow_disable"
-              ng-click='form.$valid && $ctrl_loc.NuevaLocalidad()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+              <button type="submit" class="btn btn-default" ng-disabled="$ctrl.allow_disable"
+              ng-click='form.$valid && $ctrl.NuevaLocalidad()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
             </div>
           <div class="col-sm-4" ></div>
         </div>
-        <div class="mensajesistema">{{$ctrl_loc.Mensaje}}</div>
+        <div class="mensajesistema">{{$ctrl.Mensaje}}</div>
 </form>
 </div>
 <div style="height:100px"></div>

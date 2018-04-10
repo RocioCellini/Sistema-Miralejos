@@ -4,7 +4,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-	<table ng-table="$ctrl_p.tableParams" class="table table-bordered table-hover table-condensed editable-table demoTable" ng-form="$ctrl_p.tableForm" disable-filter="$ctrl_p.isAdding" demo-tracked-table="$ctrl_p.tableTracker"> 
+	<table ng-table="$ctrl.tableParams" class="table table-bordered table-hover table-condensed editable-table demoTable" ng-form="$ctrl.tableForm" disable-filter="$ctrl.isAdding" demo-tracked-table="$ctrl.tableTracker"> 
 		<colgroup>
           <col width="5%" />
           <col width="5%" />
@@ -32,113 +32,113 @@
             <span ng-switch-default class="editable-text">{{row.id_cliente}}</span>
             <!-- Recordar que debe ser el nombre completo -->
             <div class="controls" ng-class="cliente.$invalid && cliente.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="cliente" ng-model="$ctrl_p.objDataPlanilla.cliente" class="editable-input form-control input-sm" required />
+              <input type="text" name="cliente" ng-model="$ctrl.objDataPlanilla.cliente" class="editable-input form-control input-sm" required />
             </div>
           </td>
           <td title="'Tipo de Cliente'" filter="{tipo_cliente: 'text'}" sortable="'tipo_cliente'" ng-switch="row.isEditing" ng-class="tipo_cliente.$dirty ? 'bg-warning' : ''" ng-form="tipo_cliente" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.tipo_cliente}}</span>
             <div class="controls" ng-class="tipo_cliente.$invalid && tipo_cliente.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="tipo_cliente" ng-model="$ctrl_p.objDataPlanilla.tipo_cliente" class="editable-input form-control input-sm" required/>
+              <input type="text" name="tipo_cliente" ng-model="$ctrl.objDataPlanilla.tipo_cliente" class="editable-input form-control input-sm" required/>
             </div>
           </td>
           <td title="'GI'" filter="{grado_int: 'number'}" sortable="'grado_int'" ng-switch="row.isEditing" ng-class="grado_int.$dirty ? 'bg-warning' : ''" ng-form="grado_int" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.grado_interes}}</span>
             <div class="controls" ng-class="grado_int.$invalid && grado_int.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="number" name="grado_int" ng-model="$ctrl_p.objDataPlanilla.grado_int" class="editable-input form-control input-sm" required/>
+              <input type="number" name="grado_int" ng-model="$ctrl.objDataPlanilla.grado_int" class="editable-input form-control input-sm" required/>
             </div>
           </td>
              <td title="'Teléfono 1'" filter="{tel1: 'number'}" sortable="'tel1'" ng-switch="row.isEditing" ng-class="tel.$dirty ? 'bg-warning' : ''" ng-form="tel1" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.telefono1}}</span>
             <div class="controls" ng-class="tel1.$invalid && tel1.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="number" name="tel1" ng-model="$ctrl_p.objDataPlanilla.tel1" class="editable-input form-control input-sm" required/>
+              <input type="number" name="tel1" ng-model="$ctrl.objDataPlanilla.tel1" class="editable-input form-control input-sm" required/>
             </div>
           </td>
           <td title="'Teléfono 2'" filter="{tel2: 'number'}" sortable="'tel2'" ng-switch="row.isEditing" ng-class="tel2.$dirty ? 'bg-warning' : ''" ng-form="tel2" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.telefono2}}</span>
             <div class="controls" ng-class="tel2.$invalid && tel2.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="number" name="tel2" ng-model="$ctrl_p.objDataPlanilla.tel2" class="editable-input form-control input-sm" required/>
+              <input type="number" name="tel2" ng-model="$ctrl.objDataPlanilla.tel2" class="editable-input form-control input-sm" required/>
             </div>
           </td>
           <td title="'Provincia'" filter="{prov: 'text'}" sortable="'prov'" ng-switch="row.isEditing" ng-class="prov.$dirty ? 'bg-warning' : ''" ng-form="prov" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.id_provincia}}</span>
             <div class="controls" ng-class="prov.$invalid && prov.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="prov" ng-model="$ctrl_p.objDataPlanilla.prov" class="editable-input form-control input-sm" required />
+              <input type="text" name="prov" ng-model="$ctrl.objDataPlanilla.prov" class="editable-input form-control input-sm" required />
             </div>
           </td>
           <td title="'Ciudad'" filter="{ciudad: 'text'}" sortable="'ciudad'" ng-switch="row.isEditing" ng-class="ciudad.$dirty ? 'bg-warning' : ''" ng-form="ciudad" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.id_localidad}}</span>
             <div class="controls" ng-class="ciudad.$invalid && ciudad.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="ciudad" ng-model="$ctrl_p.objDataPlanilla.ciudad" class="editable-input form-control input-sm" required />
+              <input type="text" name="ciudad" ng-model="$ctrl.objDataPlanilla.ciudad" class="editable-input form-control input-sm" required />
             </div>
           </td>
           <td title="'Origen Dato'" filter="{origen: 'text'}" sortable="'origen'" ng-switch="row.isEditing" ng-class="origen.$dirty ? 'bg-warning' : ''" ng-form="origen" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.origen_dato}}</span>
             <div class="controls" ng-class="origen.$invalid && origen.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="origen" ng-model="$ctrl_p.objDataPlanilla.origen" class="editable-input form-control input-sm" required />
+              <input type="text" name="origen" ng-model="$ctrl.objDataPlanilla.origen" class="editable-input form-control input-sm" required />
             </div>
           </td>
            <td title="'Actividad'" filter="{act: 'text'}" sortable="'act'" ng-switch="row.isEditing" ng-class="act.$dirty ? 'bg-warning' : ''" ng-form="act" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.id_actividad}}</span>
             <div class="controls" ng-class="act.$invalid && act.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="act" ng-model="$ctrl_p.objDataPlanilla.act" class="editable-input form-control input-sm" required />
+              <input type="text" name="act" ng-model="$ctrl.objDataPlanilla.act" class="editable-input form-control input-sm" required />
             </div>
           </td>
            <td title="'Conoce'" filter="{conoce: 'text'}" sortable="'conoce'" ng-switch="row.isEditing" ng-class="conoce.$dirty ? 'bg-warning' : ''" ng-form="conoce" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.conoce}}</span>
             <div class="controls" ng-class="conoce.$invalid && conoce.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="conoce" ng-model="$ctrl_p.objDataPlanilla.conoce" class="editable-input form-control input-sm" required />
+              <input type="text" name="conoce" ng-model="$ctrl.objDataPlanilla.conoce" class="editable-input form-control input-sm" required />
             </div>
           </td>
            <td title="'Fecha origen dato'" filter="{fecha_origen: 'text'}" sortable="'fecha_origen'" ng-switch="row.isEditing" ng-class="fecha_origen.$dirty ? 'bg-warning' : ''" ng-form="fecha_origen" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.fecha_origen_dato}}</span>
             <div class="controls" ng-class="fecha_origen.$invalid && fecha_origen.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="fecha_origen" ng-model="$ctrl_p.objDataPlanilla.fecha_origen" class="editable-input form-control input-sm" required />
+              <input type="text" name="fecha_origen" ng-model="$ctrl.objDataPlanilla.fecha_origen" class="editable-input form-control input-sm" required />
             </div>
           </td>
            <td title="'Fecha último llamado'" filter="{fecha_ul: 'text'}" sortable="'fecha_ul'" ng-switch="row.isEditing" ng-class="fecha_ul.$dirty ? 'bg-warning' : ''" ng-form="fecha_ul" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.fecha_ult_llamado}}</span>
             <div class="controls" ng-class="fecha_ul.$invalid && fecha_ul.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="fecha_ul" ng-model="$ctrl_p.objDataPlanilla.fecha_ul" class="editable-input form-control input-sm" required />
+              <input type="text" name="fecha_ul" ng-model="$ctrl.objDataPlanilla.fecha_ul" class="editable-input form-control input-sm" required />
             </div>
           </td>
 
            <td title="'Nº Llamados'" filter="{cant_llamados: 'number'}" sortable="'cant_llamados'" ng-switch="row.isEditing" ng-class="cant_llamados.$dirty ? 'bg-warning' : ''" ng-form="cant_llamados" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.cant_de_llamados}}</span>
             <div class="controls" ng-class="cant_llamados.$invalid && cant_llamados.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="number" name="cant_llamados" ng-model="$ctrl_p.objDataPlanilla.cant_llamados" class="editable-input form-control input-sm" required/>
+              <input type="number" name="cant_llamados" ng-model="$ctrl.objDataPlanilla.cant_llamados" class="editable-input form-control input-sm" required/>
             </div>
           </td>
 
             <td title="'Fecha cierre operación'" filter="{fecha_cierre: 'text'}" sortable="'fecha_cierre'" ng-switch="row.isEditing" ng-class="fecha_cierre.$dirty ? 'bg-warning' : ''" ng-form="fecha_cierre" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.fecha_cierre_operacion}}</span>
             <div class="controls" ng-class="fecha_cierre.$invalid && fecha_cierre.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="fecha_cierre" ng-model="$ctrl_p.objDataPlanilla.fecha_cierre" class="editable-input form-control input-sm" required />
+              <input type="text" name="fecha_cierre" ng-model="$ctrl.objDataPlanilla.fecha_cierre" class="editable-input form-control input-sm" required />
             </div>
           </td>
 
           <td title="'Edificio'" filter="{edificio: 'text'}" sortable="'edificio'" ng-switch="row.isEditing" ng-class="edificio.$dirty ? 'bg-warning' : ''" ng-form="edificio" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.id_edificio}}</span>
             <div class="controls" ng-class="edificio.$invalid && edificio.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="edificio" ng-model="$ctrl_p.objDataPlanilla.edificio" class="editable-input form-control input-sm" required />
+              <input type="text" name="edificio" ng-model="$ctrl.objDataPlanilla.edificio" class="editable-input form-control input-sm" required />
             </div>
           </td>
           <td title="'Planta'" filter="{planta: 'text'}" sortable="'planta'" ng-switch="row.isEditing" ng-class="planta.$dirty ? 'bg-warning' : ''" ng-form="planta" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.id_planta}}</span>
             <div class="controls" ng-class="planta.$invalid && planta.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="planta" ng-model="$ctrl_p.objDataPlanilla.planta" class="editable-input form-control input-sm" required />
+              <input type="text" name="planta" ng-model="$ctrl.objDataPlanilla.planta" class="editable-input form-control input-sm" required />
             </div>
           </td>
           <td title="'Dpto'" filter="{dpto: 'text'}" sortable="'dpto'" ng-switch="row.isEditing" ng-class="dpto.$dirty ? 'bg-warning' : ''" ng-form="dpto" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.id_dpto}}</span>
             <div class="controls" ng-class="dpto.$invalid && dpto.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="dpto" ng-model="$ctrl_p.objDataPlanilla.dpto" class="editable-input form-control input-sm" required />
+              <input type="text" name="dpto" ng-model="$ctrl.objDataPlanilla.dpto" class="editable-input form-control input-sm" required />
             </div>
           </td>
 
            <td title="'Correo Electrónico'" filter="{email: 'text'}" sortable="'email'" ng-switch="row.isEditing" ng-class="email.$dirty ? 'bg-warning' : ''" ng-form="email" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.email}}</span>
             <div class="controls" ng-class="email.$invalid && email.$dirty ? 'has-error' : ''" ng-switch-when="true">
-              <input type="text" name="email" ng-model="$ctrl_p.objDataPlanilla.email" class="editable-input form-control input-sm" required />
+              <input type="text" name="email" ng-model="$ctrl.objDataPlanilla.email" class="editable-input form-control input-sm" required />
             </div>
           </td>
 

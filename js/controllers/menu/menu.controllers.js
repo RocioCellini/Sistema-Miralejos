@@ -4,19 +4,19 @@
 
           app.controller('NavigationController', function( $scope, $state ) {
 
-          var $ctrl_m = this;
+          var $ctrl = this;
 
-          $ctrl_m.allow_visible=true;
+          $ctrl.allow_visible=true;
               
            $scope.$watch( function()  {
                   return $state.$current.name
             }, function( newVal, oldVal )  {
               
-             newVal==='GestionVentas.index'? $ctrl_m.allow_visible=false: $ctrl_m.allow_visible=true;             
+             newVal==='GestionVentas.index'? $ctrl.allow_visible=false: $ctrl.allow_visible=true;             
             
           }); 
 
-          $ctrl_m.itemsMenu = [{
+          $ctrl.itemsMenu = [{
             name: "Estadisticas",
             link: "#",
             subtree: [{
@@ -150,7 +150,7 @@
           }
 
 
-          ]// $ctrl_m.itemsMenu 
+          ]// $ctrl.itemsMenu 
 
     });// NavigationController
 

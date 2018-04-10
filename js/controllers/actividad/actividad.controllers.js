@@ -13,18 +13,18 @@
   function Actividad ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, actividadFactory, formLoginFactory) {
                                  
-    var $ctrl_a = this;
+    var $ctrl = this;
 
-    $ctrl_a.objDataActividad={};
-    $ctrl_a.objLogin ={};
-    $ctrl_a.allow_disable=false;
-    $ctrl_a.allow_visible=true;
+    $ctrl.objDataActividad={};
+    $ctrl.objLogin ={};
+    $ctrl.allow_disable=false;
+    $ctrl.allow_visible=true;
 
-    $ctrl_a.Init = Init;
-    $ctrl_a.upDate = upDate;
-    $ctrl_a.NuevaActividad=NuevaActividad;
+    $ctrl.Init = Init;
+    $ctrl.upDate = upDate;
+    $ctrl.NuevaActividad=NuevaActividad;
 
-     Object.defineProperty ( $ctrl_a.objLogin, "type_accion", {
+     Object.defineProperty ( $ctrl.objLogin, "type_accion", {
               value: "checkSession",
               writable: false,
               enumerable: true,
@@ -33,7 +33,7 @@
         
 
     function Init () {
-      formLoginFactory.checkSession( $ctrl_a.objLogin ).then( function( d ) {
+      formLoginFactory.checkSession( $ctrl.objLogin ).then( function( d ) {
 
                        angular.isDefined(d.setUrl)?goUrl( d ):null;
                                       
@@ -52,18 +52,18 @@
 
     function NuevaActividad () {
               
-      //$ctrl_a.allow_disable=true;
+      //$ctrl.allow_disable=true;
 
-      $ctrl_a.objDataActividad.type_accion="nueva_actividad";
-      //console.log($ctrl_a.objDataActividad);
+      $ctrl.objDataActividad.type_accion="nueva_actividad";
+      //console.log($ctrl.objDataActividad);
       
-      actividadFactory.nuevaAct($ctrl_a.objDataActividad).then(function(d) {                   
-              $ctrl_a.Mensaje=d.Mensaje;
-              //$ctrl_a.allow_disable=false;
+      actividadFactory.nuevaAct($ctrl.objDataActividad).then(function(d) {                   
+              $ctrl.Mensaje=d.Mensaje;
+              //$ctrl.allow_disable=false;
   
        }).catch(function (err) {
             console.log(err);
-            //$ctrl_a.allow_disable=false;
+            //$ctrl.allow_disable=false;
        });                
     };
       

@@ -13,39 +13,39 @@
     function AgregarDatos ($scope, $sce, $state, $stateParams, $window,
      $uibModal, $document, AgregarDatosFactory, defaultdataFactory, clienteFactory, llamadoFactory, NgTableParams, $filter, formLoginFactory) {
                                    
-          var $ctrl_ad = this;
+          var $ctrl = this;
 
-          $ctrl_ad.defaultparams = {};
-          $ctrl_ad.objAgregarDatos={
+          $ctrl.defaultparams = {};
+          $ctrl.objAgregarDatos={
            criterio:""
           };
 
-          $ctrl_ad.objLogin ={};
+          $ctrl.objLogin ={};
 
-          Object.defineProperty ( $ctrl_ad.objLogin, "type_accion", {
+          Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                 value: "checkSession",
                 writable: false,
                 enumerable: true,
                 configurable: false
           }); 
 
-          $ctrl_ad.allow_disable = false;
-          $ctrl_ad.allow_visible = true;
-          $ctrl_ad.datalocalidad2={};
+          $ctrl.allow_disable = false;
+          $ctrl.allow_visible = true;
+          $ctrl.datalocalidad2={};
 
-          $ctrl_ad.combo_ciudad=true;
-          $ctrl_ad.boton_submmit=false;   
+          $ctrl.combo_ciudad=true;
+          $ctrl.boton_submmit=false;   
 
-          $ctrl_ad.popup1 = {
+          $ctrl.popup1 = {
             opened: false
           };
-          $ctrl_ad.popup2 = {
+          $ctrl.popup2 = {
             opened: false
           };
 
-          $ctrl_ad.CurrentDate = new Date();
+          $ctrl.CurrentDate = new Date();
 
-          $ctrl_ad.grado_interes = {
+          $ctrl.grado_interes = {
           availableOptions: [
             {id: '-1', name: 'Seleccionar'},
             {id: '0', name: '1'},
@@ -56,15 +56,15 @@
               selectedOption: {id: '-1'} 
           };
       
-          $ctrl_ad.Init = Init;
-          $ctrl_ad.NuevaFila = NuevaFila;    
-          $ctrl_ad.upDateProvincia = upDateProvincia;
-          $ctrl_ad.upDateEdificio = upDateEdificio;
-          $ctrl_ad.upDatePlanta = upDatePlanta;
-          $ctrl_ad.BuscarCliente = BuscarCliente;
-          $ctrl_ad.CompletarDatos = CompletarDatos;
+          $ctrl.Init = Init;
+          $ctrl.NuevaFila = NuevaFila;    
+          $ctrl.upDateProvincia = upDateProvincia;
+          $ctrl.upDateEdificio = upDateEdificio;
+          $ctrl.upDatePlanta = upDatePlanta;
+          $ctrl.BuscarCliente = BuscarCliente;
+          $ctrl.CompletarDatos = CompletarDatos;
 
-          $ctrl_ad.Init();
+          $ctrl.Init();
 
           // To configure table   
           //*****************************************************************************//    
@@ -80,9 +80,9 @@
 
           function Init () {
 
-              $ctrl_ad.tableParams = new NgTableParams(initialParams, initialSettings); 
+              $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
 
-              formLoginFactory.checkSession($ctrl_ad.objLogin).then( function(d) {
+              formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -92,43 +92,43 @@
                             
               });       
 
-              $ctrl_ad.defaultparams.type_accion="combos_agregar_datos";
-              defaultdataFactory.buscar_datos_combos($ctrl_ad.defaultparams).then(function(d){    
+              $ctrl.defaultparams.type_accion="combos_agregar_datos";
+              defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d){    
 
-              $ctrl_ad.datalocalidad2=d.localidad;
+              $ctrl.datalocalidad2=d.localidad;
 
-              $ctrl_ad.dataprovincia = {
+              $ctrl.dataprovincia = {
                   availableOptions: d.provincia,
                   selectedOption: {id: '1'} 
                 };
 
-              $ctrl_ad.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
-              $ctrl_ad.dataprovincia.selectedOption.id=-1; 
+              $ctrl.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.dataprovincia.selectedOption.id=-1; 
 
-              $ctrl_ad.datalocalidad = {
+              $ctrl.datalocalidad = {
                   availableOptions: d.localidad,
                   selectedOption: {id: '1'} 
                 };
 
-              $ctrl_ad.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-              $ctrl_ad.datalocalidad.selectedOption.id=-1;     
+              $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.datalocalidad.selectedOption.id=-1;     
 
-              $ctrl_ad.data_edificio = {
+              $ctrl.data_edificio = {
                 availableOptions: d.edificio,
                 selectedOption: {id: '1'} 
               };
 
-              $ctrl_ad.data_edificio.availableOptions.unshift({id:-1, nombre:'Seleccionar'});
-              $ctrl_ad.data_edificio.selectedOption.id=-1;     
+              $ctrl.data_edificio.availableOptions.unshift({id:-1, nombre:'Seleccionar'});
+              $ctrl.data_edificio.selectedOption.id=-1;     
 
 
-               $ctrl_ad.data_origen_dato = {
+               $ctrl.data_origen_dato = {
                   availableOptions: d.origen_dato,
                   selectedOption: {id: '1'} 
               };    
               
-              $ctrl_ad.data_origen_dato.availableOptions.unshift({id:-1, origen_dato:'Seleccionar'});
-              $ctrl_ad.data_origen_dato.selectedOption.id=-1;   
+              $ctrl.data_origen_dato.availableOptions.unshift({id:-1, origen_dato:'Seleccionar'});
+              $ctrl.data_origen_dato.selectedOption.id=-1;   
 
             }).catch(function (err) {
                 console.log(err);
@@ -142,17 +142,17 @@
 
             if(objprov.id!==-1) {
 
-                $ctrl_ad.combo_ciudad=false;
+                $ctrl.combo_ciudad=false;
 
-                $ctrl_ad.datalocalidad.availableOptions = $filter('filter')($ctrl_ad.datalocalidad2 ,{id_provincia:objprov.id});
-                $ctrl_ad.datalocalidad.selectedOption={id: $ctrl_ad.datalocalidad.availableOptions[0].id}; 
+                $ctrl.datalocalidad.availableOptions = $filter('filter')($ctrl.datalocalidad2 ,{id_provincia:objprov.id});
+                $ctrl.datalocalidad.selectedOption={id: $ctrl.datalocalidad.availableOptions[0].id}; 
 
-                $ctrl_ad.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-                $ctrl_ad.datalocalidad.selectedOption.id=-1;
+                $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+                $ctrl.datalocalidad.selectedOption.id=-1;
 
                 } else {
 
-                    $ctrl_ad.combo_ciudad=true;
+                    $ctrl.combo_ciudad=true;
               }                                                                         
           }
 
@@ -161,20 +161,20 @@
 
               //console.log(obj_edificio);
 
-              $ctrl_ad.defaultparams.type_accion = "relacion_edificio_planta_dpto";
+              $ctrl.defaultparams.type_accion = "relacion_edificio_planta_dpto";
 
              // Objecto edificio contiene la propiedad ID seleccionada en ese momento por el usuario.
-              $ctrl_ad.defaultparams.id_edificio = obj_edificio.id_edificio;
+              $ctrl.defaultparams.id_edificio = obj_edificio.id_edificio;
 
-              defaultdataFactory.relacion_edificio_planta_dpto($ctrl_ad.defaultparams).then(function(d) {                            
+              defaultdataFactory.relacion_edificio_planta_dpto($ctrl.defaultparams).then(function(d) {                            
                         
 
-              $ctrl_ad.data_planta = {
+              $ctrl.data_planta = {
                   availableOptions: d.plantas,
                   selectedOption: {id_planta: d.plantas[0].id_planta} 
               };
 
-              $ctrl_ad.data_dpto = {
+              $ctrl.data_dpto = {
                   availableOptions: d.plantas[0].dptos, 
                   selectedOption: {id_dpto: d.plantas[0].dptos[0].id_dpto}
               };        
@@ -186,7 +186,7 @@
 
         function upDatePlanta (obj_planta) {
 
-            $ctrl_ad.data_dpto = {
+            $ctrl.data_dpto = {
                   availableOptions: obj_planta.dptos, 
                   selectedOption: {id_dpto: obj_planta.dptos[0].id_dpto}
               };                                                                     
@@ -195,17 +195,17 @@
         //Show calendary
         //*****************************************************************************//    
 
-        $ctrl_ad.open1 = function() {
-          $ctrl_ad.popup1.opened = true;
+        $ctrl.open1 = function() {
+          $ctrl.popup1.opened = true;
         };
 
-        $ctrl_ad.setDate = function(year, month, day) {
-          $ctrl_ad.objAgregarDatos.fecha_cierre_operacion = new Date(year, month, day)
+        $ctrl.setDate = function(year, month, day) {
+          $ctrl.objAgregarDatos.fecha_cierre_operacion = new Date(year, month, day)
         };
 
-        $ctrl_ad.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
-        $ctrl_ad.format = $ctrl_ad.formats[1];
-        $ctrl_ad.altInputFormats = ['dd/MM/yyyy'];
+        $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
+        $ctrl.format = $ctrl.formats[1];
+        $ctrl.altInputFormats = ['dd/MM/yyyy'];
 
 
         // Searching data        
@@ -214,26 +214,26 @@
             
             //console.log(valorIngresado);   
 
-            $ctrl_ad.boton_submmit=true;
+            $ctrl.boton_submmit=true;
 
-            $ctrl_ad.objAgregarDatos.type_accion="buscar_cliente";              
-            $ctrl_ad.objAgregarDatos.id_provincia=$ctrl_ad.dataprovincia.selectedOption.id;
-            $ctrl_ad.objAgregarDatos.id_localidad=$ctrl_ad.datalocalidad.selectedOption.id;
+            $ctrl.objAgregarDatos.type_accion="buscar_cliente";              
+            $ctrl.objAgregarDatos.id_provincia=$ctrl.dataprovincia.selectedOption.id;
+            $ctrl.objAgregarDatos.id_localidad=$ctrl.datalocalidad.selectedOption.id;
 
-            $ctrl_ad.objAgregarDatos.criterio=valorIngresado;
+            $ctrl.objAgregarDatos.criterio=valorIngresado;
 
-           // console.log($ctrl_ad.objAgregarDatos);
+           // console.log($ctrl.objAgregarDatos);
               
-            clienteFactory.buscarCliente($ctrl_ad.objAgregarDatos).then(function(d) {
+            clienteFactory.buscarCliente($ctrl.objAgregarDatos).then(function(d) {
 
             //console.log('JSON: '+d);
           // console.log(d.Respuesta);
            
-            $ctrl_ad.tableParams.settings({dataset: d.Respuesta});   
+            $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
                 // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-            $ctrl_ad.boton_submmit=false;      
+            $ctrl.boton_submmit=false;      
 
             }).catch(function (err) {
                 console.log(err);
@@ -249,27 +249,27 @@
 
           //console.log(row);          
                 
-            $ctrl_ad.objAgregarDatos.id_cliente= row.id_cliente;
-            $ctrl_ad.objAgregarDatos.contacto= row.apellido +" ,"+ row.nombre;
-            $ctrl_ad.objAgregarDatos.tipo_cliente= row.tipo_cliente;
-            $ctrl_ad.objAgregarDatos.telefono1= row.telefono1;
-            $ctrl_ad.objAgregarDatos.telefono2= row.telefono2;
-            $ctrl_ad.objAgregarDatos.email= row.email;
-            $ctrl_ad.objAgregarDatos.provincia= row.provincia;
-            $ctrl_ad.objAgregarDatos.localidad= row.localidad;
-            $ctrl_ad.objAgregarDatos.actividad= row.actividad;
-            $ctrl_ad.objAgregarDatos.conoce= row.conoce;
+            $ctrl.objAgregarDatos.id_cliente= row.id_cliente;
+            $ctrl.objAgregarDatos.contacto= row.apellido +" ,"+ row.nombre;
+            $ctrl.objAgregarDatos.tipo_cliente= row.tipo_cliente;
+            $ctrl.objAgregarDatos.telefono1= row.telefono1;
+            $ctrl.objAgregarDatos.telefono2= row.telefono2;
+            $ctrl.objAgregarDatos.email= row.email;
+            $ctrl.objAgregarDatos.provincia= row.provincia;
+            $ctrl.objAgregarDatos.localidad= row.localidad;
+            $ctrl.objAgregarDatos.actividad= row.actividad;
+            $ctrl.objAgregarDatos.conoce= row.conoce;
 
-            $ctrl_ad.objAgregarDatos.type_accion="detalle_llamados";    
+            $ctrl.objAgregarDatos.type_accion="detalle_llamados";    
 
-            llamadoFactory.detalleLlamados($ctrl_ad.objAgregarDatos).then(function(d) {
+            llamadoFactory.detalleLlamados($ctrl.objAgregarDatos).then(function(d) {
 
              // console.log(d.Respuesta); 
 
-              $ctrl_ad.objAgregarDatos.num_llamados= d.Respuesta[0].contador;  
-              $ctrl_ad.objAgregarDatos.fecha_ult_llamado= d.Respuesta[0].fecha_ult_llamado;                   
-              $ctrl_ad.objAgregarDatos.nombre_origen_dato= d.Respuesta[0].nombre_origen_dato;
-              $ctrl_ad.objAgregarDatos.fecha_origen_dato= d.Respuesta[0].fecha_origen_dato;
+              $ctrl.objAgregarDatos.num_llamados= d.Respuesta[0].contador;  
+              $ctrl.objAgregarDatos.fecha_ult_llamado= d.Respuesta[0].fecha_ult_llamado;                   
+              $ctrl.objAgregarDatos.nombre_origen_dato= d.Respuesta[0].nombre_origen_dato;
+              $ctrl.objAgregarDatos.fecha_origen_dato= d.Respuesta[0].fecha_origen_dato;
 
             }).catch(function (err) {
                 console.log(err);
@@ -283,27 +283,27 @@
 
           function NuevaFila() {
               
-            //$ctrl_ad.allow_disable=true;
+            //$ctrl.allow_disable=true;
 
-            var date=$filter('date')($ctrl_ad.objAgregarDatos.fecha_cierre_operacion, 'yyyy-MM-dd');
+            var date=$filter('date')($ctrl.objAgregarDatos.fecha_cierre_operacion, 'yyyy-MM-dd');
             
-            $ctrl_ad.objAgregarDatos.fecha_cierre_operacion=date;
+            $ctrl.objAgregarDatos.fecha_cierre_operacion=date;
            // console.log(date);   
 
-            $ctrl_ad.objAgregarDatos.type_accion="nueva_fila";
+            $ctrl.objAgregarDatos.type_accion="nueva_fila";
          
-            AgregarDatosFactory.nuevaFila($ctrl_ad.objAgregarDatos).then(function(d) {  
+            AgregarDatosFactory.nuevaFila($ctrl.objAgregarDatos).then(function(d) {  
                                
-                    $ctrl_ad.Mensaje=d.Mensaje;
-                    //$ctrl_ad.allow_disable=false;
+                    $ctrl.Mensaje=d.Mensaje;
+                    //$ctrl.allow_disable=false;
 
-                    console.log($ctrl_ad.objAgregarDatos);
+                    console.log($ctrl.objAgregarDatos);
 
                     console.log(d.Mensaje);
         
              }).catch(function (err) {
                   console.log(err);
-                  //$ctrl_ad.allow_disable=false;
+                  //$ctrl.allow_disable=false;
              });                    
         };
 

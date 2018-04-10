@@ -13,25 +13,25 @@
     function Planilla ($scope, $sce, $state,  $stateParams,  $window,
      $uibModal, $document, planillaFactory, NgTableParams, formLoginFactory) {
                                    
-        var $ctrl_p = this;
+        var $ctrl = this;
 
-        $ctrl_p.objDataPlanilla={};
+        $ctrl.objDataPlanilla={};
 
-        $ctrl_p.objLogin ={};
+        $ctrl.objLogin ={};
 
-        Object.defineProperty ( $ctrl_p.objLogin, "type_accion", {
+        Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                 value: "checkSession",
                 writable: false,
                 enumerable: true,
                 configurable: false
         }); 
     
-        $ctrl_p.Init = Init;
-        $ctrl_p.NuevaPlanilla=NuevaPlanilla;
+        $ctrl.Init = Init;
+        $ctrl.NuevaPlanilla=NuevaPlanilla;
 
-        $ctrl_p.cancel = cancel;
-        $ctrl_p.del = del;
-        $ctrl_p.save = save;
+        $ctrl.cancel = cancel;
+        $ctrl.del = del;
+        $ctrl.save = save;
 
         // To configure table   
         //*****************************************************************************//    
@@ -51,9 +51,9 @@
        
         function Init () { 
 
-          $ctrl_p.tableParams = new NgTableParams(initialParams, initialSettings);   
+          $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);   
 
-           formLoginFactory.checkSession($ctrl_p.objLogin).then( function(d) {
+           formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -67,18 +67,18 @@
 
         function NuevaPlanilla() {
             
-          //$ctrl_p.allow_disable=true;
+          //$ctrl.allow_disable=true;
 
-          $ctrl_p.objDataPlanilla.type_accion="nueva_planilla";
+          $ctrl.objDataPlanilla.type_accion="nueva_planilla";
        
-          planillaFactory.nuevaPlanilla($ctrl_p.objDataPlanilla).then(function(d) {  
+          planillaFactory.nuevaPlanilla($ctrl.objDataPlanilla).then(function(d) {  
                              
-                  $ctrl_p.Mensaje=d.MessageComment;
-                  //$ctrl_p.allow_disable=false;
+                  $ctrl.Mensaje=d.MessageComment;
+                  //$ctrl.allow_disable=false;
       
            }).catch(function (err) {
                 console.log(err);
-                //$ctrl_p.allow_disable=false;
+                //$ctrl.allow_disable=false;
            });                    
         };
 

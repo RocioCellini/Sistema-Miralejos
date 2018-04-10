@@ -10,35 +10,35 @@
           function BuscarCliente($scope, $state, $stateParams , clienteFactory,  
              NgTableParams, $window, defaultdataFactory, $filter, formLoginFactory) {
                           
-                var $ctrl_bc=this;
+                var $ctrl=this;
 
-                $ctrl_bc.objSearch={
+                $ctrl.objSearch={
                        criterio:""
                 };
 
-                $ctrl_bc.objLogin ={};
+                $ctrl.objLogin ={};
 
-                Object.defineProperty ( $ctrl_bc.objLogin, "type_accion", {
+                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                     value: "checkSession",
                     writable: false,
                     enumerable: true,
                     configurable: false
                 }); 
 
-                $ctrl_bc.datalocalidad2={};
+                $ctrl.datalocalidad2={};
        
-                $ctrl_bc.defaultparams={};
+                $ctrl.defaultparams={};
 
-                $ctrl_bc.allow_disable=true;
+                $ctrl.allow_disable=true;
 
-                $ctrl_bc.combo_ciudad=true;
-                $ctrl_bc.boton_submmit=false;          
+                $ctrl.combo_ciudad=true;
+                $ctrl.boton_submmit=false;          
 
-                $ctrl_bc.Init = Init;
-                $ctrl_bc.upDate = upDate;
-                $ctrl_bc.BuscarCliente = BuscarCliente;
+                $ctrl.Init = Init;
+                $ctrl.upDate = upDate;
+                $ctrl.BuscarCliente = BuscarCliente;
 
-                $ctrl_bc.Init();
+                $ctrl.Init();
 
 
             // To configure table   
@@ -58,9 +58,9 @@
          //**********************************************************************************************// 
           function Init () {
 
-            $ctrl_bc.tableParams = new NgTableParams(initialParams, initialSettings); 
+            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
 
-            formLoginFactory.checkSession($ctrl_bc.objLogin).then( function(d) {
+            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                        angular.isDefined(d.setUrl)?goUrl(d):null;
                                       
@@ -69,31 +69,31 @@
                             }
               });    
 
-            $ctrl_bc.defaultparams.type_accion="search_data_combos";
-            defaultdataFactory.buscar_datos_combos($ctrl_bc.defaultparams).then(function(d) {    
+            $ctrl.defaultparams.type_accion="search_data_combos";
+            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d) {    
 
 
     
             //console.log(d);
 
-            $ctrl_bc.datalocalidad2=d.localidad;
+            $ctrl.datalocalidad2=d.localidad;
             
-            $ctrl_bc.dataprovincia = {
+            $ctrl.dataprovincia = {
                 availableOptions: d.provincia,
                 selectedOption: {id: '1'} //This sets the default value of the select in the ui
 
             };
            
-            $ctrl_bc.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
-            $ctrl_bc.dataprovincia.selectedOption.id=-1; 
+            $ctrl.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
+            $ctrl.dataprovincia.selectedOption.id=-1; 
 
-            $ctrl_bc.datalocalidad = {
+            $ctrl.datalocalidad = {
                 availableOptions: d.localidad,
                 selectedOption: {id: '1'} 
             };     
 
-            $ctrl_bc.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-            $ctrl_bc.datalocalidad.selectedOption.id=-1; 
+            $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+            $ctrl.datalocalidad.selectedOption.id=-1; 
                 
 
            }).catch(function (err) {
@@ -108,17 +108,17 @@
 
             if(objprov.id!==-1) {
 
-                $ctrl_bc.combo_ciudad=false;
+                $ctrl.combo_ciudad=false;
 
-                $ctrl_bc.datalocalidad.availableOptions = $filter('filter')($ctrl_bc.datalocalidad2 ,{id_provincia:objprov.id});
-                $ctrl_bc.datalocalidad.selectedOption={id: $ctrl_bc.datalocalidad.availableOptions[0].id}; 
+                $ctrl.datalocalidad.availableOptions = $filter('filter')($ctrl.datalocalidad2 ,{id_provincia:objprov.id});
+                $ctrl.datalocalidad.selectedOption={id: $ctrl.datalocalidad.availableOptions[0].id}; 
 
-                $ctrl_bc.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-                $ctrl_bc.datalocalidad.selectedOption.id=-1;
+                $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+                $ctrl.datalocalidad.selectedOption.id=-1;
 
                 } else {
 
-                    $ctrl_bc.combo_ciudad=true;
+                    $ctrl.combo_ciudad=true;
               }                                                                         
           }
 
@@ -129,26 +129,26 @@
               
               //console.log(valorIngresado);   
 
-              $ctrl_bc.boton_submmit=true;
+              $ctrl.boton_submmit=true;
 
-              $ctrl_bc.objSearch.type_accion="buscar_cliente";              
-              $ctrl_bc.objSearch.id_provincia=$ctrl_bc.dataprovincia.selectedOption.id;
-              $ctrl_bc.objSearch.id_localidad=$ctrl_bc.datalocalidad.selectedOption.id;
+              $ctrl.objSearch.type_accion="buscar_cliente";              
+              $ctrl.objSearch.id_provincia=$ctrl.dataprovincia.selectedOption.id;
+              $ctrl.objSearch.id_localidad=$ctrl.datalocalidad.selectedOption.id;
 
-              $ctrl_bc.objSearch.criterio=valorIngresado;
+              $ctrl.objSearch.criterio=valorIngresado;
 
-              console.log($ctrl_bc.objSearch);
+              console.log($ctrl.objSearch);
                 
-              clienteFactory.buscarCliente($ctrl_bc.objSearch).then(function(d) {
+              clienteFactory.buscarCliente($ctrl.objSearch).then(function(d) {
 
               //console.log('JSON: '+d);
               console.log(d.Respuesta);
              
-              $ctrl_bc.tableParams.settings({dataset: d.Respuesta});  //dataset es cada row  que encuentra 
+              $ctrl.tableParams.settings({dataset: d.Respuesta});  //dataset es cada row  que encuentra 
 
                   // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
-              $ctrl_bc.boton_submmit=false;      
+              $ctrl.boton_submmit=false;      
 
               }).catch(function (err) {
                   console.log(err);
