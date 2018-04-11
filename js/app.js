@@ -74,6 +74,12 @@
         controller: 'AgregarDatos as $ctrl'
       })
 
+      .state('GestionVentas.importar',{
+        url:'/ImportarPlanilla',
+        templateUrl:'templates/planilla/importar_planilla.html',
+        controller: 'Importar as $ctrl'
+      })
+
        .state('GestionVentas.buscarCliente',{
         url:'/BuscarCliente',
         templateUrl:'templates/cliente/buscar_cliente.html',

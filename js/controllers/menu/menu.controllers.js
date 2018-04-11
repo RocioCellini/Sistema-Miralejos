@@ -30,8 +30,11 @@
               name: "Visualizar",
               link: "GestionVentas.planilla"
             },{
-              name: "Agregar Datos",
+              name: "Agregar Fila",
               link: "GestionVentas.agregarDatos"
+            },{
+              name: "Importar Planilla",
+              link: "GestionVentas.importar"
             }]
           }, {
             name: "Contactos",
