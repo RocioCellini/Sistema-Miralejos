@@ -123,15 +123,39 @@
                 };
 
               $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-              $ctrl.datalocalidad.selectedOption.id=-1;     
+              $ctrl.datalocalidad.selectedOption.id=-1;   
+
+               $ctrl.data_vendedor = {
+                  availableOptions: d.vendedor,
+                  selectedOption: {id: '1'} 
+                };
+
+              $ctrl.data_vendedor.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.data_vendedor.selectedOption.id=-1;   
 
               $ctrl.data_edificio = {
                 availableOptions: d.edificio,
-                selectedOption: {id: '1'} 
+                selectedOption: {id_edificio: '1'} 
               };
 
-              $ctrl.data_edificio.availableOptions.unshift({id:-1, nombre:'Seleccionar'});
-              $ctrl.data_edificio.selectedOption.id=-1;     
+              $ctrl.data_edificio.availableOptions.unshift({id_edificio:-1, nombre:'Seleccionar'});
+              $ctrl.data_edificio.selectedOption.id_edificio=-1;  
+
+              $ctrl.data_planta = {
+                availableOptions: d.planta,
+                selectedOption: {id_planta: '1'} 
+              };
+
+              $ctrl.data_planta.availableOptions.unshift({id_planta:-1, nombre:'Seleccionar'});
+              $ctrl.data_planta.selectedOption.id_planta=-1;  
+
+              $ctrl.data_dpto = {
+                availableOptions: d.dpto,
+                selectedOption: {id_dpto: '1'} 
+              };
+
+              $ctrl.data_dpto.availableOptions.unshift({id_dpto:-1, nombre:'Seleccionar'});
+              $ctrl.data_dpto.selectedOption.id_dpto=-1;  
 
 
                $ctrl.data_origen_dato = {
@@ -306,7 +330,13 @@
             $ctrl.objAgregarDatos.id_provincia=$ctrl.dataprovincia.selectedOption.id;
             $ctrl.objAgregarDatos.id_localidad=$ctrl.datalocalidad.selectedOption.id;
             $ctrl.objAgregarDatos.grado_interes=$ctrl.grado_interes.selectedOption.id;
-            $ctrl.objAgregarDatos.tipo_cliente=$ctrl.tipo_cliente.selectedOption.id;
+            $ctrl.objAgregarDatos.tipo_cliente=$ctrl.tipo_cliente.selectedOption.tipo;
+
+            $ctrl.objAgregarDatos.id_vendedor=$ctrl.data_vendedor.selectedOption.id;
+
+            $ctrl.objAgregarDatos.id_edificio=$ctrl.data_edificio.selectedOption.id_edificio;
+            $ctrl.objAgregarDatos.id_planta=$ctrl.data_planta.selectedOption.id_planta;
+            $ctrl.objAgregarDatos.id_dpto=$ctrl.data_dpto.selectedOption.id_dpto;
          
             AgregarDatosFactory.nuevaFila($ctrl.objAgregarDatos).then(function(d) {  
                                

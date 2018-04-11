@@ -23,11 +23,12 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
   $grado_interes=$data->{'grado_interes'};
   $telefono1=$data->{'telefono1'}; 
   $telefono2=$data->{'telefono2'}; 
-  $origen_dato=$data->{'origen_dato'};
+  $origen_dato=$data->{'nombre_origen_dato'};
   $conoce=$data->{'conoce'};
   $fecha_origen_dato=$data->{'fecha_origen_dato'};
   $fecha_ult_llamado=$data->{'fecha_ult_llamado'};
-  $cant_de_llamados=$data->{'cant_de_llamados'};
+  $cant_de_llamados=$data->{'num_llamados'};
+  $id_vendedor=$data->{'id_vendedor'};
   $fecha_cierre_operacion=$data->{'fecha_cierre_operacion'};
   $id_edificio=$data->{'id_edificio'};
   $id_planta=$data->{'id_planta'};
@@ -54,33 +55,10 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
   $email="maria@miralejos.net";
 */
 
-  //Buscar el cliente para traer los datos de los id
-
-   $result = 'SELECT * FROM cliente WHERE id_cliente=?';
-
-      $stmt = $conn->prepare($result);
-
-      if($stmt===false) {
-      trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
-      } 
-
-      $stmt->bind_param('i',$id_cliente); 
-
-      $stmt->execute(); 
-
-      $rs=$stmt->get_result(); 
-
-      if($row=$rs->fetch_assoc()){
-
-          $id_localidad=$row["id_localidad"];
-          $id_provincia=$row["id_provincia"];
-          $id_actividad=$row["id_actividad"];
-       } 
-  
   
   //Insertamos los datos en la tabla de la BD
 
-  $sql_insert='INSERT INTO tabla_intermedia_planilla (id_planilla, id_cliente, tipo_cliente, grado_interes, telefono1, telefono2, id_localidad, id_provincia, origen_dato, id_actividad, conoce, fecha_origen_dato, fecha_ult_llamado, cant_de_llamados, fecha_cierre_operacion, id_edificio, id_planta, id_dpto, email) VALUES  (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
+  $sql_insert='INSERT INTO tabla_intermedia_planilla (id_planilla, id_cliente, tipo_cliente, id_vendedor, fecha_cierre_operacion, id_edificio, id_planta, id_dpto) VALUES  (?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -89,7 +67,7 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('iisiiiiisiissisiiis',$idfirst, $id_cliente, $tipo_cliente, $grado_interes, $telefono1, $telefono2, $id_localidad, $id_provincia, $origen_dato, $id_actividad, $conoce, $fecha_origen_dato, $fecha_ult_llamado, $cant_de_llamados, $fecha_cierre_operacion, $id_edificio, $id_planta, $id_dpto, $email);
+  $stmt_insert->bind_param('iisisiii',$idfirst, $id_cliente, $tipo_cliente, $id_vendedor, $fecha_cierre_operacion, $id_edificio, $id_planta, $id_dpto);
 
   $stmt_insert->execute();
 
