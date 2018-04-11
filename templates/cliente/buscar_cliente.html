@@ -35,8 +35,7 @@
             <div class="col-sm-2" ></div>
         </div>
 
-			<button  ng-click='$ctrl.BuscarCliente($ctrl.objSearch.criterio)'  ng-disabled="$ctrl.boton_submmit" 
-      class="btn btn-default">Buscar</button>
+			<button  ng-click='$ctrl.BuscarCliente($ctrl.objSearch.criterio)'  ng-disabled="$ctrl.boton_submmit" class="btn btn-default">Buscar</button>
 
 			</fieldset>			
 		</form> 
@@ -46,8 +45,8 @@
 
 <div class="mensajesistema">{{$ctrl.Mensaje}}</div><br><br>
 
-<div class="row" >
-  <div class="col-md-3"  ></div>
+<div class="row">
+  <div class="col-md-3"></div>
     <div class="col-md-6"  align="center">
 
       <table ng-table="$ctrl.tableParams" class="table table-condensed table-bordered table-striped">
@@ -55,7 +54,6 @@
 
             <td data-title="'Nombre'">{{row.nombre}}</td>
             <td data-title="'Apellido'">{{row.apellido}}</td>
-            <td data-title="'Apellido'">{{row.tipo_cliente}}</td>
             <td data-title="'Dni'">{{row.dni}}</td>
             <td data-title="'Telefono 1'">{{row.telefono1}}</td>
             <td data-title="'Telefono 2'">{{row.telefono2}}</td>
@@ -65,14 +63,13 @@
             <td data-title="'Actividad'">{{row.actividad}}</td>
             <td data-title="'Conoce'">{{row.conoce}}</td>
 
-            <td data-title="'Editar'"><a ng-show="row.editar" class="button-table"  ng-click='$ctrl.GoDataEdit(row)'><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Editar</a>
-             <a ng-show="!row.editar" class="button-table"  ng-click='$ctrl.GoDataEdit(row)'>
-             <span class="glyphicon glyphicon-search" aria-hidden="true">Ver</a> 
-            </td>
+            <td data-title="'Editar'"><a class="button-table"  ng-click='$ctrl.GoDataEdit(row)'><span class="glyphicon glyphicon-pencil"></span></a></td>
+
+            <td data-title="'Eliminar'"><a class="button-table"  ng-click='$ctrl.GoDataDelete(row)'><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
             
         </tr>
       </table>
 
     </div>
-  <div class="col-md-3" > </div>
+  <div class="col-md-3"> </div>
 </div>
