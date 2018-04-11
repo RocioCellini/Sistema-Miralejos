@@ -25,6 +25,7 @@
           <col width="5%" />
           <col width="5%" />
           <col width="5%" />
+          <col width="5%" />
         </colgroup>
 
          <tr ng-repeat="row in $data" ng-form="rowForm" demo-tracked-table-row="row">
@@ -104,6 +105,13 @@
 
            <td title="'Nº Llamados'" filter="{cant_llamados: 'number'}" sortable="'cant_llamados'" ng-switch="row.isEditing" ng-class="cant_llamados.$dirty ? 'bg-warning' : ''" ng-form="cant_llamados" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.cant_de_llamados}}</span>
+            <div class="controls" ng-class="cant_llamados.$invalid && cant_llamados.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="number" name="cant_llamados" ng-model="$ctrl.objDataPlanilla.cant_llamados" class="editable-input form-control input-sm" required/>
+            </div>
+          </td>
+
+          <td title="'Vendedor'" filter="{cant_llamados: 'number'}" sortable="'cant_llamados'" ng-switch="row.isEditing" ng-class="cant_llamados.$dirty ? 'bg-warning' : ''" ng-form="cant_llamados" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.vendedor}}</span>
             <div class="controls" ng-class="cant_llamados.$invalid && cant_llamados.$dirty ? 'has-error' : ''" ng-switch-when="true">
               <input type="number" name="cant_llamados" ng-model="$ctrl.objDataPlanilla.cant_llamados" class="editable-input form-control input-sm" required/>
             </div>
