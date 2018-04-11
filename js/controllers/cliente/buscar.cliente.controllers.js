@@ -16,6 +16,8 @@
                        criterio:""
                 };
 
+                $ctrl.objDataCliente={};
+
                 $ctrl.objLogin ={};
 
                 Object.defineProperty ( $ctrl.objLogin, "type_accion", {
@@ -37,6 +39,8 @@
                 $ctrl.Init = Init;
                 $ctrl.upDate = upDate;
                 $ctrl.BuscarCliente = BuscarCliente;
+
+                $ctrl.GoDataEdit=GoDataEdit; 
 
                 $ctrl.Init();
 
@@ -155,6 +159,48 @@
               });
                          
           };
+
+        function GoDataEdit(row){
+
+          $ctrl.objDataCliente.type_accion="editar_cliente";
+
+          $state.go("GestionVentas.nuevoCliente"); 
+
+          $ctrl.objDataCliente.id_cliente= row.id_cliente;
+          $ctrl.objDataCliente.nombre= row.nombre;
+          $ctrl.objDataCliente.apellido= row.apellido;
+          $ctrl.objDataCliente.dni= row.dni;
+          $ctrl.objDataCliente.telefono1= row.telefono1;
+          $ctrl.objDataCliente.telefono2= row.telefono2;
+          $ctrl.objDataCliente.email= row.email;
+          $ctrl.objDataCliente.id_provincia= row.provincia;
+          $ctrl.objDataCliente.id_localidad= row.localidad;
+          $ctrl.objDataCliente.id_actividad= row.actividad;
+          $ctrl.objDataCliente.conoce= row.conoce;
+
+          console.log(objDataCliente); //aquí se usa objSearch, pero el template usa objDataCliente
+          console.log(row); //lo muestra bien
+
+
+          clienteFactory.editarCliente($ctrl.objDataCliente).then(function(d) {  
+
+                  $ctrl.Mensaje=d.Mensaje;
+
+                  console.log('JSON: '+d);
+
+                  // $state.go(d.setUrl);     
+
+                 /* angular.isDefined(d.setUrl)?goUrl(d):null;                       
+
+                      function goUrl (d) {                                
+                          $state.go(d.setUrl);                               
+                      }*/
+      
+           }).catch(function (err) {
+                console.log(err);
+           });   
+
+      }//Fin GoDataEdit
 
     
       }// DataSendController

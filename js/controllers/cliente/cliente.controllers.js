@@ -37,7 +37,7 @@
          
         $ctrl.Init = Init;
         $ctrl.upDate = upDate;
-        $ctrl.NuevoCliente=NuevoCliente;     
+        $ctrl.NuevoCliente=NuevoCliente;    
 
         //for combos
         $ctrl.comboDisable=false;
@@ -119,17 +119,17 @@
           $ctrl.objDataCliente.id_actividad=$ctrl.actividad.selectedOption.id;
           $ctrl.objDataCliente.conoce=$ctrl.data.selectedOption.id;
 
-          clienteFactory.nuevoCliente($ctrl.objDataCliente).then(function(d) {                   
-                  $ctrl.Mensaje=d.Mensaje;
-                  //$ctrl.allow_disable=false;
+          clienteFactory.nuevoCliente($ctrl.objDataCliente).then(function(d) {   
 
-                  console.log('JSON: '+d);
+                  $ctrl.Mensaje=d.Mensaje;
+
+                  //console.log('JSON: '+d);
       
            }).catch(function (err) {
                 console.log(err);
-                //$ctrl.allow_disable=false;
-           });               
-      }   //NuevoCliente
+           });   
+
+      }//Fin NuevoCliente
 
     Init();
 
