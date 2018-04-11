@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-03-2018 a las 13:18:41
+-- Tiempo de generación: 11-04-2018 a las 00:07:48
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -40,7 +40,26 @@ INSERT INTO `actividad` (`id_actividad`, `nombre`) VALUES
 (2, 'abogado/a'),
 (3, 'agrimensor'),
 (4, 'médico'),
-(5, '45');
+(5, 'ingenieria');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `administracion`
+--
+
+CREATE TABLE `administracion` (
+  `id_admin` int(11) NOT NULL,
+  `user` text COLLATE latin1_spanish_ci NOT NULL,
+  `password` text COLLATE latin1_spanish_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `administracion`
+--
+
+INSERT INTO `administracion` (`id_admin`, `user`, `password`) VALUES
+(1, 'rocio-miralejos', '$2y$10$SPoB5srz8G7C1QKzp1LSVe.yf6ILBueVUVVzXBq4USFGFWiy0nrJm');
 
 -- --------------------------------------------------------
 
@@ -52,7 +71,6 @@ CREATE TABLE `cliente` (
   `id_cliente` int(11) NOT NULL,
   `nombre` text COLLATE latin1_spanish_ci NOT NULL,
   `apellido` text COLLATE latin1_spanish_ci NOT NULL,
-  `tipo_cliente` int(11) NOT NULL,
   `dni` int(11) NOT NULL,
   `telefono1` int(11) NOT NULL,
   `telefono2` int(11) NOT NULL,
@@ -67,22 +85,23 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `tipo_cliente`, `dni`, `telefono1`, `telefono2`, `email`, `id_provincia`, `id_localidad`, `id_actividad`, `conoce`) VALUES
-(1, 'Maria', 'Cellini', 0, 555, 54545, 344444, 'maria@miralejos.net', 3, 303, 1, 0),
-(3, 'Rocio', 'Cellini', 0, 33444444, 3541222, 332234, 'rcellini@miralejos.net', 3, 303, 1, 0),
-(4, 'carlos', 'cellini', 0, 333, 333, 4445, 'carlin@hotmail.com', 1, 5, 2, 0),
-(5, 'flor', 'rrr', 0, 77, 77, 6665, 'yuy@hh.com', 1, 5, 4, 0),
-(15, 'Rocío', 'cabrera', 0, 33444455, 44444, 33565, 'cabrera@gmail.com', 3, 303, 3, 1),
-(22, 'roberto', 'lopez', 1, 555464, 56, 636, 'rob@dfsff', 1, 1, 1, 1),
-(23, 'Carlita', 'gonz', 0, 2345678, 6363, 63563, 'gdhrd@dfa', 7, 492, 3, 1),
-(24, 'Gonzalo', 'Ferreyra', 0, 4455, 3344444, 53535, 'fsgs@dfsg.com', 1, 1, 1, 0),
-(25, 'Franco', 'Mansilla', 1, 44554455, 44353, 554335, 'gear@dgsrg', 1, 1, 1, 1),
-(26, 'mary', 'aefa', 1, 44556677, 5636, 3573, 'hdghs@dfag', 5, 369, 3, 1),
-(27, 'Marta', 'dafa', 1, 5254434, 626262, 62262, 'dgrdj', 1, 1, 1, 1),
-(28, 'Martin', 'fages', 1, 4455667, 6363, 6636, 'sgsgr@dfa', 1, 1, 1, 1),
-(29, 'gonza', 'fagsg', 1, 4455667, 5626, 6265, 'srgsr', 1, 1, 1, 0),
-(30, 'Silvi', 'dsghsuig', 1, 4455667, 4526, 626, 'tryerer@dsvd.com', 1, 1, 1, 0),
-(31, 'Maria Ester', 'Gutuerrez', 0, 2233445, 54552, 5225, 'maria@miralejos.net', 1, 1, 1, 0);
+INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `dni`, `telefono1`, `telefono2`, `email`, `id_provincia`, `id_localidad`, `id_actividad`, `conoce`) VALUES
+(1, 'Maria', 'Cellini', 555, 54545, 344444, 'maria@miralejos.net', 3, 303, 1, 0),
+(3, 'Rocio', 'Cellini', 33444444, 3541222, 332234, 'rcellini@miralejos.net', 3, 303, 1, 0),
+(4, 'carlos', 'cellini', 333, 333, 4445, 'carlin@hotmail.com', 1, 5, 2, 0),
+(5, 'flor', 'rrr', 77, 77, 6665, 'yuy@hh.com', 1, 5, 4, 0),
+(15, 'Rocío', 'cabrera', 33444455, 44444, 33565, 'cabrera@gmail.com', 3, 303, 3, 1),
+(22, 'roberto', 'lopez', 555464, 56, 636, 'rob@dfsff', 1, 1, 1, 1),
+(23, 'Carlita', 'gonz', 2345678, 6363, 63563, 'gdhrd@dfa', 7, 492, 3, 1),
+(24, 'Gonzalo', 'Ferreyra', 4455, 3344444, 53535, 'fsgs@dfsg.com', 1, 1, 1, 0),
+(25, 'Franco', 'Mansilla', 44554455, 44353, 554335, 'gear@dgsrg', 1, 1, 1, 1),
+(26, 'mary', 'aefa', 44556677, 5636, 3573, 'hdghs@dfag', 5, 369, 3, 1),
+(27, 'Marta', 'dafa', 5254434, 626262, 62262, 'dgrdj', 1, 1, 1, 1),
+(28, 'Martin', 'fages', 4455667, 6363, 6636, 'sgsgr@dfa', 1, 1, 1, 1),
+(29, 'gonza', 'fagsg', 4455667, 5626, 6265, 'srgsr', 1, 1, 1, 0),
+(30, 'Silvi', 'dsghsuig', 4455667, 4526, 626, 'tryerer@dsvd.com', 1, 1, 1, 0),
+(31, 'Maria Ester', 'Gutuerrez', 2233445, 54552, 5225, 'maria@miralejos.net', 1, 1, 1, 0),
+(32, 'Pablo', 'Gutierrez', 4353535, 4552, 52525, 'pablo@empresa.com', 6, 446, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -3482,30 +3501,15 @@ CREATE TABLE `tabla_intermedia_planilla` (
   `id_planilla` int(11) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `tipo_cliente` text COLLATE latin1_spanish_ci NOT NULL,
-  `grado_interes` int(11) NOT NULL,
-  `telefono1` int(11) NOT NULL,
-  `telefono2` int(11) NOT NULL,
-  `id_localidad` int(11) NOT NULL,
-  `id_provincia` int(11) NOT NULL,
-  `origen_dato` text COLLATE latin1_spanish_ci NOT NULL,
-  `id_actividad` int(11) NOT NULL,
-  `conoce` int(11) NOT NULL,
-  `fecha_origen_dato` date NOT NULL,
-  `fecha_ult_llamado` date NOT NULL,
-  `cant_de_llamados` int(11) NOT NULL,
-  `fecha_cierre_operacion` date NOT NULL,
-  `id_edificio` int(11) NOT NULL,
-  `id_planta` int(11) NOT NULL,
-  `id_dpto` int(11) NOT NULL,
-  `email` text COLLATE latin1_spanish_ci NOT NULL
+  `fecha_cierre_operacion` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `tabla_intermedia_planilla`
 --
 
-INSERT INTO `tabla_intermedia_planilla` (`id_planilla`, `id_cliente`, `tipo_cliente`, `grado_interes`, `telefono1`, `telefono2`, `id_localidad`, `id_provincia`, `origen_dato`, `id_actividad`, `conoce`, `fecha_origen_dato`, `fecha_ult_llamado`, `cant_de_llamados`, `fecha_cierre_operacion`, `id_edificio`, `id_planta`, `id_dpto`, `email`) VALUES
-(1, 15, '0', 2, 54552, 5225, 303, 3, 'Letrero', 3, 0, '2018-03-06', '2018-02-07', 2, '2018-03-12', 2, 4, 3, 'maria@miralejos.net');
+INSERT INTO `tabla_intermedia_planilla` (`id_planilla`, `id_cliente`, `tipo_cliente`, `fecha_cierre_operacion`) VALUES
+(1, 15, '0', '2018-03-12');
 
 -- --------------------------------------------------------
 
@@ -3540,6 +3544,12 @@ INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `email`) VALUES
 --
 ALTER TABLE `actividad`
   ADD PRIMARY KEY (`id_actividad`);
+
+--
+-- Indices de la tabla `administracion`
+--
+ALTER TABLE `administracion`
+  ADD PRIMARY KEY (`id_admin`);
 
 --
 -- Indices de la tabla `cliente`
@@ -3623,10 +3633,15 @@ ALTER TABLE `vendedor`
 ALTER TABLE `actividad`
   MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT de la tabla `administracion`
+--
+ALTER TABLE `administracion`
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
