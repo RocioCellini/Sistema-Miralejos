@@ -81,7 +81,7 @@
                 edificioFactory.buscarEdificio($ctrl.objSearch).then(function(d) {
 
                 //console.log('JSON: '+d);
-                console.log(d.Respuesta); 
+                //console.log(d.Respuesta); 
                
                 $ctrl.tableParams.settings({dataset: d.Respuesta});   
 

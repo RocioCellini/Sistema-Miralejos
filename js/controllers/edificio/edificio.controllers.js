@@ -71,24 +71,5 @@
 
   }// DataSendController
 
-  function BuscarEdificio ($scope, $sce, $state,  $stateParams,  $window,
-     $uibModal, $document, edificioFactory, $filter) {
-
-        $ctrl_be=this;
-        $ctrl_be.objDataEdificio={};        
-        $ctrl_be.Buscar=Buscar;
-
-        function Buscar() {
-
-          $ctrl_be.objDataEdificio.type_accion="buscar_edificio";
-
-          edificioFactory.buscarEdificio($ctrl_be.objDataEdificio).then(function(d) {                   
-                  $ctrl_be.Mensaje=d.Mensaje;     
-      
-           }).catch(function (err) {
-                console.log(err);          
-           });                
-      };
-    }
 
 })(window.angular);
