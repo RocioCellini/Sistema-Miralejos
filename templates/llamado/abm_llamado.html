@@ -164,7 +164,7 @@
       <div class="form-group">
           <label  class="col-sm-4 control-label">Grado de Interés:</label>
           <div class="col-sm-4">
-            <select class="form-control campoform" name="grado_interes" id="mySelect" ng-options="option.name for option in $ctrl.grado_interes.availableOptions track by option.id" ng-model="$ctrl.grado_interes.selectedOption"  ng-change="upDate()">        
+            <select class="form-control campoform" name="grado_interes" id="mySelect" ng-options="option.name for option in $ctrl.grado_interes.availableOptions track by option.id" ng-model="$ctrl.grado_interes.selectedOption">        
             </select>
           </div>
           <div class="col-sm-4"></div>
@@ -174,8 +174,8 @@
           <label  class="col-sm-4 control-label">Origen del Dato:</label>
           <div class="col-sm-4">
             <select class="form-control campoform" name="origen_dato" id="mySelect"
-            ng-options="option.origen_dato for option in $ctrl.data_origen_dato.availableOptions track by option.id"
-            ng-model="$ctrl.data_origen_dato.selectedOption"  ng-change="upDate()">          
+            ng-options="option.origen_dato for option in $ctrl.data_origen_dato.availableOptions track by option.id_origen_dato"
+            ng-model="$ctrl.data_origen_dato.selectedOption">          
             </select>
           </div>
           <div class="col-sm-4"></div>

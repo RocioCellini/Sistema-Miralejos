@@ -45,10 +45,6 @@
 
      $ctrl.CurrentDate = new Date();
 
-   /*  $ctrl.objDataLlamado = {
-       time: new Date(2018, 0, 1, 8, 0, 0)
-     };*/
-
      $ctrl.grado_interes = {
           availableOptions: [
             {id: '-1', name: 'Seleccionar'},
@@ -67,8 +63,6 @@
         $ctrl.NuevoLlamado = NuevoLlamado;
         $ctrl.BuscarCliente = BuscarCliente;
         $ctrl.CompletarDatos = CompletarDatos;
-        
-        $ctrl.Init();
 
 
         // To configure table   
@@ -124,18 +118,40 @@
                   selectedOption: {id: '1'} 
               };    
 
+              $ctrl.data_vendedor.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.data_vendedor.selectedOption.id=-1;  
+
               $ctrl.data_edificio = {
                 availableOptions: d.edificio,
                 selectedOption: {id_edificio: '1'} 
               };
 
+              $ctrl.data_edificio.availableOptions.unshift({id_edificio:-1, nombre:'Seleccionar'});
+              $ctrl.data_edificio.selectedOption.id=-1; 
+
+               $ctrl.data_planta = {
+                availableOptions: d.planta,
+                selectedOption: {id_planta: '1'} 
+              };
+
+              $ctrl.data_planta.availableOptions.unshift({id_planta:-1, nombre:'Seleccionar'});
+              $ctrl.data_planta.selectedOption.id_planta=-1;  
+
+              $ctrl.data_dpto = {
+                availableOptions: d.dpto,
+                selectedOption: {id_dpto: '1'} 
+              };
+
+              $ctrl.data_dpto.availableOptions.unshift({id_dpto:-1, nombre:'Seleccionar'});
+              $ctrl.data_dpto.selectedOption.id_dpto=-1;  
+
               $ctrl.data_origen_dato = {
                   availableOptions: d.origen_dato,
-                  selectedOption: {id: '1'} 
+                  selectedOption: {id_origen_dato: '1'} 
               };    
               
-              $ctrl.data_origen_dato.availableOptions.unshift({id:-1, origen_dato:'Seleccionar'});
-              $ctrl.data_origen_dato.selectedOption.id=-1;   
+              $ctrl.data_origen_dato.availableOptions.unshift({id_origen_dato:-1, origen_dato:'Seleccionar'});
+              $ctrl.data_origen_dato.selectedOption.id_origen_dato=-1;   
 
             }).catch(function (err) {
                 console.log(err);
@@ -285,9 +301,16 @@
 
         $ctrl.objDataLlamado.id_cliente=1;
 
+        $ctrl.objDataLlamado.id_vendedor=$ctrl.data_vendedor.selectedOption.id;
+
         $ctrl.objDataLlamado.id_edificio = $ctrl.data_edificio.selectedOption.id_edificio;
         $ctrl.objDataLlamado.id_planta = $ctrl.data_planta.selectedOption.id_planta;
         $ctrl.objDataLlamado.id_dpto = $ctrl.data_dpto.selectedOption.id_dpto;
+
+        $ctrl.objDataLlamado.grado_interes=$ctrl.grado_interes.selectedOption.id;
+        $ctrl.objDataLlamado.id_origen_dato = $ctrl.data_origen_dato.selectedOption.id_origen_dato;
+
+        
 
         console.log($ctrl.objDataLlamado);    
          

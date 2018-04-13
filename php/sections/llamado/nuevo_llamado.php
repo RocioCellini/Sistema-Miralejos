@@ -24,11 +24,11 @@ if($type_accion==="nuevo_llamado" && isset($_SESSION['Usuario'])){
   $id_planta=$data->{'id_planta'};
   $id_dpto=$data->{'id_dpto'};
   $grado_interes=$data->{'grado_interes'};
-  $nombre_origen_dato=$data->{'nombre_origen_dato'};
+  $id_origen_dato=$data->{'id_origen_dato'};
   $fecha_origen_dato=$data->{'fecha_origen_dato'};
   $anotaciones=$data->{'anotaciones'};
 
-  $sql_insert='INSERT INTO llamado (id_llamado, id_vendedor, id_cliente, fecha_llamado, hora_llamado, id_edificio, id_planta, id_dpto, grado_interes, nombre_origen_dato, fecha_origen_dato, anotaciones) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
+  $sql_insert='INSERT INTO llamado (id_llamado, id_vendedor, id_cliente, fecha_llamado, hora_llamado, id_edificio, id_planta, id_dpto, grado_interes, id_origen_dato, fecha_origen_dato, anotaciones) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -37,8 +37,8 @@ if($type_accion==="nuevo_llamado" && isset($_SESSION['Usuario'])){
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('iiissiiiisss',$idfirst, $id_vendedor, $id_cliente, $fecha_llamado,      
-      $hora_llamado, $id_edificio, $id_planta, $id_dpto, $grado_interes, $nombre_origen_dato, 
+  $stmt_insert->bind_param('iiissiiiiiss',$idfirst, $id_vendedor, $id_cliente, $fecha_llamado,      
+      $hora_llamado, $id_edificio, $id_planta, $id_dpto, $grado_interes, $id_origen_dato, 
       $fecha_origen_dato, $anotaciones);
 
   $stmt_insert->execute();
