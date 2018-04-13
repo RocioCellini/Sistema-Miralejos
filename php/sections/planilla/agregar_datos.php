@@ -59,7 +59,7 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
   
   //Insertamos los datos en la tabla de la BD
 
-  $sql_insert='INSERT INTO tabla_intermedia_planilla (id_planilla, id_cliente, tipo_cliente, id_vendedor, id_inmobiliaria, fecha_cierre_operacion, id_edificio, id_planta, id_dpto) VALUES  (?,?,?,?,?,?,?,?,?)';
+  $sql_insert='INSERT INTO planilla_de_venta (id_planilla, id_cliente, tipo_cliente, id_vendedor, id_inmobiliaria, fecha_cierre_operacion, id_edificio, id_planta, id_dpto) VALUES  (?,?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
