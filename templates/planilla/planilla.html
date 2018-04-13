@@ -117,6 +117,13 @@
             </div>
           </td>
 
+          <td title="'Inmobiliaria'" filter="{fecha_cierre: 'text'}" sortable="'fecha_cierre'" ng-switch="row.isEditing" ng-class="fecha_cierre.$dirty ? 'bg-warning' : ''" ng-form="fecha_cierre" demo-tracked-table-cell>
+            <span ng-switch-default class="editable-text">{{row.fecha_cierre_operacion}}</span>
+            <div class="controls" ng-class="fecha_cierre.$invalid && fecha_cierre.$dirty ? 'has-error' : ''" ng-switch-when="true">
+              <input type="text" name="fecha_cierre" ng-model="$ctrl.objDataPlanilla.fecha_cierre" class="editable-input form-control input-sm" required />
+            </div>
+          </td>
+
             <td title="'Fecha cierre operación'" filter="{fecha_cierre: 'text'}" sortable="'fecha_cierre'" ng-switch="row.isEditing" ng-class="fecha_cierre.$dirty ? 'bg-warning' : ''" ng-form="fecha_cierre" demo-tracked-table-cell>
             <span ng-switch-default class="editable-text">{{row.fecha_cierre_operacion}}</span>
             <div class="controls" ng-class="fecha_cierre.$invalid && fecha_cierre.$dirty ? 'has-error' : ''" ng-switch-when="true">
