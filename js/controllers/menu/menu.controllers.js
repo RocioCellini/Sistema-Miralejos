@@ -59,6 +59,17 @@
               link: "GestionVentas.nuevoVendedor"
             }]
           },{
+            name: "Inmobiliarias",
+            link: "#",
+             subtree: [{
+              name: "Buscar",
+              link: "GestionVentas.buscarInmob"
+            },
+            {
+              name: "Añadir",
+              link: "GestionVentas.nuevaInmob"
+            }]
+          },{
             name: "Relación EPD",
             link: "#",
             subtree: [{

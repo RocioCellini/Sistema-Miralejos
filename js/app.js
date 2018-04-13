@@ -105,6 +105,18 @@
         controller: 'Vendedor as $ctrl'
       }) 
 
+       .state('GestionVentas.buscarInmob',{
+        url:'/BuscarInmobiliaria',
+        templateUrl:'templates/inmobiliaria/buscar_inmobiliaria.html',
+        controller: 'BuscarInmobiliaria as $ctrl'
+      }) 
+
+      .state('GestionVentas.nuevaInmob',{
+        url:'/NuevaInmobiliaria',
+        templateUrl:'templates/inmobiliaria/abm_inmobiliaria.html',
+        controller: 'Inmobiliaria as $ctrl'
+      }) 
+
       .state('GestionVentas.buscarEdificio',{
         url:'/BuscarEdificio',
         templateUrl:'templates/edificio/buscar_edificio.html',
