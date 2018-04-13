@@ -76,11 +76,15 @@
 
                 $ctrl.objSearch.criterio=valorIngresado;
 
-                //console.log($ctrl.objSearch);
+                console.log($ctrl.objSearch);
                   
                 localidadFactory.buscarLocalidad($ctrl.objSearch).then(function(d) {
 
-                // Se llama ternaria y reemplaza al if
+                  $ctrl.tableParams.settings({dataset: d.Respuesta});   
+
+                  $ctrl.boton_submmit=false;      
+
+                /*Se llama ternaria y reemplaza al if
                 angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
               
                 function LoadTable (d) {
@@ -89,14 +93,13 @@
 
                 function ShowMessage (d) { 
                     $ctrl.Mensaje=d.Respuesta[0].Mensaje;
-                }      
-
-                $ctrl.boton_submmit=false;      
+                }      */
+ 
     
               }).catch(function (err) {
 
-                  $ctrl.boton_submmit=false;
-                  $ctrl.Mensaje="Intente m√°s tarde";  
+                 /* $ctrl.boton_submmit=false;
+                  $ctrl.Mensaje="Intente m·s tarde";  */
                   console.log(err);
 
                 });

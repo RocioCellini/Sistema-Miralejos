@@ -2,26 +2,27 @@
 //header('X-Frame-Options: SAMEORIGIN');
 //header('X-Content-Type-Options: nosniff');
 //header('X-XSS-Protection: 1;mode=block');
-//header("Content-type: text/plain");	
+//header("Content-type: text/plain"); 
 session_start();
 
-/*
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'};*/
+$type_accion=$data->{'type_accion'};
 
-$type_accion="nueva_localidad";
+//$type_accion="nueva_localidad";
 
-if($type_accion==="nueva_localidad" && isset($_SESSION['Usuario'])){	
+if($type_accion==="nueva_localidad" && isset($_SESSION['Usuario'])){
 
-	include "../../conexion.php";	
-	
-	//$id_provincia =$data->{'id_provincia'};
-	//$nombre =$data->{'nombre'};
+//*******************************************************************************************//  
+  include "../../conexion.php"; 
+  
+  $id_provincia =$data->{'id_provincia'};
+  $nombre =$data->{'nombre'};
 
-  $id_provincia=7;
-  $nombre="Cordoba";
+ // $id_provincia=22; 
+ // $nombre="Casas";
+
 
   $sql_insert='INSERT INTO localidad (id_localidad, id_provincia, nombre) VALUES
   (?,?,?)';
@@ -40,7 +41,7 @@ if($type_accion==="nueva_localidad" && isset($_SESSION['Usuario'])){
   $last_id=mysqli_insert_id($conn);
 
   if($last_id!=0){
-    $message="Se guardó una nueva localidad";
+    $message="Se guardo una nueva localidad";
   }else{
     $message="La nueva localidad no se guardó";
   }
@@ -51,7 +52,7 @@ if($type_accion==="nueva_localidad" && isset($_SESSION['Usuario'])){
   $json = json_encode($item);
   echo $json;
             
-            
- } //if($type_accion==="nueva_localidad")
-
+  } //if($type_accion==="nueva_localidad")
+ 
 ?>      
+

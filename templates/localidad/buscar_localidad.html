@@ -7,7 +7,7 @@
 			<input type="text" class="form-control" name="buscar" ng-model="$ctrl.objSearch.criterio">
 			<p>* ingrese el nombre de la localidad</p><br>
       
-			<button ng-click='$ctrl.BuscarLocalidad()' ng-disabled="$ctrl.boton_submmit" class="btn btn-default">Buscar</button>
+			<button ng-click='$ctrl.BuscarLocalidad($ctrl.objSearch.criterio)' ng-disabled="$ctrl.boton_submmit" class="btn btn-default">Buscar</button>
 			</fieldset>
 		</form> 
 	</div>
