@@ -56,9 +56,9 @@
 
 <div class="mensajesistema">{{$ctrl.Mensaje}}</div><br><br>
 
-<div class="row" >
-  <div class="col-md-3"  ></div>
-    <div class="col-md-6"  align="center">
+<div class="row">
+  <div class="col-md-3"></div>
+    <div class="col-md-6" align="center">
 
       <table ng-table="$ctrl.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
@@ -82,7 +82,7 @@
       </table>
 
     </div>
-  <div class="col-md-3" > </div>
+  <div class="col-md-3"> </div>
 </div>
 <br><br><br><br>
 
@@ -158,35 +158,13 @@
 	          <div class="col-sm-2"></div>
 	    </div>
 
-	     <div class="form-group">
-		    <label class="col-sm-4 control-label">Nº Llamados</label>
-		    <div class="col-sm-6">
-	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.num_llamados">
-	        </div>
-	        <div class="col-sm-2"></div>
-		  </div>
-
-      	</div>
-		 
-
-		<div class="col-md-4">
-
-			 <div class="form-group">
-		    <label class="col-sm-4 control-label">Fecha ultimo contacto</label>
-		    <div class="col-sm-6">
-	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.fecha_ult_llamado">
-	        </div>
-	        <div class="col-sm-2"></div>
-		  </div>
-
-		  
-      	  <div class="form-group">
+		 <div class="form-group">
 	        <label  class="col-sm-4 control-label">Origen del Dato:</label>
 	        <div class="col-sm-6">
 	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.nombre_origen_dato">
 	        </div>
 	        <div class="col-sm-2"></div>
-	    </div>     
+	     </div>     
 
 		  <div class="form-group">
 	        <label  class="col-sm-4 control-label">Fecha Origen del Dato:</label>
@@ -195,6 +173,27 @@
 	        </div>
 	        <div class="col-sm-2"></div>
 	      </div>		
+
+      	  </div>
+		 
+
+		<div class="col-md-4">
+
+		  <div class="form-group">
+		    <label class="col-sm-4 control-label">Nº Llamados</label>
+		    <div class="col-sm-6">
+	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.num_llamados">
+	        </div>
+	        <div class="col-sm-2"></div>
+		  </div>
+
+		  <div class="form-group">
+		    <label class="col-sm-4 control-label">Fecha ultimo contacto</label>
+		    <div class="col-sm-6">
+	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.fecha_ult_llamado">
+	        </div>
+	        <div class="col-sm-2"></div>
+		  </div> 
 
 		  <div class="form-group">
 			  <label  class="col-sm-4 control-label">Tipo de Cliente:</label>
@@ -222,6 +221,15 @@
             </div>
             <div class="col-sm-2"></div>
       	  </div>  
+
+      	  <div class="form-group">
+            <label  class="col-sm-4 control-label">Inmobiliaria:</label>
+            <div class="col-sm-6">
+	            <select class="form-control campoform" name="vendedor" id="mySelect" ng-options="option.name for option in $ctrl.data_inmob.availableOptions track by option.id" ng-model="$ctrl.data_inmob.selectedOption"  ng-change="upDate()">
+	            </select>
+            </div>
+            <div class="col-sm-2"></div>
+      	  </div> 
 
 
 		   <div class="form-group">

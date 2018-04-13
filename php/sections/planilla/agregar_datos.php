@@ -29,6 +29,7 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
   $fecha_ult_llamado=$data->{'fecha_ult_llamado'};
   $cant_de_llamados=$data->{'num_llamados'};
   $id_vendedor=$data->{'id_vendedor'};
+  $id_inmobiliaria=$data->{'id_inmobiliaria'};
   $fecha_cierre_operacion=$data->{'fecha_cierre_operacion'};
   $id_edificio=$data->{'id_edificio'};
   $id_planta=$data->{'id_planta'};
@@ -58,7 +59,7 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
   
   //Insertamos los datos en la tabla de la BD
 
-  $sql_insert='INSERT INTO tabla_intermedia_planilla (id_planilla, id_cliente, tipo_cliente, id_vendedor, fecha_cierre_operacion, id_edificio, id_planta, id_dpto) VALUES  (?,?,?,?,?,?,?,?)';
+  $sql_insert='INSERT INTO tabla_intermedia_planilla (id_planilla, id_cliente, tipo_cliente, id_vendedor, id_inmobiliaria, fecha_cierre_operacion, id_edificio, id_planta, id_dpto) VALUES  (?,?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -67,7 +68,7 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('iisisiii',$idfirst, $id_cliente, $tipo_cliente, $id_vendedor, $fecha_cierre_operacion, $id_edificio, $id_planta, $id_dpto);
+  $stmt_insert->bind_param('iisiisiii',$idfirst, $id_cliente, $tipo_cliente, $id_vendedor, $id_inmobiliaria, $fecha_cierre_operacion, $id_edificio, $id_planta, $id_dpto);
 
   $stmt_insert->execute();
 

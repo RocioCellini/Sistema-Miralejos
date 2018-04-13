@@ -192,6 +192,33 @@ if ($type_accion==="combos_agregar_datos") {
             }  while ($row_vend= $rs_vend->fetch_assoc());
         }   
 
+        //Inmobiliaria
+        //-----------------------------------------------------     
+        $result_inmob = "SELECT * FROM inmobiliaria";
+        $stmt_inmob = $conn->prepare($result_inmob);
+
+        if($stmt_inmob === false) {
+            trigger_error('Wrong SQL: ' . $result_inmob . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+          
+        $stmt_inmob->execute();
+        $rs_inmob=$stmt_inmob->get_result();
+
+        if($row_inmob = $rs_inmob->fetch_assoc()) {
+        
+            $response_inmob = array();
+
+            do  {
+
+                $temp_inmob=array('id'=>utf8_encode($row_inmob['id_inmobiliaria']),
+                            'name'=> utf8_encode($row_inmob['nombre'])
+                );
+
+                $response_inmob[]=$temp_inmob;
+
+            }  while ($row_inmob= $rs_inmob->fetch_assoc());
+        }   
+
 
         //Edificio
         //-----------------------------------------------------
@@ -308,7 +335,7 @@ if ($type_accion==="combos_agregar_datos") {
             }  while ($row_origen= $rs_origen->fetch_assoc());
         }
     
-        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'vendedor' => $response_vend, 'edificio' => $response_edificio, 'planta' => $response_planta, 'dpto' => $response_dpto, 'origen_dato' => $response_origen);
+        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'vendedor' => $response_vend, 'inmobiliaria' => $response_inmob, 'edificio' => $response_edificio, 'planta' => $response_planta, 'dpto' => $response_dpto, 'origen_dato' => $response_origen);
         $json = json_encode($item);
         echo $json;
 

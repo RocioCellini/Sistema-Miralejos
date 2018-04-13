@@ -131,7 +131,15 @@
                 };
 
               $ctrl.data_vendedor.availableOptions.unshift({id:-1, name:'Seleccionar'});
-              $ctrl.data_vendedor.selectedOption.id=-1;   
+              $ctrl.data_vendedor.selectedOption.id=-1;  
+
+              $ctrl.data_inmob = {
+                  availableOptions: d.inmobiliaria,
+                  selectedOption: {id: '1'} 
+                };
+
+              $ctrl.data_inmob.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.data_inmob.selectedOption.id=-1;    
 
               $ctrl.data_edificio = {
                 availableOptions: d.edificio,
@@ -329,10 +337,11 @@
 
             $ctrl.objAgregarDatos.id_provincia=$ctrl.dataprovincia.selectedOption.id;
             $ctrl.objAgregarDatos.id_localidad=$ctrl.datalocalidad.selectedOption.id;
+
             $ctrl.objAgregarDatos.grado_interes=$ctrl.grado_interes.selectedOption.id;
             $ctrl.objAgregarDatos.tipo_cliente=$ctrl.tipo_cliente.selectedOption.tipo;
-
             $ctrl.objAgregarDatos.id_vendedor=$ctrl.data_vendedor.selectedOption.id;
+            $ctrl.objAgregarDatos.id_inmobiliaria=$ctrl.data_inmob.selectedOption.id;
 
             $ctrl.objAgregarDatos.id_edificio=$ctrl.data_edificio.selectedOption.id_edificio;
             $ctrl.objAgregarDatos.id_planta=$ctrl.data_planta.selectedOption.id_planta;
