@@ -45,3 +45,37 @@ Msj al hacer clic sobre formLogueo.php:
     <b>Warning</b>:  Cannot modify header information - headers already sent in <b>Unknown</b> on line <b>0</b>
 
 en la ruta: wamp/.../php.ini buscar donde dice "$HTTP_RAW_POST_DATA" y descomentar(borrando el ;) la última linea
+
+Codigo en Planilla
+
+   function cancel(row, rowForm) {
+            var originalRow = resetRow(row, rowForm);
+            angular.extend(row, originalRow);
+        }
+
+        function del(row) {
+            _.remove(self.tableParams.settings().dataset, function(item) {
+              return row === item;
+            });
+            self.tableParams.reload().then(function(data) {
+              if (data.length === 0 && self.tableParams.total() > 0) {
+                self.tableParams.page(self.tableParams.page() - 1);
+                self.tableParams.reload();
+              }
+            });
+        }
+          
+        function resetRow(row, rowForm){
+            row.isEditing = false;
+            rowForm.$setPristine();
+            self.tableTracker.untrack(row);
+            return _.findWhere(originalData, function(r){
+              return r.id === row.id;
+            });
+        }
+
+        function save(row, rowForm) {
+            var originalRow = resetRow(row, rowForm);
+            angular.extend(originalRow, row);
+        }
+

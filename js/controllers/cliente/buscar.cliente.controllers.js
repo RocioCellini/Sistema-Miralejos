@@ -164,7 +164,7 @@
 
           $ctrl.objDataCliente.type_accion="editar_cliente";
 
-          $state.go("GestionVentas.nuevoCliente"); 
+          $state.go("GestionVentas.nuevoCliente",params ); 
 
           $ctrl.objDataCliente.id_cliente= row.id_cliente;
           $ctrl.objDataCliente.nombre= row.nombre;
@@ -178,7 +178,7 @@
           $ctrl.objDataCliente.id_actividad= row.actividad;
           $ctrl.objDataCliente.conoce= row.conoce;
 
-          console.log(objDataCliente); //aquí se usa objSearch, pero el template usa objDataCliente
+          console.log($ctrl.objDataCliente); //aquí se usa objSearch, pero el template usa objDataCliente
           console.log(row); //lo muestra bien
 
 

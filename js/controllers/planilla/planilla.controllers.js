@@ -27,11 +27,7 @@
         }); 
     
         $ctrl.Init = Init;
-        $ctrl.NuevaPlanilla=NuevaPlanilla;
-
-        $ctrl.cancel = cancel;
-        $ctrl.del = del;
-        $ctrl.save = save;
+       // $ctrl.NuevaPlanilla=NuevaPlanilla;
 
         // To configure table   
         //*****************************************************************************//    
@@ -63,56 +59,39 @@
                             
               });       
 
-        }
+           $ctrl.objDataPlanilla.type_accion="cargar_planilla"; 
 
+           planillaFactory.cargarPlanilla($ctrl.objDataPlanilla).then( function(d) {
+
+                console.log(d.Cliente);
+                //console.log(d.Planilla);
+
+                 $ctrl.tableParams.settings({dataset: d.Cliente}); 
+                            
+              }).catch(function (err) {
+                  console.log(err);
+              });       
+
+        }
+/*
         function NuevaPlanilla() {
             
-          //$ctrl.allow_disable=true;
+          $ctrl.allow_disable=true;
 
           $ctrl.objDataPlanilla.type_accion="nueva_planilla";
        
           planillaFactory.nuevaPlanilla($ctrl.objDataPlanilla).then(function(d) {  
                              
                   $ctrl.Mensaje=d.MessageComment;
-                  //$ctrl.allow_disable=false;
+                  $ctrl.allow_disable=false;
       
            }).catch(function (err) {
                 console.log(err);
-                //$ctrl.allow_disable=false;
+                $ctrl.allow_disable=false;
            });                    
         };
 
-        function cancel(row, rowForm) {
-            var originalRow = resetRow(row, rowForm);
-            angular.extend(row, originalRow);
-        }
-
-        function del(row) {
-            _.remove(self.tableParams.settings().dataset, function(item) {
-              return row === item;
-            });
-            self.tableParams.reload().then(function(data) {
-              if (data.length === 0 && self.tableParams.total() > 0) {
-                self.tableParams.page(self.tableParams.page() - 1);
-                self.tableParams.reload();
-              }
-            });
-        }
-          
-        function resetRow(row, rowForm){
-            row.isEditing = false;
-            rowForm.$setPristine();
-            self.tableTracker.untrack(row);
-            return _.findWhere(originalData, function(r){
-              return r.id === row.id;
-            });
-        }
-
-        function save(row, rowForm) {
-            var originalRow = resetRow(row, rowForm);
-            angular.extend(originalRow, row);
-        }
-        
+     */
 
         Init();
 
