@@ -15,10 +15,6 @@ $type_accion=$data->{'type_accion'};
 
 if($type_accion==="log_in"){
 
-//************************************************************************************************//
-//user:rocio-miralejos
-//password: adminFlor7
-
 	include "conexion.php";	
 	
 	$user = $data->{'user'};

@@ -5,9 +5,9 @@ session_start();
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-//$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'};
 
-$type_accion="cargar_planilla";
+//$type_accion="cargar_planilla";
 
 if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 
@@ -27,12 +27,20 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 
 		if($row_planilla=$rs_planilla->fetch_assoc()){
 
-		$id_cliente=$row_planilla['id_cliente'];
-		$id_vendedor=$row_planilla['id_vendedor'];
-
 		$response_planilla = array();
 
 		do{
+
+			// Variables para las SubConsultas
+            //--------------------------------------------------------------
+
+			$id_cliente=$row_planilla['id_cliente'];
+			$id_vendedor=$row_planilla['id_vendedor'];
+			$id_inmobiliaria=$row_planilla['id_inmobiliaria'];
+
+			$id_edificio=$row_planilla['id_edificio'];
+			$id_planta=$row_planilla['id_planta'];
+			$id_dpto=$row_planilla['id_dpto'];
 
          	// SubConsulta para obtener los datos del Cliente
             //--------------------------------------------------------------
@@ -51,12 +59,21 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 
 			$rs_cliente=$stmt_cliente->get_result(); 
 
-	      	if($row_cliente=$rs_cliente->fetch_assoc()){    		      		
+	      	if($row_cliente=$rs_cliente->fetch_assoc()){  
+
+	      		// Cliente especificado
+	            //--------------------------------------------------------------
+
+	            $apellido=$row_cliente['apellido'];
+	            $nombre=$row_cliente['nombre'];
+	            $telefono1=$row_cliente['telefono1'];
+	            $telefono2=$row_cliente['telefono2'];
+	            $email=$row_cliente['email'];  		      		
 
 	      		// Provincia del Cliente especificado
 	            //--------------------------------------------------------------
 
-	      		 $id_provincia=$row_cliente['id_provincia'];
+	      		$id_provincia=$row_cliente['id_provincia'];
 
 	            $result_prov = 'SELECT * FROM provincia WHERE id_provincia=?';
 
@@ -137,26 +154,8 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 	            	$conoce='No';
 	            }
 
-		        // Cliente especificado
-	            //--------------------------------------------------------------
-
-	      		 $response_cliente = array();   
-
-    		 	 $temp1=array('id_cliente'=>utf8_encode($row_cliente['id_cliente']),
-					'apellido'=>utf8_encode($row_cliente['apellido']),
-					'nombre'=>utf8_encode($row_cliente['nombre']),
-					'telefono1'=>utf8_encode($row_cliente['telefono1']),
-					'telefono2'=>utf8_encode($row_cliente['telefono2']),
-					'provincia'=>utf8_encode($provincia),
-					'localidad'=>utf8_encode($localidad),
-					'actividad'=>utf8_encode($actividad),
-					'conoce'=>utf8_encode($conoce),
-					'email'=>utf8_encode($row_cliente['email'])                      
-                        );
-
-        		$response_cliente[]=$temp1;            
-
      		}//if($row_cliente)
+
 
      		// SubConsulta para obtener los datos del Vendedor
             //--------------------------------------------------------------
@@ -177,25 +176,136 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 
 	      	if($row_vend=$rs_vend->fetch_assoc()){
 
-	      		 $response_vend = array();   
+    		 	 $vendedor=$row_vend['nombre'];
 
-    		 	 $temp2=array('id_vendedor'=>utf8_encode($row_vend['id_vendedor']),
-						'vendedor'=>utf8_encode($row_vend['nombre'])         
-                        );
+	      	}//if($row_vend)    
 
-        		$response_vend[]=$temp2;
 
-	      	}//if($row_vend)    		
+	      	// SubConsulta para obtener los datos de la Inmobiliaria
+            //--------------------------------------------------------------
+
+            $result_inmob = 'SELECT * FROM inmobiliaria WHERE id_inmobiliaria=?';
+
+			$stmt_inmob = $conn->prepare($result_inmob);
+
+			if($stmt_inmob===false) {
+			trigger_error('Wrong SQL: ' . $result_inmob . ' Error: ' . $conn->error, E_USER_ERROR);
+			}
+
+			$stmt_inmob->bind_param('i',$id_inmobiliaria);   
+
+			$stmt_inmob->execute(); 
+
+			$rs_inmob=$stmt_inmob->get_result(); 
+
+	      	if($row_inmob=$rs_inmob->fetch_assoc()){
+
+    		 	 $inmobiliaria=$row_inmob['nombre'];
+
+	      	}//if($row_inmob)    	
+
+
+	      	//SubConsulta para obtener los datos del Edificio
+	        //-----------------------------------------------------
+
+	        $result_edif = 'SELECT * FROM edificio WHERE id_edificio=?';
+
+	        $stmt_edif = $conn->prepare($result_edif);
+
+	        if($stmt_edif === false) {
+	            trigger_error('Wrong SQL: ' . $result_edif . ' Error: ' . $conn->error, E_USER_ERROR);
+	        }
+	        
+	        $stmt_edif->bind_param('i',$id_edificio);   
+
+	        $stmt_edif->execute();
+
+	        $rs_edif=$stmt_edif->get_result();
+
+	        if($row_edif = $rs_edif->fetch_assoc()) {	        
+
+	            $edificio=$row_edif['nombre'];
+		
+	        }
+
+
+	        //SubConsulta para obtener los datos de las Plantas
+	        //-----------------------------------------------------
+
+	        $result_planta = 'SELECT * FROM planta WHERE id_planta=?';
+
+	        $stmt_planta = $conn->prepare($result_planta);
+
+	        if($stmt_planta === false) {
+	            trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
+	        }
+
+	        $stmt_planta->bind_param('i',$id_planta);  
+
+	        $stmt_planta->execute();
+
+	        $rs_planta=$stmt_planta->get_result();
+
+	        if($row_planta = $rs_planta->fetch_assoc()) {
+	        
+	            $planta = $row_planta['nombre'];
+
+	        }
+
+
+	        //SubConsulta para obtener los datos de los Departamentos
+	        //--------------------------------------------------------
+
+	        $result_dpto = 'SELECT * FROM departamento WHERE id_dpto=?';
+
+	        $stmt_dpto = $conn->prepare($result_dpto);
+
+	        if($stmt_dpto === false) {
+	            trigger_error('Wrong SQL: ' . $result_dpto . ' Error: ' . $conn->error, E_USER_ERROR);
+	        }
+
+	        $stmt_dpto->bind_param('i',$id_dpto);  
+	      
+	        $stmt_dpto->execute();
+
+	        $rs_dpto=$stmt_dpto->get_result();
+
+	        if($row_dpto = $rs_dpto->fetch_assoc()) {
+	        
+	            $dpto = $row_dpto['nombre'];
+
+	        }
+
             
             $temp=array('id_planilla'=>utf8_encode($row_planilla['id_planilla']),
-					'id_cliente'=>utf8_encode($row_planilla['id_cliente']),
-					'tipo_cliente'=>utf8_encode($row_planilla['tipo_cliente']),
-					'id_vendedor'=>utf8_encode($row_planilla['id_vendedor']),
-					'id_inmobiliaria'=>utf8_encode($row_planilla['id_inmobiliaria']),
-					'fecha_cierre_operacion'=>utf8_encode($row_planilla['fecha_cierre_operacion']),
+            		'tipo_cliente'=>utf8_encode($row_planilla['tipo_cliente']),
+            		'fecha_cierre_operacion'=>utf8_encode($row_planilla['fecha_cierre_operacion']),
+
 					'id_edificio'=>utf8_encode($row_planilla['id_edificio']),
+					'edificio'=> utf8_encode($edificio),
+
 					'id_planta'=>utf8_encode($row_planilla['id_planta']),
-					'id_dpto'=>utf8_encode($row_planilla['id_dpto'])                  
+					'planta'=> utf8_encode($planta),
+
+					'id_dpto'=>utf8_encode($row_planilla['id_dpto']),
+					'dpto'=> utf8_encode($dpto),
+
+            		'id_cliente'=>utf8_encode($row_planilla['id_cliente']),
+					'apellido'=>utf8_encode($apellido),
+					'nombre'=>utf8_encode($nombre),
+					'telefono1'=>utf8_encode($telefono1),
+					'telefono2'=>utf8_encode($telefono2),
+					'provincia'=>utf8_encode($provincia),
+					'localidad'=>utf8_encode($localidad),
+					'actividad'=>utf8_encode($actividad),
+					'conoce'=>utf8_encode($conoce),
+					'email'=>utf8_encode($email),       
+					
+					'id_vendedor'=>utf8_encode($row_planilla['id_vendedor']),
+					'vendedor'=>utf8_encode($vendedor),
+
+					'id_inmobiliaria'=>utf8_encode($row_planilla['id_inmobiliaria']),
+					'inmobiliaria'=>utf8_encode($inmobiliaria)                  
                     );
 
             $response_planilla[]=$temp;
@@ -203,11 +313,8 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
           } while ($row_planilla=$rs_planilla->fetch_assoc());
 
        }// if($row_planilla)
-     
-       	$item=array('Planilla' => $response_planilla, 'Cliente' => $response_cliente,
-       		  'Vendedor'=>$response_vend);
 
-       //$item=array('Planilla' => $response_planilla);
+        $item=array('Planilla' => $response_planilla);
       	$json = json_encode($item);
       	echo $json;
 

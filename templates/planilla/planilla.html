@@ -4,11 +4,16 @@
 <div class="row">
 
   <table ng-table="$ctrl.tableParams" class="table table-condensed table-bordered table-striped">
-   
+  <!-- Como agrego esta fila???
+  <tr>
+    <th colspan="8">Cliente</th>
+    <th colspan="5">Llamados</th>
+    <th colspan="6">Cierre de Operación</th>
+  </tr>
+-->
   <tr ng-repeat="row in $data">
       <td data-title="'Cliente'"> {{row.apellido}}, {{row.nombre}}</td>
-      <td data-title="'Tipo de Cliente'">{{row.tipo_cliente}}</td>
-      <td data-title="'GI'">{{row.grado_interes}}</td>
+      <td data-title="'Tipo de Cliente'">{{row.tipo_cliente}}</td>     
       <td data-title="'Teléfono 1'">{{row.telefono1}}</td>
       <td data-title="'Teléfono 2'">{{row.telefono2}}</td>
       <td data-title="'Provincia'">{{row.provincia}}</td>
@@ -18,6 +23,7 @@
       <td data-title="'Origen Dato'">{{row.origen_dato}}</td>
       <td data-title="'Fecha origen dato'">{{row.fecha_origen_dato}}</td>
       <td data-title="'Fecha último llamado'">{{row.fecha_ult_llamado}}</td>
+      <td data-title="'GI'">{{row.grado_interes}}</td>
       <td data-title="'Nº Llamados'">{{row.num_llamados}}</td>
       <td data-title="'Vendedor'">{{row.vendedor}}</td>
       <td data-title="'Inmobiliaria'">{{row.inmobiliaria}}</td>

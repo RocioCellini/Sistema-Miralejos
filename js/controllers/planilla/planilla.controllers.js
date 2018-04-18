@@ -66,7 +66,7 @@
                 //console.log(d.Vendedor);
                 //console.log(d.Planilla);
 
-                 $ctrl.tableParams.settings({dataset: d.Cliente}); 
+                 $ctrl.tableParams.settings({dataset: d.Planilla}); 
                             
               }).catch(function (err) {
                   console.log(err);
