@@ -154,6 +154,73 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 	            	$conoce='No';
 	            }
 
+	            // Llamados del Cliente especificado
+	            //--------------------------------------------------------------
+
+	            $result_call = 'SELECT * FROM llamado WHERE id_cliente=?';
+
+			      $stmt_call = $conn->prepare($result_call);
+
+			      if($stmt_call===false) {
+			        trigger_error('Wrong SQL: ' . $result_call . ' Error: ' . $conn->error, E_USER_ERROR);
+			      }
+
+			      $stmt_call->bind_param('i',$id_cliente);   
+
+			      $stmt_call->execute(); 
+
+			      $rs_call=$stmt_call->get_result(); 
+
+			      if($row_call=$rs_call->fetch_assoc()){ 
+
+			      	$num_llamados=0;
+
+			      	do{   
+
+			      		$num_llamados++;
+
+			      		$fecha_ult_llamado=$row_call['fecha_llamado']; 
+			      		/*buscar el último $fecha_ult_llamado, la fecha más actual, no la última ingresada. tendria que usar un if comparativo para ir guardando la mayor*/
+
+			      		$grado_interes=$row_call['grado_interes']; 
+
+			      		$fecha_origen_dato=$row_call['fecha_origen_dato']; 
+
+			      		$id_origen_dato=$row_call['id_origen_dato']; 
+
+			      		// Origen dato del Cliente especificado
+			            //--------------------------------------------------------------
+
+			            $result_od = 'SELECT * FROM origen_dato WHERE id_origen_dato=?';
+
+					      $stmt_od = $conn->prepare($result_od);
+
+					      if($stmt_od===false) {
+					        trigger_error('Wrong SQL: ' . $result_od . ' Error: ' . $conn->error, E_USER_ERROR);
+					      }
+
+					      $stmt_od->bind_param('i',$id_origen_dato);   
+
+					      $stmt_od->execute(); 
+
+					      $rs_od=$stmt_od->get_result(); 
+
+					      if($row_od=$rs_od->fetch_assoc()){  
+
+					      	$origen_dato=$row_od['origen_dato']; 
+
+					      }
+
+					   } while ($row_call=$rs_call->fetch_assoc());
+
+			      }else{
+			      	$num_llamados=0;
+			      	$fecha_ult_llamado='';
+			      	$grado_interes='';
+			      	$fecha_origen_dato='';
+			      	$origen_dato='';
+			      }
+
      		}//if($row_cliente)
 
 
@@ -299,7 +366,13 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 					'localidad'=>utf8_encode($localidad),
 					'actividad'=>utf8_encode($actividad),
 					'conoce'=>utf8_encode($conoce),
-					'email'=>utf8_encode($email),       
+					'email'=>utf8_encode($email),  
+
+					'origen_dato'=>utf8_encode($origen_dato), 
+					'fecha_origen_dato'=>utf8_encode($fecha_origen_dato),					
+					'fecha_ult_llamado'=>utf8_encode($fecha_ult_llamado),
+					'grado_interes'=>utf8_encode($grado_interes),						
+					'num_llamados'=>utf8_encode($num_llamados),  
 					
 					'id_vendedor'=>utf8_encode($row_planilla['id_vendedor']),
 					'vendedor'=>utf8_encode($vendedor),
