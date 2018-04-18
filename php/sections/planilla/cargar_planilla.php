@@ -28,6 +28,7 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 		if($row_planilla=$rs_planilla->fetch_assoc()){
 
 		$id_cliente=$row_planilla['id_cliente'];
+		$id_vendedor=$row_planilla['id_vendedor'];
 
 		$response_planilla = array();
 
@@ -156,6 +157,35 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
         		$response_cliente[]=$temp1;            
 
      		}//if($row_cliente)
+
+     		// SubConsulta para obtener los datos del Vendedor
+            //--------------------------------------------------------------
+
+            $result_vend = 'SELECT * FROM vendedor WHERE id_vendedor=?';
+
+			$stmt_vend = $conn->prepare($result_vend);
+
+			if($stmt_vend===false) {
+				trigger_error('Wrong SQL: ' . $result_vend . ' Error: ' . $conn->error, E_USER_ERROR);
+			}
+
+			$stmt_vend->bind_param('i',$id_vendedor);   
+
+			$stmt_vend->execute(); 
+
+			$rs_vend=$stmt_vend->get_result(); 
+
+	      	if($row_vend=$rs_vend->fetch_assoc()){
+
+	      		 $response_vend = array();   
+
+    		 	 $temp2=array('id_vendedor'=>utf8_encode($row_vend['id_vendedor']),
+						'vendedor'=>utf8_encode($row_vend['nombre'])         
+                        );
+
+        		$response_vend[]=$temp2;
+
+	      	}//if($row_vend)    		
             
             $temp=array('id_planilla'=>utf8_encode($row_planilla['id_planilla']),
 					'id_cliente'=>utf8_encode($row_planilla['id_cliente']),
@@ -174,9 +204,12 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 
        }// if($row_planilla)
      
-      $item=array('Planilla' => $response_planilla, 'Cliente' => $response_cliente);
-      $json = json_encode($item);
-      echo $json;
+       	$item=array('Planilla' => $response_planilla, 'Cliente' => $response_cliente,
+       		  'Vendedor'=>$response_vend);
+
+       //$item=array('Planilla' => $response_planilla);
+      	$json = json_encode($item);
+      	echo $json;
 
   }//if ($type_accion==="cargar_planilla")
 

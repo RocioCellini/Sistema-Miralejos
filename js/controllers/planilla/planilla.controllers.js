@@ -63,7 +63,7 @@
 
            planillaFactory.cargarPlanilla($ctrl.objDataPlanilla).then( function(d) {
 
-                console.log(d.Cliente);
+                //console.log(d.Vendedor);
                 //console.log(d.Planilla);
 
                  $ctrl.tableParams.settings({dataset: d.Cliente}); 
