@@ -55,13 +55,13 @@ Codigo en Planilla
    function cancel(row, rowForm) {
             var originalRow = resetRow(row, rowForm);
             angular.extend(row, originalRow);
-        }
+  }
 
         function del(row) {
             _.remove(self.tableParams.settings().dataset, function(item) {
               return row === item;
             });
-            self.tableParams.reload().then(function(data) {
+            self.tableParams.reload().then( function(data) {
               if (data.length === 0 && self.tableParams.total() > 0) {
                 self.tableParams.page(self.tableParams.page() - 1);
                 self.tableParams.reload();

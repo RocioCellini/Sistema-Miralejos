@@ -13,21 +13,19 @@
     function Cliente ($scope, $sce, $state,  $stateParams,  $window,
      $uibModal, $document, clienteFactory, defaultdataFactory, $filter, $location, formLoginFactory ){
                                    
-       var path = $location.path();
-       //console.log(path);
+        var path = $location.path();
+        //console.log(path);
 
         var $ctrl = this;
 
+        $ctrl.objLogin ={};
 
-          $ctrl.objLogin ={};
-
-          Object.defineProperty ( $ctrl.objLogin, "type_accion", {
-              value: "checkSession",
-              writable: false,
-              enumerable: true,
-              configurable: false
-          }); // Esto hace que la propiedad type_accion no se pueda modificar
-
+        Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+            value: "checkSession",
+            writable: false,
+            enumerable: true,
+            configurable: false
+        }); // Esto hace que la propiedad type_accion no se pueda modificar
 
         $ctrl.datalocalidad2={};
         $ctrl.objDataCliente={};
@@ -37,7 +35,7 @@
          
         $ctrl.Init = Init;
         $ctrl.upDate = upDate;
-        $ctrl.NuevoCliente=NuevoCliente;    
+        $ctrl.Save=Save;    
 
         //for combos
         $ctrl.comboDisable=false;
@@ -52,84 +50,100 @@
             selectedOption: {id: '-1'} 
         };
 
+
         function Init () {
 
+            $ctrl.Titulo="Nuevo Contacto";
+            $ctrl.objDataCliente.type_accion="nuevo_cliente";
+          
+            formLoginFactory.checkSession( $ctrl.objLogin ).then( function( d ) {
 
-        
-        formLoginFactory.checkSession( $ctrl.objLogin ).then( function( d ) {
+               angular.isDefined(d.setUrl)?goUrl( d ):null;
+                              
+                    function goUrl ( d ) {
+                         
+                        $state.go( d.setUrl );
+                       
+                    }
 
-                       angular.isDefined(d.setUrl)?goUrl( d ):null;
-                                      
-                            function goUrl ( d ) {
-                                 
-                                $state.go( d.setUrl );
-                               
-                            }
-                        
-
-        }); //d es la promise que está en el factory y devuelve el mensaje que está en el php
-
+            }); //d es la promise que está en el factory y devuelve el mensaje que está en el php
 
                     
             $ctrl.defaultparams.type_accion="search_data_combos";
-            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d){    
+            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then (function( d ) {    
 
-            $ctrl.datalocalidad2=d.localidad;
+              $ctrl.datalocalidad2=d.localidad;
 
-            $ctrl.dataprovincia = {
-                availableOptions: d.provincia,
-                selectedOption: {id: '1'} 
-              };
+              $ctrl.dataprovincia = {
+                  availableOptions: d.provincia,
+                  selectedOption: {id: '1'} 
+                };
 
-            $ctrl.datalocalidad = {
-                availableOptions: d.localidad,
-                selectedOption: {id: '1'} 
-              };
+              $ctrl.datalocalidad = {
+                  availableOptions: d.localidad,
+                  selectedOption: {id: '1'} 
+                };
 
-            $ctrl.actividad = {
-                availableOptions: d.actividad,
-                selectedOption: {id: '1'} 
-              };//This sets the default value of the select in the ui
+              $ctrl.actividad = {
+                  availableOptions: d.actividad,
+                  selectedOption: {id: '1'} 
+                };//This sets the default value of the select in the ui
 
-         }).catch(function (err) {
-              console.log(err);
-            });
+            
+              if( $stateParams.type_ingreso==="GestionVentas.modificarCliente" ) {
 
-         } // Init()            
-          
-    
+                  $ctrl.Titulo="Modificar Contacto";
 
-      //-------------------------------------------------------------------------------------------------  
+                  console.log($stateParams.objdata);
+                  $ctrl.objDataCliente=$stateParams.objdata;
 
-        function upDate (objprov) { 
-           $ctrl.datalocalidad.availableOptions = $filter('filter')($ctrl.datalocalidad2 ,{id_provincia:objprov.id});
-           $ctrl.datalocalidad.selectedOption={id: $ctrl.datalocalidad.availableOptions[0].id};                                                                         
-           //$ctrl.actividad.selectedOption={id: $ctrl.actividad.availableOptions[0].id};                                                                         
-       }
+                  $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataCliente.id_provincia;
+                  $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataCliente.id_localidad;
+                  $ctrl.actividad.selectedOption.id=$ctrl.objDataCliente.id_actividad;
+                  //$ctrl.data.selectedOption.name=$ctrl.objDataCliente.conoce;  
 
+                  $ctrl.objDataCliente.type_accion="editar_cliente";
 
-      function NuevoCliente(){
-                
-          //$ctrl.allow_disable=true;
+              }
 
-          $ctrl.objDataCliente.type_accion="nuevo_cliente";
-     
-          $ctrl.objDataCliente.id_provincia=$ctrl.dataprovincia.selectedOption.id;
-          $ctrl.objDataCliente.id_localidad=$ctrl.datalocalidad.selectedOption.id;
-          $ctrl.objDataCliente.id_actividad=$ctrl.actividad.selectedOption.id;
-          $ctrl.objDataCliente.conoce=$ctrl.data.selectedOption.id;
-
-          clienteFactory.nuevoCliente($ctrl.objDataCliente).then(function(d) {   
-
-                  $ctrl.Mensaje=d.Mensaje;
-
-                  //console.log('JSON: '+d);
-      
            }).catch(function (err) {
                 console.log(err);
-           });   
+           });
 
-      }//Fin NuevoCliente
+        } // Fin Init()            
+ 
+
+        function upDate (objprov) { 
+
+             $ctrl.datalocalidad.availableOptions = $filter('filter')($ctrl.datalocalidad2 ,{id_provincia:objprov.id});
+             $ctrl.datalocalidad.selectedOption={id: $ctrl.datalocalidad.availableOptions[0].id};                                                                         
+             //$ctrl.actividad.selectedOption={id: $ctrl.actividad.availableOptions[0].id}; 
+                                                                                     
+        }//Fin upDate()
+
+
+        function Save () {
+                           
+            $ctrl.objDataCliente.id_provincia=$ctrl.dataprovincia.selectedOption.id;
+            $ctrl.objDataCliente.id_localidad=$ctrl.datalocalidad.selectedOption.id;
+            $ctrl.objDataCliente.id_actividad=$ctrl.actividad.selectedOption.id;
+            $ctrl.objDataCliente.conoce=$ctrl.data.selectedOption.id;
+
+            //ES6 La variable CONST
+            const metodo=$stateParams.type_ingreso.split(".");
+           
+            /*clienteFactory[modificarCliente] Es para acceder a la propiedad de un Object mediante variable, 
+            de forma implícita, sin aclarar cuál es el nombre de dicha propiedad*/
+                    
+            clienteFactory[metodo[1]]( $ctrl.objDataCliente ).then(function(d) {   
+
+            $ctrl.Mensaje=d.Mensaje;
+        
+             }).catch(function (err) {
+                  console.log(err);
+             });   
+            
+        }//Fin Save()
 
     Init();
 

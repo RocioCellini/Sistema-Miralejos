@@ -1,4 +1,4 @@
-<h3>Nuevo Contacto</h3>
+<h3>{{ $ctrl.Titulo}}</h3>
 <br><br>
 
 <div class="row" align="center">
@@ -107,7 +107,7 @@
       <div class="col-sm-4"></div>
         <div class=" col-sm-4">
           <button type="submit" class="btn btn-default" ng-disabled="$ctrl.allow_disable" 
-          ng-click='form.$valid && $ctrl.NuevoCliente()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+          ng-click='form.$valid && $ctrl.Save()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
         </div>
         <div class="col-sm-4"></div>
       </div>

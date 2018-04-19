@@ -62,19 +62,10 @@ if($type_accion==="editar_cliente" && isset($_SESSION['Usuario'])){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
-  
-  /*
-   $url="GestionVentas.nuevoCliente";
-    $item1=array('setUrl' => utf8_encode($url));
-    $json1 = json_encode($item1);
-    echo $json1; 
-  */
 
   } //if($type_accion==="editar_cliente")
-   //agregar un json con el error si no se guardó en la BD
-
 
 ?>      

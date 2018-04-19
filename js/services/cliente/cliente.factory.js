@@ -26,7 +26,7 @@
           return promisedata;
         },
         
-        editarCliente: function(params) {
+        modificarCliente: function(params) {
             promisedata=$http.post('php/sections/cliente/editar_cliente.php', params).then(function (response) {
                   return response.data;
         });

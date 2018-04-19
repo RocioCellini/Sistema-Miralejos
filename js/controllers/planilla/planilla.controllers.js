@@ -38,7 +38,8 @@
 
         var initialSettings = {
             paginationMaxBlocks: 13,
-            paginationMinBlocks: 2
+            paginationMinBlocks: 2,
+            filterOptions: { filterLayout: "horizontal" }
         };      
 
 

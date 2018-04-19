@@ -85,12 +85,25 @@
         templateUrl:'templates/cliente/buscar_cliente.html',
         controller: 'BuscarCliente as $ctrl',
 
-      })
+      }) 
 
       .state('GestionVentas.nuevoCliente',{
         url:'/NuevoCliente',
         templateUrl:'templates/cliente/abm_cliente.html',
-        controller: 'Cliente as $ctrl'
+        controller: 'Cliente as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevoCliente"
+              }
+      })
+
+      .state('GestionVentas.modificarCliente', {
+        url:'/ModificarCliente',
+        templateUrl:'templates/cliente/abm_cliente.html',
+        controller: 'Cliente as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarCliente",
+                  objdata:null
+              }
       })
 
       .state('GestionVentas.buscarVendedor',{
