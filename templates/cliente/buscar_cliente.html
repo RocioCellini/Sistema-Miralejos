@@ -22,7 +22,7 @@
               <select ng-disabled="$ctrl.combo_ciudad"  name="localidad" id="localidad" class="form-control campoform"
               ng-options="option.name for option in $ctrl.datalocalidad.availableOptions track by option.id"
               ng-model="$ctrl.datalocalidad.selectedOption"></select>
-            </div><!-- ng-disabled="!$ctrl.datalocalidad"-->
+            </div>
             <div class="col-sm-2" ></div>
         </div>
 
@@ -31,7 +31,7 @@
             <div class="col-sm-6">
 			       <input  type="text" class="form-control campoform" ng-model="$ctrl.objSearch.criterio">
 			       <p>* ingrese nombre, apellido, dni, teléfono o email de la persona. Las entradas numéricas deben estar completas.</p><br>            
-            </div><!-- ng-disabled="!$ctrl.datalocalidad"-->
+            </div>
             <div class="col-sm-2" ></div>
         </div>
 

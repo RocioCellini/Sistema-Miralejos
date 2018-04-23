@@ -35,11 +35,14 @@
           $ctrl.animationsEnabled=true;        
 
           $ctrl.Init = Init;
-          $ctrl.NuevoVendedor=NuevoVendedor;
+          $ctrl.Save=Save;
 
           function Init () {
 
-             formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+            $ctrl.Titulo="Nuevo Vendedor";
+            $ctrl.objDataVendedor.type_accion="nuevo_vendedor";
+
+            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -48,24 +51,37 @@
                       }
                             
             });  
+
+             console.log($stateParams.type_ingreso);
+             
+            if( $stateParams.type_ingreso==="GestionVentas.modificarVendedor" ) {
+
+                $ctrl.Titulo="Modificar Vendedor";
+
+                console.log($stateParams.objdata);
+                $ctrl.objDataVendedor=$stateParams.objdata;
+
+                $ctrl.objDataVendedor.type_accion="editar_vendedor";
+
+            }
                
           }
 
-          function NuevoVendedor() {
+          function Save() {
               
-            //$ctrl.allow_disable=true;
+            //ES6 La variable CONST
+            const metodo=$stateParams.type_ingreso.split(".");
+           
+            /*clienteFactory[modificarCliente] Es para acceder a la propiedad de un Object mediante variable, 
+            de forma implícita, sin aclarar cuál es el nombre de dicha propiedad*/
+                    
+            vendedorFactory[metodo[1]]( $ctrl.objDataVendedor ).then(function(d) {   
 
-            $ctrl.objDataVendedor.type_accion="nuevo_vendedor";
-         
-            vendedorFactory.nuevoVendedor($ctrl.objDataVendedor).then(function(d) {  
-                               
-                    $ctrl.Mensaje=d.MessageComment;
-                    //$ctrl.allow_disable=false;
+            $ctrl.Mensaje=d.Mensaje;
         
              }).catch(function (err) {
                   console.log(err);
-                  //$ctrl.allow_disable=false;
-             });                    
+             });   
         };
 
       Init();

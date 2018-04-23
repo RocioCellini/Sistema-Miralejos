@@ -24,6 +24,14 @@
         });
            
           return promisedata;
+        },
+
+        modificarVendedor: function(params) {
+            promisedata=$http.post('php/sections/vendedor/editar_vendedor.php', params).then(function (response) {
+                  return response.data;
+        });
+
+        return promisedata;
         }
 
       };//RETURN API

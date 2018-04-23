@@ -6,15 +6,16 @@
   app.controller("BuscarVendedor", BuscarVendedor);
   BuscarVendedor.$inject = ["$scope", "$state", "$stateParams", "vendedorFactory", "NgTableParams","$window", "$filter", "formLoginFactory"];
 
-  //Controller
-  function BuscarVendedor($scope, $state,$stateParams , vendedorFactory,  
-       NgTableParams, $window, $filter, formLoginFactory) {
+    function BuscarVendedor($scope, $state,$stateParams , vendedorFactory,  
+        NgTableParams, $window, $filter, formLoginFactory) {
                     
         var $ctrl=this;
 
         $ctrl.objSearch={
              criterio:""
         };      
+
+        $ctrl.objDataVendedor={};
 
         $ctrl.objLogin ={};
 
@@ -34,8 +35,8 @@
         $ctrl.Init();
 
 
-      // To configure table   
-      //****************************************************************************************//    
+        // To configure table   
+        //****************************************************************************************//    
 
         var initialParams = {
           count: 10 // initial page size
@@ -48,7 +49,7 @@
 
        
 
-        // To go to modify form for pacient suscribers      
+        //Initializing      
         //**********************************************************************************************// 
 
         function Init () {
@@ -68,43 +69,37 @@
           };
 
              
-         // Searching data        
-         //**********************************************************************************************//  
+        // Searching data        
+        //**********************************************************************************************//  
+
         function BuscarVendedor (valorIngresado) {     
+
+            $ctrl.boton_submmit=true;
+
+            $ctrl.objSearch.type_accion="buscar_vendedor";              
+
+            $ctrl.objSearch.criterio=valorIngresado;
               
-              //console.log(valorIngresado);   da bien
+            vendedorFactory.buscarVendedor($ctrl.objSearch).then(function(d) {
+           
+            $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
-              $ctrl.boton_submmit=true;
+            $ctrl.boton_submmit=false;      
 
-              $ctrl.objSearch.type_accion="buscar_vendedor";              
-
-              $ctrl.objSearch.criterio=valorIngresado;
-
-             //console.log($ctrl.objSearch); da bien
-                
-              vendedorFactory.buscarVendedor($ctrl.objSearch).then(function(d) {
-
-              console.log('JSON: '+d);
-              //console.log(d.Respuesta); da undefined
-             
-              $ctrl.tableParams.settings({dataset: d.Respuesta});   
-
-                  // console.log('Datos enviados a tableParams: '+d.Respuesta); 
-
-              $ctrl.boton_submmit=false;      
-
-              }).catch(function (err) {
-                  console.log(err);
-              });
+            }).catch(function (err) {
+                console.log(err);
+            });
             
           };
           
 
-          // To go to modify form for pacient suscribers      
-         //**********************************************************************************************// 
-        function GoDataEdit (objuser) {
+        // Bottom Edit  
+        //**********************************************************************************************// 
 
-              //$state.go('GestionVentas.modificarVendedor');
+        function GoDataEdit (row) {
+
+            $ctrl.objDataVendedor.type_accion="editar_vendedor";
+            $state.go("GestionVentas.modificarVendedor",{ objdata:row }); 
 
           };
               

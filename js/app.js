@@ -5,26 +5,14 @@
   var app = _angular.module("GestionVentas", ["ngSanitize", "ngAnimate", "ui.navbar",
             "ngTable", "ui.router", "ui.bootstrap"]);
 
-  //usar servicio uiRouterStyles
   app.config(function($stateProvider, $urlRouterProvider){ 
-  //$urlRouterProvider.otherwise('/Logueo');
 
       $urlRouterProvider.rule(function ($injector, $location) {
 
       var $state = $injector.get('$state');
 
       var path = $location.path();
-      //normalized = path.toLowerCase();
-     
-      /*
-      if (path==='/xepago') {
-        $state.go('GestionVentas.editpago');
-      }
-      
-      if (path==='/xeliminar') {
-        $state.go('GestionVentas.eliminaruser');
-      }
-      */
+
       });
 
 
@@ -49,13 +37,7 @@
         templateUrl:'templates/formLogueo.html',
         controller: 'LoginController as $ctrl',
       })
-/*
-      .state('GestionVentas.index',{
-        url:'/Estadisticas',
-        templateUrl:'templates/estadistica/estadisticas.html',
-        controller: 'Estadistica as $ctrl_e'
-      })
-*/
+
        .state('GestionVentas.estadisticas',{
         url:'/Estadisticas',
         templateUrl:'templates/estadistica/estadisticas.html',
@@ -115,8 +97,21 @@
       .state('GestionVentas.nuevoVendedor',{
         url:'/NuevoVendedor',
         templateUrl:'templates/vendedor/abm_vendedor.html',
-        controller: 'Vendedor as $ctrl'
+        controller: 'Vendedor as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevoVendedor"
+              }
       }) 
+
+      .state('GestionVentas.modificarVendedor', {
+        url:'/ModificarVendedor',
+        templateUrl:'templates/vendedor/abm_vendedor.html',
+        controller: 'Vendedor as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarVendedor",
+                  objdata:null
+              }
+      })
 
        .state('GestionVentas.buscarInmob',{
         url:'/BuscarInmobiliaria',

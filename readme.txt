@@ -11,6 +11,8 @@ http://www.javasavvy.com/angularjs-filter-service-examples/
 Página ng-table
 //http://ng-table.com/#/
 
+Para poner hojas de estilos desde el app usar el servicio uiRouterStyles
+
 ******************************************************************************
  origen_dato 
           availableOptions: [

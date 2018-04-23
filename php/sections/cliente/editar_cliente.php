@@ -66,6 +66,6 @@ if($type_accion==="editar_cliente" && isset($_SESSION['Usuario'])){
   $json = json_encode($item);
   echo $json;
 
-  } //if($type_accion==="editar_cliente")
+  } //Fin if($type_accion)
 
 ?>      

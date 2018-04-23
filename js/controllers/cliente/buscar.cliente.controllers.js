@@ -6,9 +6,8 @@
   BuscarCliente.$inject = ["$scope", "$state", "$stateParams",
   "clienteFactory", "NgTableParams","$window", "defaultdataFactory", "$filter",  "formLoginFactory"];
 
-          //Controller
-          function BuscarCliente($scope, $state, $stateParams , clienteFactory,  
-             NgTableParams, $window, defaultdataFactory, $filter, formLoginFactory) {
+      function BuscarCliente($scope, $state, $stateParams , clienteFactory,  
+          NgTableParams, $window, defaultdataFactory, $filter, formLoginFactory) {
                           
                 var $ctrl=this;
 
@@ -58,8 +57,9 @@
                 };         
                
 
-         // To go to modify form for pacient suscribers      
+         // Initializing      
          //**********************************************************************************************// 
+
           function Init () {
 
             $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
@@ -130,8 +130,6 @@
           // Searching data        
           //**********************************************************************************************//  
           function BuscarCliente (valorIngresado) {     
-              
-              //console.log(valorIngresado);   
 
               $ctrl.boton_submmit=true;
 
@@ -156,6 +154,9 @@
               });
                          
           };
+
+          // Bottom Edit  
+          //**********************************************************************************************// 
 
           function GoDataEdit( row ){
 
