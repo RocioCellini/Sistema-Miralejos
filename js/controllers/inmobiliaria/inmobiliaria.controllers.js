@@ -13,31 +13,32 @@
   function Inmobiliaria ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, inmobiliariaFactory, formLoginFactory) {
                                  
-     var $ctrl = this;
-     
-     $ctrl.objDataInmob={};
+      var $ctrl = this;
 
-     $ctrl.objLogin ={};
+      $ctrl.objDataInmob={};
 
-     Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+      $ctrl.objLogin ={};
+
+      Object.defineProperty ( $ctrl.objLogin, "type_accion", {
         value: "checkSession",
         writable: false,
         enumerable: true,
         configurable: false
-     }); 
+      }); 
 
-     $ctrl.allow_disable=false;
-     $ctrl.allow_visible=true;
+      $ctrl.allow_disable=false;
+      $ctrl.allow_visible=true;
 
-    
-     $ctrl.Init = Init;
-     $ctrl.upDate = upDate;
-     $ctrl.NuevaInmob=NuevaInmob;
+      $ctrl.Init = Init;
+      $ctrl.Save=Save;
         
 
       function Init () {
         
-         formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+        $ctrl.Titulo="Nueva Inmobiliaria";
+        $ctrl.objDataInmob.type_accion="nueva_inmob";
+
+        formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -45,26 +46,31 @@
                           $state.go( d.setUrl );                               
                       }
                       
-            });          
+            });     
+
+        if( $stateParams.type_ingreso==="GestionVentas.modificarInmob" ) {
+
+                $ctrl.Titulo="Modificar Inmobiliaria";                
+                $ctrl.objDataInmob=$stateParams.objdata;
+                $ctrl.objDataInmob.type_accion="editar_inmob";
+
+            }     
       };    
 
-      function upDate () { 
-      }
+      function Save() {
+            
+          const metodo=$stateParams.type_ingreso.split(".");  //ES6 La variable CONST
 
-      function NuevaInmob () {
-                
-        //$ctrl.allow_disable=true;
+            console.log($stateParams.type_ingreso);
+            console.log(metodo[1]);
+                  
+          inmobiliariaFactory[metodo[1]]($ctrl.objDataInmob).then(function(d) {   
 
-        $ctrl.objDataInmob.type_accion="nueva_inmob";
-        
-        inmobiliariaFactory.nuevaInmobiliaria($ctrl.objDataInmob).then(function(d) {                   
-                $ctrl.Mensaje=d.Mensaje;
-                //$ctrl.allow_disable=false;
-    
-         }).catch(function (err) {
-              console.log(err);
-              //$ctrl.allow_disable=false;
-         });                
+            $ctrl.Mensaje=d.Mensaje;
+      
+          }).catch(function (err) {
+                console.log(err);
+          });   
       };
       
      Init();

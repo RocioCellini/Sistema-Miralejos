@@ -11,7 +11,7 @@
 
      var Inmobiliaria = {
             
-        nuevaInmobiliaria: function(params) {
+        nuevaInmob: function(params) {
             promisedata=$http.post('php/sections/inmobiliaria/nueva_inmob.php', params).then(function (response) {
                   return response.data;
         });
@@ -19,13 +19,21 @@
           return promisedata;
         },
         
-        buscarInmobiliaria: function(params) {
+        buscarInmob: function(params) {
             promisedata=$http.post('php/sections/inmobiliaria/buscar_inmob.php', params).then(function (response) {
                   return response.data;
         });
            
           return promisedata;
         },
+
+        modificarInmob: function(params) {
+            promisedata=$http.post('php/sections/inmobiliaria/editar_inmob.php', params).then(function (response) {
+                  return response.data;
+        });
+
+        return promisedata;
+        }
 
       };//RETURN API
 

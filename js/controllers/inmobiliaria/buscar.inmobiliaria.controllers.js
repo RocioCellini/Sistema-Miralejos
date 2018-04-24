@@ -15,7 +15,9 @@
                        criterio:""
                 };       
 
-                $ctrl.objLogin ={};
+                $ctrl.objDataInmob={};
+
+                $ctrl.objLogin={};
 
                 Object.defineProperty ( $ctrl.objLogin, "type_accion", {
                     value: "checkSession",
@@ -45,65 +47,60 @@
                 };         
                
 
-         // To go to modify form for pacient suscribers      
-         //**********************************************************************************************// 
-          function Init () {
+              // Initializing       
+              //**********************************************************************************************// 
 
-            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);    
+              function Init () {
 
-            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+                $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);    
 
-                 angular.isDefined(d.setUrl)?goUrl(d):null;
-                                
-                      function goUrl (d) {                                 
-                          $state.go( d.setUrl );                               
-                      }
-                      
-            });               
-      
-          };
+                formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+
+                     angular.isDefined(d.setUrl)?goUrl(d):null;
+                                    
+                          function goUrl (d) {                                 
+                              $state.go( d.setUrl );                               
+                          }
+                          
+                });               
+          
+              };
 
              
-         // Searching data        
-         //**********************************************************************************************//  
-          function BuscarInmobiliaria (valorIngresado) {     
+              // Searching data        
+              //**********************************************************************************************//  
 
-                //console.log(valorIngresado);   
+              function BuscarInmobiliaria (valorIngresado) {     
 
                 $ctrl.boton_submmit=true;
 
                 $ctrl.objSearch.type_accion="buscar_inmob";              
 
                 $ctrl.objSearch.criterio=valorIngresado;
-
-               //console.log($ctrl.objSearch);
                   
-                inmobiliariaFactory.buscarInmobiliaria($ctrl.objSearch).then(function(d) {
-
-                //console.log('JSON: '+d);
-                console.log(d.Respuesta); 
+                inmobiliariaFactory.buscarInmob($ctrl.objSearch).then(function(d) {
                
                 $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
-                    // console.log('Datos enviados a tableParams: '+d.Respuesta); 
-
                 $ctrl.boton_submmit=false;      
     
-              }).catch(function (err) {
-                  console.log(err);
+                }).catch(function (err) {
+                    console.log(err);
                 });
                          
-          };
+              };
 
 
-          // To go to modify form for pacient suscribers      
-         //**********************************************************************************************// 
-          function GoDataEdit (objuser) {             
-            
-             // $state.go('GestionVentas.modificarCliente');
+              // Bottom Edit  
+              //**********************************************************************************************// 
 
-          };
-    
+              function GoDataEdit (row) {
+
+                  $ctrl.objDataInmob.type_accion="editar_inmob";
+                  $state.go("GestionVentas.modificarInmob",{ objdata:row }); 
+
+              };
+          
       }// DataSendController
 
 })(window.angular);
