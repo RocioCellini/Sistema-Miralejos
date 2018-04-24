@@ -47,7 +47,7 @@ if($type_accion==="nuevo_vendedor" && isset($_SESSION['Usuario'])){
 
 
   //***************************************************************************************///
-  $arr2=array('MessageComment'=>$data_responde);
+  $arr2=array('Mensaje'=>$data_responde);
   
   $json = json_encode($arr2);
   echo $json;

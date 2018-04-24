@@ -51,16 +51,11 @@
                       }
                             
             });  
-
-             console.log($stateParams.type_ingreso);
              
             if( $stateParams.type_ingreso==="GestionVentas.modificarVendedor" ) {
 
-                $ctrl.Titulo="Modificar Vendedor";
-
-                console.log($stateParams.objdata);
+                $ctrl.Titulo="Modificar Vendedor";                
                 $ctrl.objDataVendedor=$stateParams.objdata;
-
                 $ctrl.objDataVendedor.type_accion="editar_vendedor";
 
             }
@@ -68,20 +63,16 @@
           }
 
           function Save() {
-              
-            //ES6 La variable CONST
-            const metodo=$stateParams.type_ingreso.split(".");
-           
-            /*clienteFactory[modificarCliente] Es para acceder a la propiedad de un Object mediante variable, 
-            de forma implícita, sin aclarar cuál es el nombre de dicha propiedad*/
+                
+            const metodo=$stateParams.type_ingreso.split(".");   //ES6 La variable CONST
                     
             vendedorFactory[metodo[1]]( $ctrl.objDataVendedor ).then(function(d) {   
 
-            $ctrl.Mensaje=d.Mensaje;
+              $ctrl.Mensaje=d.Mensaje;
         
-             }).catch(function (err) {
+            }).catch(function (err) {
                   console.log(err);
-             });   
+            });   
         };
 
       Init();
