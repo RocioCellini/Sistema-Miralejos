@@ -122,8 +122,21 @@
       .state('GestionVentas.nuevaInmob',{
         url:'/NuevaInmobiliaria',
         templateUrl:'templates/inmobiliaria/abm_inmobiliaria.html',
-        controller: 'Inmobiliaria as $ctrl'
+        controller: 'Inmobiliaria as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevaInmob"
+              }
       }) 
+
+      .state('GestionVentas.modificarInmob', {
+        url:'/ModificarInmobiliaria',
+        templateUrl:'templates/inmobiliaria/abm_inmobiliaria.html',
+        controller: 'Inmobiliaria as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarInmob",
+                  objdata:null
+              }
+      })
 
       .state('GestionVentas.buscarEdificio',{
         url:'/BuscarEdificio',
@@ -134,7 +147,20 @@
       .state('GestionVentas.nuevoEdificio',{
         url:'/NuevoEdificio',
         templateUrl:'templates/edificio/abm_edificio.html',
-        controller: 'Edificio as $ctrl'
+        controller: 'Edificio as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevoEdificio"
+              }
+      })
+
+      .state('GestionVentas.modificarEdificio', {
+        url:'/ModificarEdificio',
+        templateUrl:'templates/edificio/abm_edificio.html',
+        controller: 'Edificio as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarEdificio",
+                  objdata:null
+              }
       })
 
       .state('GestionVentas.buscarPlanta',{
@@ -146,7 +172,20 @@
       .state('GestionVentas.nuevaPlanta',{
         url:'/NuevaPlanta',
         templateUrl:'templates/planta/abm_planta.html',
-        controller: 'Planta as $ctrl'
+        controller: 'Planta as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevaPlanta"
+              }
+      })
+
+      .state('GestionVentas.modificarPlanta', {
+        url:'/ModificarPlanta',
+        templateUrl:'templates/planta/abm_planta.html',
+        controller: 'Planta as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarPlanta",
+                  objdata:null
+              }
       })
 
       .state('GestionVentas.buscarDpto',{
@@ -158,7 +197,20 @@
       .state('GestionVentas.nuevoDpto',{
         url:'/NuevoDpto',
         templateUrl:'templates/dpto/abm_dpto.html',
-        controller: 'Dpto as $ctrl'
+        controller: 'Dpto as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevoDpto"
+              }
+      })
+
+      .state('GestionVentas.modificarDpto', {
+        url:'/ModificarDpto',
+        templateUrl:'templates/dpto/abm_dpto.html',
+        controller: 'Dpto as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarDpto",
+                  objdata:null
+              }
       })
 
       .state('GestionVentas.nuevaRelacion',{
@@ -176,7 +228,20 @@
       .state('GestionVentas.nuevaLocalidad',{
         url:'/NuevaLocalidad',
         templateUrl:'templates/localidad/abm_localidad.html',
-        controller: 'Localidad as $ctrl'
+        controller: 'Localidad as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevaLocalidad"
+              }
+      })
+
+      .state('GestionVentas.modificarLocalidad', {
+        url:'/ModificarLocalidad',
+        templateUrl:'templates/localidad/abm_localidad.html',
+        controller: 'Localidad as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarLocalidad",
+                  objdata:null
+              }
       })
 
       .state('GestionVentas.buscarLlamado',{

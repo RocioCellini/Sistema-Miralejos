@@ -9,64 +9,71 @@
   Dpto.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "dptoFactory", "formLoginFactory"];
 
-  //Controller
-  function Dpto ($scope, $sce, $state,  $stateParams,  $window,
-   $uibModal, $document, dptoFactory, formLoginFactory) {
+    //Controller
+    function Dpto ($scope, $sce, $state,  $stateParams,  $window,
+      $uibModal, $document, dptoFactory, formLoginFactory) {
                                  
-    var $ctrl = this;
+        var $ctrl = this;
 
-    $ctrl.objDataDpto={};
+        $ctrl.objDataDpto={};
 
-    $ctrl.objLogin ={};
+        $ctrl.objLogin ={};
 
-              Object.defineProperty ( $ctrl.objLogin, "type_accion", {
-                  value: "checkSession",
-                  writable: false,
-                  enumerable: true,
-                  configurable: false
-              }); 
-    $ctrl.allow_disable=false;
-    $ctrl.allow_visible=true;
+        Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+            value: "checkSession",
+            writable: false,
+            enumerable: true,
+            configurable: false
+        }); 
+        
+        $ctrl.allow_disable=false;
+        $ctrl.allow_visible=true;
 
-    $ctrl.Init = Init;
-    $ctrl.upDate = upDate;
-    $ctrl.NuevoDpto=NuevoDpto;
+        $ctrl.Init = Init;
+        $ctrl.Save=Save;
         
 
-    function Init () {
+        function Init () {
 
-      formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+            $ctrl.Titulo="Nuevo Dpto";
+            $ctrl.objDataDpto.type_accion="nuevo_dpto";
 
-           angular.isDefined(d.setUrl)?goUrl(d):null;
-                          
-              function goUrl (d) {                                 
-                  $state.go( d.setUrl );                               
-              }
-                
-      }); 
-      
-    };    
+            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
-    function upDate () { 
-    }
+                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                                
+                    function goUrl (d) {                                 
+                        $state.go( d.setUrl );                               
+                    }
+                      
+            }); 
 
-    function NuevoDpto () {
-              
-      //$ctrl.allow_disable=true;
+            if( $stateParams.type_ingreso==="GestionVentas.modificarDpto" ) {
 
-      $ctrl.objDataDpto.type_accion="nuevo_dpto";
-      
-      dptoFactory.nuevoDpto($ctrl.objDataDpto).then(function(d) {                   
+                $ctrl.Titulo="Modificar Departamento";                
+                $ctrl.objDataDpto=$stateParams.objdata;
+                $ctrl.objDataDpto.type_accion="editar_dpto";
+
+            } 
+          
+        };    
+
+
+        function Save() {
+                  
+            const metodo=$stateParams.type_ingreso.split(".");  //ES6 La variable CONST
+                        
+            dptoFactory[metodo[1]]($ctrl.objDataDpto).then(function(d) {   
+
               $ctrl.Mensaje=d.Mensaje;
-              //$ctrl.allow_disable=false;
-  
-       }).catch(function (err) {
-            console.log(err);
-            //$ctrl.allow_disable=false;
-       });                
-    };
+        
+            }).catch(function (err) {
+                  console.log(err);
+            });    
+
+        };
       
-     Init();
+        Init();
 
   }// DataSendController
 

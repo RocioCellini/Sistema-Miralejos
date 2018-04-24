@@ -24,6 +24,14 @@
         });
            
           return promisedata;
+        },
+
+        modificarPlanta: function(params) {
+            promisedata=$http.post('php/sections/planta/editar_planta.php', params).then(function (response) {
+                  return response.data;
+        });
+
+        return promisedata;
         }
 
       };//RETURN API

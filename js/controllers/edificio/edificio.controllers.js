@@ -13,31 +13,32 @@
   function Edificio ($scope, $sce, $state,  $stateParams,  $window,
    $uibModal, $document, edificioFactory, formLoginFactory) {
                                  
-     var $ctrl = this;
-     
-     $ctrl.objDataEdificio={};
+      var $ctrl = this;
 
-     $ctrl.objLogin ={};
+      $ctrl.objDataEdificio={};
 
-     Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+      $ctrl.objLogin ={};
+
+      Object.defineProperty ( $ctrl.objLogin, "type_accion", {
         value: "checkSession",
         writable: false,
         enumerable: true,
         configurable: false
-     }); 
+      }); 
 
-     $ctrl.allow_disable=false;
-     $ctrl.allow_visible=true;
+      $ctrl.allow_disable=false;
+      $ctrl.allow_visible=true;
 
-    
-     $ctrl.Init = Init;
-     $ctrl.upDate = upDate;
-     $ctrl.NuevoEdificio=NuevoEdificio;
-        
+      $ctrl.Init = Init;
+      $ctrl.Save=Save;
+ 
 
       function Init () {
+
+        $ctrl.Titulo="Nuevo Edificio";
+        $ctrl.objDataEdificio.type_accion="nuevo_edificio";
         
-         formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+        formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
                                 
@@ -45,31 +46,34 @@
                           $state.go( d.setUrl );                               
                       }
                       
-            });          
+            });     
+
+        if( $stateParams.type_ingreso==="GestionVentas.modificarEdificio" ) {
+
+                $ctrl.Titulo="Modificar Edificio";                
+                $ctrl.objDataEdificio=$stateParams.objdata;
+                $ctrl.objDataEdificio.type_accion="editar_edificio";
+
+            }    
+
       };    
 
-      function upDate () { 
-      }
-
-      function NuevoEdificio () {
+      function Save () {
                 
-        //$ctrl.allow_disable=true;
+          const metodo=$stateParams.type_ingreso.split(".");  //ES6 La variable CONST
+                  
+          edificioFactory[metodo[1]]($ctrl.objDataEdificio).then(function(d) {   
 
-        $ctrl.objDataEdificio.type_accion="nuevo_edificio";
-        
-        edificioFactory.nuevoEdificio($ctrl.objDataEdificio).then(function(d) {                   
-                $ctrl.Mensaje=d.Mensaje;
-                //$ctrl.allow_disable=false;
-    
-         }).catch(function (err) {
-              console.log(err);
-              //$ctrl.allow_disable=false;
-         });                
+            $ctrl.Mensaje=d.Mensaje;
+      
+          }).catch(function (err) {
+                console.log(err);
+          });         
+
       };
       
      Init();
 
   }// DataSendController
-
 
 })(window.angular);

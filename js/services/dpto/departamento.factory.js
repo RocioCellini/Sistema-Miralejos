@@ -27,6 +27,14 @@
           return promisedata;
         },
 
+        modificarDpto: function(params) {
+            promisedata=$http.post('php/sections/dpto/editar_dpto.php', params).then(function (response) {
+                  return response.data;
+        });
+
+        return promisedata;
+        }
+
       };//RETURN API
 
       return Dpto;      

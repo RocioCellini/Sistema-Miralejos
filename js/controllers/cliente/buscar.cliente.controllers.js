@@ -76,10 +76,6 @@
             $ctrl.defaultparams.type_accion="search_data_combos";
             defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d) {    
 
-
-    
-            //console.log(d);
-
             $ctrl.datalocalidad2=d.localidad;
             
             $ctrl.dataprovincia = {
@@ -138,12 +134,8 @@
               $ctrl.objSearch.id_localidad=$ctrl.datalocalidad.selectedOption.id;
 
               $ctrl.objSearch.criterio=valorIngresado;
-
-              console.log($ctrl.objSearch);
                 
               clienteFactory.buscarCliente($ctrl.objSearch).then(function(d) {
-
-              console.log(d.Respuesta);
              
               $ctrl.tableParams.settings({dataset: d.Respuesta});  //dataset es cada row  que encuentra 
 

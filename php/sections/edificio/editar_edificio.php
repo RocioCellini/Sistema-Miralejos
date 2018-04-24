@@ -9,47 +9,45 @@ $json = file_get_contents('php://input');
 $data=json_decode($json);
 
 
-//$type_accion=$data->{'type_accion'};
-$type_accion='editar_edificio';
+$type_accion=$data->{'type_accion'};
+//$type_accion='editar_edificio';
 
 if($type_accion==="editar_edificio" && isset($_SESSION['Usuario'])){
 
-//********************************************************************************************//  
-  
-  include "../../conexion.php"; 
-  /*
-  $operationid =$data->{'Id_Operacion'};
-  $idinscripto =$data->{'Id_Inscripto'};
-  $status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-  */
-  $id_edificio=1;
-  $nombre='M14';
+    //***************************************************************************************//
+    
+    include "../../conexion.php"; 
 
-  $item="";
+    $id_edificio=$data->{'id_edificio'};
+    $nombre=$data->{'nombre'};
 
-  $result='UPDATE edificio SET nombre=? WHERE id_edificio=?';
+    /*
+    $id_edificio=1;
+    $nombre='M14';  
+    */
 
+    $item="";
 
-  $stmt = $conn->prepare($result);
+    $result='UPDATE edificio SET nombre=? WHERE id_edificio=?';
 
-  if($stmt === false) {
-                    trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
-                    }
+    $stmt = $conn->prepare($result);
 
-  $stmt->bind_param('si', $nombre, $id_edificio);
+    if($stmt === false) {
+                      trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
+                      }
 
-  $stmt->execute();
+    $stmt->bind_param('si', $nombre, $id_edificio);
 
-  $message="Los datos se actualizaron correctamente.";
+    $stmt->execute();
 
-  //***************************************************************************************///
+    $message="Los datos se actualizaron correctamente.";
 
-  $item=array('Message' => utf8_encode($message));
-  $json = json_encode($item);
-  echo $json;
-            
-   } //if($type_accion==="editar_edificio")
-   //agregar un json con el error si no se guardó en la BD
+    //***************************************************************************************//
+
+    $item=array('Mensaje' => utf8_encode($message));
+    $json = json_encode($item);
+    echo $json;
+              
+    } //if($type_accion==="editar_edificio")
 
 ?>      

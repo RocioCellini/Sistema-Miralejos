@@ -8,48 +8,45 @@ session_start();
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
+$type_accion=$data->{'type_accion'};
+//$type_accion='editar_planta';
 
-//$type_accion=$data->{'type_accion'};
-$type_accion='editar_planta';
 
 if($type_accion==="editar_planta" && isset($_SESSION['Usuario'])){
 
-//********************************************************************************************//  
+    //******************************************************************************//  
   
-  include "../../conexion.php"; 
-  /*
-  $operationid =$data->{'Id_Operacion'};
-  $idinscripto =$data->{'Id_Inscripto'};
-  $status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-  */
-  $id_planta=2;
-  $nombre='C';
+    include "../../conexion.php"; 
 
-  $item="";
+    $id_planta=$data->{'id_planta'};
+    $nombre=$data->{'nombre'};
+     /*
+    $id_planta=2;
+    $nombre='C';
+     */
 
-  $result='UPDATE planta SET nombre=? WHERE id_planta=?';
+    $item="";
 
+    $result='UPDATE planta SET nombre=? WHERE id_planta=?';
 
-  $stmt = $conn->prepare($result);
+    $stmt = $conn->prepare($result);
 
-  if($stmt === false) {
-                    trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
-                    }
+    if($stmt === false) {
+                      trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
+                      }
 
-  $stmt->bind_param('si', $nombre, $id_planta);
+    $stmt->bind_param('si', $nombre, $id_planta);
 
-  $stmt->execute();
+    $stmt->execute();
 
-  $message="Los datos se actualizaron correctamente.";
+    $message="Los datos se actualizaron correctamente.";
 
-  //***************************************************************************************///
+    //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
-  $json = json_encode($item);
-  echo $json;
-            
-   } //if($type_accion==="editar_planta")
-   //agregar un json con el error si no se guardó en la BD
+    $item=array('Mensaje' => utf8_encode($message));
+    $json = json_encode($item);
+    echo $json;
+              
+    } //if($type_accion==="editar_planta")
 
 ?>      

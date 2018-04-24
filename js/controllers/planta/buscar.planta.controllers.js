@@ -5,47 +5,50 @@
   app.controller("BuscarPlanta", BuscarPlanta);
   BuscarPlanta.$inject = ["$scope", "$state", "$stateParams", "plantaFactory", "NgTableParams","$window", "$filter", "formLoginFactory"];
 
-          //Controller
-          function BuscarPlanta($scope, $state, $stateParams , plantaFactory,  
-             NgTableParams, $window, $filter, formLoginFactory) {
+      //Controller
+      function BuscarPlanta($scope, $state, $stateParams , plantaFactory,  
+          NgTableParams, $window, $filter, formLoginFactory) {
                           
-                var $ctrl=this;
+          var $ctrl=this;
 
-                $ctrl.objSearch={
-                       criterio:""
-                };       
+          $ctrl.objSearch={
+                 criterio:""
+          };       
 
-                $ctrl.objLogin ={};
+          $ctrl.objDataPlanta={};
 
-                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
-                        value: "checkSession",
-                        writable: false,
-                        enumerable: true,
-                        configurable: false
-                }); 
+          $ctrl.objLogin={};
 
-                $ctrl.Init = Init;
-                $ctrl.BuscarPlanta = BuscarPlanta;
-                $ctrl.GoDataEdit = GoDataEdit;
+          Object.defineProperty($ctrl.objLogin, "type_accion", {
+                  value: "checkSession",
+                  writable: false,
+                  enumerable: true,
+                  configurable: false
+          }); 
 
-                $ctrl.Init();
+          $ctrl.Init = Init;
+          $ctrl.BuscarPlanta = BuscarPlanta;
+          $ctrl.GoDataEdit = GoDataEdit;
+
+          $ctrl.Init();
 
 
-            // To configure table   
-            //*****************************************************************************//    
+          // To configure table   
+          //*****************************************************************************//    
 
-                var initialParams = {
-                  count: 10 // initial page size
-                };
+          var initialParams = {
+            count: 10 // initial page size
+          };
 
-                var initialSettings = {
-                    paginationMaxBlocks: 13,
-                    paginationMinBlocks: 2
-                };         
+          var initialSettings = {
+              paginationMaxBlocks: 13,
+              paginationMinBlocks: 2
+          };         
                
 
-         // To go to modify form for pacient suscribers      
-         //**********************************************************************************************// 
+          // Initializing             
+          //***********************************************************************************// 
+
           function Init () {
 
              $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
@@ -56,36 +59,25 @@
                                 
                       function goUrl (d) {                                 
                           $state.go( d.setUrl );                               
-                      }
-                            
+                      }                           
               });       
-
           };
 
              
-         // Searching data        
-         //**********************************************************************************************//  
+          // Searching data        
+          //**************************************************************************************//  
+
           function BuscarPlanta (valorIngresado) {     
 
-                //console.log(valorIngresado);   
+              $ctrl.boton_submmit=true;
 
-                $ctrl.boton_submmit=true;
+              $ctrl.objSearch.type_accion="buscar_planta";              
 
-                $ctrl.objSearch.type_accion="buscar_planta";              
-
-                $ctrl.objSearch.criterio=valorIngresado;
-
-               //console.log($ctrl.objSearch);
-                  
-                plantaFactory.buscarPlanta($ctrl.objSearch).then(function(d) {
-
-                //console.log('JSON: '+d);
-                console.log(d.Respuesta); 
-               
-                $ctrl.tableParams.settings({dataset: d.Respuesta});   
-
-                    // console.log('Datos enviados a tableParams: '+d.Respuesta); 
-
+              $ctrl.objSearch.criterio=valorIngresado;
+                
+              plantaFactory.buscarPlanta($ctrl.objSearch).then(function(d) {
+             
+                $ctrl.tableParams.settings({dataset: d.Respuesta});
                 $ctrl.boton_submmit=false;      
     
               }).catch(function (err) {
@@ -95,11 +87,13 @@
           };
 
 
-          // To go to modify form for pacient suscribers      
-         //**********************************************************************************************// 
-          function GoDataEdit (objuser) {             
+          // Bottom Edit     
+          //*****************************************************************************// 
+
+          function GoDataEdit (row) {             
             
-             // $state.go('GestionVentas.modificarCliente');
+            $ctrl.objDataPlanta.type_accion="editar_planta";
+            $state.go("GestionVentas.modificarPlanta",{ objdata:row }); 
 
           };
     
