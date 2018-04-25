@@ -79,15 +79,25 @@
                   selectedOption: {id: '1'} 
                 };
 
+              $ctrl.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.dataprovincia.selectedOption.id=-1; 
+
+
               $ctrl.datalocalidad = {
                   availableOptions: d.localidad,
                   selectedOption: {id: '1'} 
                 };
 
+              $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.datalocalidad.selectedOption.id=-1; 
+
               $ctrl.actividad = {
                   availableOptions: d.actividad,
                   selectedOption: {id: '1'} 
-                };//This sets the default value of the select in the ui
+                };
+
+              $ctrl.actividad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.actividad.selectedOption.id=-1; 
 
             
               if( $stateParams.type_ingreso==="GestionVentas.modificarCliente" ) {
