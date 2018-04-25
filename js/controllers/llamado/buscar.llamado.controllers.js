@@ -89,31 +89,28 @@
        //**********************************************************************************************//  
         function BuscarLlamado () {     
 
-              $ctrl.Mensaje="";
-              $ctrl.boton_submmit=true;    
+            $ctrl.Mensaje="";
+            $ctrl.boton_submmit=true;    
+            
+            var date=$filter('date')($ctrl.dt1, 'yyyy-MM-dd');          
+           
+            $ctrl.objSearch.type_accion="buscar_llamado";              
+
+            $ctrl.objSearch.criterio=date;            
               
-              var date=$filter('date')($ctrl.dt1, 'yyyy-MM-dd');
-              console.log(date);              
-             
-              $ctrl.objSearch.type_accion="buscar_llamado";              
+            llamadoFactory.buscarLlamado($ctrl.objSearch).then(function(d) {
+           
+                angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
+              
+                function LoadTable (d) {
+                   $ctrl.tableParams.settings({dataset: d.Respuesta})
+                }
 
-              $ctrl.objSearch.criterio=date;
-            
+                function ShowMessage (d) { 
+                    $ctrl.Mensaje=d.Respuesta[0].Mensaje;
+                }      
                 
-              llamadoFactory.buscarLlamado($ctrl.objSearch).then(function(d) {
-
-             // Se llama ternaria y reemplaza al if
-              angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
-            
-              function LoadTable (d) {
-                 $ctrl.tableParams.settings({dataset: d.Respuesta})
-              }
-
-              function ShowMessage (d) { 
-                  $ctrl.Mensaje=d.Respuesta[0].Mensaje;
-              }      
-        
-              $ctrl.boton_submmit=false;      
+                $ctrl.boton_submmit=false;      
   
             }).catch(function (err) {
                $ctrl.boton_submmit=false;

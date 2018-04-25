@@ -58,7 +58,7 @@ if($type_accion==="editar_llamado" && isset($_SESSION['Usuario'])){
 
   //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             

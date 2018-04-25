@@ -122,10 +122,7 @@
                 
             <div class="col-sm-4">
               <input type="time" class="form-control campoform" ng-model=" $ctrl.objDataLlamado.time" 
-              >
-              <!--<span class="error" ng-show="myForm.input.$error.required">
-              El campo es Requerido.</span>-->
-           
+              >           
             </div>          
             <div class="col-sm-4"></div>
         </div>
@@ -146,8 +143,8 @@
                   <select name="planta" id="planta" class="form-control campoform"
                   ng-options="option.nombre for option in $ctrl.data_planta.availableOptions track by option.id_planta"                
                   ng-model="$ctrl.data_planta.selectedOption"
-                  ng-change='$ctrl.upDatePlanta($ctrl.data_planta.selectedOption)'></select>                 
-            </div><!-- ng-disabled="!data_edificio.selectedOption"  -->
+                  ng-change='$ctrl.upDatePlanta($ctrl.data_planta.selectedOption)'></select>         
+            </div>
             <div class="col-sm-4" ></div>
       </div>
 
@@ -157,7 +154,7 @@
                   <select name="dpto" id="dpto" class="form-control campoform"
                   ng-options="option.nombre for option in $ctrl.data_dpto.availableOptions track by option.id_dpto"               
                   ng-model="$ctrl.data_dpto.selectedOption"></select>                 
-            </div><!--  ng-disabled="!data_dpto.selectedOption"  -->
+            </div>
             <div class="col-sm-4" ></div>
       </div>
 

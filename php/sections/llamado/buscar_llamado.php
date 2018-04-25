@@ -47,6 +47,7 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
             $id_edificio=$row["id_edificio"]; 
             $id_planta=$row["id_planta"]; 
             $id_dpto=$row["id_dpto"]; 
+            $id_origen_dato=$row["id_origen_dato"]; 
 
             //vendedor
             $result_v = 'SELECT * FROM vendedor WHERE id_vendedor=?';
@@ -144,6 +145,26 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
             if($row_d=$rs_d->fetch_assoc()){
               $dpto=$row_d["nombre"];
             }
+
+            //Origen Dato
+
+            $result_od = 'SELECT * FROM origen_dato WHERE id_origen_dato=?';
+
+            $stmt_od = $conn->prepare($result_od);
+
+            if($stmt_od===false) {
+              trigger_error('Wrong SQL: ' . $result_od . ' Error: ' . $conn->error, E_USER_ERROR);
+            } 
+
+            $stmt_od->bind_param('i',$id_origen_dato); 
+
+            $stmt_od->execute(); 
+
+            $rs_od=$stmt_od->get_result(); 
+
+            if($row_od=$rs_od->fetch_assoc()){              
+              $nombre_origen_dato=$row_od["origen_dato"];
+            }
             
             $temp=array('id_llamado'=>utf8_encode($row['id_llamado']),
                         'vendedor'=>utf8_encode($vendedor),
@@ -155,7 +176,7 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
                         'planta'=>utf8_encode($planta),
                         'dpto'=>utf8_encode($dpto),                    
                         'grado_interes'=>utf8_encode($row['grado_interes']),
-                        'nombre_origen_dato'=>utf8_encode($row['nombre_origen_dato']),
+                        'nombre_origen_dato'=>($nombre_origen_dato),
                         'fecha_origen_dato'=>utf8_encode($row['fecha_origen_dato']),
                         'anotaciones'=>utf8_encode($row['anotaciones'])
                             );
@@ -165,7 +186,7 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
           } while ($row=$rs->fetch_assoc());
 
        } else { 
-          $mensaje=array('Mensaje'=>utf8_encode("No se encontrÃ³ un llamado con el nombre ingresado"));
+          $mensaje=array('Mensaje'=>utf8_encode("No se encontró un llamado con el nombre ingresado"));
           $response[]=$mensaje;
        } 
 

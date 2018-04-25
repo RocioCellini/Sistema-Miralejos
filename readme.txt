@@ -14,6 +14,35 @@ Página ng-table
 Para poner hojas de estilos desde el app usar el servicio uiRouterStyles
 
 ******************************************************************************
+
+Nota 1: En los templates, el atributo ng-options usa option.name y option.id, que son los valores del array que está en el php correspondiente. Por ejemplo abm_localidad.html tiene su array en datos_relacionados.php 
+
+Nota 2: Lo siguiente se llama ternaria y reemplaza al if. Está hecho en buscar.lamado.controllers.js
+
+        angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
+      
+        function LoadTable (d) {
+           $ctrl.tableParams.settings({dataset: d.Respuesta})
+        }
+
+        function ShowMessage (d) { 
+            $ctrl.Mensaje=d.Respuesta[0].Mensaje;
+        }     
+
+Nota 3:  //ES6 La variable CONST
+            const metodo=$stateParams.type_ingreso.split(".");
+           
+            /* clienteFactory[modificarCliente] Es para acceder a la propiedad de un Object mediante variable, de forma implícita, sin aclarar cuál es el nombre de dicha propiedad */
+                    
+            clienteFactory[metodo[1]]( $ctrl.objDataCliente ).then(function(d) {   
+
+            $ctrl.Mensaje=d.Mensaje;
+        
+             }).catch(function (err) {
+                  console.log(err);
+             });    
+
+******************************************************************************
  origen_dato 
           availableOptions: [
               {id: '-1', name: 'Seleccionar'},
