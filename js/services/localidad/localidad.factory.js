@@ -24,6 +24,14 @@
         });
            
           return promisedata;
+        },
+        
+        modificarLocalidad: function(params) {
+            promisedata=$http.post('php/sections/localidad/editar_localidad.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API

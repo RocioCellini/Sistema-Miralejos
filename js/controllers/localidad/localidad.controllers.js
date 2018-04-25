@@ -9,37 +9,34 @@
   Localidad.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "localidadFactory", "defaultdataFactory", "formLoginFactory"];
 
-          //Controller
-          function Localidad ($scope, $sce, $state,  $stateParams,  $window,
-           $uibModal, $document, localidadFactory, defaultdataFactory, formLoginFactory) {
-                                         
-            var $ctrl = this;
+    //Controller
+    function Localidad ($scope, $sce, $state,  $stateParams,  $window,
+       $uibModal, $document, localidadFactory, defaultdataFactory, formLoginFactory) {
+                                     
+          var $ctrl = this;
 
-            $ctrl.objDataLocalidad={};
+          $ctrl.objDataLocalidad={};
 
-            $ctrl.objLogin ={};
+          $ctrl.objLogin ={};
 
-            Object.defineProperty ( $ctrl.objLogin, "type_accion", {
-                  value: "checkSession",
-                  writable: false,
-                  enumerable: true,
-                  configurable: false
-            }); 
+          Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+                value: "checkSession",
+                writable: false,
+                enumerable: true,
+                configurable: false
+          }); 
 
-            $ctrl.defaultparams={};
-            $ctrl.allow_disable=false;
-            $ctrl.allow_visible=true;
-                       
-            // For Modal
-            $ctrl.itemsModals=[];
-            $ctrl.itemWarning=[];
-            $ctrl.animationsEnabled=true;
+          $ctrl.defaultparams={};
+          $ctrl.allow_disable=false;
+          $ctrl.allow_visible=true;
 
-            $ctrl.Init = Init;
-            $ctrl.upDate = upDate;
-            $ctrl.NuevaLocalidad=NuevaLocalidad;
+          $ctrl.Init=Init;
+          $ctrl.Save=Save;
 
           function Init () {
+
+              $ctrl.Titulo="Nueva Localidad";
+              $ctrl.objDataLocalidad.type_accion="nueva_localidad";
 
               formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
@@ -58,47 +55,48 @@
                         availableOptions: d.provincia,
                         selectedOption: {id: '1'} //This sets the default value of the select in the ui
                   };
+
+                  if( $stateParams.type_ingreso==="GestionVentas.modificarLocalidad" ) {
+
+                    $ctrl.Titulo="Modificar Localidad";
+
+                    console.log($stateParams.objdata); //bien
+
+                    $ctrl.objDataLocalidad=$stateParams.objdata;
+                    $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataLocalidad.id_provincia;
+                    $ctrl.objDataLocalidad.type_accion="editar_localidad";
+
+                  }
           
               }).catch(function (err) {
                     console.log(err);
               });                
              
-          };    
-
-    //-------------------------------------------------------------------------------------------------  
-    function upDate () { 
-
-    }
+          }; //Fin Init   
 
 
-    function NuevaLocalidad () {
-              
-        //$ctrl.allow_disable=true;
-
-        $ctrl.objDataLocalidad.type_accion="nueva_localidad";
+          function Save() {
    
-        $ctrl.objDataLocalidad.id_provincia=$ctrl.dataprovincia.selectedOption.id;
+              $ctrl.objDataLocalidad.id_provincia=$ctrl.dataprovincia.selectedOption.id;
 
-        console.log("el id de la provincia es: "+$ctrl.dataprovincia.selectedOption.id);
+              //ES6 La variable CONST
+              const metodo=$stateParams.type_ingreso.split(".");
 
-        console.log("params enviados: "+$ctrl.objDataLocalidad);
+              console.log(metodo[1]); // bien
+              console.log($ctrl.objDataLocalidad); //bien
 
-        console.log("nombre de la localidad enviada: "+$ctrl.objDataLocalidad.nombre);
-        
-        localidadFactory.nuevaLocalidad($ctrl.objDataLocalidad).then(function(d) {                   
+              localidadFactory[metodo[1]]( $ctrl.objDataLocalidad ).then(function(d) {   
+
                 $ctrl.Mensaje=d.Mensaje;
-                //$ctrl.allow_disable=false;
-                console.log("respuesta: "+d);
-                console.log("localidad: "+$ctrl.objDataLocalidad.nombre);
-    
-         }).catch(function (err) {
-              console.log(err);
-              //$ctrl.allow_disable=false;
-         });                             
-    };
+
+              }).catch(function (err) {
+                    console.log(err);
+              });  
+
+          }; // Fin Save
 
     Init();
 
-    }// NuevaLocalidad
+    } //Fin Localidad
 
 })(window.angular);

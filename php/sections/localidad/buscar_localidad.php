@@ -44,13 +44,12 @@ if ($type_accion==="buscar_localidad" && isset($_SESSION['Usuario'])) {
 
          $response = array();
 
-         //echo "entro al if";
-
          do{  
             
             $temp=array('id_localidad'=>utf8_encode($row['id_localidad']),
+                  'id_provincia'=>utf8_encode($row['id_provincia']),
                   'nombre'=>utf8_encode($row['nombre'])
-                            );
+                  );
 
             $response[]=$temp;
           
