@@ -1,15 +1,15 @@
 (function  (_angular){
 
-      "use strict";
+    "use strict";
 
-     var app=_angular.module("GestionVentas");
+    var app=_angular.module("GestionVentas");
 
-     app.factory('llamadoFactory', function ($http, $sce, $stateParams) {
+    app.factory('llamadoFactory', function ($http, $sce, $stateParams) {
 
-     var promisedata;
+    var promisedata;
       
 
-     var ingresoLlamado = {
+    var ingresoLlamado = {
             
         nuevoLlamado: function(params) {
             promisedata=$http.post('php/sections/llamado/nuevo_llamado.php', params).then(function (response) {
@@ -33,15 +33,20 @@
         });
            
           return promisedata;
+        },
+        
+        modificarLlamado: function(params) {
+            promisedata=$http.post('php/sections/llamado/editar_llamado.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
-
-
 
       };//RETURN API
 
-      return ingresoLlamado;      
+      return ingresoLlamado;    
+
     });//  app.factory
-
-
 
 })(window.angular);

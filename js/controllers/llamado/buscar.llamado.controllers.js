@@ -16,6 +16,8 @@
                criterio:""
         };       
 
+        $ctrl.objDataLlamado = {};
+
         $ctrl.objLogin ={};
 
         Object.defineProperty ( $ctrl.objLogin, "type_accion", {
@@ -51,8 +53,9 @@
         };              
              
 
-       // To go to modify form for pacient suscribers      
-       //**********************************************************************************************// 
+       // Initializing     
+       //*************************************************************************************// 
+
         function Init () {
 
            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);   
@@ -113,20 +116,24 @@
                 $ctrl.boton_submmit=false;      
   
             }).catch(function (err) {
-               $ctrl.boton_submmit=false;
+
+                $ctrl.boton_submmit=false;
                 $ctrl.Mensaje="Intente Mas Tarde";  
                 console.log(err);
+                
             });
                 
         };
 
 
 
-        // To go to modify form for pacient suscribers      
-        //**********************************************************************************************// 
-        function GoDataEdit (objuser) {             
-          
-           // $state.go('GestionVentas.modificarCliente');
+        // Bottom Edit      
+        //*************************************************************************************// 
+        
+        function GoDataEdit (row) {             
+
+          $ctrl.objDataLlamado.type_accion="editar_llamado";
+          $state.go("GestionVentas.modificarLlamado",{ objdata:row }); 
 
         };
     

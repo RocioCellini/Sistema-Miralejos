@@ -53,7 +53,6 @@
 
             <td data-title="'Nombre'">{{row.nombre}}</td>
             <td data-title="'Apellido'">{{row.apellido}}</td>
-            <td data-title="'Tipo de Cliente'">{{row.tipo_cliente}}</td>
             <td data-title="'Dni'">{{row.dni}}</td>
             <td data-title="'Telefono 1'">{{row.telefono1}}</td>
             <td data-title="'Telefono 2'">{{row.telefono2}}</td>
@@ -74,7 +73,7 @@
   <div class="col-md-3" > </div>
 </div>
 
-<h3>Nuevo Llamado</h3>
+<h3>{{$ctrl.Titulo}}</h3>
 <br><br>
 
 <div class="row" align="center">
@@ -219,7 +218,7 @@
         <div class="col-sm-4" ></div>
           <div class=" col-sm-4">
           <button class="btn btn-default" ng-disabled="$ctrl.allow_disable"  ng-show="$ctrl.allow_visible" 
-          ng-click='$ctrl.NuevoLlamado()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+          ng-click='$ctrl.Save()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
              </div>
           <div class="col-sm-4" ></div>
         </div>

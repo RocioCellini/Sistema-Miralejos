@@ -4,26 +4,34 @@
 //header('X-XSS-Protection: 1;mode=block');
 //header("Content-type: text/plain"); 
 session_start();
-//if(isset($_SESSION['Id_Usuario'])) {
 
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
 
-//$type_accion=$data->{'type_accion'};
-$type_accion='editar_llamado';
+$type_accion=$data->{'type_accion'};
+//$type_accion='editar_llamado';
 
 if($type_accion==="editar_llamado" && isset($_SESSION['Usuario'])){
 
 //********************************************************************************************//  
   
   include "../../conexion.php"; 
-  /*
-  $operationid =$data->{'Id_Operacion'};
-  $idinscripto =$data->{'Id_Inscripto'};
-  $status_pago =$data->{'Pago'};
-  $detalle =$data->{'Detalle'};
-  */
+  
+  $id_llamado =$data->{'id_llamado'};
+  $id_vendedor =$data->{'id_vendedor'};
+  $id_cliente =$data->{'id_cliente'};
+  $fecha_llamado =$data->{'fecha_llamado'};
+  $hora_llamado =$data->{'hora_llamado'};
+  $id_edificio =$data->{'id_edificio'};
+  $id_planta =$data->{'id_planta'};
+  $id_dpto =$data->{'id_dpto'};
+  $grado_interes =$data->{'grado_interes'};
+  $id_origen_dato =$data->{'id_origen_dato'};
+  $fecha_origen_dato =$data->{'fecha_origen_dato'};
+  $anotaciones =$data->{'anotaciones'};
+
+ /*
   $id_llamado=2;
   $id_vendedor=1;
   $id_cliente=1;
@@ -36,10 +44,11 @@ if($type_accion==="editar_llamado" && isset($_SESSION['Usuario'])){
   $nombre_origen_dato='oficina';
   $fecha_origen_dato='2016-02-14';
   $anotaciones='respondió bien';
+ */
 
   $item="";
 
-  $result='UPDATE llamado SET id_vendedor=?, id_cliente=?, fecha_llamado=?, hora_llamado=?, id_edificio=?, id_planta=?, id_dpto=?, grado_interes=?, nombre_origen_dato=?, fecha_origen_dato=?, anotaciones=? WHERE id_llamado=?';
+  $result='UPDATE llamado SET id_vendedor=?, id_cliente=?, fecha_llamado=?, hora_llamado=?, id_edificio=?, id_planta=?, id_dpto=?, grado_interes=?, id_origen_dato=?, fecha_origen_dato=?, anotaciones=? WHERE id_llamado=?';
 
 
   $stmt = $conn->prepare($result);
@@ -48,8 +57,8 @@ if($type_accion==="editar_llamado" && isset($_SESSION['Usuario'])){
                     trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
                     }
 
-  $stmt->bind_param('iissiiiisssi', $id_vendedor, $id_cliente, $fecha_llamado,      
-      $hora_llamado, $id_edificio, $id_planta, $id_dpto, $grado_interes, $nombre_origen_dato, 
+  $stmt->bind_param('iissiiiiissi', $id_vendedor, $id_cliente, $fecha_llamado,      
+      $hora_llamado, $id_edificio, $id_planta, $id_dpto, $grado_interes, $id_origen_dato, 
       $fecha_origen_dato, $anotaciones, $id_llamado);
 
   $stmt->execute();

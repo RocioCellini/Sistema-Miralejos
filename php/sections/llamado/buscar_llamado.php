@@ -86,6 +86,7 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
             if($row_c=$rs_c->fetch_assoc()){
               $nombre_cliente=$row_c["nombre"];
               $apellido_cliente=$row_c["apellido"];
+              $contacto=$apellido_cliente.', '.$nombre_cliente;
             }
 
             //Edificio
@@ -166,20 +167,39 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
               $nombre_origen_dato=$row_od["origen_dato"];
             }
             
+            $id_edificio=$row["id_edificio"]; 
+            $id_planta=$row["id_planta"]; 
+            $id_dpto=$row["id_dpto"]; 
+            $id_origen_dato=$row["id_origen_dato"]; 
+
             $temp=array('id_llamado'=>utf8_encode($row['id_llamado']),
-                        'vendedor'=>utf8_encode($vendedor),
-                        'nombre_cliente'=>utf8_encode($nombre_cliente),
-                        'apellido_cliente'=>utf8_encode($apellido_cliente),
                         'fecha_llamado'=> utf8_encode($row['fecha_llamado']), 
                         'hora_llamado'=>utf8_encode($row['hora_llamado']),
-                        'edificio'=>utf8_encode($edificio),
-                        'planta'=>utf8_encode($planta),
-                        'dpto'=>utf8_encode($dpto),                    
                         'grado_interes'=>utf8_encode($row['grado_interes']),
-                        'nombre_origen_dato'=>($nombre_origen_dato),
                         'fecha_origen_dato'=>utf8_encode($row['fecha_origen_dato']),
-                        'anotaciones'=>utf8_encode($row['anotaciones'])
-                            );
+                        'anotaciones'=>utf8_encode($row['anotaciones']),
+
+                        'id_vendedor'=>utf8_encode($row['id_vendedor']),
+                        'vendedor'=>utf8_encode($vendedor),
+
+                        'id_cliente'=>utf8_encode($row['id_cliente']),
+                        'nombre_cliente'=>utf8_encode($nombre_cliente),
+                        'apellido_cliente'=>utf8_encode($apellido_cliente),
+                        'contacto'=>utf8_encode($contacto),
+
+                        'id_edificio'=>utf8_encode($row['id_edificio']),
+                        'edificio'=>utf8_encode($edificio),
+
+                        'id_planta'=>utf8_encode($row['id_planta']),
+                        'planta'=>utf8_encode($planta),
+
+                        'id_dpto'=>utf8_encode($row['id_dpto']),
+                        'dpto'=>utf8_encode($dpto),    
+
+                        'id_origen_dato'=>utf8_encode($row['id_origen_dato']),
+                        'nombre_origen_dato'=>($nombre_origen_dato)
+   
+                        );
 
             $response[]=$temp;
           
