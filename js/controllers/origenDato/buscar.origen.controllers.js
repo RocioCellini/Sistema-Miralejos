@@ -16,6 +16,8 @@
                criterio:""
         };       
 
+        $ctrl.objDataOrigen={};
+
         $ctrl.objLogin ={};
 
           Object.defineProperty ( $ctrl.objLogin, "type_accion", {
@@ -34,8 +36,8 @@
         $ctrl.Init();
 
 
-    // To configure table   
-    //*****************************************************************************//    
+        // To configure table   
+        //*****************************************************************************//    
 
         var initialParams = {
           count: 10 // initial page size
@@ -47,8 +49,9 @@
         };              
              
 
-       // To go to modify form for pacient suscribers      
-       //**********************************************************************************************// 
+        // Initializing      
+        //******************************************************************************// 
+
         function Init () {
 
             $ctrl.tableParams = new NgTableParams(initialParams, initialSettings);  
@@ -69,39 +72,30 @@
        //**********************************************************************************************//  
         function BuscarOrigen (valorIngresado) {     
 
-                console.log(valorIngresado);   
+            $ctrl.boton_submmit=true;
 
-                $ctrl.boton_submmit=true;
+            $ctrl.objSearch.type_accion="buscar_origen";              
 
-                $ctrl.objSearch.type_accion="buscar_origen";              
+            $ctrl.objSearch.criterio=valorIngresado;
+              
+            origenDatoFactory.buscarOrigen($ctrl.objSearch).then(function(d) {
+           
+              $ctrl.tableParams.settings({dataset: d.Respuesta});   
+              $ctrl.boton_submmit=false;      
 
-                $ctrl.objSearch.criterio=valorIngresado;
-
-               //console.log($ctrl.objSearch);
-                  
-                origenDatoFactory.buscarOrigen($ctrl.objSearch).then(function(d) {
-
-                //console.log('JSON: '+d);
-                console.log($ctrl.objSearch);
-                console.log(d.Respuesta); 
-               
-                $ctrl.tableParams.settings({dataset: d.Respuesta});   
-
-                    // console.log('Datos enviados a tableParams: '+d.Respuesta); 
-
-                $ctrl.boton_submmit=false;      
-    
-              }).catch(function (err) {
-                  console.log(err);
-                });           
+            }).catch(function (err) {
+              console.log(err);
+            });           
         };
 
 
-        // To go to modify form for pacient suscribers      
-        //**********************************************************************************************// 
-        function GoDataEdit (objuser) {             
+        // Bottom Edit      
+        //*************************************************************************************// 
+        
+        function GoDataEdit (row) {             
           
-           // $state.go('GestionVentas.modificarCliente');
+          $ctrl.objDataOrigen.type_accion="editar_origen";
+          $state.go("GestionVentas.modificarOrigen",{ objdata:row }); 
 
         };
     

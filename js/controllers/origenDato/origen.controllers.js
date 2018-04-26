@@ -31,13 +31,15 @@
 
     
      $ctrl.Init = Init;
-     $ctrl.upDate = upDate;
-     $ctrl.NuevoOrigen=NuevoOrigen;
+     $ctrl.Save=Save;
         
 
       function Init () {
 
-         formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+          $ctrl.Titulo="Nuevo Origen Dato";
+          $ctrl.objDataOrigen.type_accion="nuevo_origen";
+
+          formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
              angular.isDefined(d.setUrl)?goUrl(d):null;
                             
@@ -45,36 +47,33 @@
                       $state.go( d.setUrl );                               
                   }
                         
-          });       
+          });    
+
+          if( $stateParams.type_ingreso==="GestionVentas.modificarOrigen" ) {
+
+              $ctrl.Titulo="Modificar Origen Dato";                
+              $ctrl.objDataOrigen=$stateParams.objdata;
+              $ctrl.objDataOrigen.type_accion="editar_origen";
+
+          }    
 
       };    
 
-      function upDate () { 
-      };
-
-      function NuevoOrigen () {
+      function Save() {
                 
-        $ctrl.allow_disable=true;
+          const metodo=$stateParams.type_ingreso.split(".");  //ES6 La variable CONST
+                        
+          origenDatoFactory[metodo[1]]($ctrl.objDataOrigen).then(function(d) {   
 
-        $ctrl.objDataOrigen.type_accion="nuevo_origen";
-        
-        origenDatoFactory.nuevoOrigen( $ctrl.objDataOrigen ).then ( function( d ) {                   
-               // $ctrl.Mensaje=d.Mensaje;
-                //$ctrl.allow_disable=false;
-                $ctrl.Mensaje=d.Mensaje;
-                console.log($ctrl.objDataOrigen);
-                //console.log(d);
-                //console.log(d.Mensaje);
-    
-         }).catch(function (err) {
-              console.log(err);
-              //$ctrl.allow_disable=false;
-         });                
+            $ctrl.Mensaje=d.Mensaje;
+      
+          }).catch(function (err) {
+                console.log(err);
+          });            
       };
       
      Init();
 
   }// DataSendController
-
 
 })(window.angular);
