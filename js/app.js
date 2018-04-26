@@ -37,13 +37,13 @@
         templateUrl:'templates/formLogueo.html',
         controller: 'LoginController as $ctrl',
       })
-/*
+
       .state('GestionVentas.estadisticas',{
         url:'/Estadisticas',
         templateUrl:'templates/estadistica/estadisticas.html',
         controller: 'Estadistica as $ctrl'
       })
-*/
+
       .state('GestionVentas.planilla',{
         url:'/Planilla',
         templateUrl:'templates/planilla/planilla.html',
