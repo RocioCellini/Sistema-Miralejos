@@ -37,14 +37,14 @@
         templateUrl:'templates/formLogueo.html',
         controller: 'LoginController as $ctrl',
       })
-
-       .state('GestionVentas.estadisticas',{
+/*
+      .state('GestionVentas.estadisticas',{
         url:'/Estadisticas',
         templateUrl:'templates/estadistica/estadisticas.html',
         controller: 'Estadistica as $ctrl'
       })
-
-       .state('GestionVentas.planilla',{
+*/
+      .state('GestionVentas.planilla',{
         url:'/Planilla',
         templateUrl:'templates/planilla/planilla.html',
         controller: 'Planilla as $ctrl'
@@ -253,7 +253,20 @@
       .state('GestionVentas.nuevoLlamado',{
         url:'/NuevoLlamado',
         templateUrl:'templates/llamado/abm_llamado.html',
-        controller: 'Llamado as $ctrl'
+        controller: 'Llamado as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevoLlamado"
+              }
+      })
+
+      .state('GestionVentas.modificarLlamado', {
+        url:'/ModificarLlamado',
+        templateUrl:'templates/llamado/abm_llamado.html',
+        controller: 'Llamado as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarLlamado",
+                  objdata:null
+              }
       })
 
       .state('GestionVentas.buscarActividad',{
@@ -265,10 +278,23 @@
       .state('GestionVentas.nuevaActividad',{
         url:'/NuevaActividad',
         templateUrl:'templates/actividad/abm_actividad.html',
-        controller: 'Actividad as $ctrl'
+        controller: 'Actividad as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevaActividad"
+              }
       })
 
-       .state('GestionVentas.buscarOrigen',{
+       .state('GestionVentas.modificarAct', {
+        url:'/ModificarActividad',
+        templateUrl:'templates/actividad/abm_actividad.html',
+        controller: 'Actividad as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarAct",
+                  objdata:null
+              }
+      })
+
+      .state('GestionVentas.buscarOrigen',{
         url:'/BuscarOrigenDato',
         templateUrl:'templates/origenDato/buscar_origen.html',
         controller: 'BuscarOrigen as $ctrl'
@@ -277,10 +303,23 @@
       .state('GestionVentas.nuevoOrigen',{
         url:'/NuevoOrigen',
         templateUrl:'templates/origenDato/abm_origen.html',
-        controller: 'OrigenDato as $ctrl'
+        controller: 'OrigenDato as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.nuevoOrigen"
+              }
       }) 
 
-       .state('GestionVentas.logOut',{
+      .state('GestionVentas.modificarOrigen', {
+        url:'/ModificarOrigenDato',
+        templateUrl:'templates/origenDato/abm_origen.html',
+        controller: 'OrigenDato as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.modificarOrigen",
+                  objdata:null
+              }
+      })
+
+      .state('GestionVentas.logOut',{
         url:'/logOut',
         templateUrl:'templates/cerrar_sesion.html',
         controller: 'LogOutController as $ctrl'

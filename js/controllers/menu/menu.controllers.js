@@ -16,14 +16,14 @@
             
           }); 
 
-          $ctrl.itemsMenu = [{
+          $ctrl.itemsMenu = [/*{
             name: "Estadisticas",
             link: "#",
             subtree: [{
               name: "Ver Estadisticas",
               link: "GestionVentas.estadisticas",
             }]
-          }, {
+          },*/ {
             name: "Planilla",
             link: "#",
             subtree: [{
