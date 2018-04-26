@@ -21,8 +21,7 @@
     $ctrl.allow_visible=true;
 
     $ctrl.Init = Init;
-    $ctrl.upDate = upDate;
-    $ctrl.NuevaActividad=NuevaActividad;
+    $ctrl.Save=Save;
 
      Object.defineProperty ( $ctrl.objLogin, "type_accion", {
               value: "checkSession",
@@ -33,41 +32,46 @@
         
 
     function Init () {
-      formLoginFactory.checkSession( $ctrl.objLogin ).then( function( d ) {
 
-                       angular.isDefined(d.setUrl)?goUrl( d ):null;
+      $ctrl.Titulo="Nueva Actividad";
+      $ctrl.objDataActividad.type_accion="nueva_actividad";
+
+      formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+
+                       angular.isDefined(d.setUrl)?goUrl(d):null;
                                       
-                            function goUrl ( d ) {
+                            function goUrl (d) {
                                  
-                                $state.go( d.setUrl );
+                                $state.go(d.setUrl);
                                
                             }
-                        
-
         }); 
+
+
+      if( $stateParams.type_ingreso==="GestionVentas.modificarAct" ) {
+
+          $ctrl.Titulo="Modificar Actividad";                
+          $ctrl.objDataActividad=$stateParams.objdata;
+          $ctrl.objDataActividad.type_accion="editar_act";
+
+      } 
     };    
 
-    function upDate () { 
-    }
-
-    function NuevaActividad () {
+    function Save() {
               
-      //$ctrl.allow_disable=true;
+        const metodo=$stateParams.type_ingreso.split(".");  //ES6 La variable CONST
+                        
+        actividadFactory[metodo[1]]($ctrl.objDataActividad).then(function(d) {   
 
-      $ctrl.objDataActividad.type_accion="nueva_actividad";
-      //console.log($ctrl.objDataActividad);
-      
-      actividadFactory.nuevaAct($ctrl.objDataActividad).then(function(d) {                   
-              $ctrl.Mensaje=d.Mensaje;
-              //$ctrl.allow_disable=false;
-  
-       }).catch(function (err) {
-            console.log(err);
-            //$ctrl.allow_disable=false;
-       });                
+          $ctrl.Mensaje=d.Mensaje;
+    
+        }).catch(function (err) {
+              console.log(err);
+        });    
+            
     };
       
-     Init();
+    Init();
 
   }// DataSendController
 
