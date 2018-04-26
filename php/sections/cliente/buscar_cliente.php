@@ -19,9 +19,9 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 	$id_localidad=$data->{'id_localidad'};
 
 	/*
-	$criterio="flor"; 
-    $id_provincia=-1;
-	$id_localidad=-1;
+	$criterio=""; 
+    $id_provincia=1;
+	$id_localidad=1;
 	*/
 
 	$type_data=null;

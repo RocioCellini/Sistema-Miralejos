@@ -103,8 +103,6 @@
               if( $stateParams.type_ingreso==="GestionVentas.modificarCliente" ) {
 
                   $ctrl.Titulo="Modificar Contacto";
-
-                  console.log($stateParams.objdata);
                   $ctrl.objDataCliente=$stateParams.objdata;
 
                   $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataCliente.id_provincia;
