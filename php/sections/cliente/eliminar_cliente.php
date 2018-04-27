@@ -4,44 +4,46 @@
 //header('X-XSS-Protection: 1;mode=block');
 //header("Content-type: text/plain");	
 session_start();
-//if(isset($_SESSION['Id_Usuario'])) {
 
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
 
-//$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'};
+//$type_accion='eliminar_cliente';
 
-
-$type_accion='eliminar_cliente';
 
 if($type_accion==="eliminar_cliente" && isset($_SESSION['Usuario']) ) {
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
 
-	$id_cliente=2;
+	//$id_cliente=26;
+
+	$id_cliente=$data->{'id_cliente'};
+	$nombre =$data->{'nombre'};
+    $apellido =$data->{'apellido'};
+    $nombre_completo=$apellido.", ".$nombre;
+
 
 	$sql='DELETE FROM cliente WHERE id_cliente=?';
-	//die($sql);
 
 	$stmt_delete = $conn->prepare($sql);
+
 	if($stmt_delete === false) {
 	trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
 	}
 
-
 	$stmt_delete->bind_param('i',$id_cliente);
 	$stmt_delete->execute();
 
-	//echo $stmt->affected_rows;
 	$stmt_delete->close();
 
-	$message="El cliente ha sido eliminado correctamente.";
+	$message="El cliente ".$nombre_completo."ha sido eliminado correctamente.";
 
 //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             

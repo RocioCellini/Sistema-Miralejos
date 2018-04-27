@@ -9,98 +9,99 @@
       function BuscarCliente($scope, $state, $stateParams , clienteFactory,  
           NgTableParams, $window, defaultdataFactory, $filter, formLoginFactory) {
                           
-                var $ctrl=this;
+            var $ctrl=this;
 
-                $ctrl.objSearch={
-                       criterio:""
-                };
+            $ctrl.objSearch={
+                   criterio:""
+            };
 
-                $ctrl.objDataCliente={};
+            $ctrl.objDataCliente={};
 
-                $ctrl.objLogin ={};
+            $ctrl.objLogin ={};
 
-                Object.defineProperty ( $ctrl.objLogin, "type_accion", {
-                    value: "checkSession",
-                    writable: false,
-                    enumerable: true,
-                    configurable: false
-                }); 
+            Object.defineProperty ( $ctrl.objLogin, "type_accion", {
+                value: "checkSession",
+                writable: false,
+                enumerable: true,
+                configurable: false
+            }); 
 
-                $ctrl.datalocalidad2={};
-       
-                $ctrl.defaultparams={};
+            $ctrl.datalocalidad2={};
+   
+            $ctrl.defaultparams={};
 
-                $ctrl.allow_disable=true;
+            $ctrl.allow_disable=true;
 
-                $ctrl.combo_ciudad=true;
-                $ctrl.boton_submmit=false;          
+            $ctrl.combo_ciudad=true;
+            $ctrl.boton_submmit=false;          
 
-                $ctrl.Init = Init;
-                $ctrl.upDate = upDate;
-                $ctrl.BuscarCliente = BuscarCliente;
+            $ctrl.Init = Init;
+            $ctrl.upDate = upDate;
+            $ctrl.BuscarCliente = BuscarCliente;
 
-                $ctrl.GoDataEdit=GoDataEdit; 
+            $ctrl.GoDataEdit=GoDataEdit;
+            $ctrl.GoDataDelete=GoDataDelete;
 
-                $ctrl.Init();
+            $ctrl.Init();
 
 
             // To configure table   
             //*****************************************************************************//    
 
-                var initialParams = {
-                  count: 10 // initial page size
-                };
-
-                var initialSettings = {
-                    paginationMaxBlocks: 13,
-                    paginationMinBlocks: 2
-                };         
-               
-
-         // Initializing      
-         //**********************************************************************************************// 
-
-          function Init () {
-
-            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
-
-            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
-
-                       angular.isDefined(d.setUrl)?goUrl(d):null;
-                                      
-                            function goUrl (d) {                                 
-                                $state.go( d.setUrl );                               
-                            }
-              });    
-
-            $ctrl.defaultparams.type_accion="search_data_combos";
-            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d) {    
-
-            $ctrl.datalocalidad2=d.localidad;
-            
-            $ctrl.dataprovincia = {
-                availableOptions: d.provincia,
-                selectedOption: {id: '1'} //This sets the default value of the select in the ui
-
+            var initialParams = {
+              count: 10 // initial page size
             };
+
+            var initialSettings = {
+                paginationMaxBlocks: 13,
+                paginationMinBlocks: 2
+            };         
            
-            $ctrl.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
-            $ctrl.dataprovincia.selectedOption.id=-1; 
 
-            $ctrl.datalocalidad = {
-                availableOptions: d.localidad,
-                selectedOption: {id: '1'} 
-            };     
+            // Initializing      
+            //**********************************************************************************************// 
 
-            $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
-            $ctrl.datalocalidad.selectedOption.id=-1; 
-                
+            function Init () {
 
-           }).catch(function (err) {
-                console.log(err);
-           });               
-      
-          };
+              $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
+
+              formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
+
+                         angular.isDefined(d.setUrl)?goUrl(d):null;
+                                        
+                              function goUrl (d) {                                 
+                                  $state.go( d.setUrl );                               
+                              }
+                });    
+
+              $ctrl.defaultparams.type_accion="search_data_combos";
+              defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then(function(d) {    
+
+              $ctrl.datalocalidad2=d.localidad;
+              
+              $ctrl.dataprovincia = {
+                  availableOptions: d.provincia,
+                  selectedOption: {id: '1'} //This sets the default value of the select in the ui
+
+              };
+             
+              $ctrl.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.dataprovincia.selectedOption.id=-1; 
+
+              $ctrl.datalocalidad = {
+                  availableOptions: d.localidad,
+                  selectedOption: {id: '1'} 
+              };     
+
+              $ctrl.datalocalidad.availableOptions.unshift({id:-1, name:'Seleccionar'});
+              $ctrl.datalocalidad.selectedOption.id=-1; 
+                  
+
+             }).catch(function (err) {
+                  console.log(err);
+             });               
+        
+            }; //Fin Init
 
           //-------------------------------------------------------------------------------------------------  
 
@@ -155,7 +156,20 @@
             $ctrl.objDataCliente.type_accion="editar_cliente";
             $state.go("GestionVentas.modificarCliente",{ objdata:row }); 
 
-          }//Fin GoDataEdit
+          }
+
+
+          // Bottom Delete 
+          //**********************************************************************************************// 
+
+          function GoDataDelete( row ){
+
+            console.log(row);
+
+            $ctrl.objDataCliente.type_accion="eliminar_cliente";
+            $state.go("GestionVentas.eliminarCliente",{ objdata:row }); 
+
+          }
 
       }// DataSendController
 

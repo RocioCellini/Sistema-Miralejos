@@ -114,6 +114,24 @@
 
               }
 
+              if( $stateParams.type_ingreso==="GestionVentas.eliminarCliente" ) {                       
+
+                  $ctrl.objDataCliente.type_accion="eliminar_cliente";
+
+                  $ctrl.dataprovincia.selectedOption.id=-1; 
+                  $ctrl.datalocalidad.selectedOption.id=-1;
+
+                  const metodo=$stateParams.type_ingreso.split(".");          
+                          
+                  clienteFactory[metodo[1]]( $ctrl.objDataCliente ).then(function(d) { 
+
+                  $ctrl.Mensaje=d.Mensaje;
+              
+                   }).catch(function (err) {
+                        console.log(err);
+                   });   
+              }
+
            }).catch(function (err) {
                 console.log(err);
            });

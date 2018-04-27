@@ -88,6 +88,16 @@
               }
       })
 
+      .state('GestionVentas.eliminarCliente', {
+        url:'/EliminarCliente',
+        templateUrl:'templates/cliente/buscar_cliente.html',
+        controller: 'Cliente as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarCliente",
+                  objdata:null
+              }
+      })
+
       .state('GestionVentas.buscarVendedor',{
         url:'/BuscarVendedor',
         templateUrl:'templates/vendedor/buscar_vendedor.html',

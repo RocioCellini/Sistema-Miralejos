@@ -42,6 +42,21 @@ Nota 3:  //ES6 La variable CONST
                   console.log(err);
              });    
 
+Nota4:
+
+  <footer class="navbar-default">
+  <div class="container-fluid">
+    <div class="footer">
+      <div class="col-md-4 col-sm-4 col-lg-4">
+        <p id="footerLeft">info@miralejos.net - (3541) 583484</p>
+      </div>
+      <div class="col-md-4 col-sm-4 col-lg-4"></div>
+      <div class="col-md-4 col-sm-4 col-lg-4">
+        <p id="footerRight">Producted by <span class="marca">Cellini</span></p>
+      </div>
+    </div>
+  </div>
+</footer>
 ******************************************************************************
  origen_dato 
           availableOptions: [
