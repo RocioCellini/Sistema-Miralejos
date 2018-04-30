@@ -286,18 +286,20 @@
           
         clienteFactory.buscarCliente($ctrl.objDataLlamado).then(function(d) {
 
-        //console.log('JSON: '+d);
-        //console.log(d.Respuesta);
+        console.log(d.Respuesta);
 
-        angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
+              /*
+               angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
               
-                function LoadTable (d) {
-                   $ctrl.tableParams.settings({dataset: d.Respuesta})
+               function LoadTable (d) {
+                    $ctrl.tableParams.settings({dataset: d.Respuesta});  
                 }
 
                 function ShowMessage (d) { 
                     $ctrl.Mensaje=d.Respuesta[0].Mensaje;
                 }      
+                */
+                  $ctrl.tableParams.settings({dataset: d.Respuesta});  
 
          console.log('Datos enviados a tableParams: '+d.Respuesta); 
 

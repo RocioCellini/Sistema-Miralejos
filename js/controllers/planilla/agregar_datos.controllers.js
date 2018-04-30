@@ -266,16 +266,11 @@
 
             $ctrl.objAgregarDatos.criterio=valorIngresado;
 
-           // console.log($ctrl.objAgregarDatos);
+            console.log($ctrl.objAgregarDatos);
               
             clienteFactory.buscarCliente($ctrl.objAgregarDatos).then(function(d) {
-
-            //console.log('JSON: '+d);
-          // console.log(d.Respuesta);
            
             $ctrl.tableParams.settings({dataset: d.Respuesta});   
-
-                // console.log('Datos enviados a tableParams: '+d.Respuesta); 
 
             $ctrl.boton_submmit=false;      
 
