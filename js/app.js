@@ -54,12 +54,22 @@
         url:'/AgregarDatos',
         templateUrl:'templates/planilla/agregar_datos.html',
         controller: 'AgregarDatos as $ctrl'
-      })
+      })      
 
       .state('GestionVentas.importar',{
         url:'/ImportarPlanilla',
         templateUrl:'templates/planilla/importar_planilla.html',
         controller: 'Importar as $ctrl'
+      })
+
+      .state('GestionVentas.verHistorial',{
+        url:'/Historial',
+        templateUrl:'templates/historial/ver_historial.html',
+        controller: 'Planilla as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.verHistorial",
+                  objdata:null
+              }
       })
 
        .state('GestionVentas.buscarCliente',{

@@ -16,6 +16,14 @@
         });
            
           return promisedata;
+        },
+        
+        verHistorial: function(params) {
+            promisedata=$http.post('php/sections/historial/ver_historial.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };

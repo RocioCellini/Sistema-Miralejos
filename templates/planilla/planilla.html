@@ -32,7 +32,7 @@
       <td data-title="'Planta'" filter="{planta: 'text'}">{{row.planta}}</td>
       <td data-title="'Dpto'" filter="{dpto: 'text'}">{{row.dpto}}</td>
       <td data-title="'Correo Electrónico'" filter="{email: 'text'}">{{row.email}}</td>
-      <!--<td><a href="">Ver Historial</a></td>-->
+      <td><a class="button-table" ng-click='$ctrl.GoDataHistorial(row)'>Ver Historial</a></td>
   
     </tr>
 </table>

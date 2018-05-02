@@ -27,7 +27,7 @@
         }); 
     
         $ctrl.Init = Init;
-       // $ctrl.NuevaPlanilla=NuevaPlanilla;
+        $ctrl.GoDataHistorial=GoDataHistorial;
 
         // To configure table   
         //*****************************************************************************//    
@@ -74,25 +74,32 @@
               });       
 
         }
-/*
-        function NuevaPlanilla() {
+
+        function GoDataHistorial(row){
+
+            $ctrl.objDataPlanilla.type_accion="ver_historial";   
+
+            $ctrl.objDataPlanilla.id_cliente=row.id_cliente;
+
             
-          $ctrl.allow_disable=true;
+            planillaFactory.verHistorial($ctrl.objDataPlanilla).then(function(d) {
 
-          $ctrl.objDataPlanilla.type_accion="nueva_planilla";
-       
-          planillaFactory.nuevaPlanilla($ctrl.objDataPlanilla).then(function(d) {  
-                             
-                  $ctrl.Mensaje=d.MessageComment;
-                  $ctrl.allow_disable=false;
-      
-           }).catch(function (err) {
+
+              $ctrl.tableParams.settings({dataset: d.Respuesta});  
+
+              row=d.Respuesta;
+
+              console.log(row);
+
+              $state.go("GestionVentas.verHistorial",{ objdata:row }); 
+              
+
+            }).catch(function (err) {
                 console.log(err);
-                $ctrl.allow_disable=false;
-           });                    
-        };
+            });
+                       
+        }
 
-     */
 
         Init();
 
