@@ -94,6 +94,12 @@ a.button-table, select{
 	cursor: pointer; 
 }
 
+/*Mensajes*/
+
+.alert.alert-warning{
+  padding: 1%;
+}
+
 /* FOOTER 
 
 footer.navbar-default {
