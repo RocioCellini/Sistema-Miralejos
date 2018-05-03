@@ -7,10 +7,9 @@
       <div class="form-group">
         <label class="col-sm-4 control-label">Origen del Dato:</label>
         <div class="col-sm-4" >
-          <input type="text" name="origen_dato" class="form-control campoform" ng-model="$ctrl.objDataOrigen.origen_dato" ng-required="true">
-
-           <span class="errorform" ng-show="form.$submitted && form.origen_dato.$error.required">El campo es Requerido.</span>
-
+          <input type="text" name="origen_dato" class="form-control campoform" ng-model="$ctrl.objDataOrigen.origen_dato" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
+          <span class="errorform" ng-show="form.$submitted && form.origen_dato.$error.pattern">El Nombre no es válido.</span> 
+          <span class="errorform" ng-show="form.$submitted && form.origen_dato.$error.required">El campo es Requerido.</span>
         </div>
         <div class="col-sm-4" ></div>
       </div>

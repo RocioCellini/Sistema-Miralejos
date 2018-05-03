@@ -7,7 +7,8 @@
        <div class="form-group">
          <label class="col-sm-4 control-label">Nombre:</label>
          <div class="col-sm-4" >
-          <input type="text" name="nombre" class="form-control campoform" ng-model="$ctrl.objDataActividad.nombre" ng-required="true">
+          <input type="text" name="nombre" class="form-control campoform" ng-model="$ctrl.objDataActividad.nombre" ng-pattern="/^[a-zA-Z\s]+$/" ng-required="true">
+          <span class="errorform" ng-show="form.$submitted && form.nombre.$error.pattern">El Nombre no es válido.</span> 
           <span class="errorform" ng-show="form.$submitted && form.nombre.$error.required">El campo es Requerido.</span>
         </div>
         <div class="col-sm-4" ></div>
