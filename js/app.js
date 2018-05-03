@@ -289,18 +289,18 @@
               }
       })
 
-      .state('GestionVentas.buscarActividad',{
+      .state('GestionVentas.buscarAct',{
         url:'/BuscarActividad',
         templateUrl:'templates/actividad/buscar_actividad.html',
         controller: 'BuscarAct as $ctrl'
       })
 
-      .state('GestionVentas.nuevaActividad',{
+      .state('GestionVentas.nuevaAct',{
         url:'/NuevaActividad',
         templateUrl:'templates/actividad/abm_actividad.html',
         controller: 'Actividad as $ctrl',
         params: {
-                  type_ingreso:"GestionVentas.nuevaActividad"
+                  type_ingreso:"GestionVentas.nuevaAct"
               }
       })
 

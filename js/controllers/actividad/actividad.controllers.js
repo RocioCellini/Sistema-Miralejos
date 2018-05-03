@@ -28,7 +28,7 @@
               writable: false,
               enumerable: true,
               configurable: false
-          }); // Esto hace que la propiedad type_accion no se pueda modificarv
+          });
         
 
     function Init () {

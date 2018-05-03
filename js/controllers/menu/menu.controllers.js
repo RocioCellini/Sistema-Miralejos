@@ -136,11 +136,11 @@
             link: "#",
             subtree: [{
               name: "Buscar",
-              link: "GestionVentas.buscarActividad"
+              link: "GestionVentas.buscarAct"
             },
             {
               name: "Añadir",
-              link: "GestionVentas.nuevaActividad"
+              link: "GestionVentas.nuevaAct"
             }]
           },{
             name: "Origen del Dato",
