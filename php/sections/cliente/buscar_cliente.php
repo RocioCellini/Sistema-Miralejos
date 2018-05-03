@@ -121,6 +121,8 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 			$id_provincia=$row["id_provincia"];
 			$id_localidad=$row["id_localidad"];			
 			$id_actividad=$row["id_actividad"];	
+			$id_conoce=$row['conoce'];	
+			$conoce='';
 
 			
 
@@ -177,10 +179,9 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 				if($row_act=$rs_act->fetch_assoc()) {
 					$actividad=$row_act["nombre"];
 				}
+	
 
-			$conoce=$row['conoce'];			
-
-			if($conoce=0){
+			if($id_conoce==0){
 				$conoce="No";
 			}else{
 				$conoce="Si";
@@ -199,6 +200,7 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
                         'localidad'=>utf8_encode($localidad),
                         'id_actividad'=>utf8_encode($id_actividad),
                         'actividad'=>utf8_encode($actividad),
+                        'id_conoce'=>utf8_encode($id_conoce),
                         'conoce'=>utf8_encode($conoce)
                     	);
 

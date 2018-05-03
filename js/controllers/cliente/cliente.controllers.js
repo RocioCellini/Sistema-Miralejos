@@ -108,7 +108,7 @@
                   $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataCliente.id_provincia;
                   $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataCliente.id_localidad;
                   $ctrl.actividad.selectedOption.id=$ctrl.objDataCliente.id_actividad;
-                  //$ctrl.data.selectedOption.name=$ctrl.objDataCliente.conoce;  
+                  $ctrl.data.selectedOption.id=$ctrl.objDataCliente.id_conoce;  
 
                   $ctrl.objDataCliente.type_accion="editar_cliente";
 
