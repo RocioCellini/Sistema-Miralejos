@@ -143,7 +143,6 @@
 
              $ctrl.datalocalidad.availableOptions = $filter('filter')($ctrl.datalocalidad2 ,{id_provincia:objprov.id});
              $ctrl.datalocalidad.selectedOption={id: $ctrl.datalocalidad.availableOptions[0].id};                                                                         
-             //$ctrl.actividad.selectedOption={id: $ctrl.actividad.availableOptions[0].id}; 
                                                                                      
         }//Fin upDate()
 
@@ -157,9 +156,6 @@
 
             //ES6 La variable CONST
             const metodo=$stateParams.type_ingreso.split(".");
-           
-            /*clienteFactory[modificarCliente] Es para acceder a la propiedad de un Object mediante variable, 
-            de forma implícita, sin aclarar cuál es el nombre de dicha propiedad*/
                     
             clienteFactory[metodo[1]]( $ctrl.objDataCliente ).then(function(d) {   
 
