@@ -39,7 +39,7 @@ if($type_accion==="eliminar_cliente" && isset($_SESSION['Usuario']) ) {
 
 	$stmt_delete->close();
 
-	$message="El cliente ".$nombre_completo."ha sido eliminado correctamente.";
+	$message="El cliente ".$nombre_completo." ha sido eliminado correctamente.";
 
 //***************************************************************************************///
 

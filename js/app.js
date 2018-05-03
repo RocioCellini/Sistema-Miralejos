@@ -38,11 +38,7 @@
         controller: 'LoginController as $ctrl',
       })
 
-      .state('GestionVentas.estadisticas',{
-        url:'/Estadisticas',
-        templateUrl:'templates/estadistica/estadisticas.html',
-        controller: 'Estadistica as $ctrl'
-      })
+  
 
       .state('GestionVentas.planilla',{
         url:'/Planilla',
@@ -100,7 +96,7 @@
 
       .state('GestionVentas.eliminarCliente', {
         url:'/EliminarCliente',
-        templateUrl:'templates/cliente/buscar_cliente.html',
+        templateUrl:'templates/cliente/abm_cliente.html',
         controller: 'Cliente as $ctrl',
         params: {
                   type_ingreso:"GestionVentas.eliminarCliente",

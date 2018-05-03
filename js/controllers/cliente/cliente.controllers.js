@@ -54,6 +54,7 @@
         function Init () {
 
             $ctrl.Titulo="Nuevo Contacto";
+            $ctrl.Boton="Guardar";
             $ctrl.objDataCliente.type_accion="nuevo_cliente";
           
             formLoginFactory.checkSession( $ctrl.objLogin ).then( function( d ) {
@@ -103,6 +104,7 @@
               if( $stateParams.type_ingreso==="GestionVentas.modificarCliente" ) {
 
                   $ctrl.Titulo="Modificar Contacto";
+                  $ctrl.Boton="Guardar";
                   $ctrl.objDataCliente=$stateParams.objdata;
 
                   $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataCliente.id_provincia;
@@ -117,19 +119,18 @@
               if( $stateParams.type_ingreso==="GestionVentas.eliminarCliente" ) {                       
 
                   $ctrl.objDataCliente.type_accion="eliminar_cliente";
+                  $ctrl.Titulo="Eliminar Contacto";
 
-                  $ctrl.dataprovincia.selectedOption.id=-1; 
-                  $ctrl.datalocalidad.selectedOption.id=-1;
+                  $ctrl.Boton="Eliminar";
+                  $ctrl.objDataCliente=$stateParams.objdata;
 
-                  const metodo=$stateParams.type_ingreso.split(".");          
-                          
-                  clienteFactory[metodo[1]]( $ctrl.objDataCliente ).then(function(d) { 
+                  $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataCliente.id_provincia;
+                  $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataCliente.id_localidad;
+                  $ctrl.actividad.selectedOption.id=$ctrl.objDataCliente.id_actividad;
+                  $ctrl.data.selectedOption.id=$ctrl.objDataCliente.id_conoce;  
 
-                  $ctrl.Mensaje=d.Mensaje;
-              
-                   }).catch(function (err) {
-                        console.log(err);
-                   });   
+                  $ctrl.objDataCliente.type_accion="eliminar_cliente";
+  
               }
 
            }).catch(function (err) {
@@ -166,6 +167,7 @@
              });   
             
         }//Fin Save()
+
 
     Init();
 
