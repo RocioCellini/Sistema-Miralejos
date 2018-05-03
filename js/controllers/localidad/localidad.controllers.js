@@ -56,6 +56,9 @@
                         selectedOption: {id: '1'} //This sets the default value of the select in the ui
                   };
 
+                  $ctrl.dataprovincia.availableOptions.unshift({id:-1, name:'Seleccionar'});
+                  $ctrl.dataprovincia.selectedOption.id=-1; 
+
                   if( $stateParams.type_ingreso==="GestionVentas.modificarLocalidad" ) {
 
                     $ctrl.Titulo="Modificar Localidad";
