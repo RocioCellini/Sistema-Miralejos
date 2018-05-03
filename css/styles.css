@@ -132,9 +132,10 @@ span.marca{
 
 */
 
-#footerRight{
+.footer {
     float: right;
     padding: 0.7em;
+    background-color:#fff;
 }
 
 span.marca{
