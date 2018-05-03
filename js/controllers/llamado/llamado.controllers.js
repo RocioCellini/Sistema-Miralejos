@@ -82,6 +82,10 @@
             $ctrl.Titulo="Nuevo Llamado";
             $ctrl.objDataLlamado.type_accion="nuevo_llamado";
 
+            
+            $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
+
+
             formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
                  angular.isDefined(d.setUrl)?goUrl(d):null;
