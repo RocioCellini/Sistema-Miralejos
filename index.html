@@ -19,22 +19,26 @@
 	<link rel="stylesheet" href="libraries/css/bootstrap-3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="libraries/css/ng-table.css">
 
-	<!--<link rel="stylesheet" href="css/ui-navbar.css"  type="text/css">-->
+	<link rel="stylesheet" href="css/ui-navbar.css"  type="text/css">
 	<link rel="stylesheet" href="css/styles.css" type="text/css" />
 
 </head>
 
 <body>
-
-<ui-view name="nav"></ui-view>
-
-<div align="center" class="col-xs-12 container-fluid">
-           <ui-view name="content"></ui-view>
-           <div style="height:50px"></div>
+<div class="row">
+	<ui-view name="nav"></ui-view>
 </div>
 
-<ui-view name="footer"></ui-view>
+<div class="row">
+	<div align="center" class="col-xs-12 container-fluid">
+	           <ui-view name="content"></ui-view>
+	           <div style="height:50px"></div>
+	</div>
+</div>
 
+<div class="row">
+	<ui-view name="footer"></ui-view>
+</div>
 <!--Angular -->
 <script src="libraries/js/angular-1.6.1/angular.min.js"></script>
 <script src="libraries/js/angular-1.6.1/angular-sanitize.min.js"></script>

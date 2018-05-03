@@ -49,7 +49,7 @@ if($type_accion==="log_in"){
 			$stmt->close();
 			$rs->free();			
 		
-			$url="GestionVentas.estadisticas";
+			$url="GestionVentas.planilla";
 			$item=array('setUrl' => utf8_encode($url));
 			$json = json_encode($item);
 			echo $json; 
