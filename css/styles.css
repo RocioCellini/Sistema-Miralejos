@@ -94,11 +94,11 @@ a.button-table, select{
 	cursor: pointer; 
 }
 
-/*Mensajes*/
+/*Mensajes
 
-.alert.alert-warning{
-  padding: 1%;
-}
+.alert-warning{
+ padding: 15px 0;
+}*/
 
 /* FOOTER 
 
@@ -133,9 +133,8 @@ span.marca{
 */
 
 .footer {
-    float: right;
-    padding: 0.7em;
     background-color:#fff;
+    padding-top: 50px;
 }
 
 span.marca{
