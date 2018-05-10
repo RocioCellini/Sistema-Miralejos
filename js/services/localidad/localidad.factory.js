@@ -32,6 +32,14 @@
         });
            
           return promisedata;
+        },
+        
+        eliminarLocalidad: function(params) {
+            promisedata=$http.post('php/sections/localidad/eliminar_localidad.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API

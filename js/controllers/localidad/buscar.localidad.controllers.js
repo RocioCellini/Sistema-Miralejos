@@ -29,6 +29,7 @@
           $ctrl.Init = Init;
           $ctrl.BuscarLocalidad = BuscarLocalidad;
           $ctrl.GoDataEdit = GoDataEdit;
+          $ctrl.GoDataDelete = GoDataDelete;          
 
           $ctrl.Init();
 
@@ -100,6 +101,18 @@
             $state.go("GestionVentas.modificarLocalidad",{ objdata:row }); 
 
           };
+
+          // Bottom Delete 
+          //**********************************************************************************************// 
+
+          function GoDataDelete( row ){
+
+            console.log(row);
+
+            $ctrl.objDataLocalidad.type_accion="eliminar_localidad";
+            $state.go("GestionVentas.eliminarLocalidad",{ objdata:row }); 
+
+          }
     
       }// DataSendController
 

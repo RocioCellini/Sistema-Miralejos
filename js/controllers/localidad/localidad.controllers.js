@@ -36,6 +36,7 @@
           function Init () {
 
               $ctrl.Titulo="Nueva Localidad";
+              $ctrl.Boton="Guardar";
               $ctrl.objDataLocalidad.type_accion="nueva_localidad";
 
               formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -62,12 +63,21 @@
                   if( $stateParams.type_ingreso==="GestionVentas.modificarLocalidad" ) {
 
                     $ctrl.Titulo="Modificar Localidad";
-
-                    console.log($stateParams.objdata); //bien
+                    $ctrl.Boton="Guardar";
 
                     $ctrl.objDataLocalidad=$stateParams.objdata;
                     $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataLocalidad.id_provincia;
                     $ctrl.objDataLocalidad.type_accion="editar_localidad";
+
+                  }
+
+                  if( $stateParams.type_ingreso==="GestionVentas.eliminarLocalidad" ) {                       
+
+                    $ctrl.Titulo="Eliminar Localidad";
+                    $ctrl.Boton="Eliminar";
+                    $ctrl.objDataLocalidad=$stateParams.objdata;
+                    $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataLocalidad.id_provincia;
+                    $ctrl.objDataLocalidad.type_accion="eliminar_localidad";
 
                   }
           
