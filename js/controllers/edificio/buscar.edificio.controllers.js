@@ -30,6 +30,7 @@
             $ctrl.Init = Init;
             $ctrl.BuscarEdificio = BuscarEdificio;
             $ctrl.GoDataEdit = GoDataEdit;
+            $ctrl.GoDataDelete = GoDataDelete;            
 
             $ctrl.Init();
 
@@ -95,6 +96,18 @@
                $state.go("GestionVentas.modificarEdificio",{ objdata:row }); 
 
             };
+
+            // Bottom Delete 
+            //**********************************************************************************************// 
+
+            function GoDataDelete( row ){
+
+              console.log(row);
+
+              $ctrl.objDataEdificio.type_accion="eliminar_edificio";
+              $state.go("GestionVentas.eliminarEdificio",{ objdata:row }); 
+
+            }
     
       }// DataSendController
 

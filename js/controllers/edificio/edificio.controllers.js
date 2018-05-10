@@ -36,6 +36,7 @@
       function Init () {
 
         $ctrl.Titulo="Nuevo Edificio";
+        $ctrl.Boton="Guardar";
         $ctrl.objDataEdificio.type_accion="nuevo_edificio";
         
         formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -50,11 +51,21 @@
 
         if( $stateParams.type_ingreso==="GestionVentas.modificarEdificio" ) {
 
-                $ctrl.Titulo="Modificar Edificio";                
+                $ctrl.Titulo="Modificar Edificio";    
+                $ctrl.Boton="Guardar";            
                 $ctrl.objDataEdificio=$stateParams.objdata;
                 $ctrl.objDataEdificio.type_accion="editar_edificio";
 
             }    
+
+        if( $stateParams.type_ingreso==="GestionVentas.eliminarEdificio" ) {                       
+
+                $ctrl.Titulo="Eliminar Edificio";
+                $ctrl.Boton="Eliminar";
+                $ctrl.objDataEdificio=$stateParams.objdata;
+                $ctrl.objDataEdificio.type_accion="eliminar_edificio";
+
+            }
 
       };    
 
