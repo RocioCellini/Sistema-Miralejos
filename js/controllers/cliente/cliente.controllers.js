@@ -25,7 +25,7 @@
             writable: false,
             enumerable: true,
             configurable: false
-        }); // Esto hace que la propiedad type_accion no se pueda modificar
+        }); 
 
         $ctrl.datalocalidad2={};
         $ctrl.objDataCliente={};
@@ -118,9 +118,7 @@
 
               if( $stateParams.type_ingreso==="GestionVentas.eliminarCliente" ) {                       
 
-                  $ctrl.objDataCliente.type_accion="eliminar_cliente";
                   $ctrl.Titulo="Eliminar Contacto";
-
                   $ctrl.Boton="Eliminar";
                   $ctrl.objDataCliente=$stateParams.objdata;
 
