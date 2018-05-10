@@ -32,6 +32,14 @@
         });
 
         return promisedata;
+        },
+        
+        eliminarOrigen: function(params) {
+            promisedata=$http.post('php/sections/origenDato/eliminar_origen.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API

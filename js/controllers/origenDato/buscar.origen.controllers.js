@@ -32,6 +32,7 @@
         $ctrl.Init = Init;
         $ctrl.BuscarOrigen = BuscarOrigen;
         $ctrl.GoDataEdit = GoDataEdit;
+        $ctrl.GoDataDelete = GoDataDelete;      
 
         $ctrl.Init();
 
@@ -98,6 +99,18 @@
           $state.go("GestionVentas.modificarOrigen",{ objdata:row }); 
 
         };
+
+        // Bottom Delete 
+        //**********************************************************************************************// 
+
+        function GoDataDelete( row ){
+
+          console.log(row);
+
+          $ctrl.objDataOrigen.type_accion="eliminar_origen";
+          $state.go("GestionVentas.eliminarOrigen",{ objdata:row }); 
+
+        }
     
     }// DataSendController
 

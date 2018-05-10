@@ -37,6 +37,7 @@
       function Init () {
 
           $ctrl.Titulo="Nuevo Origen Dato";
+          $ctrl.Boton="Guardar";
           $ctrl.objDataOrigen.type_accion="nuevo_origen";
 
           formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -51,12 +52,22 @@
 
           if( $stateParams.type_ingreso==="GestionVentas.modificarOrigen" ) {
 
-              $ctrl.Titulo="Modificar Origen Dato";                
+              $ctrl.Titulo="Modificar Origen Dato";
+              $ctrl.Boton="Guardar";                
               $ctrl.objDataOrigen=$stateParams.objdata;
               $ctrl.objDataOrigen.type_accion="editar_origen";
 
           }    
 
+          if( $stateParams.type_ingreso==="GestionVentas.eliminarOrigen" ) {                       
+
+              $ctrl.Titulo="Eliminar Origen Dato";
+              $ctrl.Boton="Eliminar";
+              $ctrl.objDataOrigen=$stateParams.objdata;
+              $ctrl.objDataOrigen.type_accion="eliminar_origen";
+
+            }
+          
       };    
 
       function Save() {
