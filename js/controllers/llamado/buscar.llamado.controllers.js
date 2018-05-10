@@ -36,6 +36,7 @@
         $ctrl.Init = Init;
         $ctrl.BuscarLlamado = BuscarLlamado;
         $ctrl.GoDataEdit = GoDataEdit;
+        $ctrl.GoDataDelete = GoDataDelete;        
 
         $ctrl.Init();
 
@@ -136,6 +137,18 @@
           $state.go("GestionVentas.modificarLlamado",{ objdata:row }); 
 
         };
+
+        // Bottom Delete 
+        //**********************************************************************************************// 
+
+        function GoDataDelete( row ){
+
+          console.log(row);
+
+          $ctrl.objDataLlamado.type_accion="eliminar_llamado";
+          $state.go("GestionVentas.eliminarLlamado",{ objdata:row }); 
+
+        }
     
     }// DataSendController
 

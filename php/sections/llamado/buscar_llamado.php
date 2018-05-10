@@ -206,7 +206,7 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
           } while ($row=$rs->fetch_assoc());
 
        } else { 
-          $mensaje=array('Mensaje'=>utf8_encode("No se encontró un llamado con el nombre ingresado"));
+          $mensaje=array('Mensaje'=>utf8_encode("No se encontró un llamado en la fecha ingresada"));
           $response[]=$mensaje;
        } 
 

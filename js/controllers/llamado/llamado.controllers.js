@@ -56,35 +56,34 @@
             selectedOption: {id: '-1'} 
         };
 
-        $ctrl.Init = Init;
-        $ctrl.upDateProvincia = upDateProvincia;       
-        $ctrl.upDateEdificio = upDateEdificio;
-        $ctrl.upDatePlanta = upDatePlanta;
-        $ctrl.Save = Save;
-        $ctrl.BuscarCliente = BuscarCliente;
-        $ctrl.CompletarDatos = CompletarDatos;
+      $ctrl.Init = Init;
+      $ctrl.upDateProvincia = upDateProvincia;       
+      $ctrl.upDateEdificio = upDateEdificio;
+      $ctrl.upDatePlanta = upDatePlanta;
+      $ctrl.Save = Save;
+      $ctrl.BuscarCliente = BuscarCliente;
+      $ctrl.CompletarDatos = CompletarDatos;
 
 
-        // To configure table   
-        //*****************************************************************************//    
+      // To configure table   
+      //*****************************************************************************//    
 
-            var initialParams = {
-              count: 10 // initial page size
-            };
+          var initialParams = {
+            count: 10 // initial page size
+          };
 
-            var initialSettings = {
-                paginationMaxBlocks: 13,
-                paginationMinBlocks: 2
-            };         
+          var initialSettings = {
+              paginationMaxBlocks: 13,
+              paginationMinBlocks: 2
+          };         
 
-     function Init () {
+      function Init () {
 
             $ctrl.Titulo="Nuevo Llamado";
+            $ctrl.Boton="Guardar";
             $ctrl.objDataLlamado.type_accion="nuevo_llamado";
-
             
             $ctrl.tableParams = new NgTableParams(initialParams, initialSettings); 
-
 
             formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
@@ -164,6 +163,7 @@
                   $ctrl.objDataLlamado=$stateParams.objdata;
 
                   console.log($stateParams.objdata);
+                  console.log($ctrl.objDataLlamado);
 
                   $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataLlamado.id_provincia;
                   $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataLlamado.id_localidad;
@@ -173,15 +173,44 @@
                   $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
                   $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
-                  $ctrl.objDataLlamado.dt1 = $ctrl.objDataLlamado.fecha_llamado; 
-                  $ctrl.objDataLlamado.dt2 = $ctrl.objDataLlamado.fecha_origen_dato; 
-                  $ctrl.objDataLlamado.time = $ctrl.objDataLlamado.hora_llamado;  
+                  $ctrl.objDataLlamado.dt1 = $ctrl.objDataLlamado.fecha_llamado;
+                  $ctrl.objDataLlamado.dt2 = $ctrl.objDataLlamado.fecha_origen_dato;
+                  $ctrl.objDataLlamado.time =$ctrl.objDataLlamado.hora_llamado;
 
+                 /* $ctrl.objDataLlamado.dt1 = $filter('date')($ctrl.objDataLlamado.fecha_llamado, 'yyyy-MM-dd');
+                  $ctrl.objDataLlamado.dt2 = $filter('date')($ctrl.objDataLlamado.fecha_origen_dato, 'yyyy-MM-dd');
+                  $ctrl.objDataLlamado.time = $filter('date')($ctrl.objDataLlamado.hora_llamado, 'HH:mm:ss');
+                */
                   
                   $ctrl.data_origen_dato.selectedOption.id_origen_dato=$ctrl.objDataLlamado.id_origen_dato;   
 
                   $ctrl.objDataLlamado.type_accion="editar_llamado";
 
+              }
+
+              if( $stateParams.type_ingreso==="GestionVentas.eliminarLlamado" ) {                       
+
+                  $ctrl.Titulo="Eliminar Llamado";
+                  $ctrl.Boton="Eliminar";
+                  $ctrl.objDataLlamado=$stateParams.objdata;
+
+                  $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataLlamado.id_provincia;
+                  $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataLlamado.id_localidad;
+                  $ctrl.data_vendedor.selectedOption.id=$ctrl.objDataLlamado.id_vendedor;
+                  $ctrl.data_edificio.selectedOption.id_edificio=$ctrl.objDataLlamado.id_edificio;
+                  $ctrl.data_planta.selectedOption.id_planta=$ctrl.objDataLlamado.id_planta;   
+                  $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
+                  $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
+
+                  $ctrl.objDataLlamado.dt1 =$stateParams.objdata.fecha_llamado;
+                  $ctrl.objDataLlamado.dt2 = $ctrl.objDataLlamado.fecha_origen_dato; 
+                  $ctrl.objDataLlamado.time = $ctrl.objDataLlamado.hora_llamado;  
+
+                  $ctrl.data_origen_dato.selectedOption.id_origen_dato=$ctrl.objDataLlamado.id_origen_dato;   
+  
+
+                  $ctrl.objDataLlamado.type_accion="eliminar_llamado";
+  
               }
 
 
@@ -285,29 +314,12 @@
         $ctrl.objDataLlamado.id_localidad=$ctrl.datalocalidad.selectedOption.id;
 
         $ctrl.objDataLlamado.criterio=valorIngresado;
-
-        console.log($ctrl.objDataLlamado);
           
         clienteFactory.buscarCliente($ctrl.objDataLlamado).then(function(d) {
 
-        console.log(d.Respuesta);
+            $ctrl.tableParams.settings({dataset: d.Respuesta});        
 
-              /*
-               angular.isDefined(d.Respuesta[0].Mensaje)?ShowMessage(d):LoadTable(d);
-              
-               function LoadTable (d) {
-                    $ctrl.tableParams.settings({dataset: d.Respuesta});  
-                }
-
-                function ShowMessage (d) { 
-                    $ctrl.Mensaje=d.Respuesta[0].Mensaje;
-                }      
-                */
-                  $ctrl.tableParams.settings({dataset: d.Respuesta});  
-
-         console.log('Datos enviados a tableParams: '+d.Respuesta); 
-
-        $ctrl.boton_submmit=false;      
+            $ctrl.boton_submmit=false;      
 
         }).catch(function (err) {
             
@@ -344,8 +356,6 @@
         $ctrl.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl.objDataLlamado.dt2, 'yyyy-MM-dd'); 
         $ctrl.objDataLlamado.hora_llamado = $filter('date')($ctrl.objDataLlamado.time, 'HH:mm:ss'); 
 
-        $ctrl.objDataLlamado.id_cliente=1;
-
         $ctrl.objDataLlamado.id_vendedor=$ctrl.data_vendedor.selectedOption.id;
 
         $ctrl.objDataLlamado.id_edificio = $ctrl.data_edificio.selectedOption.id_edificio;
@@ -354,6 +364,8 @@
 
         $ctrl.objDataLlamado.grado_interes=$ctrl.grado_interes.selectedOption.id;
         $ctrl.objDataLlamado.id_origen_dato = $ctrl.data_origen_dato.selectedOption.id_origen_dato; 
+
+        console.log($ctrl.objDataLlamado);
          
         llamadoFactory.nuevoLlamado($ctrl.objDataLlamado).then(function(d) {                   
                 $ctrl.Mensaje = d.Mensaje;

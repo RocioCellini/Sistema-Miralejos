@@ -42,8 +42,6 @@
   <div class="col-md-8"></div>
 </div>
 
-<div class="mensajesistema">{{$ctrl.Mensaje}}</div><br><br>
-
 <div class="row" >
   <div class="col-md-3"  ></div>
     <div class="col-md-6"  align="center">
@@ -120,8 +118,8 @@
             <label class="col-sm-4 control-label">Hora del Llamado:</label> 
                 
             <div class="col-sm-4">
-              <input type="time" class="form-control campoform" ng-model=" $ctrl.objDataLlamado.time" 
-              >           
+              <input type="time" class="form-control campoform" 
+              ng-model=" $ctrl.objDataLlamado.time">           
             </div>          
             <div class="col-sm-4"></div>
         </div>
@@ -204,21 +202,12 @@
             </div>
              <div class="col-sm-4" ></div>
         </div>
-
-        <!--<div class="form-group">
-           <label class="col-sm-4 control-label">Conoce:</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control campoform" ng-model="$ctrl.objDataLlamado.conoce">
-            </div>
-             <div class="col-sm-4" ></div>
-        </div>-->
-   
-      
+    
       <div class="form-group">
         <div class="col-sm-4" ></div>
           <div class=" col-sm-4">
           <button class="btn btn-default" ng-disabled="$ctrl.allow_disable"  ng-show="$ctrl.allow_visible" 
-          ng-click='$ctrl.Save()' style='margin-left: 63px;margin-top:10px'>Guardar</button>
+          ng-click='$ctrl.Save()' style='margin-left: 63px;margin-top:10px'>{{$ctrl.Boton}}</button>
              </div>
           <div class="col-sm-4" ></div>
         </div>
