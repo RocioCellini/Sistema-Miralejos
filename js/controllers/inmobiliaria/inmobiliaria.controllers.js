@@ -36,6 +36,7 @@
       function Init () {
         
         $ctrl.Titulo="Nueva Inmobiliaria";
+        $ctrl.Boton="Guardar";
         $ctrl.objDataInmob.type_accion="nueva_inmob";
 
         formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -50,19 +51,27 @@
 
         if( $stateParams.type_ingreso==="GestionVentas.modificarInmob" ) {
 
-                $ctrl.Titulo="Modificar Inmobiliaria";                
+                $ctrl.Titulo="Modificar Inmobiliaria";   
+                $ctrl.Boton="Guardar";             
                 $ctrl.objDataInmob=$stateParams.objdata;
                 $ctrl.objDataInmob.type_accion="editar_inmob";
 
             }     
+
+         if( $stateParams.type_ingreso==="GestionVentas.eliminarInmob" ) {                       
+
+                  $ctrl.Titulo="Eliminar Inmobiliaria";
+                  $ctrl.Boton="Eliminar";
+                  $ctrl.objDataInmob=$stateParams.objdata;
+                  $ctrl.objDataInmob.type_accion="eliminar_inmob";
+  
+            }
+
       };    
 
       function Save() {
             
-          const metodo=$stateParams.type_ingreso.split(".");  //ES6 La variable CONST
-
-            console.log($stateParams.type_ingreso);
-            console.log(metodo[1]);
+          const metodo=$stateParams.type_ingreso.split(".");  
                   
           inmobiliariaFactory[metodo[1]]($ctrl.objDataInmob).then(function(d) {   
 

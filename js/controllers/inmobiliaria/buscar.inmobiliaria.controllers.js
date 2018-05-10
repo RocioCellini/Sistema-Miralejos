@@ -30,6 +30,7 @@
                 $ctrl.Init = Init;
                 $ctrl.BuscarInmobiliaria = BuscarInmobiliaria;
                 $ctrl.GoDataEdit = GoDataEdit;
+                $ctrl.GoDataDelete = GoDataDelete;
 
                 $ctrl.Init();
 
@@ -100,6 +101,18 @@
                   $state.go("GestionVentas.modificarInmob",{ objdata:row }); 
 
               };
+
+              // Bottom Delete 
+              //**********************************************************************************************// 
+
+              function GoDataDelete( row ){
+
+                  console.log(row);
+
+                  $ctrl.objDataInmob.type_accion="eliminar_inmob";
+                  $state.go("GestionVentas.eliminarInmob",{ objdata:row }); 
+
+                }
           
       }// DataSendController
 
