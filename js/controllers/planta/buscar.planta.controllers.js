@@ -29,6 +29,7 @@
           $ctrl.Init = Init;
           $ctrl.BuscarPlanta = BuscarPlanta;
           $ctrl.GoDataEdit = GoDataEdit;
+          $ctrl.GoDataDelete = GoDataDelete;          
 
           $ctrl.Init();
 
@@ -96,6 +97,18 @@
             $state.go("GestionVentas.modificarPlanta",{ objdata:row }); 
 
           };
+
+          // Bottom Delete 
+          //**********************************************************************************************// 
+
+          function GoDataDelete( row ){
+
+            console.log(row);
+
+            $ctrl.objDataPlanta.type_accion="eliminar_planta";
+            $state.go("GestionVentas.eliminarPlanta",{ objdata:row }); 
+
+          }
     
       }// DataSendController
 

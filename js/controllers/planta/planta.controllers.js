@@ -36,6 +36,7 @@
         function Init () {
 
             $ctrl.Titulo="Nueva Planta";
+            $ctrl.Boton="Guardar";
             $ctrl.objDataPlanta.type_accion="nueva_planta";
 
             formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -50,11 +51,21 @@
 
             if( $stateParams.type_ingreso==="GestionVentas.modificarPlanta" ) {
 
-                $ctrl.Titulo="Modificar Planta";                
+                $ctrl.Titulo="Modificar Planta";    
+                $ctrl.Boton="Guardar";            
                 $ctrl.objDataPlanta=$stateParams.objdata;
                 $ctrl.objDataPlanta.type_accion="editar_planta";
 
-            }      
+            }   
+
+            if( $stateParams.type_ingreso==="GestionVentas.eliminarPlanta" ) {                       
+
+                $ctrl.Titulo="Eliminar Planta";
+                $ctrl.Boton="Eliminar";
+                $ctrl.objDataPlanta=$stateParams.objdata;
+                $ctrl.objDataPlanta.type_accion="eliminar_planta";
+
+              }             
           
         };    
 

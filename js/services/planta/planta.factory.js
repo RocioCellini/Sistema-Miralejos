@@ -32,6 +32,14 @@
         });
 
         return promisedata;
+        },
+        
+        eliminarPlanta: function(params) {
+            promisedata=$http.post('php/sections/planta/eliminar_planta.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API
