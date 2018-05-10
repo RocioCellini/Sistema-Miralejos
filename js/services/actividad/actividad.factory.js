@@ -33,6 +33,14 @@
         });
 
         return promisedata;
+        },
+        
+        eliminarAct: function(params) {
+            promisedata=$http.post('php/sections/actividad/eliminar_actividad.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API

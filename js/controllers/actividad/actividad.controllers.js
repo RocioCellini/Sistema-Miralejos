@@ -34,6 +34,7 @@
     function Init () {
 
       $ctrl.Titulo="Nueva Actividad";
+      $ctrl.Boton="Guardar";
       $ctrl.objDataActividad.type_accion="nueva_actividad";
 
       formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -50,11 +51,22 @@
 
       if( $stateParams.type_ingreso==="GestionVentas.modificarAct" ) {
 
-          $ctrl.Titulo="Modificar Actividad";                
+          $ctrl.Titulo="Modificar Actividad";   
+          $ctrl.Boton="Guardar";             
           $ctrl.objDataActividad=$stateParams.objdata;
           $ctrl.objDataActividad.type_accion="editar_act";
 
       } 
+
+       if( $stateParams.type_ingreso==="GestionVentas.eliminarAct" ) {                       
+
+          $ctrl.Titulo="Eliminar Actividad";
+          $ctrl.Boton="Eliminar";
+          $ctrl.objDataActividad=$stateParams.objdata;
+          $ctrl.objDataActividad.type_accion="eliminar_act";
+
+      }
+      
     };    
 
     function Save() {

@@ -29,6 +29,7 @@
           $ctrl.Init = Init;
           $ctrl.BuscarAct = BuscarAct;
           $ctrl.GoDataEdit = GoDataEdit;
+          $ctrl.GoDataDelete=GoDataDelete;
 
           $ctrl.Init();
 
@@ -96,6 +97,18 @@
             $state.go("GestionVentas.modificarAct",{ objdata:row }); 
 
           };
+
+          // Bottom Delete 
+          //**********************************************************************************************// 
+
+          function GoDataDelete( row ){
+
+            console.log(row);
+
+            $ctrl.objDataActividad.type_accion="eliminar_act";
+            $state.go("GestionVentas.eliminarAct",{ objdata:row }); 
+
+          }
     
       }// DataSendController
 
