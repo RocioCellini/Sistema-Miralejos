@@ -36,6 +36,7 @@
         function Init () {
 
             $ctrl.Titulo="Nuevo Dpto";
+            $ctrl.Boton="Guardar";
             $ctrl.objDataDpto.type_accion="nuevo_dpto";
 
             formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -50,11 +51,21 @@
 
             if( $stateParams.type_ingreso==="GestionVentas.modificarDpto" ) {
 
-                $ctrl.Titulo="Modificar Departamento";                
+                $ctrl.Titulo="Modificar Departamento";      
+                $ctrl.Boton="Guardar";          
                 $ctrl.objDataDpto=$stateParams.objdata;
                 $ctrl.objDataDpto.type_accion="editar_dpto";
 
             } 
+
+             if( $stateParams.type_ingreso==="GestionVentas.eliminarDpto" ) {                       
+
+                  $ctrl.Titulo="Eliminar Departamento";
+                  $ctrl.Boton="Eliminar";
+                  $ctrl.objDataDpto=$stateParams.objdata;
+                  $ctrl.objDataDpto.type_accion="eliminar_dpto";
+  
+              }
           
         };    
 

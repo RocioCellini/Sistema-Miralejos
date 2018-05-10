@@ -29,6 +29,7 @@
         $ctrl.Init = Init;
         $ctrl.BuscarDpto = BuscarDpto;
         $ctrl.GoDataEdit = GoDataEdit;
+        $ctrl.GoDataDelete = GoDataDelete;        
 
         $ctrl.Init();
 
@@ -98,6 +99,18 @@
           $state.go("GestionVentas.modificarDpto",{ objdata:row }); 
 
         };
+
+        // Bottom Delete 
+        //**********************************************************************************************// 
+
+        function GoDataDelete( row ){
+
+          console.log(row);
+
+          $ctrl.objDataDpto.type_accion="eliminar_dpto";
+          $state.go("GestionVentas.eliminarDpto",{ objdata:row }); 
+
+        }
     
       }// DataSendController
 

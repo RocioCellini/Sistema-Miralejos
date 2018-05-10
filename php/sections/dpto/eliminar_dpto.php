@@ -4,16 +4,13 @@
 //header('X-XSS-Protection: 1;mode=block');
 //header("Content-type: text/plain");	
 session_start();
-//if(isset($_SESSION['Id_Usuario'])) {
 
 $json = file_get_contents('php://input');
 $data=json_decode($json);
 
+$type_accion=$data->{'type_accion'};
 
-//$type_accion=$data->{'type_accion'};
-
-
-$type_accion='eliminar_dpto';
+//$type_accion='eliminar_dpto';
 
 if($type_accion==="eliminar_dpto" && isset($_SESSION['Usuario'])){
 
@@ -22,6 +19,9 @@ if($type_accion==="eliminar_dpto" && isset($_SESSION['Usuario'])){
 
 	//$id_dpto=4;
 
+	$id_dpto=$data->{'id_dpto'};
+	$nombre =$data->{'nombre'};
+
 	$sql='DELETE FROM departamento WHERE id_dpto=?';
 
 	$stmt_delete = $conn->prepare($sql);
@@ -29,22 +29,19 @@ if($type_accion==="eliminar_dpto" && isset($_SESSION['Usuario'])){
 	trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $conn->error, E_USER_ERROR);
 	}
 
-
 	$stmt_delete->bind_param('i',$id_dpto);
 	$stmt_delete->execute();
 
-	//echo $stmt->affected_rows;
 	$stmt_delete->close();
 
-	$message="El dpto ha sido eliminado correctamente.";
+	$message='El dpto " '.$nombre.' " ha sido eliminado correctamente.';
 
 //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
+  $item=array('Mensaje' => utf8_encode($message));
   $json = json_encode($item);
   echo $json;
             
    } //if($type_accion==="eliminar_dpto")
-   //agregar un json con el error si no se guardó en la BD
 
 ?>      
