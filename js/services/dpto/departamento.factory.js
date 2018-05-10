@@ -33,6 +33,14 @@
         });
 
         return promisedata;
+        },
+        
+        eliminarDpto: function(params) {
+            promisedata=$http.post('php/sections/dpto/eliminar_dpto.php', params).then(function (response) {
+                  return response.data;
+        });
+           
+          return promisedata;
         }
 
       };//RETURN API

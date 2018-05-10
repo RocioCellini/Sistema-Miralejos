@@ -129,6 +129,16 @@
               }
       })
 
+      .state('GestionVentas.eliminarVendedor', {
+        url:'/EliminarVendedor',
+        templateUrl:'templates/vendedor/abm_vendedor.html',
+        controller: 'Vendedor as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarVendedor",
+                  objdata:null
+              }
+      })
+
        .state('GestionVentas.buscarInmob',{
         url:'/BuscarInmobiliaria',
         templateUrl:'templates/inmobiliaria/buscar_inmobiliaria.html',
@@ -154,6 +164,17 @@
               }
       })
 
+      .state('GestionVentas.eliminarInmob', {
+        url:'/EliminarInmobiliaria',
+        templateUrl:'templates/inmobiliaria/abm_inmobiliaria.html',
+        controller: 'Inmobiliaria as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarInmob",
+                  objdata:null
+              }
+      })
+
+
       .state('GestionVentas.buscarEdificio',{
         url:'/BuscarEdificio',
         templateUrl:'templates/edificio/buscar_edificio.html',
@@ -175,6 +196,16 @@
         controller: 'Edificio as $ctrl',
         params: {
                   type_ingreso:"GestionVentas.modificarEdificio",
+                  objdata:null
+              }
+      })
+
+      .state('GestionVentas.eliminarEdificio', {
+        url:'/EliminarEdificio',
+        templateUrl:'templates/edificio/abm_edificio.html',
+        controller: 'Edificio as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarEdificio",
                   objdata:null
               }
       })
@@ -204,6 +235,16 @@
               }
       })
 
+      .state('GestionVentas.eliminarPlanta', {
+        url:'/EliminarPlanta',
+        templateUrl:'templates/planta/abm_planta.html',
+        controller: 'Planta as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarPlanta",
+                  objdata:null
+              }
+      })
+
       .state('GestionVentas.buscarDpto',{
         url:'/BuscarDpto',
         templateUrl:'templates/dpto/buscar_dpto.html',
@@ -225,6 +266,16 @@
         controller: 'Dpto as $ctrl',
         params: {
                   type_ingreso:"GestionVentas.modificarDpto",
+                  objdata:null
+              }
+      })
+
+       .state('GestionVentas.eliminarDpto', {
+        url:'/EliminarDpto',
+        templateUrl:'templates/dpto/abm_dpto.html',
+        controller: 'Dpto as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarDpto",
                   objdata:null
               }
       })
@@ -260,6 +311,16 @@
               }
       })
 
+      .state('GestionVentas.eliminarLocalidad', {
+        url:'/EliminarLocalidad',
+        templateUrl:'templates/localidad/abm_localidad.html',
+        controller: 'Localidad as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarLocalidad",
+                  objdata:null
+              }
+      })
+
       .state('GestionVentas.buscarLlamado',{
         url:'/BuscarLlamado',
         templateUrl:'templates/llamado/buscar_llamado.html',
@@ -281,6 +342,16 @@
         controller: 'Llamado as $ctrl',
         params: {
                   type_ingreso:"GestionVentas.modificarLlamado",
+                  objdata:null
+              }
+      })
+
+       .state('GestionVentas.eliminarLlamado', {
+        url:'/EliminarLlamado',
+        templateUrl:'templates/llamado/abm_llamado.html',
+        controller: 'Llamado as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarLlamado",
                   objdata:null
               }
       })
@@ -310,6 +381,16 @@
               }
       })
 
+      .state('GestionVentas.eliminarAct', {
+        url:'/EliminarActividad',
+        templateUrl:'templates/actividad/abm_actividad.html',
+        controller: 'Actividad as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarAct",
+                  objdata:null
+              }
+      })
+
       .state('GestionVentas.buscarOrigen',{
         url:'/BuscarOrigenDato',
         templateUrl:'templates/origenDato/buscar_origen.html',
@@ -331,6 +412,16 @@
         controller: 'OrigenDato as $ctrl',
         params: {
                   type_ingreso:"GestionVentas.modificarOrigen",
+                  objdata:null
+              }
+      })
+
+       .state('GestionVentas.eliminarOrigen', {
+        url:'/EliminarOrigenDato',
+        templateUrl:'templates/origenDato/abm_origen.html',
+        controller: 'OrigenDato as $ctrl',
+        params: {
+                  type_ingreso:"GestionVentas.eliminarOrigen",
                   objdata:null
               }
       })
