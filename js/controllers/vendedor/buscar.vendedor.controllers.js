@@ -29,6 +29,7 @@
         $ctrl.Init = Init;
         $ctrl.BuscarVendedor = BuscarVendedor;
         $ctrl.GoDataEdit = GoDataEdit;
+        $ctrl.GoDataDelete = GoDataDelete;
 
         $ctrl.boton_submmit=false;          
 
@@ -102,6 +103,18 @@
             $state.go("GestionVentas.modificarVendedor",{ objdata:row }); 
 
           };
+
+        // Bottom Delete 
+        //**********************************************************************************************// 
+
+        function GoDataDelete( row ){
+
+            console.log(row);
+
+            $ctrl.objDataVendedor.type_accion="eliminar_vendedor";
+            $state.go("GestionVentas.eliminarVendedor",{ objdata:row }); 
+
+          }
               
       }// DataSendController
 

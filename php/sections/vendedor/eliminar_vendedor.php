@@ -9,17 +9,17 @@ $json = file_get_contents('php://input');
 $data=json_decode($json);
 
 
-//$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'};
 
-
-$type_accion='eliminar_vendedor';
+//$type_accion='eliminar_vendedor';
 
 if($type_accion==="eliminar_vendedor" && isset($_SESSION['Usuario'])){
 
 //************************************************************************************************//	
 	include "../../conexion.php";	
 
-	$id_vendedor=5;
+	$id_vendedor=$data->{'id_vendedor'};
+	$nombre =$data->{'nombre'};
 
 	$sql='DELETE FROM vendedor WHERE id_vendedor=?';
 
@@ -32,18 +32,16 @@ if($type_accion==="eliminar_vendedor" && isset($_SESSION['Usuario'])){
 	$stmt_delete->bind_param('i',$id_vendedor);
 	$stmt_delete->execute();
 
-	//echo $stmt->affected_rows;
 	$stmt_delete->close();
 
-	$message="El vendedor ha sido eliminado correctamente.";
+	$message='El vendedor " '.$nombre.' " ha sido eliminado correctamente.';
 
 //***************************************************************************************///
 
-  $item=array('Message' => utf8_encode($message));
-  $json = json_encode($item);
-  echo $json;
+    $item=array('Mensaje' => utf8_encode($message));
+    $json = json_encode($item);
+    echo $json;
             
    } //if($type_accion==="eliminar_vendedor")
-   //agregar un json con el error si no se guardó en la BD
 
 ?>      

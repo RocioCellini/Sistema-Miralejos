@@ -40,6 +40,7 @@
           function Init () {
 
             $ctrl.Titulo="Nuevo Vendedor";
+            $ctrl.Boton="Guardar";
             $ctrl.objDataVendedor.type_accion="nuevo_vendedor";
 
             formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
@@ -54,17 +55,28 @@
              
             if( $stateParams.type_ingreso==="GestionVentas.modificarVendedor" ) {
 
-                $ctrl.Titulo="Modificar Vendedor";                
+                $ctrl.Titulo="Modificar Vendedor"; 
+                $ctrl.Boton="Guardar";               
                 $ctrl.objDataVendedor=$stateParams.objdata;
                 $ctrl.objDataVendedor.type_accion="editar_vendedor";
 
             }
+
+
+            if( $stateParams.type_ingreso==="GestionVentas.eliminarVendedor" ) {                       
+
+                  $ctrl.Titulo="Eliminar Vendedor";
+                  $ctrl.Boton="Eliminar";
+                  $ctrl.objDataVendedor=$stateParams.objdata;
+                  $ctrl.objDataVendedor.type_accion="eliminar_vendedor";
+  
+              }
                
           }
 
           function Save() {
                 
-            const metodo=$stateParams.type_ingreso.split(".");   //ES6 La variable CONST
+            const metodo=$stateParams.type_ingreso.split(".");  
                     
             vendedorFactory[metodo[1]]( $ctrl.objDataVendedor ).then(function(d) {   
 
