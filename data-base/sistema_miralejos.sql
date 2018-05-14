@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2018 a las 18:01:44
+-- Tiempo de generación: 14-05-2018 a las 17:43:21
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -36,12 +36,15 @@ CREATE TABLE `actividad` (
 --
 
 INSERT INTO `actividad` (`id_actividad`, `nombre`) VALUES
-(1, 'agro'),
+(1, 'agropecuario/a'),
 (2, 'abogado/a'),
 (3, 'agrimensor'),
 (4, 'médico'),
 (5, 'ingenieria'),
-(6, 'manicura');
+(6, 'manicura'),
+(7, 'profesor/a'),
+(8, 'construccion'),
+(12, 'estilista');
 
 -- --------------------------------------------------------
 
@@ -60,7 +63,7 @@ CREATE TABLE `administracion` (
 --
 
 INSERT INTO `administracion` (`id_admin`, `user`, `password`) VALUES
-(1, 'rocio-miralejos', '$2y$10$SPoB5srz8G7C1QKzp1LSVe.yf6ILBueVUVVzXBq4USFGFWiy0nrJm');
+(1, 'miralejos', '$2y$10$SPoB5srz8G7C1QKzp1LSVe.yf6ILBueVUVVzXBq4USFGFWiy0nrJm');
 
 -- --------------------------------------------------------
 
@@ -92,18 +95,24 @@ INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `dni`, `telefono1`, `
 (4, 'carlos', 'cellini', 333, 333, 4445, 'carlin@hotmail.com', 1, 5, 2, 0),
 (5, 'flor', 'rrr', 77, 77, 6665, 'yuy@hh.com', 1, 5, 4, 0),
 (15, 'Rocío', 'cabrera', 33444455, 44444, 33565, 'cabrera@gmail.com', 3, 303, 3, 1),
-(22, 'roberto', 'lopez', 555464, 56, 636, 'rob@dfsff', 1, 1, 1, 1),
-(23, 'Carlita', 'gonz', 2345678, 6363, 63563, 'gdhrd@dfa', 7, 492, 3, 1),
+(22, 'roberto', 'lopez', 32555464, 456324, 463632, 'rob@hotmail.com', 1, 1, 1, 1),
 (24, 'Gonzalo', 'Ferreyra', 4455, 3344444, 53535, 'fsgs@dfsg.com', 1, 1, 1, 0),
 (25, 'Franco', 'Mansilla', 44554455, 44353, 554335, 'gear@dgsrg', 1, 1, 1, 1),
-(26, 'mary', 'aefa', 44556677, 5636, 3573, 'hdghs@dfag', 5, 369, 3, 1),
+(34, 'Rodrigo', 'Perez', 3344556, 342243, 432525, 'rodri@gmail.com', 12, 1351, 3, 0),
 (27, 'Marta', 'dafa', 5254434, 626262, 62262, 'dgrdj', 1, 1, 1, 1),
 (28, 'Martin', 'fages', 4455667, 6363, 6636, 'sgsgr@dfa', 1, 1, 1, 1),
-(29, 'gonza', 'fagsg', 4455667, 5626, 6265, 'srgsr', 1, 1, 1, 0),
 (30, 'Silvi', 'dsghsuig', 4455667, 4526, 626, 'tryerer@dsvd.com', 1, 1, 1, 0),
 (31, 'Maria Ester', 'Gutuerrez', 2233445, 54552, 5225, 'maria@miralejos.net', 1, 1, 1, 0),
 (32, 'Pablo', 'Gutierrez', 4353535, 4552, 52525, 'pablo@empresa.com', 6, 446, 3, 0),
-(33, 'Maria Angeles', 'Alvarez', 3454324, 34567, 55667, 'mari_ang@hotmail.com', 17, 1609, 3, 1);
+(33, 'Maria Angeles', 'Alvarez', 3454324, 34567, 55667, 'mari_ang@hotmail.com', 17, 1609, 3, 1),
+(35, 'Samuel', 'Gonzales', 42442425, 23242, 441415, 'samu@gmail.com', 4, 336, 5, 1),
+(36, 'romina', 'daefef', 344252525, 3241, 525252, 'gwgw@fsee.com', 14, 1453, 3, 0),
+(37, 'svgsbu', 'sudbvus', 445755465, 6665, 756765, 'sgae@dsg.com', 13, 1420, 4, 1),
+(38, 'Sebastian', 'juigig', 677866336, 78544, 58585, 'seba@dfaf.com', 9, 993, 5, 0),
+(39, 'Roxana', 'srgsgs', 88788888, 887, 8887778, 'fsrgws@sdfd.com', 11, 1280, 6, 0),
+(40, 'german', 'ramirez', 99888888, 8888, 88888, 'fefw@dfaf.com', 7, 485, -1, 1),
+(46, 'jose', 'perez', 35667890, 4539996, 0, 'juan@jose.com', 13, 1426, 8, 0),
+(43, 'sfwew', 'uguyguy', 7777733, 7777, 7777, 'wefw@dfs.com', 12, 1342, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -223,7 +232,8 @@ INSERT INTO `inmobiliaria` (`id_inmobiliaria`, `nombre`) VALUES
 (4, 'Eliseo'),
 (5, 'Miralejos'),
 (6, 'Cernotto'),
-(7, 'Sandrone');
+(7, 'Sandrone'),
+(8, 'Chaves');
 
 -- --------------------------------------------------------
 
@@ -254,7 +264,17 @@ INSERT INTO `llamado` (`id_llamado`, `id_vendedor`, `id_cliente`, `fecha_llamado
 (1, 2, 3, '2011-03-14', '17:00:01', 2, 1, 5, 2, 1, '2018-03-06', 'respondió en forma cortante'),
 (2, 3, 3, '2018-02-07', '03:30:00', 3, 2, 1, 3, 2, '2018-03-06', 're bien'),
 (3, 2, 1, '2018-04-17', '12:02:00', 5, 5, 29, 1, 2, '2018-04-16', 'bien'),
-(4, 5, 1, '2018-04-27', '23:00:00', 4, 8, 1, 1, 5, '2018-04-24', 'maso');
+(4, 5, 1, '2018-04-27', '23:00:00', 4, 8, 1, 1, 5, '2018-04-24', 'maso'),
+(5, 5, 1, '2018-04-27', '23:00:00', 4, 8, 1, 0, 5, '2018-04-24', 'maso'),
+(6, -1, 1, '2018-05-08', '02:02:00', 8, 6, 7, 2, 15, '2018-05-09', 'rejft yti'),
+(7, 2, 1, '2018-05-02', '20:00:00', 9, 7, 1, 2, 7, '2018-04-29', 'tiene que vender propiedad'),
+(8, 5, 1, '2018-05-22', '02:03:00', 4, 5, 1, 2, 6, '2018-05-13', 'fwefw'),
+(9, 4, 1, '2018-05-29', '03:04:00', 5, 5, 29, 3, 10, '2018-05-13', 'wt3t4'),
+(10, 3, 25, '2018-05-22', '03:04:00', 7, 4, 32, 2, 10, '2018-05-06', 'gerwe'),
+(11, 4, 1, '2018-05-29', '03:04:00', 5, 5, 29, 2, 10, '2018-05-13', 'wt3t4'),
+(12, 5, 1, '2018-05-22', '05:00:00', 4, 5, 1, 1, 6, '2018-05-13', 'fwefw'),
+(13, 5, 1, '2018-05-22', '05:00:00', 3, 5, 29, 1, 6, '2018-05-13', 'fwefw'),
+(14, 5, 1, '2018-05-22', '05:00:00', 3, 5, 29, 0, 6, '2018-05-13', 'fwefw');
 
 -- --------------------------------------------------------
 
@@ -2630,7 +2650,7 @@ INSERT INTO `localidad` (`id_localidad`, `id_provincia`, `nombre`) VALUES
 (2355, 25, 'San Ignacio'),
 (2356, 25, 'San Javier'),
 (2357, 25, 'San José'),
-(2358, 25, 'San Miguel de 25'),
+(2358, 25, 'San Miguel de Tucuman'),
 (2359, 25, 'San Pedro'),
 (2360, 25, 'San Pedro de Colalao'),
 (2361, 25, 'Santa Rosa de Leales'),
@@ -2682,7 +2702,19 @@ INSERT INTO `origen_dato` (`id_origen_dato`, `origen_dato`) VALUES
 (7, 'Grupo Miralejos'),
 (11, 'Cesión'),
 (9, 'Eliseo'),
-(10, 'Comincini');
+(10, 'Comincini'),
+(13, 'Pablo'),
+(14, 'Armesto'),
+(15, 'Piloni'),
+(16, 'Cernotto'),
+(17, 'Temp Fa'),
+(18, 'Churrasquita'),
+(19, 'Guven'),
+(20, 'D Sandrone'),
+(21, 'S Gomez'),
+(22, 'T Piovano'),
+(23, 'Cravero S Eliseo'),
+(24, 'A Cismondi');
 
 -- --------------------------------------------------------
 
@@ -3540,11 +3572,10 @@ CREATE TABLE `vendedor` (
 INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `email`) VALUES
 (1, 'Florencia', 'farraras@miralejos.net'),
 (2, 'Silvina', 'ssoria@miralejos.net'),
-(3, 'Sebastian', 'seba@gmail.com'),
 (4, 'Juan', 'juan@gmail.com'),
-(5, 'martin', 'dsggs'),
-(6, 'Ramiro', 'rami@fgsg.com'),
-(7, 'Soledad', 'sole_ang@hotmail.com');
+(5, 'martin', 'martin123@gmail.com'),
+(6, 'Ramiro', 'rami@hotmail.com'),
+(9, 'Alan', 'alan@dfadg.com');
 
 --
 -- Índices para tablas volcadas
@@ -3642,7 +3673,7 @@ ALTER TABLE `vendedor`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `administracion`
 --
@@ -3652,37 +3683,37 @@ ALTER TABLE `administracion`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
 ALTER TABLE `departamento`
-  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_dpto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT de la tabla `edificio`
 --
 ALTER TABLE `edificio`
-  MODIFY `id_edificio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_edificio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT de la tabla `inmobiliaria`
 --
 ALTER TABLE `inmobiliaria`
-  MODIFY `id_inmobiliaria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_inmobiliaria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `llamado`
 --
 ALTER TABLE `llamado`
-  MODIFY `id_llamado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_llamado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de la tabla `localidad`
 --
 ALTER TABLE `localidad`
-  MODIFY `id_localidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2384;
+  MODIFY `id_localidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2386;
 --
 -- AUTO_INCREMENT de la tabla `origen_dato`
 --
 ALTER TABLE `origen_dato`
-  MODIFY `id_origen_dato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_origen_dato` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT de la tabla `planilla_de_venta`
 --
@@ -3692,7 +3723,7 @@ ALTER TABLE `planilla_de_venta`
 -- AUTO_INCREMENT de la tabla `planta`
 --
 ALTER TABLE `planta`
-  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `provincia`
 --
@@ -3707,7 +3738,7 @@ ALTER TABLE `tabla_intermedia_dpto`
 -- AUTO_INCREMENT de la tabla `vendedor`
 --
 ALTER TABLE `vendedor`
-  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
