@@ -175,8 +175,12 @@
                   $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
                   $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
-                      
-                      
+                    
+                      // la funcion javascript new date () Nos pide AÑO MES Y DIA, y como obtenemos 
+                      // el valor de la base de datos con el - no nos sirve, javascript nos dara un error
+                      //entonces usamos la funcion split para obtener los valores por separado sin el - medio
+
+                     /*******************************************************************/ 
                     let date1 = $ctrl.objDataLlamado.fecha_llamado.split("-");
                     let date2 = $ctrl.objDataLlamado.fecha_origen_dato.split("-");
                     
@@ -184,18 +188,28 @@
                      setDate(date1[0], date1[1], date1[2], "dt1");
                      setDate(date1[0], date1[1], date1[2], "dt2");
 
+                     
+                     // Creamos una funcion con cualquier nombre para pasar los parametros obtenidos por split.
                      function setDate (year, month, day , typevar) {
 
+                          // AHORA SI! podemos crear un Obj date por que tenemos los valores como nos pide new Date ()
+                          // typevar es solo para aprovechar la funcion y hacer el mismo procedimiento con las dos variables
+                          // dt1 y dt2. 
                           $ctrl.objDataLlamado[typevar]= new Date(year, month, day);
 
                     };
 
-                    let timedate =  $ctrl.objDataLlamado.hora_llamado.split(":")
+                    // Mismo caso para definir la Hora.
+                    // 
+                    let timedate =  $ctrl.objDataLlamado.hora_llamado.split(":");
 
+                   // NEcesitamos un Obj Date y Luego usar la funcion de javascript setHours para dar formato de hora minutos y segundos
                     let valuetime = new Date();
                     valuetime.setHours(timedate[0], timedate[1], timedate[2]);
 
                     $ctrl.objDataLlamado.time = $filter('date')(valuetime, 'HH:mm:ss');
+
+                    /*******************************************************************/ 
 
                  // $ctrl.objDataLlamado.time =$ctrl.objDataLlamado.hora_llamado;
 
