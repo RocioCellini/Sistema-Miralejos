@@ -163,7 +163,9 @@
                   $ctrl.objDataLlamado=$stateParams.objdata;
 
                   console.log($stateParams.objdata);
-                  console.log($ctrl.objDataLlamado);
+                  console.log($ctrl.objDataLlamado.fecha_llamado);
+
+
 
                   $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataLlamado.id_provincia;
                   $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataLlamado.id_localidad;
@@ -173,13 +175,33 @@
                   $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
                   $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
-                  $ctrl.objDataLlamado.dt1 = $ctrl.objDataLlamado.fecha_llamado;
-                  $ctrl.objDataLlamado.dt2 = $ctrl.objDataLlamado.fecha_origen_dato;
-                  $ctrl.objDataLlamado.time =$ctrl.objDataLlamado.hora_llamado;
+                      
+                      
+                    let date1 = $ctrl.objDataLlamado.fecha_llamado.split("-");
+                    let date2 = $ctrl.objDataLlamado.fecha_origen_dato.split("-");
+                    
+
+                     setDate(date1[0], date1[1], date1[2], "dt1");
+                     setDate(date1[0], date1[1], date1[2], "dt2");
+
+                     function setDate (year, month, day , typevar) {
+
+                          $ctrl.objDataLlamado[typevar]= new Date(year, month, day);
+
+                    };
+
+                    let timedate =  $ctrl.objDataLlamado.hora_llamado.split(":")
+
+                    let valuetime = new Date();
+                    valuetime.setHours(timedate[0], timedate[1], timedate[2]);
+
+                    $ctrl.objDataLlamado.time = $filter('date')(valuetime, 'HH:mm:ss');
+
+                 // $ctrl.objDataLlamado.time =$ctrl.objDataLlamado.hora_llamado;
 
                  /* $ctrl.objDataLlamado.dt1 = $filter('date')($ctrl.objDataLlamado.fecha_llamado, 'yyyy-MM-dd');
                   $ctrl.objDataLlamado.dt2 = $filter('date')($ctrl.objDataLlamado.fecha_origen_dato, 'yyyy-MM-dd');
-                  $ctrl.objDataLlamado.time = $filter('date')($ctrl.objDataLlamado.hora_llamado, 'HH:mm:ss');
+                
                 */
                   
                   $ctrl.data_origen_dato.selectedOption.id_origen_dato=$ctrl.objDataLlamado.id_origen_dato;   
