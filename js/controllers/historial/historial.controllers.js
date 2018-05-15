@@ -4,13 +4,13 @@
 
   var app=_angular.module("GestionVentas");
 
-  app.controller("Planilla", Planilla);
+  app.controller("HistorialLlamado", HistorialLlamado);
   
-  Planilla.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
+  HistorialLlamado.$inject = ["$scope", "$sce", "$state", "$stateParams","$window","$uibModal", "$document",
    "planillaFactory", "NgTableParams", "formLoginFactory"];
 
     //Controller
-    function Planilla ($scope, $sce, $state,  $stateParams,  $window,
+    function HistorialLlamado ($scope, $sce, $state,  $stateParams,  $window,
      $uibModal, $document, planillaFactory, NgTableParams, formLoginFactory) {
                                    
         var $ctrl = this;
@@ -27,7 +27,6 @@
         }); 
     
         $ctrl.Init = Init;
-        $ctrl.GoDataHistorial=GoDataHistorial;
 
         // To configure table   
         //*****************************************************************************//    
@@ -52,36 +51,35 @@
 
            formLoginFactory.checkSession($ctrl.objLogin).then( function(d) {
 
-                 angular.isDefined(d.setUrl)?goUrl(d):null;
+                 angular.isDefined(d.setUrl)?goUrl(d):LoadTable();
                                 
                       function goUrl (d) {                                 
                           $state.go( d.setUrl );                               
                       }
                             
-              });       
+           });       
 
-           $ctrl.objDataPlanilla.type_accion="cargar_planilla"; 
+           
+           function LoadTable () {
 
-           planillaFactory.cargarPlanilla($ctrl.objDataPlanilla).then( function(d) {
+              $ctrl.objDataPlanilla.type_accion="ver_historial"; 
+              $ctrl.objDataPlanilla.id_cliente=$stateParams.objdata.id_cliente;
 
-                //console.log(d.Vendedor);
-                //console.log(d.Planilla);
+              planillaFactory.verHistorial($ctrl.objDataPlanilla).then( function(d) {
 
-                 $ctrl.tableParams.settings({dataset: d.Planilla}); 
-                            
-              }).catch(function (err) {
-                  console.log(err);
-              });       
+                    console.log(d);
 
-        }
+                   $ctrl.tableParams.settings({dataset: d.Respuesta}); 
+                              
+                }).catch(function (err) {
+                    console.log(err);
+                }); 
 
-        function GoDataHistorial(row, data, index) {
 
-              console.log(row);
-              console.log(data);
-              console.log(index);
-             $state.go("GestionVentas.verHistorial",{ objdata:row });  
-                       
+           }
+
+              
+
         }
 
 

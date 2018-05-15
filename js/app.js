@@ -61,7 +61,7 @@
       .state('GestionVentas.verHistorial',{
         url:'/Historial',
         templateUrl:'templates/historial/ver_historial.html',
-        controller: 'Planilla as $ctrl',
+        controller: 'HistorialLlamado as $ctrl',
         params: {
                   type_ingreso:"GestionVentas.verHistorial",
                   objdata:null
