@@ -82,10 +82,12 @@
             $ctrl.objDataPlanilla.id_cliente=row.id_cliente;
 
             
+// Mudar el metodo asincronico a la vista correspondiente. (Historial llamados )
+
             planillaFactory.verHistorial($ctrl.objDataPlanilla).then(function(d) {
 
 
-              $ctrl.tableParams.settings({dataset: d.Respuesta});  
+            //  $ctrl.tableParams.settings({dataset: d.Respuesta});  
 
               row=d.Respuesta;
 
