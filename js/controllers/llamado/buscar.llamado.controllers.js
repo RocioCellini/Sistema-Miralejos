@@ -36,7 +36,8 @@
         $ctrl.Init = Init;
         $ctrl.BuscarLlamado = BuscarLlamado;
         $ctrl.GoDataEdit = GoDataEdit;
-        $ctrl.GoDataDelete = GoDataDelete;        
+        $ctrl.GoDataDelete = GoDataDelete; 
+     
 
         $ctrl.Init();
 
@@ -80,10 +81,11 @@
           $ctrl.popup1.opened = true;
         };
 
-        $ctrl.setDate = function(year, month, day) {
-          $ctrl.dt1 = new Date(year, month, day)
-        };
+       
 
+      
+
+       
         $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
         $ctrl.format = $ctrl.formats[1];
         $ctrl.altInputFormats = ['dd/MM/yyyy'];

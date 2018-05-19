@@ -14,6 +14,11 @@
    $uibModal, $document, llamadoFactory, defaultdataFactory, clienteFactory, NgTableParams, $filter, formLoginFactory) {
                                  
      var $ctrl = this;
+
+
+
+
+
      
      $ctrl.defaultparams = {};
      $ctrl.objDataLlamado = {
@@ -35,6 +40,23 @@
 
      $ctrl.combo_ciudad=true;
      $ctrl.boton_submmit=false;   
+
+     
+
+     
+    $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
+    $ctrl.format = $ctrl.formats[1];
+    $ctrl.altInputFormats = ['dd/MM/yyyy'];
+
+
+  $ctrl.dateOptions = {
+ 
+    formatYear: 'yy',
+    maxDate: new Date(2020, 5, 22),
+    minDate: new Date(),
+    startingDay: 1
+  };
+
 
      $ctrl.popup1 = {
         opened: false
@@ -163,7 +185,7 @@
                   $ctrl.objDataLlamado=$stateParams.objdata;
 
                   console.log($stateParams.objdata);
-                  console.log($ctrl.objDataLlamado.fecha_llamado);
+                  //console.log($ctrl.objDataLlamado.fecha_llamado);
 
 
 
@@ -185,17 +207,25 @@
                     let date2 = $ctrl.objDataLlamado.fecha_origen_dato.split("-");
                     
 
-                     setDate(date1[0], date1[1], date1[2], "dt1");
-                     setDate(date1[0], date1[1], date1[2], "dt2");
+                     setDate(date1[0], date1[1]-1, date1[2], "dt1");
+                     setDate(date2[0], date2[1]-1, date2[2], "dt2");
+
+
 
                      
                      // Creamos una funcion con cualquier nombre para pasar los parametros obtenidos por split.
                      function setDate (year, month, day , typevar) {
 
+
+
                           // AHORA SI! podemos crear un Obj date por que tenemos los valores como nos pide new Date ()
                           // typevar es solo para aprovechar la funcion y hacer el mismo procedimiento con las dos variables
-                          // dt1 y dt2. 
-                          $ctrl.objDataLlamado[typevar]= new Date(year, month, day);
+                          // dt1 y dt2.   
+                          console.log(month);
+                          
+                          $ctrl.objDataLlamado[typevar] = new Date(year, month, day);
+
+                          //$ctrl.dt2 = new Date(year, month, day);
 
                     };
 
@@ -315,21 +345,10 @@
       $ctrl.popup1.opened = true;
     };
 
-    $ctrl.setDate = function(year, month, day) {
-      $ctrl.dt1 = new Date(year, month, day)
-    };
-
     $ctrl.open2 = function() {
       $ctrl.popup2.opened = true;
     };
 
-    $ctrl.setDate = function(year, month, day) {
-      $ctrl.dt2 = new Date(year, month, day)
-    };
-
-    $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
-    $ctrl.format = $ctrl.formats[1];
-    $ctrl.altInputFormats = ['dd/MM/yyyy'];
 
 
     // Searching data        
@@ -380,8 +399,6 @@
                 
         //$ctrl.allow_disable=true;
 
-        $ctrl.objDataLlamado.type_accion = "nuevo_llamado";
-
         $ctrl.objDataLlamado.fecha_llamado = $filter('date')($ctrl.objDataLlamado.dt1, 'yyyy-MM-dd'); 
         $ctrl.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl.objDataLlamado.dt2, 'yyyy-MM-dd'); 
         $ctrl.objDataLlamado.hora_llamado = $filter('date')($ctrl.objDataLlamado.time, 'HH:mm:ss'); 
@@ -395,9 +412,11 @@
         $ctrl.objDataLlamado.grado_interes=$ctrl.grado_interes.selectedOption.id;
         $ctrl.objDataLlamado.id_origen_dato = $ctrl.data_origen_dato.selectedOption.id_origen_dato; 
 
-        console.log($ctrl.objDataLlamado);
-         
-        llamadoFactory.nuevoLlamado($ctrl.objDataLlamado).then(function(d) {                   
+        const metodo=$stateParams.type_ingreso.split(".");
+
+        console.log(metodo[1]);
+        
+        llamadoFactory[metodo[1]]($ctrl.objDataLlamado).then(function(d) {                   
                 $ctrl.Mensaje = d.Mensaje;
                 //$ctrl.allow_disable=false;
     

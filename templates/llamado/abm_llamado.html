@@ -104,7 +104,7 @@
                  ng-model="$ctrl.objDataLlamado.dt1" is-open="$ctrl.popup1.opened" 
                  datepicker-options="$ctrl.dateOptions" 
                  ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
-                 alt-input-formats="altInputFormats" readonly="readonly" />
+                 alt-input-formats="$ctrl.altInputFormats" readonly="readonly" />
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="$ctrl.open1()">
                   <i class="glyphicon glyphicon-calendar"></i></button>
@@ -185,7 +185,7 @@
                  ng-model="$ctrl.objDataLlamado.dt2" is-open="$ctrl.popup2.opened" 
                  datepicker-options="$ctrl.dateOptions" 
                  ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
-                 alt-input-formats="altInputFormats" readonly="readonly" />
+                 alt-input-formats="$ctrl.altInputFormats" readonly="readonly" />
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default" ng-click="$ctrl.open2()">
                   <i class="glyphicon glyphicon-calendar"></i></button>
