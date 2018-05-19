@@ -77,9 +77,10 @@
 
         function GoDataHistorial(row, data, index) {
 
-              console.log(row);
-              console.log(data);
-              console.log(index);
+              //console.log(row); es la fila de la planilla en la que hice clic
+              //console.log(data); son todas las filas de la planilla, no se para que lo recibe como parametro esta función
+              //console.log(index); resultados de los llamados
+
              $state.go("GestionVentas.verHistorial",{ objdata:row });  
                        
         }

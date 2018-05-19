@@ -60,7 +60,7 @@
            });       
 
            
-           function LoadTable () {
+          function LoadTable () {
 
               $ctrl.objDataPlanilla.type_accion="ver_historial"; 
               $ctrl.objDataPlanilla.id_cliente=$stateParams.objdata.id_cliente;
@@ -74,13 +74,9 @@
                 }).catch(function (err) {
                     console.log(err);
                 }); 
+          }
 
-
-           }
-
-              
-
-        }
+        } // Fin Init
 
 
         Init();

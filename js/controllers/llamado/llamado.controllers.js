@@ -211,12 +211,6 @@
 
                     /*******************************************************************/ 
 
-                 // $ctrl.objDataLlamado.time =$ctrl.objDataLlamado.hora_llamado;
-
-                 /* $ctrl.objDataLlamado.dt1 = $filter('date')($ctrl.objDataLlamado.fecha_llamado, 'yyyy-MM-dd');
-                  $ctrl.objDataLlamado.dt2 = $filter('date')($ctrl.objDataLlamado.fecha_origen_dato, 'yyyy-MM-dd');
-                
-                */
                   
                   $ctrl.data_origen_dato.selectedOption.id_origen_dato=$ctrl.objDataLlamado.id_origen_dato;   
 
