@@ -1,15 +1,15 @@
 <?php
 
-session_start();
+/*session_start();
 
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'};  && isset($_SESSION['Usuario'])*/
 
-//$type_accion="cargar_planilla";
+$type_accion="cargar_planilla";
 
-if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
+if ($type_accion==="cargar_planilla" ) {
 
 		include "../../conexion.php";
 
@@ -36,11 +36,7 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 
 			$id_cliente=$row_planilla['id_cliente'];
 			$id_vendedor=$row_planilla['id_vendedor'];
-			$id_inmobiliaria=$row_planilla['id_inmobiliaria'];
-
-			$id_edificio=$row_planilla['id_edificio'];
-			$id_planta=$row_planilla['id_planta'];
-			$id_dpto=$row_planilla['id_dpto'];
+			$id_inmobiliaria=$row_planilla['id_inmobiliaria'];			
 
          	// SubConsulta para obtener los datos del Cliente
             //--------------------------------------------------------------
@@ -69,6 +65,32 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 	            $telefono1=$row_cliente['telefono1'];
 	            $telefono2=$row_cliente['telefono2'];
 	            $email=$row_cliente['email'];  		      		
+	            
+
+	            // Tipo del Cliente especificado
+	            //--------------------------------------------------------------
+
+	            $id_tipo_cliente=$row_cliente['id_tipo_cliente'];
+
+	            $result_tipo = 'SELECT * FROM tipo_cliente WHERE id_tipo_cliente=?';
+
+			      $stmt_tipo = $conn->prepare($result_tipo);
+
+			      if($stmt_tipo===false) {
+			        trigger_error('Wrong SQL: ' . $result_tipo . ' Error: ' . $conn->error, E_USER_ERROR);
+			      }
+
+			      $stmt_tipo->bind_param('i',$id_tipo_cliente);   
+
+			      $stmt_tipo->execute(); 
+
+			      $rs_tipo=$stmt_tipo->get_result(); 
+
+			      if($row_tipo=$rs_tipo->fetch_assoc()){    
+
+			      		$tipo_cliente=$row_tipo['tipo_cliente'];
+
+			      }
 
 	      		// Provincia del Cliente especificado
 	            //--------------------------------------------------------------
@@ -188,6 +210,85 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 
 			      		$id_origen_dato=$row_call['id_origen_dato']; 
 
+			      		$fecha_cierre_operacion=$row_call['fecha_cierre_operacion']; 
+
+			      		$id_edificio=$row_call['id_edificio'];
+						$id_planta=$row_call['id_planta'];
+						$id_dpto=$row_call['id_dpto'];
+
+
+			      		//SubConsulta para obtener los datos del Edificio
+				        //-----------------------------------------------------
+
+				        $result_edif = 'SELECT * FROM edificio WHERE id_edificio=?';
+
+				        $stmt_edif = $conn->prepare($result_edif);
+
+				        if($stmt_edif === false) {
+				            trigger_error('Wrong SQL: ' . $result_edif . ' Error: ' . $conn->error, E_USER_ERROR);
+				        }
+				        
+				        $stmt_edif->bind_param('i',$id_edificio);   
+
+				        $stmt_edif->execute();
+
+				        $rs_edif=$stmt_edif->get_result();
+
+				        if($row_edif = $rs_edif->fetch_assoc()) {	        
+
+				            $edificio=$row_edif['nombre'];
+					
+				        }
+
+
+				        //SubConsulta para obtener los datos de las Plantas
+				        //-----------------------------------------------------
+
+				        $result_planta = 'SELECT * FROM planta WHERE id_planta=?';
+
+				        $stmt_planta = $conn->prepare($result_planta);
+
+				        if($stmt_planta === false) {
+				            trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
+				        }
+
+				        $stmt_planta->bind_param('i',$id_planta);  
+
+				        $stmt_planta->execute();
+
+				        $rs_planta=$stmt_planta->get_result();
+
+				        if($row_planta = $rs_planta->fetch_assoc()) {
+				        
+				            $planta = $row_planta['nombre'];
+
+				        }
+
+
+				        //SubConsulta para obtener los datos de los Departamentos
+				        //--------------------------------------------------------
+
+				        $result_dpto = 'SELECT * FROM departamento WHERE id_dpto=?';
+
+				        $stmt_dpto = $conn->prepare($result_dpto);
+
+				        if($stmt_dpto === false) {
+				            trigger_error('Wrong SQL: ' . $result_dpto . ' Error: ' . $conn->error, E_USER_ERROR);
+				        }
+
+				        $stmt_dpto->bind_param('i',$id_dpto);  
+				      
+				        $stmt_dpto->execute();
+
+				        $rs_dpto=$stmt_dpto->get_result();
+
+				        if($row_dpto = $rs_dpto->fetch_assoc()) {
+				        
+				            $dpto = $row_dpto['nombre'];
+
+				        }
+
+
 			      		// Origen dato del Cliente especificado
 			            //--------------------------------------------------------------
 
@@ -272,94 +373,23 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 	      	}//if($row_inmob)    	
 
 
-	      	//SubConsulta para obtener los datos del Edificio
-	        //-----------------------------------------------------
-
-	        $result_edif = 'SELECT * FROM edificio WHERE id_edificio=?';
-
-	        $stmt_edif = $conn->prepare($result_edif);
-
-	        if($stmt_edif === false) {
-	            trigger_error('Wrong SQL: ' . $result_edif . ' Error: ' . $conn->error, E_USER_ERROR);
-	        }
-	        
-	        $stmt_edif->bind_param('i',$id_edificio);   
-
-	        $stmt_edif->execute();
-
-	        $rs_edif=$stmt_edif->get_result();
-
-	        if($row_edif = $rs_edif->fetch_assoc()) {	        
-
-	            $edificio=$row_edif['nombre'];
-		
-	        }
-
-
-	        //SubConsulta para obtener los datos de las Plantas
-	        //-----------------------------------------------------
-
-	        $result_planta = 'SELECT * FROM planta WHERE id_planta=?';
-
-	        $stmt_planta = $conn->prepare($result_planta);
-
-	        if($stmt_planta === false) {
-	            trigger_error('Wrong SQL: ' . $result_planta . ' Error: ' . $conn->error, E_USER_ERROR);
-	        }
-
-	        $stmt_planta->bind_param('i',$id_planta);  
-
-	        $stmt_planta->execute();
-
-	        $rs_planta=$stmt_planta->get_result();
-
-	        if($row_planta = $rs_planta->fetch_assoc()) {
-	        
-	            $planta = $row_planta['nombre'];
-
-	        }
-
-
-	        //SubConsulta para obtener los datos de los Departamentos
-	        //--------------------------------------------------------
-
-	        $result_dpto = 'SELECT * FROM departamento WHERE id_dpto=?';
-
-	        $stmt_dpto = $conn->prepare($result_dpto);
-
-	        if($stmt_dpto === false) {
-	            trigger_error('Wrong SQL: ' . $result_dpto . ' Error: ' . $conn->error, E_USER_ERROR);
-	        }
-
-	        $stmt_dpto->bind_param('i',$id_dpto);  
-	      
-	        $stmt_dpto->execute();
-
-	        $rs_dpto=$stmt_dpto->get_result();
-
-	        if($row_dpto = $rs_dpto->fetch_assoc()) {
-	        
-	            $dpto = $row_dpto['nombre'];
-
-	        }
-
+	      	
             
-            $temp=array('id_planilla'=>utf8_encode($row_planilla['id_planilla']),
-            		'tipo_cliente'=>utf8_encode($row_planilla['tipo_cliente']),
-            		'fecha_cierre_operacion'=>utf8_encode($row_planilla['fecha_cierre_operacion']),
+            $temp=array('id_planilla'=>utf8_encode($row_planilla['id_planilla']),           		
 
-					'id_edificio'=>utf8_encode($row_planilla['id_edificio']),
+					'id_edificio'=>utf8_encode($id_edificio),
 					'edificio'=> utf8_encode($edificio),
 
-					'id_planta'=>utf8_encode($row_planilla['id_planta']),
+					'id_planta'=>utf8_encode($id_planta),
 					'planta'=> utf8_encode($planta),
 
-					'id_dpto'=>utf8_encode($row_planilla['id_dpto']),
+					'id_dpto'=>utf8_encode($id_dpto),
 					'dpto'=> utf8_encode($dpto),
 
             		'id_cliente'=>utf8_encode($row_planilla['id_cliente']),
 					'apellido'=>utf8_encode($apellido),
 					'nombre'=>utf8_encode($nombre),
+					'tipo_cliente'=>utf8_encode($tipo_cliente),
 					'telefono1'=>utf8_encode($telefono1),
 					'telefono2'=>utf8_encode($telefono2),
 					'provincia'=>utf8_encode($provincia),
@@ -373,6 +403,7 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario'])) {
 					'fecha_ult_llamado'=>utf8_encode($fecha_ult_llamado),
 					'grado_interes'=>utf8_encode($grado_interes),						
 					'num_llamados'=>utf8_encode($num_llamados),  
+					'fecha_cierre_operacion'=>utf8_encode($fecha_cierre_operacion),
 					
 					'id_vendedor'=>utf8_encode($row_planilla['id_vendedor']),
 					'vendedor'=>utf8_encode($vendedor),
