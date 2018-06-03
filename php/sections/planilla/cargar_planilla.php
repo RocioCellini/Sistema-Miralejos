@@ -217,7 +217,11 @@ if ($type_accion==="cargar_planilla" ) {
 						$id_dpto=$row_call['id_dpto'];
 
 
-			      		//SubConsulta para obtener los datos del Edificio
+			      		
+					   } while ($row_call=$rs_call->fetch_assoc());
+
+
+					   //SubConsulta para obtener los datos del Edificio
 				        //-----------------------------------------------------
 
 				        $result_edif = 'SELECT * FROM edificio WHERE id_edificio=?';
@@ -312,7 +316,6 @@ if ($type_accion==="cargar_planilla" ) {
 
 					      }
 
-					   } while ($row_call=$rs_call->fetch_assoc());
 
 			      }else{
 			      	$num_llamados=0;
