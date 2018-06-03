@@ -1,15 +1,15 @@
 <?php
 
-/*session_start();
+session_start();
 
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'};  && isset($_SESSION['Usuario'])*/
+$type_accion=$data->{'type_accion'};  
 
-$type_accion="cargar_planilla";
+//$type_accion="cargar_planilla";
 
-if ($type_accion==="cargar_planilla" ) {
+if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 		include "../../conexion.php";
 
@@ -29,7 +29,7 @@ if ($type_accion==="cargar_planilla" ) {
 
 		$response_planilla = array();
 
-		do{
+		do {
 
 			// Variables para las SubConsultas
             //--------------------------------------------------------------
@@ -179,7 +179,9 @@ if ($type_accion==="cargar_planilla" ) {
 	            // Llamados del Cliente especificado
 	            //--------------------------------------------------------------
 
-	            $result_call = 'SELECT * FROM llamado WHERE id_cliente=?';
+				//$result_call = 'SELECT * FROM llamado WHERE fecha_llamado=( SELECT MAX(fecha_llamado) FROM llamado ) AND id_cliente=?';
+
+	              $result_call = 'SELECT * FROM llamado WHERE  id_cliente=?';
 
 			      $stmt_call = $conn->prepare($result_call);
 
@@ -195,9 +197,10 @@ if ($type_accion==="cargar_planilla" ) {
 
 			      if($row_call=$rs_call->fetch_assoc()){ 
 
-			      	$num_llamados=0;
 
-			      	do{   
+
+			      		do  {
+
 
 			      		$num_llamados++;
 
@@ -210,18 +213,25 @@ if ($type_accion==="cargar_planilla" ) {
 
 			      		$id_origen_dato=$row_call['id_origen_dato']; 
 
-			      		$fecha_cierre_operacion=$row_call['fecha_cierre_operacion']; 
+			      		//$fecha_cierre_operacion=$row_call['fecha_cierre_operacion'];       		
 
 			      		$id_edificio=$row_call['id_edificio'];
 						$id_planta=$row_call['id_planta'];
 						$id_dpto=$row_call['id_dpto'];
 
 
+
+			      		} while ($row_call=$rs_call->fetch_assoc());
+			      			
+
+			      	 
+
+
 			      		
-					   } while ($row_call=$rs_call->fetch_assoc());
+					  
 
 
-					   //SubConsulta para obtener los datos del Edificio
+					    //SubConsulta para obtener los datos del Edificio
 				        //-----------------------------------------------------
 
 				        $result_edif = 'SELECT * FROM edificio WHERE id_edificio=?';
@@ -238,7 +248,7 @@ if ($type_accion==="cargar_planilla" ) {
 
 				        $rs_edif=$stmt_edif->get_result();
 
-				        if($row_edif = $rs_edif->fetch_assoc()) {	        
+				        if($row_edif = $rs_edif->fetch_assoc()) {
 
 				            $edificio=$row_edif['nombre'];
 					
@@ -268,7 +278,7 @@ if ($type_accion==="cargar_planilla" ) {
 
 				        }
 
-
+				        
 				        //SubConsulta para obtener los datos de los Departamentos
 				        //--------------------------------------------------------
 
@@ -292,7 +302,7 @@ if ($type_accion==="cargar_planilla" ) {
 
 				        }
 
-
+				
 			      		// Origen dato del Cliente especificado
 			            //--------------------------------------------------------------
 
@@ -311,7 +321,7 @@ if ($type_accion==="cargar_planilla" ) {
 					      $rs_od=$stmt_od->get_result(); 
 
 					      if($row_od=$rs_od->fetch_assoc()){  
-
+					      	//echo $id_edificio."<br>";
 					      	$origen_dato=$row_od['origen_dato']; 
 
 					      }
@@ -327,7 +337,7 @@ if ($type_accion==="cargar_planilla" ) {
 
      		}//if($row_cliente)
 
-
+     		//echo $id_edificio."<br>";
      		// SubConsulta para obtener los datos del Vendedor
             //--------------------------------------------------------------
 
@@ -376,18 +386,9 @@ if ($type_accion==="cargar_planilla" ) {
 	      	}//if($row_inmob)    	
 
 
-	      	
+	       	$num_llamados=2;
             
             $temp=array('id_planilla'=>utf8_encode($row_planilla['id_planilla']),           		
-
-					'id_edificio'=>utf8_encode($id_edificio),
-					'edificio'=> utf8_encode($edificio),
-
-					'id_planta'=>utf8_encode($id_planta),
-					'planta'=> utf8_encode($planta),
-
-					'id_dpto'=>utf8_encode($id_dpto),
-					'dpto'=> utf8_encode($dpto),
 
             		'id_cliente'=>utf8_encode($row_planilla['id_cliente']),
 					'apellido'=>utf8_encode($apellido),
@@ -406,7 +407,7 @@ if ($type_accion==="cargar_planilla" ) {
 					'fecha_ult_llamado'=>utf8_encode($fecha_ult_llamado),
 					'grado_interes'=>utf8_encode($grado_interes),						
 					'num_llamados'=>utf8_encode($num_llamados),  
-					'fecha_cierre_operacion'=>utf8_encode($fecha_cierre_operacion),
+					//'fecha_cierre_operacion'=>utf8_encode($fecha_cierre_operacion),
 					
 					'id_vendedor'=>utf8_encode($row_planilla['id_vendedor']),
 					'vendedor'=>utf8_encode($vendedor),

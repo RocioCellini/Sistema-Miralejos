@@ -1,0 +1,81 @@
+Ortiz Palomente ;Liz;;3516370077;;Cordoba;Cordoba;quimica industrial;NO;el inmobiliario;;18/11/2017;3;5;;;;;;;gortiz@iua.edu.ar
+Rogger;Omar;;2954544927;;La Pampa;Santa Rosa;docente;NO;web;12/12/2017;12/12/2017;3;1;;;;;;;roger.sound@yahoo.com.ar
+Hernandez ;Nelson;;3515060179;;Cordoba;Cordoba;;NO;el inmobiliario;20/08/2015;10/01/2018;3;6;;;;;;;nelsonoh@hotmail.com
+Bioletti ;Martin;;3436230268;;Entre Rios;Parana;;NO;web;27/11/2017;10/01/2018;3;2;;;;;;;martinbioletti@gmail.com
+Marquez ;Alberto;;3537447036;;Cordoba;Cintra;veterinario;NO;;06/02/2016;23/02/2017;3;4;;;;;;;
+Cofre ;Luis;;2954527403;;;;;NO;facebook;20/04/2016;19/10/2017;3;3;;;;;;;luis_27056@hotmail.com
+Cavalli ;Griselda;;3533686228;;Cordoba;El Arañado;;NO;web;14/01/2014;08/01/2018;3;3;;;;;;;griseldacavalli@hotmail.com
+Bragachini ;Guillermo;;3516278597;;Cordoba;Cordoba;;NO;agroactiva 17;02/06/2017;19/12/2017;3;4;;;;;;;gbragachini@festimaq.com.ar
+Bresano ;Claudio;;3583640764;;Cordoba;Villa Valeria;;NO;agroactiva 17;02/06/2017;21/17/2017;3;2;;;;;;;
+Cavallo ;Nestor;;3476429071;;Santa Fe;Buyatri;empleado;NO;carteles;;21/12/2017;3;6;;;;;;;nestor.cavallo@buyettri.com.ar
+Coraglia ;Esteban;;3492588894;;Santa Fe;Ramona;;NO;;09/02/2016;02/01/2018;3;4;;;;;;;
+Castro ;Dante;;35646700088;;Santa Fe;Josefina;pr agr;NO;expo san fco;04/11/2015;06/12/2017;3;4;;;;;;;
+Chiurchiu ;Leandro;;3537461032;;Cordoba;Laborde;;NO;el inmobiliario;;25/11/2017;3;4;;;;;;;lchiurchiu@hotmail.com
+Bruno ;Carlos;;3468538556;;Cordoba;Monte Maiz;gerent banco;SI;conocido prop;14/07/2017;03/10/2017;3;2;;;;;;;carlitosbruno@live.com
+Cavallo ;Juan Carlos;;3573436125;;Cordoba;;pr agr;SI;alquiler LL;10/02/2017;20/10/2017;3;2;;;;;;;juan50carlo@gmail.com
+Chiappini ;Benito;;3471496320;;Santa Fe;Bouquet;;;;09/02/2016;02/01/2018;3;4;;;;;;;
+Burgi ;Carlos;;3547404505;;Cordoba;Santiago Temple;;NO;agroactiva 17;02/06/2017;06/01/2018;3;3;;;;;;;carlos.burgi12@gmail.com
+Caseras ;Alexis;;3472509272;;Cordoba;Marcos Juarez;;;agroactiva 17;02/06/2017;27/12/2017;3;3;;;;;;;alexiscaseras@hotmail.com
+Campos ;Romina;;3537415408;;Cordoba;Bell Ville;;;;;17/11/2017;3;2;;;;;;;rominacampos07@hotmail.com
+Cravero ;Jorge;;3562669048;;Cordoba;Morteros;;;;09/02/2016;12/12/2017;3;3;;;;;;;jorge.cravero@hotmail.com
+Baima ;Susana;;3515399467;;Cordoba;Cordoba;ama de casa;SI;;;17/11/2017;3;4;;;;;;;
+Balocco ;Matias;;3413115509;;Santa Fe;Rosario;pyme electrodom;SI;alquiler LL;;02/01/2018;3;5;;;;;;;cpdequipamientos@gmail.com
+Cardenas ;David;;2966503512;;Santa Cruz;Rio Gallegos;;;;06/01/2015;30/12/2017;3;2;;;;;;;nina.rg@hotmail.com
+Canetelli ;Alcides;;3402673111;;Santa Fe;Alvarez;pyme tinglados;;agroactiva 17;02/06/2017;12/10/2017;3;2;;;;;;;alcilau6@hotmail.com
+Duarte ;Oscar;;3415916697;;Santa Fe;Rosario;empleado;SI;alquiler LL;16/07/2016;27/12/2017;3;2;;;;;;;orrduarte@hotmail.com
+Franciscoldi ;Roberto;;3465470263;;;;alquiler campo;;;18/09/2017;23/12/2017;3;2;;;;;;;
+Devita ;Carlos;;3460690479;;Santa Fe;Santa Teresa;pr agr;;agroactiva 17;02/06/2017;20/12/2017;3;3;;;;;;;cardi2@live.com.ar
+De Paul ;Daniel;;3537682638;;Cordoba;San Marcos;pyme construccion;NO;carteles;06/02/2017;22/12/2017;3;3;;;;;;;ariela.ms@hotmail.com
+Demnestri ;Patricia;;3467643656;;Santa Fe;Los Surgentes;;;agroactiva 17;02/06/2017;17/11/2017;3;3;;;;;;;
+Ferrari ;Ruben;;3534088891;;Cordoba;Pascanas;;;agroactiva 17;02/06/2017;02/01/2017;3;2;;;;;;;rubenferrari1@hotmail.com
+Issobio ;Laureano;;3532400794;;Cordoba;Oliva;pr agr (tambo);;agroactiva 17;02/06/2017;12/01/2018;3;3;;;;;;;
+Galiano ;Gustavo;;3406425383;;Santa Fe;Crispi;;;tel folleto;09/02/2016;27/12/2017;3;4;;;;;;;gusgalliano2015@gmail.com
+Gimenez ;Andres;;3465594169;;Santa Fe;Firmat;;SI;carteles;03/09/2017;12/12/2017;3;3;;;;;;;andresgungui@gmail.com
+Giorgetti ;Walter;;3534292775;;Cordoba;Hernando;pr agr;NO;web;23/10/2015;23/12/2017;3;4;;;;;;;jwgiorgetti@hotmail.com
+Gliebe Henz ;Guillermo;;3415796294;;Santa Fe;Rosario;;;agroactiva 17;02/06/2017;18/11/2017;3;3;;;;;;;gliebehenz@hotmail.com
+Gimenez ;Deolinda;;3564678562;;Cordoba;Devoto;maestra;;;06/04/2015;31/10/2017;3;2;;;;;;;dioligimenez@hotmail.com
+Garcia ;Josefina;;3876502190;;Salta;metan;cementerio privado;;carteles;26/02/2017;06/01/2018;3;5;;;;;;;josefinagarcia77@gmail.com
+Henin ;Leonardo;;3546475785;;Cordoba;Villa del Dique;;;web;;18/11/2027;3;3;;;;;;;supermas@itc.com.ar
+Lobaton ;Valeria;;3535086728;;Cordoba;Pasco ;;;agroactiva 17;02/06/2017;12/01/2028;3;4;;;;;;;valerialobaton@hotmail.com
+Lorano ;Susana;;3576651197;;Cordoba;Arroyito;docente;;flyer;10/05/2017;12/01/2018;3;3;;;;;;;susanalorano@hotmail.com
+Junquera ;Carlos;;3585169309;;Cordoba;Rio Cuarto;jubilado;;carteles;;20/12/2017;3;3;;;;;;;cejunquera@arnet.com.ar
+Julia ;Eduardo;;3476551271;;Santa Fe;Serodino;;;individual ch;;28/11/2017;3;3;;;;;;;sabriyvale@gmail.com
+Mantica ;Matias;;3541659407;;Santa Fe;Santa Fe;;;;13/02/2016;12/01/2018;3;5;;;;;;;manticamatias@gmail.com
+Montes ;Roque;;3584818936;;Cordoba;General Cabrera;abogado;;agroactiva 17;02/06/2017;12/01/2018;3;3;;;;;;;
+Malagueño ;Federico;;3512385252;;;;;;web;25/11/2017;19/12/2017;3;3;;;;;;;fedeb_356@hotmail.com
+Molina ;Pablo;;2954336501;;;;docente;;web;19/12/2017;19/12/2017;3;1;;;;;;;profepablomolina@gmail.com
+De Menardi ;Marta;;3585420366;;Cordoba;Adelia Maria ;ex panadero;;tel folleto;;30/11/2017;3;3;;;;;;;
+Malandra ;Diego;;3406646416;;Santa Fe;Landeta;agricultor;;;;22/11/2017;3;3;;;;;;;diegogmlandra@gmail.com
+Morra ;Eduardo;;3564665840;;Cordoba;Porteña;empleado bancario;;;;07/11/2017;3;3;;;;;;;eduardomorra@macro.com.ar
+Narciso ;Marin;;3471491517;;Santa Fe;Villa Eloisa;;;agroactiva 17;02/06/2017;13/12/2017;3;3;;;;;;;
+Marzoa ;Mario Alejandro;;3515212699;;Cordoba;Villa Carlos Paz;complejo de cabañas;;carteles;07/07/2017;21/10/2017;3;2;;;;;;;marioalejandromarzoa@gmail.com
+Quintana ;Mirta;;3516329574;;Cordoba;Cordoba;inmobiliaria;;carteles;22/05/2017;22/05/2017;3;1;;;;;;;quintana.mir@gmail.com
+Pavani ;Gabriela;;3472628126;;Cordoba;General Roca;;;mercado libre;08/01/2018;08/01/2018;3;1;;;;;;;gabipavani@hotmail.com
+Olivares ;Elvio;;2974019124;;Chubut;Comodoro Rivadavia;empleado de casino;;carteles;05/04/2017;29/12/2017;3;4;;;;;;;elviorodolfo1973@hotmail.com
+Pena ;Julio;;3541345040;;Cordoba;San Antonio;;;carteles;20/10/2017;29/11/2017;3;2;;;;;;;
+Petralle ;Daniel;;3416911236;;Santa Fe;Soldini;;;agroactiva 17;02/06/2017;03/01/2018;3;3;;;;;;;
+Pruze ;Elda;;3414568892;;Santa Fe;Rosario;;;agroactiva 17;02/06/2017;12/01/2018;3;2;;;;;;;eldaspp@hotmail.com
+Porcary ;Jorge;;3564679421;;Cordoba;San Francisco;;;amigo Vigano;09/02/2016;30/11/2017;3;8;;;;;;;
+Ozcaidi ;Mauricio;;3462538643;;Santa Fe;Venado Tuerto;;;agroactiva 17;02/06/2017;14/10/2017;3;2;;;;;;;mauricio.xamaro@gmail.com
+Teves ;Silvina;;3855015783;;santiago del estero;Santiago del estero;;;tel folleto;;25/01/2018;3;5;;;;;;;
+Sanchez ;Marcelo;;3516092775;;Cordoba;Villa Carlos Paz;tiendas arcoiris;;propietario M2;21/07/2018;05/09/2017;3;3;;;;;;;
+Sanchez ;Carlos;;3827655034;;La Rioja;Aimogasta;consecionaria;;amigo Leo;17/11/2017;21/11/2017;3;2;;;;;;;
+Stella;;;2255455005;;Buenos Aires;Villa Gesell;jubilado;;web;12/12/2017;12/12/2017;3;1;;;;;;;eurodown@yahoo.com
+Ubaldo;Hector;;3492685019;;Santa Fe;Rafaela;emp ind lactea;;facebook;07/11/2017;28/12/2017;3;3;;;;;;;nhectorubaldo@yahoo.com
+Uberti ;Hugo;;3476598598;;Santa Fe;Totoras;pr agr;;carteles;;22/12/2017;3;3;;;;;;;hugouberti@hotmail.com
+Torres ;Eduardo;;3572470889;3572525988;Cordoba;Pilar;comerciante;;carteles;15/02/2016;22/12/2017;3;5;;;;;;;eduardoa_torres@hotmail.com
+Salvia ;Walter;;3462531378;;Santa Fe;Santa Isabel;;;agroactiva 17;02/07/2017;12/01/2017;3;3;;;;;;;trabandera@gmail.com
+Rubio ;Oscar;;3576656674;;Cordoba;Arroyito;pyme ferreteria;;;26/02/2016;03/01/2018;3;3;;;;;;;
+Roccetti ;Oscar;;3573694538;;Cordoba;Villa del Rosario;;SI;;23/08/2017;25/01/2018;3;3;;;;;;;oscar_fer09@hotmail.com
+Suarez ;Mariano;;3584338611;;Cordoba;Rio Cuarto;;;agroactiva 17;02/06/2017;25/01/2018;3;3;;;;;;;suarezmariano@hotmail.com
+Ruatta ;Hector Alfredo;;3584116730;;Cordoba;Carnerillo;pr agr;;agroactiva 17;02/06/2017;28/12/2017;3;3;;;;;;;hectorruatta@yahoo.com.ar
+Turcutto ;Dario;;3415043947;;Santa Fe;Rosario;comerciante;SI;alquiler LL;16/07/2017;20/01/2018;3;4;;;;;;;dottplast@yahoo.com.ar
+Zocco ;Sergio;;3415729190;;Santa Fe;Timbues;pr agr;;web;12/10/2015;20/01/2018;3;5;;;;;;;
+Viel ;Jorge;;3525643832;;;;;;;;20/10/2017;3;3;;;;;;;jorgeviel@gmail.com
+Blocca ;Marissa;;3583486986;;Cordoba;Vicuña Mackena;;;tel folleto;05/04/2017;12/01/2018;3;6;;;;;;;marisablocca@gmail.com
+Vallejos ;Fernando;;297154112611;;;;;;;19/01/2016;06/01/2018;3;4;;;;;;;titiv1985@hotmail.com
+Vachetta ;Juan Jose;;3401647203;;Santa Fe;El Trebol;;;;02/06/2017;03/01/2018;3;4;;;;;;;jjvachetta@gmail.com
+Zaezer ;Juan Manuel;;3491687527;;Santa Fe;Santa Margarita;;;agroactiva 17;03/06/2017;20/12/2017;3;3;;;;;;;
+Zamar ;Guillermo;;3415616003;;Santa Fe;Alvear;;;agroactiva 17;02/06/2017;21/11/2017;3;2;;;;;;;gzamaro@impack.com.ar
+Valla ;Ricardo;;3571606207;;Cordoba;Tancacha;;;agroactiva 17;02/06/2017;11/10/2017;3;2;;;;;;;
+Virgini ;Gabriel;;2314618650;;Buenos Aires;bolivar;medico cardiologo;;;09/02/2016;03/01/2018;3;3;;;;;;;virginigabriel@yahoo.com.ar

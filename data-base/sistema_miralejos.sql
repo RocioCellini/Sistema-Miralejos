@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2018 a las 12:36:02
+-- Tiempo de generación: 03-06-2018 a las 23:39:13
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -36,15 +36,38 @@ CREATE TABLE `actividad` (
 --
 
 INSERT INTO `actividad` (`id_actividad`, `nombre`) VALUES
-(1, 'agropecuario/a'),
-(2, 'abogado/a'),
-(3, 'agrimensor'),
-(4, 'médico'),
-(5, 'ingenieria'),
-(6, 'manicura'),
-(7, 'profesor/a'),
-(8, 'construccion'),
-(12, 'estilista');
+(19, 'gerent banco'),
+(17, 'empleado'),
+(16, 'veterinario'),
+(15, 'docente'),
+(14, 'quimica industrial'),
+(21, 'ama de casa'),
+(22, 'pyme electrodom'),
+(23, 'pyme tinglados'),
+(24, 'empleado'),
+(25, 'alquiler campo'),
+(27, 'pyme construccion'),
+(28, 'pr agr (tambo)'),
+(29, 'pr agr'),
+(30, 'maestra'),
+(31, 'cementerio privado'),
+(32, 'docente'),
+(33, 'jubilado'),
+(34, 'abogado'),
+(35, 'docente'),
+(36, 'ex panadero'),
+(37, 'agricultor'),
+(38, 'empleado bancario'),
+(39, 'complejo de cabañas'),
+(40, 'inmobiliaria'),
+(41, 'empleado de casino'),
+(42, 'tiendas arcoiris'),
+(43, 'consecionaria'),
+(45, 'emp ind lactea'),
+(47, 'comerciante'),
+(48, 'pyme ferreteria'),
+(50, 'comerciante'),
+(52, 'medico cardiologo');
 
 -- --------------------------------------------------------
 
@@ -96,8 +119,8 @@ CREATE TABLE `cliente` (
   `apellido` text COLLATE latin1_spanish_ci NOT NULL,
   `id_tipo_cliente` int(11) NOT NULL,
   `dni` int(11) NOT NULL,
-  `telefono1` int(11) NOT NULL,
-  `telefono2` int(11) NOT NULL,
+  `telefono1` bigint(20) NOT NULL,
+  `telefono2` bigint(20) NOT NULL,
   `email` text COLLATE latin1_spanish_ci NOT NULL,
   `id_provincia` int(11) NOT NULL,
   `id_localidad` int(11) NOT NULL,
@@ -110,29 +133,87 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nombre`, `apellido`, `id_tipo_cliente`, `dni`, `telefono1`, `telefono2`, `email`, `id_provincia`, `id_localidad`, `id_actividad`, `conoce`) VALUES
-(1, 'Maria', 'Cellini', 0, 555, 54545, 344444, 'maria@miralejos.net', 3, 303, 1, 0),
-(3, 'Rocio', 'Cellini', 0, 33444444, 3541222, 332234, 'rcellini@miralejos.net', 3, 303, 1, 0),
-(4, 'carlos', 'cellini', 0, 333, 333, 4445, 'carlin@hotmail.com', 1, 5, 2, 0),
-(5, 'flor', 'rrr', 0, 77, 77, 6665, 'yuy@hh.com', 1, 5, 4, 0),
-(15, 'Rocío', 'cabrera', 0, 33444455, 44444, 33565, 'cabrera@gmail.com', 3, 303, 3, 1),
-(22, 'roberto', 'lopez', 0, 32555464, 456324, 463632, 'rob@hotmail.com', 1, 1, 1, 1),
-(24, 'Gonzalo', 'Ferreyra', 0, 4455, 3344444, 53535, 'fsgs@dfsg.com', 1, 1, 1, 0),
-(25, 'Franco', 'Mansilla', 0, 44554455, 44353, 554335, 'gear@dgsrg', 1, 1, 1, 1),
-(34, 'Rodrigo', 'Perez', 0, 3344556, 342243, 432525, 'rodri@gmail.com', 12, 1351, 3, 0),
-(27, 'Marta', 'dafa', 0, 5254434, 626262, 62262, 'dgrdj', 1, 1, 1, 1),
-(28, 'Martin', 'fages', 0, 4455667, 6363, 6636, 'sgsgr@dfa', 1, 1, 1, 1),
-(30, 'Silvi', 'dsghsuig', 0, 4455667, 4526, 626, 'tryerer@dsvd.com', 1, 1, 1, 0),
-(31, 'Maria Ester', 'Gutuerrez', 0, 2233445, 54552, 5225, 'maria@miralejos.net', 1, 1, 1, 0),
-(32, 'Pablo', 'Gutierrez', 0, 4353535, 4552, 52525, 'pablo@empresa.com', 6, 446, 3, 0),
-(33, 'Maria Angeles', 'Alvarez', 0, 3454324, 34567, 55667, 'mari_ang@hotmail.com', 17, 1609, 3, 1),
-(35, 'Samuel', 'Gonzales', 0, 42442425, 23242, 441415, 'samu@gmail.com', 4, 336, 5, 1),
-(36, 'romina', 'daefef', 0, 344252525, 3241, 525252, 'gwgw@fsee.com', 14, 1453, 3, 0),
-(37, 'svgsbu', 'sudbvus', 0, 445755465, 6665, 756765, 'sgae@dsg.com', 13, 1420, 4, 1),
-(38, 'Sebastian', 'juigig', 0, 677866336, 78544, 58585, 'seba@dfaf.com', 9, 993, 5, 0),
-(39, 'Roxana', 'srgsgs', 0, 88788888, 887, 8887778, 'fsrgws@sdfd.com', 11, 1280, 6, 0),
-(40, 'german', 'ramirez', 0, 99888888, 8888, 88888, 'fefw@dfaf.com', 7, 485, -1, 1),
-(46, 'jose', 'perez', 0, 35667890, 4539996, 0, 'juan@jose.com', 13, 1426, 8, 0),
-(43, 'sfwew', 'uguyguy', 0, 7777733, 7777, 7777, 'wefw@dfs.com', 12, 1342, 5, 1);
+(1, 'Liz', 'Ortiz Palomente ', 3, 0, 3516370077, 0, 'gortiz@iua.edu.ar', 7, 0, 14, 0),
+(2, 'Omar', 'Rogger', 3, 0, 2954544927, 0, 'roger.sound@yahoo.com.ar', 12, 363, 15, 0),
+(3, 'Nelson', 'Hernandez ', 3, 0, 3515060179, 0, 'nelsonoh@hotmail.com', 7, 0, 0, 0),
+(4, 'Martin', 'Bioletti ', 3, 0, 3436230268, 0, 'martinbioletti@gmail.com', 9, 1166, 0, 0),
+(5, 'Alberto', 'Marquez ', 3, 0, 3537447036, 0, 'Sin Datos', 7, 563, 16, 0),
+(6, 'Luis', 'Cofre ', 3, 0, 2954527403, 0, 'luis_27056@hotmail.com', 0, 0, 0, 0),
+(7, 'Griselda', 'Cavalli ', 3, 0, 3533686228, 0, 'griseldacavalli@hotmail.com', 7, 604, 0, 0),
+(8, 'Guillermo', 'Bragachini ', 3, 0, 3516278597, 0, 'gbragachini@festimaq.com.ar', 7, 0, 0, 0),
+(9, 'Claudio', 'Bresano ', 3, 0, 3583640764, 0, 'Sin Datos', 7, 910, 0, 0),
+(10, 'Nestor', 'Cavallo ', 3, 0, 3476429071, 0, 'nestor.cavallo@buyettri.com.ar', 22, 0, 17, 0),
+(11, 'Esteban', 'Coraglia ', 3, 0, 3492588894, 0, 'Sin Datos', 22, 2097, 0, 0),
+(12, 'Dante', 'Castro ', 3, 0, 35646700088, 0, 'Sin Datos', 22, 1999, 29, 0),
+(13, 'Leandro', 'Chiurchiu ', 3, 0, 3537461032, 0, 'lchiurchiu@hotmail.com', 7, 679, 0, 0),
+(14, 'Carlos', 'Bruno ', 3, 0, 3468538556, 0, 'carlitosbruno@live.com', 7, 0, 19, 1),
+(15, 'Juan Carlos', 'Cavallo ', 3, 0, 3573436125, 0, 'juan50carlo@gmail.com', 7, 0, 29, 1),
+(16, 'Benito', 'Chiappini ', 3, 0, 3471496320, 0, 'Sin Datos', 22, 1872, 0, -1),
+(17, 'Carlos', 'Burgi ', 3, 0, 3547404505, 0, 'carlos.burgi12@gmail.com', 7, 0, 0, 0),
+(18, 'Alexis', 'Caseras ', 3, 0, 3472509272, 0, 'alexiscaseras@hotmail.com', 7, 731, 0, -1),
+(19, 'Romina', 'Campos ', 3, 0, 3537415408, 0, 'rominacampos07@hotmail.com', 7, 517, 0, -1),
+(20, 'Jorge', 'Cravero ', 3, 0, 3562669048, 0, 'jorge.cravero@hotmail.com', 7, 743, 0, -1),
+(21, 'Susana', 'Baima ', 3, 0, 3515399467, 0, 'Sin Datos', 7, 0, 21, 1),
+(22, 'Matias', 'Balocco ', 3, 0, 3413115509, 0, 'cpdequipamientos@gmail.com', 22, 2104, 22, 1),
+(23, 'David', 'Cardenas ', 3, 0, 2966503512, 0, 'nina.rg@hotmail.com', 21, 1835, 0, -1),
+(24, 'Alcides', 'Canetelli ', 3, 0, 3402673111, 0, 'alcilau6@hotmail.com', 22, 1846, 23, -1),
+(25, 'Oscar', 'Duarte ', 3, 0, 3415916697, 0, 'orrduarte@hotmail.com', 22, 2104, 17, 1),
+(26, 'Roberto', 'Franciscoldi ', 3, 0, 3465470263, 0, 'Sin Datos', 0, 0, 25, -1),
+(27, 'Carlos', 'Devita ', 3, 0, 3460690479, 0, 'cardi2@live.com.ar', 22, 0, 29, -1),
+(28, 'Daniel', 'De Paul ', 3, 0, 3537682638, 0, 'ariela.ms@hotmail.com', 7, 0, 27, 0),
+(29, 'Patricia', 'Demnestri ', 3, 0, 3467643656, 0, 'Sin Datos', 22, 719, 0, -1),
+(30, 'Ruben', 'Ferrari ', 3, 0, 3534088891, 0, 'rubenferrari1@hotmail.com', 7, 765, 0, -1),
+(31, 'Laureano', 'Issobio ', 3, 0, 3532400794, 0, 'Sin Datos', 7, 756, 28, -1),
+(32, 'Gustavo', 'Galiano ', 3, 0, 3406425383, 0, 'gusgalliano2015@gmail.com', 22, 1934, 0, -1),
+(33, 'Andres', 'Gimenez ', 3, 0, 3465594169, 0, 'andresgungui@gmail.com', 22, 1961, 0, 1),
+(34, 'Walter', 'Giorgetti ', 3, 0, 3534292775, 0, 'jwgiorgetti@hotmail.com', 7, 634, 29, 0),
+(35, 'Guillermo', 'Gliebe Henz ', 3, 0, 3415796294, 0, 'gliebehenz@hotmail.com', 22, 2104, 0, -1),
+(36, 'Deolinda', 'Gimenez ', 3, 0, 3564678562, 0, 'dioligimenez@hotmail.com', 7, 601, 30, -1),
+(37, 'Josefina', 'Garcia ', 3, 0, 3876502190, 0, 'josefinagarcia77@gmail.com', 18, 1707, 31, -1),
+(38, 'Leonardo', 'Henin ', 3, 0, 3546475785, 0, 'supermas@itc.com.ar', 7, 881, 0, -1),
+(39, 'Valeria', 'Lobaton ', 3, 0, 3535086728, 0, 'valerialobaton@hotmail.com', 7, 766, 0, -1),
+(40, 'Susana', 'Lorano ', 3, 0, 3576651197, 0, 'susanalorano@hotmail.com', 7, 505, 15, -1),
+(41, 'Carlos', 'Junquera ', 3, 0, 3585169309, 0, 'cejunquera@arnet.com.ar', 7, 790, 33, -1),
+(42, 'Eduardo', 'Julia ', 3, 0, 3476551271, 0, 'sabriyvale@gmail.com', 22, 2149, 0, -1),
+(43, 'Matias', 'Mantica ', 3, 0, 3541659407, 0, 'manticamatias@gmail.com', 22, 0, 0, -1),
+(44, 'Roque', 'Montes ', 3, 0, 3584818936, 0, 'Sin Datos', 7, 0, 34, -1),
+(45, 'Federico', 'Malagueño ', 3, 0, 3512385252, 0, 'fedeb_356@hotmail.com', 0, 0, 0, -1),
+(46, 'Pablo', 'Molina ', 3, 0, 2954336501, 0, 'profepablomolina@gmail.com', 0, 0, 15, -1),
+(47, 'Marta', 'De Menardi ', 3, 0, 3585420366, 0, 'Sin Datos', 7, 486, 36, -1),
+(48, 'Diego', 'Malandra ', 3, 0, 3406646416, 0, 'diegogmlandra@gmail.com', 22, 2018, 37, -1),
+(49, 'Eduardo', 'Morra ', 3, 0, 3564665840, 0, 'eduardomorra@macro.com.ar', 7, 774, 38, -1),
+(50, 'Marin', 'Narciso ', 3, 0, 3471491517, 0, 'Sin Datos', 22, 2185, 0, -1),
+(51, 'Mario Alejandro', 'Marzoa ', 3, 0, 3515212699, 0, 'marioalejandromarzoa@gmail.com', 7, 871, 39, -1),
+(52, 'Mirta', 'Quintana ', 3, 0, 3516329574, 0, 'quintana.mir@gmail.com', 7, 0, 40, -1),
+(53, 'Gabriela', 'Pavani ', 3, 0, 3472628126, 0, 'gabipavani@hotmail.com', 7, 0, 0, -1),
+(54, 'Elvio', 'Olivares ', 3, 0, 2974019124, 0, 'elviorodolfo1973@hotmail.com', 6, 449, 41, -1),
+(55, 'Julio', 'Pena ', 3, 0, 3541345040, 0, 'Sin Datos', 7, 964, 0, -1),
+(56, 'Daniel', 'Petralle ', 3, 0, 3416911236, 0, 'Sin Datos', 22, 2151, 0, -1),
+(57, 'Elda', 'Pruze ', 3, 0, 3414568892, 0, 'eldaspp@hotmail.com', 22, 2104, 0, -1),
+(58, 'Jorge', 'Porcary ', 3, 0, 3564679421, 0, 'Sin Datos', 7, 812, 0, -1),
+(59, 'Mauricio', 'Ozcaidi ', 3, 0, 3462538643, 0, 'mauricio.xamaro@gmail.com', 22, 2176, 0, -1),
+(60, 'Silvina', 'Teves ', 3, 0, 3855015783, 0, 'Sin Datos', 23, 0, 0, -1),
+(61, 'Marcelo', 'Sanchez ', 3, 0, 3516092775, 0, 'Sin Datos', 7, 871, 42, -1),
+(62, 'Carlos', 'Sanchez ', 3, 0, 3827655034, 0, 'Sin Datos', 13, 0, 43, -1),
+(63, '', 'Stella', 3, 0, 2255455005, 0, 'eurodown@yahoo.com', 1, 140, 33, -1),
+(64, 'Hector', 'Ubaldo', 3, 0, 3492685019, 0, 'nhectorubaldo@yahoo.com', 22, 2095, 45, -1),
+(65, 'Hugo', 'Uberti ', 3, 0, 3476598598, 0, 'hugouberti@hotmail.com', 22, 2174, 29, -1),
+(66, 'Eduardo', 'Torres ', 3, 0, 3572470889, 3572525988, 'eduardoa_torres@hotmail.com', 7, 107, 47, -1),
+(67, 'Walter', 'Salvia ', 3, 0, 3462531378, 0, 'trabandera@gmail.com', 22, 0, 0, -1),
+(68, 'Oscar', 'Rubio ', 3, 0, 3576656674, 0, 'Sin Datos', 7, 505, 48, -1),
+(69, 'Oscar', 'Roccetti ', 3, 0, 3573694538, 0, 'oscar_fer09@hotmail.com', 7, 883, 0, 1),
+(70, 'Mariano', 'Suarez ', 3, 0, 3584338611, 0, 'suarezmariano@hotmail.com', 7, 790, 0, -1),
+(71, 'Hector Alfredo', 'Ruatta ', 3, 0, 3584116730, 0, 'hectorruatta@yahoo.com.ar', 7, 545, 29, -1),
+(72, 'Dario', 'Turcutto ', 3, 0, 3415043947, 0, 'dottplast@yahoo.com.ar', 22, 2104, 47, 1),
+(73, 'Sergio', 'Zocco ', 3, 0, 3415729190, 0, 'Sin Datos', 22, 2170, 29, -1),
+(74, 'Jorge', 'Viel ', 3, 0, 3525643832, 0, 'jorgeviel@gmail.com', 0, 0, 0, -1),
+(75, 'Marissa', 'Blocca ', 3, 0, 3583486986, 0, 'marisablocca@gmail.com', 7, 0, 0, -1),
+(76, 'Fernando', 'Vallejos ', 3, 0, 297154112611, 0, 'titiv1985@hotmail.com', 0, 0, 0, -1),
+(77, 'Juan Jose', 'Vachetta ', 3, 0, 3401647203, 0, 'jjvachetta@gmail.com', 22, 178, 0, -1),
+(78, 'Juan Manuel', 'Zaezer ', 3, 0, 3491687527, 0, 'Sin Datos', 22, 0, 0, -1),
+(79, 'Guillermo', 'Zamar ', 3, 0, 3415616003, 0, 'gzamaro@impack.com.ar', 22, 915, 0, -1),
+(80, 'Ricardo', 'Valla ', 3, 0, 3571606207, 0, 'Sin Datos', 7, 848, 0, -1),
+(81, 'Gabriel', 'Virgini ', 3, 0, 2314618650, 0, 'virginigabriel@yahoo.com.ar', 1, 15, 52, -1);
 
 -- --------------------------------------------------------
 
@@ -263,20 +344,106 @@ INSERT INTO `inmobiliaria` (`id_inmobiliaria`, `nombre`) VALUES
 
 CREATE TABLE `llamado` (
   `id_llamado` int(11) NOT NULL,
-  `id_vendedor` int(11) NOT NULL,
+  `id_vendedor` int(11) NOT NULL DEFAULT '0',
   `id_cliente` int(11) NOT NULL,
-  `fecha_llamado` date NOT NULL,
-  `hora_llamado` time NOT NULL,
-  `id_edificio` int(11) NOT NULL,
-  `id_planta` int(11) NOT NULL,
-  `id_dpto` int(11) NOT NULL,
-  `id_cierre_operacion` int(11) NOT NULL,
-  `fecha_cierre_operacion` date NOT NULL,
-  `grado_interes` int(11) NOT NULL,
-  `id_origen_dato` int(11) NOT NULL,
-  `fecha_origen_dato` date NOT NULL,
+  `fecha_llamado` date NOT NULL DEFAULT '1900-01-01',
+  `hora_llamado` time NOT NULL DEFAULT '00:00:00',
+  `id_edificio` int(11) NOT NULL DEFAULT '0',
+  `id_planta` int(11) NOT NULL DEFAULT '0',
+  `id_dpto` int(11) NOT NULL DEFAULT '0',
+  `id_cierre_operacion` int(11) NOT NULL DEFAULT '0',
+  `fecha_cierre_operacion` date NOT NULL DEFAULT '1900-01-01',
+  `grado_interes` int(11) NOT NULL DEFAULT '0',
+  `id_origen_dato` int(11) NOT NULL DEFAULT '0',
+  `fecha_origen_dato` date NOT NULL DEFAULT '1900-01-01',
   `anotaciones` text COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `llamado`
+--
+
+INSERT INTO `llamado` (`id_llamado`, `id_vendedor`, `id_cliente`, `fecha_llamado`, `hora_llamado`, `id_edificio`, `id_planta`, `id_dpto`, `id_cierre_operacion`, `fecha_cierre_operacion`, `grado_interes`, `id_origen_dato`, `fecha_origen_dato`, `anotaciones`) VALUES
+(1, 0, 1, '2017-11-18', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(2, 0, 2, '2017-12-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-12-12', '-'),
+(3, 0, 3, '2018-01-10', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2015-08-20', '-'),
+(4, 0, 4, '2018-01-10', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-11-27', '-'),
+(5, 0, 5, '2017-02-23', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-06', '-'),
+(6, 0, 6, '2017-10-19', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-04-20', '-'),
+(7, 0, 7, '2018-01-08', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2014-01-14', '-'),
+(8, 0, 8, '2017-12-19', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(9, 0, 10, '2017-12-21', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(10, 0, 11, '2018-01-02', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-09', '-'),
+(11, 0, 12, '2017-12-06', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2015-11-04', '-'),
+(12, 0, 13, '2017-11-25', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(13, 0, 14, '2017-10-03', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-07-14', '-'),
+(14, 0, 15, '2017-10-20', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-02-10', '-'),
+(15, 0, 16, '2018-01-02', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-09', '-'),
+(16, 0, 17, '2018-01-06', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(17, 0, 18, '2017-12-27', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(18, 0, 19, '2017-11-17', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(19, 0, 20, '2017-12-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-09', '-'),
+(20, 0, 21, '2017-11-17', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(21, 0, 22, '2018-01-02', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(22, 0, 23, '2017-12-30', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2015-01-06', '-'),
+(23, 0, 24, '2017-10-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(24, 0, 25, '2017-12-27', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-07-16', '-'),
+(25, 0, 26, '2017-12-23', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-09-18', '-'),
+(26, 0, 27, '2017-12-20', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(27, 0, 28, '2017-12-22', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-02-06', '-'),
+(28, 0, 29, '2017-11-17', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(29, 0, 30, '2017-01-02', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(30, 0, 31, '2018-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(31, 0, 32, '2017-12-27', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-09', '-'),
+(32, 0, 33, '2017-12-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-09-03', '-'),
+(33, 0, 34, '2017-12-23', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2015-10-23', '-'),
+(34, 0, 35, '2017-11-18', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(35, 0, 36, '2017-10-31', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2015-04-06', '-'),
+(36, 0, 37, '2018-01-06', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-02-26', '-'),
+(37, 0, 38, '2027-11-18', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(38, 0, 39, '2028-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(39, 0, 40, '2018-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-05-10', '-'),
+(40, 0, 41, '2017-12-20', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(41, 0, 42, '2017-11-28', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(42, 0, 43, '2018-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-13', '-'),
+(43, 0, 44, '2018-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(44, 0, 45, '2017-12-19', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-11-25', '-'),
+(45, 0, 46, '2017-12-19', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-12-19', '-'),
+(46, 0, 47, '2017-11-30', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(47, 0, 48, '2017-11-22', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(48, 0, 49, '2017-11-07', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(49, 0, 50, '2017-12-13', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(50, 0, 51, '2017-10-21', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-07-07', '-'),
+(51, 0, 52, '2017-05-22', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-05-22', '-'),
+(52, 0, 53, '2018-01-08', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2018-01-08', '-'),
+(53, 0, 54, '2017-12-29', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-04-05', '-'),
+(54, 0, 55, '2017-11-29', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-10-20', '-'),
+(55, 0, 56, '2018-01-03', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(56, 0, 57, '2018-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(57, 0, 58, '2017-11-30', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-09', '-'),
+(58, 0, 59, '2017-10-14', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(59, 0, 60, '2018-01-25', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(60, 0, 61, '2017-09-05', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2018-07-21', '-'),
+(61, 0, 62, '2017-11-21', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-11-17', '-'),
+(62, 0, 63, '2017-12-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-12-12', '-'),
+(63, 0, 64, '2017-12-28', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-11-07', '-'),
+(64, 0, 65, '2017-12-22', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(65, 0, 66, '2017-12-22', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-15', '-'),
+(66, 0, 67, '2017-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-07-02', '-'),
+(67, 0, 68, '2018-01-03', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-26', '-'),
+(68, 0, 69, '2018-01-25', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-08-23', '-'),
+(69, 0, 70, '2018-01-25', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(70, 0, 71, '2017-12-28', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(71, 0, 72, '2018-01-20', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-07-16', '-'),
+(72, 0, 73, '2018-01-20', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2015-10-12', '-'),
+(73, 0, 74, '2017-10-20', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '1900-01-01', '-'),
+(74, 0, 75, '2018-01-12', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-04-05', '-'),
+(75, 0, 76, '2018-01-06', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-01-19', '-'),
+(76, 0, 77, '2018-01-03', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(77, 0, 78, '2017-12-20', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-03', '-'),
+(78, 0, 79, '2017-11-21', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(79, 0, 80, '2017-10-11', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2017-06-02', '-'),
+(80, 0, 81, '2018-01-03', '00:00:00', 0, 0, 0, 0, '1900-01-01', 3, 0, '2016-02-09', '-');
 
 -- --------------------------------------------------------
 
@@ -3568,7 +3735,8 @@ CREATE TABLE `tipo_cliente` (
 
 INSERT INTO `tipo_cliente` (`id_tipo_cliente`, `tipo_cliente`) VALUES
 (1, 'Comprador'),
-(2, 'Propietario');
+(2, 'Propietario'),
+(3, 'Sin Datos');
 
 -- --------------------------------------------------------
 
@@ -3592,7 +3760,8 @@ INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `email`) VALUES
 (4, 'Juan', 'juan@gmail.com'),
 (5, 'martin', 'martin123@gmail.com'),
 (6, 'Ramiro', 'rami@hotmail.com'),
-(9, 'Alan', 'alan@dfadg.com');
+(9, 'Alan', 'alan@dfadg.com'),
+(11, 'Sin Datos', 'Sin Datos');
 
 --
 -- Índices para tablas volcadas
@@ -3702,7 +3871,7 @@ ALTER TABLE `vendedor`
 -- AUTO_INCREMENT de la tabla `actividad`
 --
 ALTER TABLE `actividad`
-  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_actividad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT de la tabla `administracion`
 --
@@ -3717,7 +3886,7 @@ ALTER TABLE `cierre_operacion`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT de la tabla `departamento`
 --
@@ -3737,7 +3906,7 @@ ALTER TABLE `inmobiliaria`
 -- AUTO_INCREMENT de la tabla `llamado`
 --
 ALTER TABLE `llamado`
-  MODIFY `id_llamado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_llamado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 --
 -- AUTO_INCREMENT de la tabla `localidad`
 --
@@ -3772,12 +3941,12 @@ ALTER TABLE `tabla_intermedia_dpto`
 -- AUTO_INCREMENT de la tabla `tipo_cliente`
 --
 ALTER TABLE `tipo_cliente`
-  MODIFY `id_tipo_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_tipo_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `vendedor`
 --
 ALTER TABLE `vendedor`
-  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_vendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

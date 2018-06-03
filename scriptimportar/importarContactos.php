@@ -1,9 +1,11 @@
 <?php
-$file = fopen("prueba.txt", "r") or exit("Unable to open file!");
+$file = fopen("final.txt", "r") or exit("Unable to open file!");
 //Output a line of the file until the end is reached
-//include "../conexion.php";
+include "conexion.php";
 $contador=0;
 
+$dni="";
+$id_tipo_cliente="";
 
 while(!feof($file)) {
 	
@@ -24,7 +26,7 @@ while(!feof($file)) {
 	$nombre=substr($next_prov, 0, $posicion);
 	echo "Nombre: ".$nombre."<br>";
 
-	$next_prov=substr($personaTxt, $posicion+1, $largototal);
+	$next_prov=substr($next_prov, $posicion+1, $largototal);
 	$posicion=strpos($next_prov,";");
 	$tipo_cliente=substr($next_prov, 0, $posicion);
 	echo "Tipo Cliente: ".$tipo_cliente."<br>";
@@ -131,9 +133,64 @@ while(!feof($file)) {
 	//$apellido=str_replace( "'" , "`" , $apellido);
 	//$nombre=str_replace( "'" , "`" , $nombre);
 	
-  	/*
-   $sql_insertpersona='INSERT INTO Personas (Id, Dni, Apellido, Nombre, Mesa) 
-		VALUES (?, ?, ?, ?, ?)';
+  	
+
+
+  	$idfirst=NULL;
+
+
+	if($dni==""){
+		$dni=0;
+	}
+
+	if($id_tipo_cliente==""){
+		$id_tipo_cliente=3;
+	}
+
+	if($telefono1==""){
+		$telefono1=0;
+	}
+
+
+	if($telefono2==""){
+		$telefono2=0;
+	}
+
+
+	$email = trim(preg_replace('/\s\s+/', ' ', $email));
+
+	if($email==""){
+		echo "Email sin Datos"."<br>";
+		$email="Sin Datos";
+	}
+
+
+	
+
+	if($conoce=="SI"){
+		$conoce=1;
+	} elseif ($conoce=="NO") {
+		$conoce=0;
+	}else{
+		$conoce=-1;
+	}
+
+
+	//$nombre="f";
+	//$apellido="f";
+	//$dni="261341614"; 
+	//$telefono1="12345678910112";
+	//$telefono2="12345678910112"; 
+	//$email="fede@erwer.er"; 
+	$id_provincia="0"; 
+	$id_localidad="0"; 
+	$id_actividad="0"; 
+	//$conoce="0";
+
+
+
+   $sql_insertpersona='INSERT INTO cliente (id_cliente, nombre, apellido, id_tipo_cliente, dni, telefono1, telefono2,
+   email, id_provincia, id_localidad, id_actividad, conoce) VALUES (?, ?, ?, ?, ?, ? ,? ,? ,? ,? ,? ,? )';
 
 
 	$stmt_insert = $conn->prepare($sql_insertpersona);
@@ -141,36 +198,265 @@ while(!feof($file)) {
 		trigger_error('Wrong SQL: ' . $sql_insertpersona . ' Error: ' . $conn->error, E_USER_ERROR);
 	}
 
-	$idfirst=NULL;
 
 
-	$stmt_insert->bind_param('issss', $idfirst, $dni, $apellido,$nombre, $mesa);
-	*/
+	$stmt_insert->bind_param('issiiiisiiii', $idfirst, $nombre, $apellido, $id_tipo_cliente, 
+		$dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $id_actividad, $conoce);
+	
 
 	/* Execute statement */
-	//$stmt_insert->execute();
+    $stmt_insert->execute();
+
+    $last_id=mysqli_insert_id($conn);
+    $stmt_insert->close();
+	 
+
+	echo "ULTIMO ID:".$last_id."<br>";	
+
+
+	//UPDATE PROVINCIA
+	/**********************************************************************************************************/
+	
+
+	$sql_provincia='SELECT * FROM provincia WHERE nombre=?';
+
+	$stmt_provincia = $conn->prepare($sql_provincia);
+	
+
+	if($stmt_provincia === false) {
+		trigger_error('Wrong SQL: ' . $sql_provincia . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
+
+	$stmt_provincia->bind_param('s', $provincia);
+	
+	/* Execute statement */
+    $stmt_provincia->execute();
+
+    $rs_provincia=$stmt_provincia->get_result(); 
+
+   if($row_provincia=$rs_provincia->fetch_assoc()) {
+
+   		echo "ENCONTRO A PROVINCIA"."<br>"; 
+
+	    $sql_updatepersona='UPDATE cliente SET id_provincia=? WHERE id_cliente=?';
+
+
+		$stmt_update = $conn->prepare($sql_updatepersona);
+		
+		if($stmt_update === false) {
+			trigger_error('Wrong SQL: ' . $sql_updatepersona . ' Error: ' . $conn->error, E_USER_ERROR);
+		}
+
+
+		$stmt_update->bind_param('ii', $row_provincia['id_provincia'], $last_id);
+		
+
+		/* Execute statement */
+	    $stmt_update->execute();
+	    $stmt_update->close();
+	 
+
+    } // ROW PROVINCIA
+
+
+    //UPDATE LOCALIDAD
+	/**********************************************************************************************************/
+	
+
+	$sql_localidad='SELECT * FROM localidad WHERE nombre=?';
+
+	$stmt_localidad = $conn->prepare($sql_localidad);
+	
+
+	if($stmt_localidad === false) {
+		trigger_error('Wrong SQL: ' . $sql_localidad . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
+
+	$stmt_localidad->bind_param('s', $ciudad);
+	
+	/* Execute statement */
+    $stmt_localidad->execute();
+
+    $rs_localidad=$stmt_localidad->get_result(); 
+
+   if($row_localidad=$rs_localidad->fetch_assoc()) {
+
+   		echo "ENCONTRO A LOCALIDAD"."<br>"; 
+
+	    $sql_updatepersona='UPDATE cliente SET id_localidad=? WHERE id_cliente=?';
+
+
+		$stmt_update = $conn->prepare($sql_updatepersona);
+		
+		if($stmt_update === false) {
+			trigger_error('Wrong SQL: ' . $sql_updatepersona . ' Error: ' . $conn->error, E_USER_ERROR);
+		}
+
+
+		$stmt_update->bind_param('ii', $row_localidad['id_localidad'], $last_id);
+		
+
+		/* Execute statement */
+	    $stmt_update->execute();
+	    $stmt_update->close();
+	 
+
+    }  // ROW LOCALIDAD
 
 
 
-/*
+    //Actividad
+    /*******************************************************************************************************/
 
-	include "../php/conexion.php";	
+    $sql_actividad='SELECT * FROM actividad WHERE nombre=?';
 
-	 $sql_insert='INSERT INTO cliente (id_cliente, telefono1, telefono2, email) VALUES
-	  (?,?,?,?)';
+	$stmt_actividad = $conn->prepare($sql_actividad);
+	
 
-	  $stmt_insert = $conn->prepare($sql_insert);
-	  if($stmt_insert === false) {
-	  trigger_error('Wrong SQL: ' . $sql_insert . ' Error: ' . $conn->error, E_USER_ERROR);
-	  }
+	if($stmt_actividad === false) {
+		trigger_error('Wrong SQL: ' . $sql_actividad . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
 
-	  $idfirst=NULL; 
+	$stmt_actividad->bind_param('s', $actividad);
+	
+	/* Execute statement */
+    $stmt_actividad->execute();
 
-	  $stmt_insert->bind_param('iiis',$idfirst, $telefono1, $telefono2, $email);
+    $rs_actividad=$stmt_actividad->get_result(); 
 
-	  $stmt_insert->execute();
+   if($row_actividad=$rs_actividad->fetch_assoc()) {
 
-*/
+   		echo "ENCONTRO ACTIVIDAD"."<br>"; 
+
+	    $sql_updatepersona='UPDATE cliente SET id_actividad=? WHERE id_cliente=?';
+
+
+		$stmt_update = $conn->prepare($sql_updatepersona);
+		
+		if($stmt_update === false) {
+			trigger_error('Wrong SQL: ' . $sql_updatepersona . ' Error: ' . $conn->error, E_USER_ERROR);
+		}
+
+
+		$stmt_update->bind_param('ii', $row_actividad['id_actividad'], $last_id);
+		
+
+		/* Execute statement */
+	    $stmt_update->execute();
+	    $stmt_update->close();
+	 
+
+    }  // ROW ACTIVIDAD
+
+
+
+
+
+    $sql_llamado = 'INSERT INTO llamado  (id_llamado, id_cliente, fecha_llamado, grado_interes, 
+     fecha_origen_dato, anotaciones) VALUES (?, ?, ?, ?, ?, ?)';
+
+	$stmt_llamado = $conn->prepare($sql_llamado);
+	
+	if($stmt_llamado === false) {
+		trigger_error('Wrong SQL: ' . $sql_llamado . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
+
+	$fecha_ultimo_llamado = trim(preg_replace('/\s\s+/', ' ', $fecha_ultimo_llamado));
+	
+	if($fecha_ultimo_llamado!=""){
+		echo "ARRAY FECHA 1"."<br>";
+		$fecha_ultimo_llamado = explode("/", $fecha_ultimo_llamado);
+		$set_fecha_ultimo_llamado = $fecha_ultimo_llamado[2].'-'.$fecha_ultimo_llamado[1].'-'.$fecha_ultimo_llamado[0];
+		echo $set_fecha_ultimo_llamado."<br>";
+	}else {
+		echo "ELSE ARRAY 1"."<br>";
+		$set_fecha_ultimo_llamado = '1900-01-01';
+		echo $set_fecha_ultimo_llamado."<br>";
+	}
+
+
+	$fecha_origen_dato = trim(preg_replace('/\s\s+/', ' ', $fecha_origen_dato));
+
+	if($fecha_origen_dato!=""){
+		echo "ARRAY FECHA 2"."<br>";
+		$fecha_origen_dato = explode("/", $fecha_origen_dato);
+		$set_fecha_origen_dato = $fecha_origen_dato[2].'-'.$fecha_origen_dato[1].'-'.$fecha_origen_dato[0];
+		echo $set_fecha_origen_dato."<br>";
+	} else {
+		echo "ELSE ARRAY 2"."<br>";
+		$set_fecha_origen_dato = '1900-01-01';
+		echo $set_fecha_origen_dato."<br>";
+	}
+	
+	
+
+
+	//$id_llamado=null;
+	//$last_id=3;
+	//$set_fecha_ultimo_llamado='2017-08-08';
+	//$gradointeres=4;
+	//$set_fecha_origen_dato='2017-08-08';
+	$anotaciones="-";
+
+	$stmt_llamado->bind_param('iisiss', $id_llamado, $last_id, 
+		$set_fecha_ultimo_llamado, $gradointeres, $set_fecha_origen_dato, $anotaciones);
+	
+
+	/* Execute statement */
+    $stmt_llamado->execute();
+
+   // $last_id=mysqli_insert_id($conn);
+    $stmt_llamado->close();
+
+
+
+
+     // LLAMADO origenDato
+    /*******************************************************************************************************/
+    
+    $sql_origendato='SELECT * FROM origen_dato WHERE origen_dato=?';
+
+	$stmt_origendato = $conn->prepare($sql_origendato);
+	
+
+	if($stmt_origendato === false) {
+		trigger_error('Wrong SQL: ' . $sql_origendato . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
+
+	$stmt_origendato->bind_param('s', $origenDato);
+	
+
+    $stmt_origendato->execute();
+
+    $rs_origendato=$stmt_origendato->get_result(); 
+
+   if($row_origendato=$rs_origendato->fetch_assoc()) {
+
+   		echo "ENCONTRO ORIGEN DATO"."<br>"; 
+
+	    $sql_updatepersona='UPDATE llamado SET id_origen_dato=? WHERE id_cliente=?';
+
+
+		$stmt_update = $conn->prepare($sql_updatepersona);
+		
+		if($stmt_update === false) {
+			trigger_error('Wrong SQL: ' . $sql_updatepersona . ' Error: ' . $conn->error, E_USER_ERROR);
+		}
+
+
+		$stmt_update->bind_param('ii', $row_origendato['id_origen_dato'], $last_id);
+		
+
+		
+	    $stmt_update->execute();
+	    $stmt_update->close();
+	 
+
+    }  // ROW ACTIVIDAD
+
+
+
+
 
    //***************************************************************************************///
 	$contador=$contador+1;
