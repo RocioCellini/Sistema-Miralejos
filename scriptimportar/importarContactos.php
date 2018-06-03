@@ -1,8 +1,10 @@
 <?php
-$file = fopen("1.txt", "r") or exit("Unable to open file!");
+$file = fopen("prueba.txt", "r") or exit("Unable to open file!");
 //Output a line of the file until the end is reached
 //include "../conexion.php";
 $contador=0;
+
+
 while(!feof($file)) {
 	
 	$personaTxt= fgets($file);
@@ -13,17 +15,19 @@ while(!feof($file)) {
 	$posicion=strpos($personaTxt,";");
 		
 	//echo $personaTxt."<br>";
+
+	$apellido=substr($personaTxt, 0, $posicion);
+	echo "Apellido: ".$apellido."<br>";
 	
-	//Cliente
-	$cliente=substr($personaTxt, 0, $posicion);
-	echo "Cliente: ".$cliente."<br>";
-	
-	//Apellido
+	$next_prov=substr($personaTxt, $posicion+1, $largototal);
+	$posicion=strpos($next_prov,";");
+	$nombre=substr($next_prov, 0, $posicion);
+	echo "Nombre: ".$nombre."<br>";
+
 	$next_prov=substr($personaTxt, $posicion+1, $largototal);
 	$posicion=strpos($next_prov,";");
 	$tipo_cliente=substr($next_prov, 0, $posicion);
 	echo "Tipo Cliente: ".$tipo_cliente."<br>";
-
 
 	$next_prov=substr($next_prov, $posicion+1, $largototal);
 	$posicion=strpos($next_prov,";");
@@ -145,9 +149,32 @@ while(!feof($file)) {
 
 	/* Execute statement */
 	//$stmt_insert->execute();
+
+
+
+/*
+
+	include "../php/conexion.php";	
+
+	 $sql_insert='INSERT INTO cliente (id_cliente, telefono1, telefono2, email) VALUES
+	  (?,?,?,?)';
+
+	  $stmt_insert = $conn->prepare($sql_insert);
+	  if($stmt_insert === false) {
+	  trigger_error('Wrong SQL: ' . $sql_insert . ' Error: ' . $conn->error, E_USER_ERROR);
+	  }
+
+	  $idfirst=NULL; 
+
+	  $stmt_insert->bind_param('iiis',$idfirst, $telefono1, $telefono2, $email);
+
+	  $stmt_insert->execute();
+
+*/
+
+   //***************************************************************************************///
 	$contador=$contador+1;
 	echo $contador."<br>";
-
 
 	
 	echo"---------------------------------------<br>";

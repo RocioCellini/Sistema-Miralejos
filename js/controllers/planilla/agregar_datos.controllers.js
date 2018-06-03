@@ -308,6 +308,12 @@
               $ctrl.objAgregarDatos.fecha_ult_llamado= d.Respuesta[0].fecha_ult_llamado;                   
               $ctrl.objAgregarDatos.nombre_origen_dato= d.Respuesta[0].nombre_origen_dato;
               $ctrl.objAgregarDatos.fecha_origen_dato= d.Respuesta[0].fecha_origen_dato;
+              $ctrl.data_vendedor.selectedOption.id=d.Respuesta[0].id_vendedor;              
+              $ctrl.data_inmob.selectedOption.id=d.Respuesta[0].id_inmobiliaria;  
+
+              $ctrl.data_edificio.selectedOption.id_edificio=d.Respuesta[0].id_edificio; 
+              $ctrl.data_planta.selectedOption.id_planta=d.Respuesta[0].id_planta; 
+              $ctrl.data_dpto.selectedOption.id_dpto=d.Respuesta[0].id_dpto; 
 
             }).catch(function (err) {
                 console.log(err);

@@ -1,0 +1,9 @@
+Ortiz Palomente;Liz;;3516370077;;Cordoba;Cordoba;quimica industrial;NO;el inmobiliario;;18/11/2017;3;5;;;;;;;gortiz@iua.edu.ar
+Rogger;Omar;;2954544927;;La Pampa;Santa Rosa;docente;NO;web;12/12/2017;12/12/2017;3;1;;;;;;;roger.sound@yahoo.com.ar
+Hernandez ;Nelson;;3515060179;;Cordoba;Cordoba;;NO;el inmobiliario;20/8/2015;10/1/2018;3;6;;;;;;;nelsonoh@hotmail.com
+Bioletti ;Martin;;3436230268;;Entre Rios;Parana;;NO;web;27/11/2017;10/1/2018;3;2;;;;;;;martinbioletti@gmail.com
+Marquez;Alberto;;3537447036;;Cordoba;Cintra;veterinario;NO;;6/2/2016;23/2/2017;3;4;;;;;;;
+Cofre ;Luis;;2954527403;;;;;NO;facebook;20/4/2016;19/10/2017;3;3;;;;;;;luis_27056@hotmail.com
+Cavalli ;Griselda;;3533686228;;Cordoba;El Arañado;;NO;web;14/1/2014;8/1/2018;3;3;;;;;;;griseldacavalli@hotmail.com
+Bragachini ;Guillermo;;3516278597;;Cordoba;Cordoba;;NO;agroactiva 17;2/6/2017;19/12/2017;3;4;;;;;;;gbragachini@festimaq.com.ar
+Bresano ;Claudio;;3583640764;;Cordoba;Villa Valeria;;NO;agroactiva 17;2/6/2017;21/17/17;3;2;;;;;;;
