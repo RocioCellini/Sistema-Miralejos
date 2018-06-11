@@ -165,8 +165,6 @@ while(!feof($file)) {
 	}
 
 
-	
-
 	if($conoce=="SI"){
 		$conoce=1;
 	} elseif ($conoce=="NO") {
@@ -185,6 +183,8 @@ while(!feof($file)) {
 	$id_provincia="0"; 
 	$id_localidad="0"; 
 	$id_actividad="0"; 
+	$id_vendedor="0"; 
+	$id_inmobiliaria="0"; 
 	//$conoce="0";
 
 
@@ -402,10 +402,8 @@ while(!feof($file)) {
 		$set_fecha_ultimo_llamado, $gradointeres, $set_fecha_origen_dato, $anotaciones);
 	
 
-	/* Execute statement */
     $stmt_llamado->execute();
 
-   // $last_id=mysqli_insert_id($conn);
     $stmt_llamado->close();
 
 
@@ -445,9 +443,7 @@ while(!feof($file)) {
 
 
 		$stmt_update->bind_param('ii', $row_origendato['id_origen_dato'], $last_id);
-		
-
-		
+				
 	    $stmt_update->execute();
 	    $stmt_update->close();
 	 
@@ -456,6 +452,112 @@ while(!feof($file)) {
 
 
 
+    //PLANILLA
+    //*****************************************************************************************
+
+    $sql_insert_planilla='INSERT INTO planilla_de_venta (id_planilla, id_cliente, id_vendedor, id_inmobiliaria) VALUES (?, ?, ?, ?)';
+
+
+	$stmt_insert_planilla = $conn->prepare($sql_insert_planilla);
+	if($stmt_insert_planilla === false) {
+		trigger_error('Wrong SQL: ' . $sql_insert_planilla . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
+
+	$stmt_insert_planilla->bind_param('iiii', $idfirst, $last_id, $id_vendedor, $id_inmobiliaria);
+	
+    $stmt_insert_planilla->execute();
+
+    $stmt_insert_planilla->close();
+
+
+    //Vendedor
+    //******************************************************************************************
+
+    $sql_vendedor='SELECT * FROM vendedor WHERE nombre=?';
+
+	$stmt_vendedor = $conn->prepare($sql_vendedor);
+	
+
+	if($stmt_vendedor === false) {
+		trigger_error('Wrong SQL: ' . $sql_vendedor . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
+
+	$stmt_vendedor->bind_param('s', $vendedor);
+
+
+	/* Execute statement */
+    $stmt_vendedor->execute();
+
+    $rs_vendedor=$stmt_vendedor->get_result(); 
+
+   if($row_vendedor=$rs_vendedor->fetch_assoc()) {
+
+   		echo "ENCONTRO EL VENDEDOR"."<br>"; 
+
+	    $sql_update_vendedor='UPDATE planilla_de_venta SET id_vendedor=? WHERE id_planilla=?';
+
+
+		$stmt_update = $conn->prepare($sql_update_vendedor);
+		
+		if($stmt_update === false) {
+			trigger_error('Wrong SQL: ' . $sql_update_vendedor . ' Error: ' . $conn->error, E_USER_ERROR);
+		}
+
+
+		$stmt_update->bind_param('ii', $row_vendedor['id_vendedor'], $last_id);
+		
+
+		/* Execute statement */
+	    $stmt_update->execute();
+
+	    $stmt_update->close();
+	 
+
+    }// ROW VENDEDOR
+
+
+    //Inmobiliaria
+    //******************************************************************************************
+
+    $sql_inmobiliaria='SELECT * FROM inmobiliaria WHERE nombre=?';
+
+	$stmt_inmobiliaria = $conn->prepare($sql_inmobiliaria);
+	
+
+	if($stmt_inmobiliaria === false) {
+		trigger_error('Wrong SQL: ' . $sql_inmobiliaria . ' Error: ' . $conn->error, E_USER_ERROR);
+	}
+
+	$stmt_inmobiliaria->bind_param('s', $inmobiliaria);
+	
+	/* Execute statement */
+    $stmt_inmobiliaria->execute();
+
+    $rs_inmobiliaria=$stmt_inmobiliaria->get_result(); 
+
+   if($row_inmobiliaria=$rs_inmobiliaria->fetch_assoc()) {
+
+   		echo "ENCONTRO INMOBILIARIA"."<br>"; 
+
+	    $sql_update_inmobiliaria='UPDATE planilla_de_venta SET id_inmobiliaria=? WHERE id_planilla=?';
+
+
+		$stmt_update = $conn->prepare($sql_update_inmobiliaria);
+		
+		if($stmt_update === false) {
+			trigger_error('Wrong SQL: ' . $sql_update_inmobiliaria . ' Error: ' . $conn->error, E_USER_ERROR);
+		}
+
+
+		$stmt_update->bind_param('ii', $row_inmobiliaria['id_inmobiliaria'], $last_id);
+		
+
+		/* Execute statement */
+	    $stmt_update->execute();
+	    $stmt_update->close();
+	 
+
+    } // ROW INMOBILIARIA
 
 
    //***************************************************************************************///

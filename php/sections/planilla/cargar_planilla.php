@@ -5,7 +5,7 @@ session_start();
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'};  
+$type_accion=$data->{'type_accion'}; 
 
 //$type_accion="cargar_planilla";
 
@@ -64,33 +64,33 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 	            $nombre=$row_cliente['nombre'];
 	            $telefono1=$row_cliente['telefono1'];
 	            $telefono2=$row_cliente['telefono2'];
-	            $email=$row_cliente['email'];  		      		
+	            $email=$row_cliente['email'];  		
+
+            	// Tipo del Cliente especificado
+				//--------------------------------------------------------------
+
+				$id_tipo_cliente=$row_cliente['id_tipo_cliente'];
+
+				$result_tipo = 'SELECT * FROM tipo_cliente WHERE id_tipo_cliente=?';
+
+				  $stmt_tipo = $conn->prepare($result_tipo);
+
+				  if($stmt_tipo===false) {
+				    trigger_error('Wrong SQL: ' . $result_tipo . ' Error: ' . $conn->error, E_USER_ERROR);
+				  }
+
+				  $stmt_tipo->bind_param('i',$id_tipo_cliente);   
+
+				  $stmt_tipo->execute(); 
+
+				  $rs_tipo=$stmt_tipo->get_result(); 
+
+				  if($row_tipo=$rs_tipo->fetch_assoc()){    
+
+				  		$tipo_cliente=$row_tipo['tipo_cliente'];
+
+				  }    		
 	            
-
-	            // Tipo del Cliente especificado
-	            //--------------------------------------------------------------
-
-	            $id_tipo_cliente=$row_cliente['id_tipo_cliente'];
-
-	            $result_tipo = 'SELECT * FROM tipo_cliente WHERE id_tipo_cliente=?';
-
-			      $stmt_tipo = $conn->prepare($result_tipo);
-
-			      if($stmt_tipo===false) {
-			        trigger_error('Wrong SQL: ' . $result_tipo . ' Error: ' . $conn->error, E_USER_ERROR);
-			      }
-
-			      $stmt_tipo->bind_param('i',$id_tipo_cliente);   
-
-			      $stmt_tipo->execute(); 
-
-			      $rs_tipo=$stmt_tipo->get_result(); 
-
-			      if($row_tipo=$rs_tipo->fetch_assoc()){    
-
-			      		$tipo_cliente=$row_tipo['tipo_cliente'];
-
-			      }
 
 	      		// Provincia del Cliente especificado
 	            //--------------------------------------------------------------
@@ -120,7 +120,8 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 			    // Localidad del Cliente especificado
 	            //--------------------------------------------------------------
 
-			     $id_localidad=$row_cliente['id_localidad'];
+			    $id_localidad=$row_cliente['id_localidad'];
+			    $localidad='';
 
 		        $result_loc = 'SELECT * FROM localidad WHERE id_localidad=?';
 
@@ -181,7 +182,9 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 				//$result_call = 'SELECT * FROM llamado WHERE fecha_llamado=( SELECT MAX(fecha_llamado) FROM llamado ) AND id_cliente=?';
 
-	              $result_call = 'SELECT * FROM llamado WHERE  id_cliente=?';
+				$num_llamados=0;
+
+	              $result_call = 'SELECT * FROM llamado WHERE id_cliente=?';
 
 			      $stmt_call = $conn->prepare($result_call);
 
@@ -197,10 +200,7 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 			      if($row_call=$rs_call->fetch_assoc()){ 
 
-
-
-			      		do  {
-
+			      		do {
 
 			      		$num_llamados++;
 
@@ -213,22 +213,15 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 			      		$id_origen_dato=$row_call['id_origen_dato']; 
 
+			      		$origen_dato='';
+
 			      		//$fecha_cierre_operacion=$row_call['fecha_cierre_operacion'];       		
 
 			      		$id_edificio=$row_call['id_edificio'];
 						$id_planta=$row_call['id_planta'];
 						$id_dpto=$row_call['id_dpto'];
 
-
-
 			      		} while ($row_call=$rs_call->fetch_assoc());
-			      			
-
-			      	 
-
-
-			      		
-					  
 
 
 					    //SubConsulta para obtener los datos del Edificio
@@ -326,7 +319,6 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 					      }
 
-
 			      }else{
 			      	$num_llamados=0;
 			      	$fecha_ult_llamado='';
@@ -338,6 +330,7 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
      		}//if($row_cliente)
 
      		//echo $id_edificio."<br>";
+
      		// SubConsulta para obtener los datos del Vendedor
             //--------------------------------------------------------------
 
@@ -386,7 +379,7 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 	      	}//if($row_inmob)    	
 
 
-	       	$num_llamados=2;
+	       	//$num_llamados=2;
             
             $temp=array('id_planilla'=>utf8_encode($row_planilla['id_planilla']),           		
 
