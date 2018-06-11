@@ -36,7 +36,8 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 			$id_cliente=$row_planilla['id_cliente'];
 			$id_vendedor=$row_planilla['id_vendedor'];
-			$id_inmobiliaria=$row_planilla['id_inmobiliaria'];			
+			$id_inmobiliaria=$row_planilla['id_inmobiliaria'];	
+
 
          	// SubConsulta para obtener los datos del Cliente
             //--------------------------------------------------------------
@@ -314,10 +315,12 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 					      $rs_od=$stmt_od->get_result(); 
 
 					      if($row_od=$rs_od->fetch_assoc()){  
-					      	//echo $id_edificio."<br>";
+					      	
 					      	$origen_dato=$row_od['origen_dato']; 
 
-					      }
+					      }else{
+					      		 $origen_dato='Sin Datos';
+					      	}
 
 			      }else{
 			      	$num_llamados=0;
@@ -352,6 +355,8 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
     		 	 $vendedor=$row_vend['nombre'];
 
+	      	}else{
+	      		 $vendedor='Sin Datos';
 	      	}//if($row_vend)    
 
 
@@ -376,6 +381,8 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
     		 	 $inmobiliaria=$row_inmob['nombre'];
 
+	      	}else{
+	      		 $inmobiliaria='Sin Datos';
 	      	}//if($row_inmob)    	
 
 
