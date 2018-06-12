@@ -64,10 +64,16 @@
 
               $ctrl.objDataPlanilla.type_accion="ver_historial"; 
               $ctrl.objDataPlanilla.id_cliente=$stateParams.objdata.id_cliente;
+              $ctrl.objDataPlanilla.apellido=$stateParams.objdata.apellido;
+              $ctrl.objDataPlanilla.nombre=$stateParams.objdata.nombre;
+              $ctrl.objDataPlanilla.vendedor=$stateParams.objdata.vendedor;
+
+              //console.log("para historial"+$ctrl.objDataPlanilla);
 
               planillaFactory.verHistorial($ctrl.objDataPlanilla).then( function(d) {
 
                     console.log(d);
+                    
 
                    $ctrl.tableParams.settings({dataset: d.Respuesta}); 
                               

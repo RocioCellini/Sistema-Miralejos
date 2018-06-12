@@ -12,6 +12,11 @@ $type_accion=$data->{'type_accion'};
 if ($type_accion==="ver_historial" && isset($_SESSION['Usuario'])) {
 
   $id_cliente=$data->{'id_cliente'};
+  $apellido=$data->{'apellido'};
+  $nombre=$data->{'nombre'};
+  $vendedor=$data->{'vendedor'};
+
+ /*Falta edif planta, dpto buscar en las tablas correspondientes con su id*/
 
 	include "../../conexion.php";
 
@@ -40,13 +45,19 @@ if ($type_accion==="ver_historial" && isset($_SESSION['Usuario'])) {
          do{  
             
             $temp=array('id_cliente'=>utf8_encode($row['id_cliente']),
+                  'apellido'=>utf8_encode($apellido),
+                  'nombre'=>utf8_encode($nombre),
+
                   'id_llamado'=>utf8_encode($row['id_llamado']),
                   'id_vendedor'=>utf8_encode($row['id_vendedor']),
+                  'vendedor'=>utf8_encode($vendedor),
                   'fecha_llamado'=>utf8_encode($row['fecha_llamado']),
                   'hora_llamado'=>utf8_encode($row['hora_llamado']),
                   'id_edificio'=>utf8_encode($row['id_edificio']),
                   'id_planta'=>utf8_encode($row['id_planta']),
                   'id_dpto'=>utf8_encode($row['id_dpto']),
+                  'id_cierre_operacion'=>utf8_encode($row['id_cierre_operacion']),
+                  'fecha_cierre_operacion'=>utf8_encode($row['fecha_cierre_operacion']),     
                   'grado_interes'=>utf8_encode($row['grado_interes']),
                   'id_origen_dato'=>utf8_encode($row['id_origen_dato']),
                   'fecha_origen_dato'=>utf8_encode($row['fecha_origen_dato']),
