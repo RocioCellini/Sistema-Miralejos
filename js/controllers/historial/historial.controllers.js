@@ -66,7 +66,6 @@
               $ctrl.objDataPlanilla.id_cliente=$stateParams.objdata.id_cliente;
               $ctrl.objDataPlanilla.apellido=$stateParams.objdata.apellido;
               $ctrl.objDataPlanilla.nombre=$stateParams.objdata.nombre;
-              $ctrl.objDataPlanilla.vendedor=$stateParams.objdata.vendedor;
 
               //console.log("para historial"+$ctrl.objDataPlanilla);
 

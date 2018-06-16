@@ -8,22 +8,19 @@
       <table ng-table="$ctrl.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
 
-           
+            <td data-title="'id_llamado'">{{row.id_llamado}}</td> 
             <td data-title="'apellido'">{{row.apellido}}</td>
             <td data-title="'nombre'">{{row.nombre}}</td>           
-            <td data-title="'vendedor'">{{row.vendedor}}</td>
-            <td data-title="'id_llamado'">{{row.id_llamado}}</td>   
+            <td data-title="'vendedor'">{{row.vendedor}}</td>             
             <td data-title="'fecha_llamado'">{{row.fecha_llamado}}</td>
-            <td data-title="'hora_llamado'">{{row.hora_llamado}}</td>
-
-            <!-- Falta -->
-            <td data-title="'id_edificio'">{{row.id_edificio}}</td>   
-            <td data-title="'id_planta'">{{row.id_planta}}</td>
-            <td data-title="'id_dpto'">{{row.id_dpto}}</td>
-            <td data-title="'id_cierre_operacion'">{{row.id_cierre_operacion}}</td>
+            <td data-title="'hora_llamado'">{{row.hora_llamado}}</td>            
+            <td data-title="'edificio'">{{row.edificio}}</td>   
+            <td data-title="'planta'">{{row.planta}}</td>
+            <td data-title="'dpto'">{{row.dpto}}</td>
+            <td data-title="'cierre_operacion'">{{row.cierre_operacion}}</td>
             <td data-title="'fecha_cierre_operacion'">{{row.fecha_cierre_operacion}}</td>
             <td data-title="'grado_interes'">{{row.grado_interes}}</td>
-            <td data-title="'id_origen_dato'">{{row.id_origen_dato}}</td>   
+            <td data-title="'origen_dato'">{{row.origen_dato}}</td>   
             <td data-title="'fecha_origen_dato'">{{row.fecha_origen_dato}}</td>
             <td data-title="'anotaciones'">{{row.anotaciones}}</td>
             
