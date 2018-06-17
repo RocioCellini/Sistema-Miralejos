@@ -140,6 +140,8 @@
              
               $ctrl.tableParams.settings({dataset: d.Respuesta});  //dataset es cada row  que encuentra 
 
+              console.log(d.Respuesta);
+              
               $ctrl.boton_submmit=false;      
 
               }).catch(function (err) {

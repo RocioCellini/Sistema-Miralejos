@@ -21,6 +21,7 @@ if($type_accion==="editar_cliente" && isset($_SESSION['Usuario'])){
   $id_cliente =$data->{'id_cliente'};
   $nombre =$data->{'nombre'};
   $apellido =$data->{'apellido'};
+  $id_tipo_cliente=$data->{'id_tipo_cliente'};
   $dni =$data->{'dni'};
   $telefono1 =$data->{'telefono1'};
   $telefono2 =$data->{'telefono2'};
@@ -45,7 +46,7 @@ if($type_accion==="editar_cliente" && isset($_SESSION['Usuario'])){
 */
   $item="";
 
-  $result='UPDATE cliente SET nombre=?, apellido=?, dni=?, telefono1=?, telefono2=?, email=?, id_provincia=?, id_localidad=?, id_actividad=?, conoce=? WHERE id_cliente=?';
+  $result='UPDATE cliente SET nombre=?, apellido=?, id_tipo_cliente=?, dni=?, telefono1=?, telefono2=?, email=?, id_provincia=?, id_localidad=?, id_actividad=?, conoce=? WHERE id_cliente=?';
 
 
   $stmt = $conn->prepare($result);
@@ -54,7 +55,7 @@ if($type_accion==="editar_cliente" && isset($_SESSION['Usuario'])){
                     trigger_error('Wrong SQL: ' . $result . ' Error: ' . $conn->error, E_USER_ERROR);
                     }
 
-  $stmt->bind_param('ssiiisiiisi', $nombre, $apellido, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $id_actividad, $conoce, $id_cliente);
+  $stmt->bind_param('ssiiiisiiisi', $nombre, $apellido, $id_tipo_cliente, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $id_actividad, $conoce, $id_cliente);
 
   $stmt->execute();
 

@@ -143,10 +143,6 @@ while(!feof($file)) {
 		$dni=0;
 	}
 
-	if($id_tipo_cliente==""){
-		$id_tipo_cliente=3;
-	}
-
 	if($telefono1==""){
 		$telefono1=0;
 	}
@@ -180,6 +176,7 @@ while(!feof($file)) {
 	//$telefono1="12345678910112";
 	//$telefono2="12345678910112"; 
 	//$email="fede@erwer.er"; 
+	$id_tipo_cliente="0";
 	$id_provincia="0"; 
 	$id_localidad="0"; 
 	$id_actividad="0"; 

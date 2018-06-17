@@ -41,6 +41,7 @@
         $ctrl.comboDisable=false;
         $ctrl.comboProvHide=false;   
 
+        //Combo conoce
         $ctrl.data = {
           availableOptions: [
             {id: '-1', name: 'Seleccionar'},
@@ -71,7 +72,15 @@
 
                     
             $ctrl.defaultparams.type_accion="search_data_combos";
-            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then (function( d ) {    
+            defaultdataFactory.buscar_datos_combos($ctrl.defaultparams).then (function( d ) {
+
+              $ctrl.tipo_cliente = {
+                availableOptions: d.tipo_cliente,
+                selectedOption: {id: '1'} 
+              };
+
+              $ctrl.tipo_cliente.availableOptions.unshift({id:-1, tipo_cliente:'Seleccionar'});
+              $ctrl.tipo_cliente.selectedOption.id=-1;     
 
               $ctrl.datalocalidad2=d.localidad;
 
@@ -107,6 +116,7 @@
                   $ctrl.Boton="Guardar";
                   $ctrl.objDataCliente=$stateParams.objdata;
 
+                  $ctrl.tipo_cliente.selectedOption.id=$ctrl.objDataCliente.id_tipo_cliente;
                   $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataCliente.id_provincia;
                   $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataCliente.id_localidad;
                   $ctrl.actividad.selectedOption.id=$ctrl.objDataCliente.id_actividad;
@@ -122,6 +132,7 @@
                   $ctrl.Boton="Eliminar";
                   $ctrl.objDataCliente=$stateParams.objdata;
 
+                  $ctrl.tipo_cliente.selectedOption.id=$ctrl.objDataCliente.id_tipo_cliente;
                   $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataCliente.id_provincia;
                   $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataCliente.id_localidad;
                   $ctrl.actividad.selectedOption.id=$ctrl.objDataCliente.id_actividad;
@@ -151,6 +162,7 @@
             $ctrl.objDataCliente.id_provincia=$ctrl.dataprovincia.selectedOption.id;
             $ctrl.objDataCliente.id_localidad=$ctrl.datalocalidad.selectedOption.id;
             $ctrl.objDataCliente.id_actividad=$ctrl.actividad.selectedOption.id;
+            $ctrl.objDataCliente.id_tipo_cliente=$ctrl.tipo_cliente.selectedOption.id;
             $ctrl.objDataCliente.conoce=$ctrl.data.selectedOption.id;
 
             //ES6 La variable CONST

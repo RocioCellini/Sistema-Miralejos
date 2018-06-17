@@ -5,7 +5,7 @@ session_start();
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'};
+$type_accion=$data->{'type_accion'}; 
 
 //$type_accion="buscar_cliente";
 
@@ -19,9 +19,9 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 	$id_localidad=$data->{'id_localidad'};
 
 	/*
-	$criterio=""; 
-    $id_provincia=1;
-	$id_localidad=1;
+	$criterio="ro"; 
+    $id_provincia=4;
+	$id_localidad=333;
 	*/
 
 	$type_data=null;
@@ -84,7 +84,6 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 		$data_query[]=$id_localidad;
      
     }
-
    
 
 	$result = 'SELECT * FROM cliente'.$subconsulta.' ORDER BY nombre';
@@ -104,9 +103,6 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
      	call_user_func_array(array($stmt, 'bind_param'), $data_bind);
 
     }
-      
- 	//print_r($data_bind);
-
 
     $stmt->execute(); 
 
@@ -117,12 +113,32 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
       	$response = array();
 
       	do{
-		
+			$id_tipo_cliente=$row["id_tipo_cliente"];
 			$id_provincia=$row["id_provincia"];
 			$id_localidad=$row["id_localidad"];			
 			$id_actividad=$row["id_actividad"];	
 			$id_conoce=$row['conoce'];	
 			$conoce='';
+
+			//Tipo de Cliente 
+
+	       	$result_tc = 'SELECT * FROM tipo_cliente WHERE id_tipo_cliente=?';
+
+				$stmt_tc = $conn->prepare($result_tc);
+
+				if($stmt_tc===false) {
+					trigger_error('Wrong SQL: ' . $result_tc . ' Error: ' . $conn->error, E_USER_ERROR);
+				} 
+
+				$stmt_tc->bind_param('i',$id_tipo_cliente); 
+
+				$stmt_tc->execute(); 
+
+				$rs_tc=$stmt_tc->get_result(); 
+
+				if($row_tc=$rs_tc->fetch_assoc()){
+					$tipo_cliente=$row_tc["tipo_cliente"];
+				}
 
 			
 
@@ -190,6 +206,8 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 			$temp=array('id_cliente'=>utf8_encode($row['id_cliente']),
 						'nombre'=>utf8_encode($row['nombre']),						
                         'apellido'=> utf8_encode($row['apellido']), 
+                        'id_tipo_cliente'=>utf8_encode($id_tipo_cliente),
+                        'tipo_cliente'=>utf8_encode($tipo_cliente),
                         'dni'=>utf8_encode($row['dni']),
                         'telefono1'=>utf8_encode($row['telefono1']),
                         'telefono2'=>utf8_encode($row['telefono2']),
@@ -209,7 +227,7 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 		} while ($row=$rs->fetch_assoc());		
 
 	} else { 
-		 $mensaje=array('message'=>"No se encontró un cliente con el email ingresado");
+		 $mensaje=array('message'=>"No se encontró un cliente con los datos ingresados");
 		 $response[]=$mensaje;
 	} 
 

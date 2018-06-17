@@ -7,12 +7,39 @@
 
     $type_accion=$data->{'type_accion'};
     
-    //$type_accion='combos_agregar_datos';
+    //$type_accion='search_data_combos';
      
       if ($type_accion==="search_data_combos" && isset($_SESSION['Usuario'])) {
 
 
         include "../conexion.php";  
+
+        //Tipo de Cliente 
+
+        $result_tc = "SELECT * FROM tipo_cliente";
+        $stmt_tc = $conn->prepare($result_tc);
+
+        if($stmt_tc === false) {
+            trigger_error('Wrong SQL: ' . $result_tc . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+         
+        $stmt_tc->execute();
+        $rs_tc=$stmt_tc->get_result();
+
+        if($row_tc = $rs_tc->fetch_assoc()) {
+        
+            $response_tc = array();
+
+            do  {
+
+                $temp=array('id'=>utf8_encode($row_tc['id_tipo_cliente']),
+                            'tipo_cliente'=> utf8_encode($row_tc['tipo_cliente'])
+                );
+
+                $response_tc[]=$temp;
+
+            }  while ($row_tc= $rs_tc->fetch_assoc());
+        }
 
         //Provincias 
 
@@ -97,7 +124,7 @@
         }   
 
      
-        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'actividad' => $response_act);
+        $item=array('tipo_cliente' => $response_tc, 'provincia' => $response_prov, 'localidad' => $response_loc, 'actividad' => $response_act);
         $json = json_encode($item);
         echo $json;
 

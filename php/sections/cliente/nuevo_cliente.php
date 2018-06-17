@@ -20,6 +20,7 @@ if ($type_accion==="nuevo_cliente" && isset($_SESSION['Usuario'])) {
 	
 	$nombre=$data->{'nombre'};
   $apellido=$data->{'apellido'};
+  $id_tipo_cliente=$data->{'id_tipo_cliente'};
   $dni =$data->{'dni'};
 	$telefono1 =$data->{'telefono1'};
   $telefono2 =$data->{'telefono2'};
@@ -32,19 +33,19 @@ if ($type_accion==="nuevo_cliente" && isset($_SESSION['Usuario'])) {
 /*
   $nombre="caro";
   $apellido="lopez";
-  $tipo_cliente=1;
+  $id_tipo_cliente=1;
   $dni =4455667;
   $telefono1 =455664;
   $telefono2 =344567;
   $email ="caro@gmail.com";
   $id_provincia=1;
   $id_localidad=26;  
-  $actividad ="agro";
+  $id_actividad =1;
   $conoce=1;
-  */
+*/
  
-  $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, dni, telefono1, telefono2, email, id_provincia, id_localidad, id_actividad, conoce) VALUES
-  (?,?,?,?,?,?,?,?,?,?,?)';
+  $sql_insert='INSERT INTO cliente (id_cliente, nombre, apellido, id_tipo_cliente, dni, telefono1, telefono2, email, id_provincia, id_localidad, id_actividad, conoce) VALUES
+  (?,?,?,?,?,?,?,?,?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -53,7 +54,7 @@ if ($type_accion==="nuevo_cliente" && isset($_SESSION['Usuario'])) {
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('issiiisiiis',$idfirst, $nombre, $apellido, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $id_actividad, $conoce);
+  $stmt_insert->bind_param('issiiiisiiis',$idfirst, $nombre, $apellido, $id_tipo_cliente, $dni, $telefono1, $telefono2, $email, $id_provincia, $id_localidad, $id_actividad, $conoce);
 
   $stmt_insert->execute();
 
