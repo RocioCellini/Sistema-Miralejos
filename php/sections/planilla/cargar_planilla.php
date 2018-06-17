@@ -5,11 +5,11 @@ session_start();
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'}; 
+$type_accion=$data->{'type_accion'};
 
 //$type_accion="cargar_planilla";
 
-if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
+if ($type_accion==="cargar_planilla"  && isset($_SESSION['Usuario']) ) {
 
 		include "../../conexion.php";
 
@@ -90,6 +90,8 @@ if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 				  		$tipo_cliente=$row_tipo['tipo_cliente'];
 
+				  }else{
+				  	$tipo_cliente='Sin Datos';	
 				  }    		
 	            
 
