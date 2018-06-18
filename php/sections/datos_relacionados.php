@@ -138,7 +138,7 @@ if ($type_accion==="combos_agregar_datos") {
 
      include "../conexion.php";  
 
-           //Provincias 
+        //Provincias 
 
         $result = "SELECT * FROM provincia";
         $stmt = $conn->prepare($result);
@@ -332,6 +332,33 @@ if ($type_accion==="combos_agregar_datos") {
             }  while ($row_dpto= $rs_dpto->fetch_assoc());
         }
 
+        //Cierre de Operacion 
+
+        $result_co = "SELECT * FROM cierre_operacion";
+        $stmt_co = $conn->prepare($result_co);
+
+        if($stmt_co === false) {
+            trigger_error('Wrong SQL: ' . $result_co . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+         
+        $stmt_co->execute();
+        $rs_co=$stmt_co->get_result();
+
+        if($row_co = $rs_co->fetch_assoc()) {
+        
+            $response_co = array();
+
+            do  {
+
+                $temp=array('id_cierre_operacion'=>utf8_encode($row_co['id_cierre_operacion']),
+                            'cierre_operacion'=> utf8_encode($row_co['cierre_operacion'])
+                );
+
+                $response_co[]=$temp;
+
+            }  while ($row_co = $rs_co->fetch_assoc());
+        }
+
 
         //Origen Datos
         //-----------------------------------------------------
@@ -362,7 +389,7 @@ if ($type_accion==="combos_agregar_datos") {
             }  while ($row_origen= $rs_origen->fetch_assoc());
         }
     
-        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'vendedor' => $response_vend, 'inmobiliaria' => $response_inmob, 'edificio' => $response_edificio, 'planta' => $response_planta, 'dpto' => $response_dpto, 'origen_dato' => $response_origen);
+        $item=array('provincia' => $response_prov, 'localidad' => $response_loc, 'vendedor' => $response_vend, 'inmobiliaria' => $response_inmob, 'edificio' => $response_edificio, 'planta' => $response_planta, 'dpto' => $response_dpto, 'cierre_operacion' => $response_co, 'origen_dato' => $response_origen);
         $json = json_encode($item);
         echo $json;
 

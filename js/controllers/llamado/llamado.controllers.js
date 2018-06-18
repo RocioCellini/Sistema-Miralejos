@@ -41,19 +41,24 @@
       $ctrl.altInputFormats = ['dd/MM/yyyy'];
 
       $ctrl.dateOptions = {
-
-      formatYear: 'yy',
-      maxDate: new Date(2020, 5, 22),
-      minDate: new Date(),
-      startingDay: 1
+        formatYear: 'yy',
+        maxDate: new Date(2020, 5, 22),
+        minDate: new Date(),
+        startingDay: 1
       };
 
       $ctrl.popup1 = {
       opened: false
       };
+
       $ctrl.popup2 = {
       opened: false
       };
+
+      $ctrl.popup3 = {
+      opened: false
+      };
+
 
       $ctrl.CurrentDate = new Date();
 
@@ -161,6 +166,14 @@
           $ctrl.data_dpto.availableOptions.unshift({id_dpto:-1, nombre:'Seleccionar'});
           $ctrl.data_dpto.selectedOption.id_dpto=-1;  
 
+          $ctrl.cierre_operacion = {
+              availableOptions: d.cierre_operacion,
+              selectedOption: {id_cierre_operacion: '1'} 
+          };    
+
+          $ctrl.cierre_operacion.availableOptions.unshift({id_cierre_operacion:-1, cierre_operacion:'Seleccionar'});
+          $ctrl.cierre_operacion.selectedOption.id_cierre_operacion=-1; 
+
           $ctrl.data_origen_dato = {
               availableOptions: d.origen_dato,
               selectedOption: {id_origen_dato: '1'} 
@@ -182,6 +195,7 @@
               $ctrl.data_edificio.selectedOption.id_edificio=$ctrl.objDataLlamado.id_edificio;
               $ctrl.data_planta.selectedOption.id_planta=$ctrl.objDataLlamado.id_planta;   
               $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
+              $ctrl.cierre_operacion.selectedOption.id_cierre_operacion=$ctrl.objDataLlamado.id_cierre_operacion; 
               $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
                 
@@ -192,16 +206,18 @@
               /*******************************************************************/ 
               let date1 = $ctrl.objDataLlamado.fecha_llamado.split("-");
               let date2 = $ctrl.objDataLlamado.fecha_origen_dato.split("-");                    
+              let date3 = $ctrl.objDataLlamado.fecha_cierre_operacion.split("-");   
 
               setDate(date1[0], date1[1]-1, date1[2], "dt1");
               setDate(date2[0], date2[1]-1, date2[2], "dt2");
+              setDate(date3[0], date3[1]-1, date3[2], "dt3");
                  
               // Creamos una funcion con cualquier nombre para pasar los parametros obtenidos por split.
               function setDate (year, month, day , typevar) {
 
                 // AHORA SI! podemos crear un Obj date por que tenemos los valores como nos pide new Date ()
-                // typevar es solo para aprovechar la funcion y hacer el mismo procedimiento con las dos variables
-                // dt1 y dt2.   
+                // typevar es solo para aprovechar la funcion y hacer el mismo procedimiento con las tres variables
+                // dt1, dt2 y dt3.   
                 console.log(month);
                 
                 $ctrl.objDataLlamado[typevar] = new Date(year, month, day);
@@ -221,7 +237,7 @@
               $ctrl.objDataLlamado.time = $filter('date')(valuetime, 'HH:mm:ss');
 
               /*******************************************************************/ 
-              
+               
               $ctrl.data_origen_dato.selectedOption.id_origen_dato=$ctrl.objDataLlamado.id_origen_dato;   
 
               $ctrl.objDataLlamado.type_accion="editar_llamado";
@@ -240,10 +256,13 @@
               $ctrl.data_edificio.selectedOption.id_edificio=$ctrl.objDataLlamado.id_edificio;
               $ctrl.data_planta.selectedOption.id_planta=$ctrl.objDataLlamado.id_planta;   
               $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
+
+              $ctrl.cierre_operacion.selectedOption.id_cierre_operacion=$ctrl.objDataLlamado.id_cierre_operacion; 
               $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
               $ctrl.objDataLlamado.dt1 =$stateParams.objdata.fecha_llamado;
               $ctrl.objDataLlamado.dt2 = $ctrl.objDataLlamado.fecha_origen_dato; 
+              $ctrl.objDataLlamado.dt3 = $ctrl.objDataLlamado.fecha_cierre_operacion; 
               $ctrl.objDataLlamado.time = $ctrl.objDataLlamado.hora_llamado;  
 
               $ctrl.data_origen_dato.selectedOption.id_origen_dato=$ctrl.objDataLlamado.id_origen_dato;   
@@ -326,6 +345,10 @@
       $ctrl.popup2.opened = true;
     };
 
+    $ctrl.open3 = function() {
+      $ctrl.popup3.opened = true;
+    };
+
 
 
     // Searching data        
@@ -385,6 +408,9 @@
         $ctrl.objDataLlamado.id_edificio = $ctrl.data_edificio.selectedOption.id_edificio;
         $ctrl.objDataLlamado.id_planta = $ctrl.data_planta.selectedOption.id_planta;
         $ctrl.objDataLlamado.id_dpto = $ctrl.data_dpto.selectedOption.id_dpto;
+
+        $ctrl.objDataLlamado.id_cierre_operacion = $ctrl.cierre_operacion.selectedOption.id_cierre_operacion; 
+        $ctrl.objDataLlamado.fecha_cierre_operacion = $filter('date')($ctrl.objDataLlamado.dt3, 'yyyy-MM-dd');
 
         $ctrl.objDataLlamado.grado_interes=$ctrl.grado_interes.selectedOption.id;
         $ctrl.objDataLlamado.id_origen_dato = $ctrl.data_origen_dato.selectedOption.id_origen_dato; 
