@@ -5,24 +5,26 @@ session_start();
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-$type_accion=$data->{'type_accion'}; 
+//$type_accion=$data->{'type_accion'}; && isset($_SESSION['Usuario'])
 
-//$type_accion="buscar_cliente";
+$type_accion="buscar_cliente";
 
-if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
+if ($type_accion==="buscar_cliente" ) {
 
 	include "../../conexion.php";
 
 	
-	$criterio=$data->{'criterio'}; 
-    $id_provincia=$data->{'id_provincia'};
-	$id_localidad=$data->{'id_localidad'};
+	//$criterio=$data->{'criterio'}; 
+    //$id_provincia=$data->{'id_provincia'};
+	//$id_localidad=$data->{'id_localidad'};
 
-	/*
-	$criterio="ro"; 
-    $id_provincia=4;
-	$id_localidad=333;
-	*/
+	
+	$criterio="Liz"; 
+	
+    $id_provincia=-1;
+	$id_localidad=-1;
+
+	
 
 	$type_data=null;
 	$data_query[0]=&$type_data;
@@ -55,7 +57,7 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 
 
 
-    if($id_provincia!==-1) {
+    if($id_provincia!==-1 && $id_provincia!==0) {
 
      	if($subconsulta=="") {
 
@@ -73,7 +75,7 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 
 
 
-    if($id_localidad!==-1) {
+    if($id_localidad!==-1 && $id_localidad!==0) {
      
      	 if($subconsulta!=="") {
 
@@ -138,6 +140,8 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 
 				if($row_tc=$rs_tc->fetch_assoc()){
 					$tipo_cliente=$row_tc["tipo_cliente"];
+				}else{
+					$tipo_cliente='Sin Datos';
 				}
 
 			
@@ -158,7 +162,10 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 
 				if($row_prov=$rs_prov->fetch_assoc()){
 					$provincia=$row_prov["nombre"];
+				}else{
+					$provincia='Sin Datos';
 				}
+
 
 			$result_loc = 'SELECT * FROM localidad WHERE id_localidad=?';
 
@@ -176,6 +183,8 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 
 				if($row_loc=$rs_loc->fetch_assoc()){
 					$localidad=$row_loc["nombre"];
+				}else{
+					$localidad='Sin Datos';
 				}
 
 			$result_act = 'SELECT * FROM actividad WHERE id_actividad=?';
@@ -194,6 +203,8 @@ if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 
 				if($row_act=$rs_act->fetch_assoc()) {
 					$actividad=$row_act["nombre"];
+				}else{
+					$actividad='Sin Datos';
 				}
 	
 

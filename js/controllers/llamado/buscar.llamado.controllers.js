@@ -80,12 +80,7 @@
         $ctrl.open1 = function() {
           $ctrl.popup1.opened = true;
         };
-
-       
-
-      
-
-       
+               
         $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
         $ctrl.format = $ctrl.formats[1];
         $ctrl.altInputFormats = ['dd/MM/yyyy'];
