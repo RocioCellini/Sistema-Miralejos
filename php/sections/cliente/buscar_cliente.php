@@ -5,26 +5,22 @@ session_start();
 $json=file_get_contents('php://input');
 $data=json_decode($json);
 
-//$type_accion=$data->{'type_accion'}; && isset($_SESSION['Usuario'])
+$type_accion=$data->{'type_accion'};
 
-$type_accion="buscar_cliente";
+//$type_accion="buscar_cliente";
 
-if ($type_accion==="buscar_cliente" ) {
+if ($type_accion==="buscar_cliente" && isset($_SESSION['Usuario'])) {
 
 	include "../../conexion.php";
 
 	
-	//$criterio=$data->{'criterio'}; 
-    //$id_provincia=$data->{'id_provincia'};
-	//$id_localidad=$data->{'id_localidad'};
+	$criterio=$data->{'criterio'}; 
+    $id_provincia=$data->{'id_provincia'};
+	$id_localidad=$data->{'id_localidad'};
 
-	
-	$criterio="Liz"; 
-	
+	/*$criterio="Liz"; 	
     $id_provincia=-1;
-	$id_localidad=-1;
-
-	
+	$id_localidad=-1;*/
 
 	$type_data=null;
 	$data_query[0]=&$type_data;

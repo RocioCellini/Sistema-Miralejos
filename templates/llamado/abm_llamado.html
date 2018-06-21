@@ -156,6 +156,16 @@
             <div class="col-sm-4" ></div>
       </div>
 
+      <div class="form-group" ng-hide="comboProvHide">
+          <label class="col-sm-4 control-label">Inmobiliaria:</label>      
+          <div class="col-sm-4">
+                <select name="inmobiliaria" id="inmobiliaria" class="form-control campoform"
+                ng-options="option.name for option in $ctrl.data_inmob.availableOptions track by option.id"
+                ng-model="$ctrl.data_inmob.selectedOption"></select>    
+          </div>
+          <div class="col-sm-4"></div>
+      </div>
+
       <div class="form-group">
          <label class="col-sm-4 control-label">¿Operación Cerrada?:</label>
             <div class="col-sm-4" >
@@ -166,26 +176,25 @@
             <div class="col-sm-4" ></div>
       </div>
 
-       <div class="form-group">
-          <label  class="col-sm-4 control-label">Fecha de Cierre de Operación:</label>
-          <div class="col-sm-6" align="left">
-             <div class="input-group">
-                <p class="input-group">
-                  <input type="text" class="form-control"
-                   uib-datepicker-popup="{{$ctrl.format}}" 
-                   ng-model="$ctrl.objDate.fecha_cierre_operacion" is-open="$ctrl.popup3.opened" 
-                   datepicker-options="$ctrl.dateOptions" 
-                   ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
-                   alt-input-formats="altInputFormats" readonly="readonly" />
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="$ctrl.open3()">
-                    <i class="glyphicon glyphicon-calendar"></i></button>
-                  </span>
-                </p>   
-              </div>                           
-          </div>
-          <div class="col-sm-2"></div>
+      <div class="form-group">
+        <label  class="col-sm-4 control-label">Fecha de Cierre de Operación:</label>
+        <div class="col-sm-4" align="left">
+           <div class="input-group">
+              <p class="input-group">
+                <input type="text" class="form-control"
+                 uib-datepicker-popup="{{$ctrl.format}}" 
+                 ng-model="$ctrl.objDataLlamado.dt3" is-open="$ctrl.popup3.opened" 
+                 datepicker-options="$ctrl.dateOptions" 
+                 ng-required="true" close-text="Cerrar" clear-text="Limpiar" current-text="Hoy"
+                 alt-input-formats="$ctrl.altInputFormats" readonly="readonly" />
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="$ctrl.open3()">
+                  <i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+              </p>   
+            </div>                           
         </div>
+      </div>
 
       <div class="form-group">
           <label  class="col-sm-4 control-label">Grado de Interés:</label>

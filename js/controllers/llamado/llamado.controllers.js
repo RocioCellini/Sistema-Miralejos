@@ -17,7 +17,7 @@
 
       $ctrl.defaultparams = {};
       $ctrl.objDataLlamado = {
-      criterio:""
+        criterio:""
       };
 
       $ctrl.objLogin ={};
@@ -174,6 +174,14 @@
           $ctrl.cierre_operacion.availableOptions.unshift({id_cierre_operacion:-1, cierre_operacion:'Seleccionar'});
           $ctrl.cierre_operacion.selectedOption.id_cierre_operacion=-1; 
 
+          $ctrl.data_inmob = {
+              availableOptions: d.inmobiliaria,
+              selectedOption: {id: '1'} 
+          };    
+
+          $ctrl.data_inmob.availableOptions.unshift({id:-1, name:'Seleccionar'});
+          $ctrl.data_inmob.selectedOption.id=-1; 
+
           $ctrl.data_origen_dato = {
               availableOptions: d.origen_dato,
               selectedOption: {id_origen_dato: '1'} 
@@ -195,6 +203,7 @@
               $ctrl.data_edificio.selectedOption.id_edificio=$ctrl.objDataLlamado.id_edificio;
               $ctrl.data_planta.selectedOption.id_planta=$ctrl.objDataLlamado.id_planta;   
               $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
+              $ctrl.data_inmob.selectedOption.id=$ctrl.objDataLlamado.id_inmobiliaria;
               $ctrl.cierre_operacion.selectedOption.id_cierre_operacion=$ctrl.objDataLlamado.id_cierre_operacion; 
               $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
@@ -210,7 +219,7 @@
 
               setDate(date1[0], date1[1]-1, date1[2], "dt1");
               setDate(date2[0], date2[1]-1, date2[2], "dt2");
-              setDate(date3[0], date3[1]-1, date3[2], "dt3");
+              setDate(date3[0], date3[1], date3[2], "dt3");
                  
               // Creamos una funcion con cualquier nombre para pasar los parametros obtenidos por split.
               function setDate (year, month, day , typevar) {
@@ -253,6 +262,7 @@
               $ctrl.dataprovincia.selectedOption.id=$ctrl.objDataLlamado.id_provincia;
               $ctrl.datalocalidad.selectedOption.id=$ctrl.objDataLlamado.id_localidad;
               $ctrl.data_vendedor.selectedOption.id=$ctrl.objDataLlamado.id_vendedor;
+              $ctrl.data_inmob.selectedOption.id=$ctrl.objDataLlamado.id_inmobiliaria;
               $ctrl.data_edificio.selectedOption.id_edificio=$ctrl.objDataLlamado.id_edificio;
               $ctrl.data_planta.selectedOption.id_planta=$ctrl.objDataLlamado.id_planta;   
               $ctrl.data_dpto.selectedOption.id_dpto=$ctrl.objDataLlamado.id_dpto; 
@@ -300,8 +310,6 @@
           }
 
       function upDateEdificio(obj_edificio) { 
-
-          console.log(obj_edificio);
 
           $ctrl.defaultparams.type_accion = "relacion_edificio_planta_dpto";
 
@@ -397,7 +405,7 @@
 
     function Save() {
                 
-        //$ctrl.allow_disable=true;
+        $ctrl.allow_disable=true;
 
         $ctrl.objDataLlamado.fecha_llamado = $filter('date')($ctrl.objDataLlamado.dt1, 'yyyy-MM-dd'); 
         $ctrl.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl.objDataLlamado.dt2, 'yyyy-MM-dd'); 
@@ -409,6 +417,8 @@
         $ctrl.objDataLlamado.id_planta = $ctrl.data_planta.selectedOption.id_planta;
         $ctrl.objDataLlamado.id_dpto = $ctrl.data_dpto.selectedOption.id_dpto;
 
+        $ctrl.objDataLlamado.id_inmobiliaria = $ctrl.data_inmob.selectedOption.id;
+
         $ctrl.objDataLlamado.id_cierre_operacion = $ctrl.cierre_operacion.selectedOption.id_cierre_operacion; 
         $ctrl.objDataLlamado.fecha_cierre_operacion = $filter('date')($ctrl.objDataLlamado.dt3, 'yyyy-MM-dd');
 
@@ -418,14 +428,20 @@
         const metodo=$stateParams.type_ingreso.split(".");
 
         console.log(metodo[1]);
+        console.log($ctrl.objDataLlamado);
         
-        llamadoFactory[metodo[1]]($ctrl.objDataLlamado).then(function(d) {                   
+        llamadoFactory[metodo[1]]($ctrl.objDataLlamado).then(function(d) {  
+
                 $ctrl.Mensaje = d.Mensaje;
+
                 //$ctrl.allow_disable=false;
+
+                console.log($ctrl.objDataLlamado);
+                console.log(d.Mensaje);
     
          }).catch(function (err) {
               console.log(err);
-              //$ctrl.allow_disable=false;
+             // $ctrl.allow_disable=false;
          });      
       
     };
