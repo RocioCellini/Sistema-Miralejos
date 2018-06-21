@@ -1,5 +1,5 @@
 <?php
-$file = fopen("final.txt", "r") or exit("Unable to open file!");
+$file = fopen("seg_excel.txt", "r") or exit("Unable to open file!");
 //Output a line of the file until the end is reached
 include "conexion.php";
 $contador=0;

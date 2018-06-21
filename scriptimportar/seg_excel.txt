@@ -1,0 +1,563 @@
+Saad Contarino;Esteban;propietario;3513118389;;Córdoba;Malagueño;;SI;;;;;;;Luigui;;M7;PI;A;
+Monteresino;Martin;propietario;3575400826;;Córdoba;La Para;;SI;;;;;;;;;M7;PI;B;
+Grillo;Juan y Walter;propietario;3513721642;;Córdoba;Córdoba;;SI;;;;;;;Luigui;;M7;PI;C;
+Cuassolo;Juan y Ariel;propietario;3532415792;;Córdoba;Las Junturas;;SI;;;;;;;Luigui;;M7;PI;D;
+Masjuan;Juan Pedro;propietario;;;;;;SI;;;;;;;Canje;;M7;PI;E;
+Masjuan;Juan Pedro;propietario;;;;;;SI;;;;;;;Canje;;M7;PI;F;
+Rueda;Tomas;propietario;;;;;;SI;;;;;;;Canje;;M7;PI;G;
+Vigano;Carlos;propietario;3541651817;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo;;M7;PB;A;
+Zenker y Blussand;Lorena;propietario;3516869314;;Córdoba;La Calera;;SI;;;;;;;Eliseo;;M7;PB;D;
+Heffner;Juan Carlos;propietario;3491415401;;Santiago del Estero;Santiago del Estero;;SI;;;;;;;Eliseo;;M7;PB;E;
+Stazzi ;Lisandro;propietario;3564508999;;Córdoba;Freyre;;SI;;;;;;;Miralejos;;M7;1;B;
+Massolini ;Raul;propietario;3406644388;;Santa Fe;Sastre;;SI;;;;;;;Eliseo;;M7;1;C;
+Rostagno;Franco;propietario;3476629330;;Santa Fe;Serodino;;SI;;;;;;;L.Lopez;;M7;1;D;
+de Durana;Fernando;propietario;2957360316;;La Pampa;Santa Rosa;;SI;;;;;;;;;M7;1;E;
+Saluzzo;Gabriela;propietario;3533680297;;Córdoba;Alicia;;SI;;;;;;;Eliseo;;M7;1;F;
+Cravero;Nelio y Sra.;propietario;35335691921;;Córdoba;Sacanta;;SI;;;;;;;Eliseo;;M7;1;G;
+Torres (Cor Plas);Joaquin;propietario;3541551335;;Córdoba;Córdoba;;SI;;;;;;;Canje;;M7;1;H;
+Laguia Cravero;Carina;propietario;35725442201;;Córdoba;Río Segundo;;SI;;;;;;;Miralejos;;M7;1;J;
+Sanchez;Eduardo y Sebastian;propietario;3572542044;;Córdoba;Laguna Larga;;SI;;;;;;;Miralejos;;M7;1;K;
+Ventroni;Ricardo;propietario;3471568089;;Santa Fe;Tortugas;;SI;;;;;;;Miralejos;;M7;1;M;
+Toledo (Junot);Claudia;propietario;3516180836;;Córdoba;Oliva;;SI;;;;;;;;;M7;1;N;
+Scaramuzza;Hugo;propietario;;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje CL;;M7;1;O;
+Lombardi;Lorenzo;propietario;3471678596;;Santa Fe;Armstrong;;SI;;;;;;;Eliseo;;M7;2;B;
+Agradi;Laura y Martin;propietario;1136869316;;Buenos Aires;Capital Federal;;SI;;;;;;;Cernotto;;M7;2;C;
+Coletto;Eugenia;propietario;3563668365;;Córdoba;Altos de Chipion;;SI;;;;;;;Sandrone;;M7;2;D;
+Carranza;Marcelo;propietario;3562529312;;Córdoba;Brikmann;;SI;;;;;;;Miralejos;;M7;2;E;
+Moncalvillo;Julio;propietario;0111558573357;;Buenos Aires;Cavallito;;SI;;;;;;;Eliseo;;M7;2;F;
+Salgado;Eithel;propietario;3572540889;;Córdoba;Río Segundo;;SI;;;;;;;;;M7;2;G;
+Lupini ;Gerardo;propietario;3572535433;;Córdoba;Pilar;;SI;;;;;;;Eliseo;;M7;2;H;
+Cismondi;Carlos;propietario;3572444517;3572480803;Córdoba;Laguna Larga;;SI;;;;;;;Miralejos;;M7;2;K;
+Garetto;Nestor;propietario;3564586270;;Córdoba;Morteros;;SI;;;;;;;Miralejos;;M7;2;L;
+Strada;Fany;propietario;3573493097;;Córdoba;Matorrales;;SI;;;;;;;Luigui;;M7;2;N;
+Ozan;Diego y Monica;propietario;3471341340;;Santa Fe;Tortugas;;SI;;;;;;;Eliseo;;M7;2;O;
+Villarrolla Galaverna;Marisa;propietario;3564597725;;Córdoba;Feryre;;SI;;;;;;;Stazzi;;M7;2;P;
+Cherubin;Hermegildo;propietario;0357315690996;;Córdoba;Matorrales;;SI;;;;;;;;;M7;3;A;
+Nieto;Joaquin;propietario;03827654641;;La Rioja;Aimogasta;;SI;;;;;;;Chaves;;M7;3;B;
+Macias;Fabian;propietario;3533402890;;Córdoba;Las Varas;;SI;;;;;;;Pablo Perlo;;M7;3;C;
+Martinez;Walter;propietario;3572543879;;Córdoba;Río Segundo;;SI;;;;;;;Miralejos;;M7;3;D;
+Barquilla;Gladys;propietario;3547590200;;Córdoba;Alta Gracia;;SI;;;;;;;Miralejos;;M7;3;F;
+Cimolini;Osvaldo;propietario;03424741428;;Santa Fe;Santo Tome;;SI;;;;;;;Chaves;;M7;3;H;
+Biava;Miguel;propietario;3492667220;;Santa Fe;Rafaela;;SI;;;;;;;Chaves;;M7;3;I;
+Robiglio / Brizzio;;propietario;3572472259;;Córdoba;Pilar;;SI;;;;;;;Eliseo;;M7;4;A;
+Sampietro;Liliana;propietario;2966497487;;Santa Cruz;Río Gallegos;;SI;;;;;;;Cernotto;;M7;4;B;
+Ambroggio;Angel;propietario;;;Córdoba;La Playosa;;SI;;;;;;;Eliseo;;M7;4;C;
+Panero;Rodolfo;propietario;3533434505;;Córdoba;El Arañado;;SI;;;;;;;Eliseo;;M7;4;E;
+Chialvo;Marcelo y Gerardo;propietario;3491695139;;Santa Fe;Hersilia;;SI;;;;;;;Eliseo;;M7;4;F;
+Fall;Ruben;propietario;3413605596;;Santa Fe;Rosario;;SI;;;;;;;Eliseo;;M7;4;G;
+Santagostino;Romulo;propietario;3492580119;;Santa Fe;Santa Clara de Saguier;;SI;;;;;;;Canje M9;;M7;4;H;
+Ambroggio;Angel;propietario;;;Córdoba;La Playosa;;SI;;;;;;;Eliseo;;M7;4;I;
+Ambroggio;Angel;propietario;;;Córdoba;La Playosa;;SI;;;;;;;Eliseo;;M7;4;J;
+Baudin - Masera (Acuario SRL);;propietario;3573513105;3573513104;Córdoba;Calchín;;SI;;;;;;;Chaves;;M7;4;K;
+Marchionatti;Diego;propietario;3564590606;;Córdoba;San Francisco;;SI;;;;;;;Eliseo;;M7;4;L;
+Cherubin;Nicolas;propietario;3513073872;;Córdoba;Matorrales;;SI;;;;;;;Luigui;;M7;5;A;
+Bravo;Dalmi;propietario;3534173047;;Córdoba;Hernando;;SI;;;;;;;;;M7;5;B;
+Bravo;Dalmi;propietario;3534173047;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo;;M7;5;C;
+Masera;Eduardo;propietario;3573400773;;Córdoba;Calchín;;SI;;;;;;;Eliseo;;M7;5;D;
+Santagostino;Romulo;propietario;3492580119;;Santa Fe;Santa Clara de Saguier;;SI;;;;;;;Canje M9;;M7;5;E;
+Borello;Oscar y Nora;propietario;3562466652;;Santa Fe;San Guillermo;;SI;;;;;;;Chaves;;M7;5;F;
+Pennesi;Enrique;propietario;3515107924;;Córdoba;Río Segundo;;SI;;;;;;;Eliseo;;M7;5;G;
+Santagostino;Romulo;propietario;3492580119;;Santa Fe;Santa Clara de Saguier;;SI;;;;;;;Canje M9;;M7;5;H;
+Salgado;Jorge;propietario;3534111951;;Córdoba;James Craik;;SI;;;;;;;Chaves;;M7;5;I;
+Salgado;Javier;propietario;3534111951;;Córdoba;James Craik;;SI;;;;;;;Chaves;;M7;5;J;
+Masera;Daniel;propietario;03573513104;;Córdoba;Calchín;;SI;;;;;;;Chaves;;M7;5;K;
+Ramos;Leandro;propietario;3413691835;;Santa Fe;Reconquista;;SI;;;;;;;Eliseo;;M7;5;L;
+Mezzelani;Geronimo;propietario;;;Santa Fe;Armstrong;;SI;;;;;;;Eliseo;;M7;6;A;
+Marchionatti;Diego;propietario;3564590606;;Córdoba;San Francisco;;SI;;;;;;;Eliseo;;M7;6;B;
+Zurbriggen;Adrian y Andrea;propietario;3515924534;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo;;M7;6;C;
+Marossero;Roberto y German;propietario;3472493250;;Córdoba;Saira;;SI;;;;;;;Miralejos;;M7;6;E;
+Cerutti;Carmen;propietario;1164964115;;Buenos Aires;Buenos Aires;;SI;;;;;;;Canje CA;;M7;6;F;
+Cerutti;Roberto;propietario;3413352254;;Santa Fe;Capitan Bermudez;;SI;;;;;;;Canje CA;;M7;6;G;
+Santagostino;Romulo;propietario;3492580119;;Santa Fe;Santa Clara de Saguier;;SI;;;;;;;Canje M9;;M7;6;H;
+Puccini;Osvaldo;propietario;0358156546893;;Córdoba;Huinca Renanco;;SI;;;;;;;Eliseo;;M7;6;I;
+Chaves;Daniel;propietario;3516826003;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Chaves;;M7;6;J;
+Baudin;Cesar;propietario;03573513105;;Córdoba;Calchín;;SI;;;;;;;Chaves;;M7;6;K;
+Cabas;Edgardo;propietario;3624604160;;Chaco;Resistencia;;SI;;;;;;;Eliseo;;M7;6;L;
+Mancinelli;Juan Carlos;propietario;3471524815;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M7;7;A;
+Broda;Juan Jose;propietario;3564661942;;Córdoba;San Francisco;;SI;;;;;;;;;M7;7;B;
+Taccari;Gustavo;propietario;3471672358;;Santa Fe;Las Rosas;;SI;;;;;;;M.Sanchez;;M7;7;C;
+Gola;Edgar Fernando;propietario;3536559015;;Córdoba;Carrilobo;;SI;;;;;;;Chaves;;M7;7;E;
+Gola;Cristian;propietario;3536573910;;Córdoba;Carrilobo;;SI;;;;;;;Chaves;;M7;7;F;
+Beltramone;Andrea;propietario;3517023906;;Córdoba;Córdoba;;SI;;;;;;;;;M7;7;G;
+Santagostino;Romulo;propietario;3492580119;;Santa Fe;Santa Clara de Saguier;;SI;;;;;;;Canje M9;;M7;7;H;
+Saluzzo;Gabriela;propietario;3533680297;;Córdoba;Alicia;;SI;;;;;;;Eliseo;;M7;7;I;
+Pagani;Miguel;propietario;3416044022;;Santa Fe;Granadero Baigoria;;SI;;;;;;;Eliseo;;M7;7;J;
+De Puerta;Carlos;propietario;3549631700;;Córdoba;Cruz del Eje;;SI;;;;;;;Chaves;;M7;7;K;
+D'Ascanio;Alberto;propietario;3471672150;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M7;7;L;
+Jurado;Hugo;propietario;3464471369;;Santa Fe;Arequito;;SI;;;;;;;Eliseo;;M7;8;A;
+Stuber;Otto;propietario;3406643129;;Santa Fe;María Juana;;SI;;;;;;;Chaves;;M7;8;B;
+Mercol;Raul y Mauricio;propietario;3563491940;;Córdoba;Marul;;SI;;;;;;;Sandrone;;M7;8;C;
+Piva;Juan Santos;propietario;3571528001;;Córdoba;Almafuerte;;SI;;;;;;;Eliseo;;M7;8;E;
+Palacios;Javier;propietario;03541606514;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo;;M7;8;H;
+Montes;Jorge;propietario;3549458124;;Córdoba;Cruz del Eje;;SI;;;;;;;Chaves;;M7;8;I;
+Gaiero;Fernando;propietario;;;Santa Fe;María Susana;;SI;;;;;;;Chaves;;M7;8;J;
+Bela;Juan Jose;propietario;0341154683999;;Santa Fe;Rosario;;SI;;;;;;;Chaves;;M7;8;K;
+Lio Orellano;Viviana;propietario;03543427015;;Córdoba;Córdoba;;SI;;;;;;;Miralejos;;M7;8;L;
+Masjuan;Juan Pedro;propietario;;;;;;SI;;;;;;;Canje;;M7;9;A;
+Mutual Rivadavia ;;propietario;3574454454;;Córdoba;Río Primero;;SI;;;;;;;Chaves;;M7;9;B;
+Deglee ;Elisa;propietario;3815159690;;Tucuman;Concepción;;SI;;;;;;;Miralejos;;M7;9;C;
+Fava ;Gabriel;propietario;3537581020;;Santa Fe;Santa Fe;;SI;;;;;;;Miralejos;;M7;9;D;
+Bearzotti ;Natam;propietario;3401643536;;Córdoba;Córdoba;;SI;;;;;;;;;M7;9;E;
+Resconi;Luis;propietario;3491696688;;Santa Fe;Villa Minetti;;SI;;;;;;;;;M7;9;H;
+Sangali ;Oscar;propietario;3493566709;;Santa Fe;Sunchales;;SI;;;;;;;Eliseo;;M7;9;I;
+Macias;Fabian;propietario;3533402890;;Córdoba;Las Varas;;SI;;;;;;;;;M7;9;K;
+Macias;Fabian;propietario;3533402890;;Córdoba;Las Varas;;SI;;;;;;;;;M7;9;L;
+Barbaro ;Antonio;propietario;2235485779;;Buenos Aires;Mar del Plata;;SI;;;;;;;Eliseo;;M7;10;A;
+Isuani;Julio;propietario;3574454454;;Córdoba;Río Primero;;SI;;;;;;;Chaves;;M7;10;B;
+Isuani;Julio;propietario;;;;;;SI;;;;;;;;;M7;10;C;
+Isuani;Julio;propietario;;;;;;SI;;;;;;;;;M7;10;D;
+Isuani;Julio;propietario;3574454454;;Córdoba;Río Primero;;SI;;;;;;;Chaves;;M7;10;E;
+Martinez;Eduardo;propietario;3624649136;;Chaco;Resistencia;;SI;;;;;;;;;M7;10;H;
+Bustos;Angel;propietario;3541234831;;Córdoba;Villa Carlos Paz;;SI;;;;;;;;;M7;10;K;
+Kuriger;Carlos y Jorge;propietario;3491433073;;;;;SI;;;;;;;Miralejos;;M7;11;A;
+Mey;Sergio;propietario;3465651976;;Santa Fe;Godeken;;SI;;;;;;;Miralejos;;M7;11;B;
+Gonzalez;Juan Carlos;propietario;1139362900;;Buenos Aires;Bernal;;SI;;;;;;;;;M7;11;E;
+Hierros Industrial;;propietario;3516548286;;Córdoba;Córdoba;;SI;;;;;;;Canje;;M7;11;I;
+Beiroa;Nicolas;propietario;;;;;;SI;;;;;;;;;M7;11;L;
+Cerrito;Claudia;propietario;3513028381;;Córdoba;Villa Carlos Paz;;SI;;;;;;;;;M9;L;2;
+E.A.;;propietario;;;;;;SI;;;;;;;;;M9;PB;C;
+Bruchmann ;Nora;propietario;3814183169;;Tucuman;Tucumán;;SI;;;;;;;Eliseo;;M9;PB;D;
+Ozan;Diego y Monica;propietario;3471341340;;Santa Fe;Tortugas;;SI;;;;;;;Eliseo;;M9;PB;C;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;1;A;
+Cavallo ;Gabriel;propietario;3532466077;;Córdoba;Villa María;;SI;;;;;;;Eliseo;;M9;1;B;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;1;D;
+Mercol;Raul y Mauricio;propietario;3563491940;;Córdoba;Marul;;SI;;;;;;;Sandrone;;M9;1;E;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;2;A;
+Jove;Stella;propietario;3462412910;;Santa Fe;Venado Tuerto;;SI;;;;;;;Miralejos;;M9;2;B;
+Francucci;alberto;propietario;3402500353;;Santa Fe;Coronel Dominguez;;SI;;;;;;;Miralejos;;M9;2;C;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;2;D;
+Trossero;martin;propietario;03564605059;;Córdoba;Freyre;;SI;;;;;;;Miralejos;;M9;2;E;
+Facchinetti;carlos;propietario;3576651833;;Córdoba;Arroyito;;SI;;;;;;;Miralejos;;M9;2;F;
+Arnaudo;guillermo;propietario;3576522763;;Córdoba;Arroyito;;SI;;;;;;;Eliseo;;M9;2;G;
+Gigena;maria elizabeth;propietario;03835462593;;Catamarca;Belén;;SI;;;;;;;Miralejos;;M9;2;H;
+Todo Vidrio SRL (Zubillaga);;propietario;;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje Vidrio;;M9;3;A;
+Dezotti;javier;propietario;3572480282;;Córdoba;Laguna Larga;;SI;;;;;;;Miralejos;;M9;4;A;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;4;B;
+Ferrero ;juan;propietario;3573422358;;Santa Fe;Carlos Pellegrini;;SI;;;;;;;Chaves;;M9;4;C;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;4;E;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;5;A;
+Tosco;javier;propietario;3571531171;;Córdoba;Río Tercero;;SI;;;;;;;Eliseo;;M9;5;B;
+Sberna;carlos;propietario;;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo;;M9;5;C;
+Costamagna;marcelo;propietario;3534202118;;Córdoba;Villa María;;SI;;;;;;;Eliseo;;M9;5;E;
+Russo;silda;propietario;3863405880;;Córdoba;Monteros;;SI;;;;;;;Eliseo;;M9;6;A;
+Salvay Armando;juan;propietario;3564508496;;Santa Fe;Zenon Pereyra;;SI;;;;;;;Vigano - Perlo;;M9;6;B;
+Costa;andres;propietario;3533453114;;Santa Fe;Rosario;;SI;;;;;;;Eliseo;;M9;6;C;
+Costa;andres;propietario;3533453114;;Santa Fe;Rosario;;SI;;;;;;;Eliseo;;M9;6;D;
+Costa;andres;propietario;3533453114;;Santa Fe;Rosario;;SI;;;;;;;Eliseo;;M9;6;E;
+Portero;daniel;propietario;3834903043;;Catamarca;Catamarca;;SI;;;;;;;;;M9;7;A;
+Valeriani;hector;propietario;03468497225;;Córdoba;Wenceslao Escalante;;SI;;;;;;;Miralejos;;M9;7;B;
+Hierro Ind. (Ferla);;propietario;3516548286;;Córdoba;Córdoba;;SI;;;;;;;Canje Material;;M9;7;C;
+Chaves Daniel;daniel;propietario;3516826003;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Chaves;;M9;7;E;
+Unzueta;sabas;propietario;3535084004;;Córdoba;Villa María;;SI;;;;;;;Miralejos;;M9;8;A;
+Malizia;roberto y alejandra;propietario;3476603748;;Santa Fe;San Lorenzo;;SI;;;;;;;Miralejos;;M9;8;B;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;8;C;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;8;E;
+Pivetta;rene;propietario;03406562009;;Santa Fe;Crispi;;SI;;;;;;;Miralejos;;M9;9;B;
+Hierro Ind. (Ferla);;propietario;3516548286;;Córdoba;Santa Fe;;SI;;;;;;;Canje Material;;M9;9;C;
+Biolatto;ledi;propietario;3401590726;;Santa Fe;Piamonte;;SI;;;;;;;Eliseo;;M9;9;E;
+Spina;edgardo;propietario;03402405032;;Santa Fe;Arroyo Seco;;SI;;;;;;;;;M9;10;A;
+Gonzalez ;silvia;propietario;3514085333;;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M9;10;B;
+Mila SA;;propietario;;;;;;SI;;;;;;;Canje Terreno;;M9;10;C;
+Gonzalez;juan carlos;propietario;;;Buenos Aires;Bernal;;SI;;;;;;;;;M9;10;D;
+Bossio;antonio;propietario;3468500914;;Córdoba;Wenceslao Escalante;;SI;;;;;;;Eliseo;;M9;10;E;
+Ochoa ;alejandra;propietario;3518067924;;Córdoba;Córdoba;;SI;;;;;;;;;M9;11;A;
+Heredia Lizarazu ;juan ;propietario;3515726308;;Córdoba;Córdoba;;SI;;;;;;;Canje;;M9;11;B;
+HBQ;;propietario;;;Córdoba;Villa María;;SI;;;;;;;Canje;;M9;11;C;
+Ferraro;jose;propietario;3541614593;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Miralejos;;M9;11;E;
+Castillo G y Vettorrazi G;;propietario;3572536967;;Córdoba;Lozada;;SI;;;;;;;Miralejos;;M11;PB;A;
+Balik ;humberto;propietario;3735467690;;Chaco;Hermoso Campo;;SI;;;;;;;Miralejos;;M11;PB;B;
+Piovano;mariano;propietario;3493663670;;Santa Fe;Sunchales;;SI;;;;;;;Miralejos;;M11;PB;C;
+Sanchez;federico;propietario;3493662614;;Santa Fe;Sunchales;;SI;;;;;;;Miralejos;;M11;PB;D;
+Ianni ;ricardo y maria;propietario;1160570015;;Buenos Aires;General Rodriguez;;SI;;;;;;;Canje          ;;M11;PB;H;
+Barbieris;jose;propietario;3493667442;;Santa Fe;Sunchales;;SI;;;;;;;Miralejos;;M11;PB;I;
+Ianni ;maria;propietario;1160570015;;Buenos Aires;General Rodriguez;;SI;;;;;;;Canje          ;;M11;PB;J;
+Ianni ;maria;propietario;1160570015;;Buenos Aires;General Rodriguez;;SI;;;;;;;Canje          ;;M11;PB;K;
+Talavera ;cristian;propietario;3462697905;;Santa Fe;Venado Tuerto;;SI;;;;;;;;;M11;1;A;
+Beorda;luis;propietario;3704610445;;Formosa;El Colorado;;SI;;;;;;;Miralejos;;M11;1;B;
+Gasparini;norma;propietario;3572466524;;Córdoba;Oncativo;;SI;;;;;;;Miralejos;;M11;1;C;
+Viñuela;julio;propietario;3425219038;;Mendoza;Las Heras;;SI;;;;;;;Inm. Marangoni;;M11;1;E;
+Ciccioli;antonio;propietario;3471687557;;Santa Fe;Cañada de Gomez;;SI;;;;;;;Eliseo;;M11;1;H;
+Meinero;bety;propietario;3533438105;;Córdoba;Las Varillas;;SI;;;;;;;Inm. Gallegos;;M11;1;I;
+Proc - Bruna;liliana;propietario;;;;;;SI;;;;;;;Canje BG;;M11;1;J;
+Juarez, v y Giordano, D;;propietario;3537513860;;Córdoba;Justiniano Posse;;SI;;;;;;;;;M11;1;K;
+Proc - Rodriguez  ;marcelo;propietario;;;;;;SI;;;;;;;Canje BG;;M11;2;E;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje BG;;M11;2;H;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M12;L;1;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M12;L;2;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M12;L;3;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M12;L;4;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M12;L;5;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M12;1;A;
+More;cesar;propietario;354158518;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M12;1;E;
+Picatto ;carlos;propietario;3572535273;;Córdoba;Pilar;;SI;;;;;;;Miralejos;;M12;2;A;
+Pagnone;leandro;propietario;3515193505;;Córdoba;Villa Allende;;SI;;;;;;;Miralejos;;M12;2;D;
+Gamarra ;jorge;propietario;3515516959;;Córdoba;Córdoba;;SI;;;;;;;;;M12;2;F;
+Perticone ;omar;propietario;3416537247;;Santa Fe;Ricardone;;SI;;;;;;;Miralejos;;M14;PB;A;
+Garate ;marcos;propietario;3364547420;;Buenos Aires;San Nicolas;;SI;;;;;;;Miralejos;;M14;PB;C;
+Puzichia ;alicia;propietario;03731422240;;Chaco;Charata;;SI;;;;;;;Miralejos;;M14;1;A;
+Puzichia ;alicia;propietario;03731422240;;Chaco;Charata;;SI;;;;;;;Miralejos;;M14;1;B;
+Puzichia ;alicia;propietario;03731422240;;Chaco;Charata;;SI;;;;;;;Miralejos;;M14;1;C;
+Puzichia ;alicia;propietario;03731422240;;Chaco;Charata;;SI;;;;;;;Miralejos;;M14;1;D;
+Ciuffo ;cristina;propietario;2657631486;;San Luis;Villa Mercedes;;SI;;;;;;;Miralejos;;M14;1;F;
+Dorrego ;cesar;propietario;3564505550;;Córdoba;La Francia;;SI;;;;;;;Miralejos;;M14;2;B;
+Martinez ;liliana;propietario;3537652237;;Córdoba;San Marcos Sud;;SI;;;;;;;Miralejos;;M14;2;C;
+Pando;oscar alberto;propietario;03541429517;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Chaves;;M1;PB;A; 
+Vazquez ;Gustavo;propietario;03533433850;;Córdoba;Las Varillas;;SI;;;;;;;;;M1;PB;C;gustavo_a_vazquez@hotmail.com
+Copponi ;mayco;propietario;0353155084100;03534612565;Córdoba;Villa María;;SI;;;;;;;Canje;;M1;PB;D;sandradecastro89@gmail.com
+Comini;amanda;propietario;03541426506 ;354115552026;Córdoba;Villa Carlos Paz;;SI;;;;;;;Chaves;;M1;PB;E;amandacomini@hotmail.com
+Bisognani ;liliana;propietario;3574 409238 ;3513048884;Córdoba;Río Primero;;SI;;;;;;;Chaves;;M1;PB;F;crebaque2012@gmail.com lilianabiso@gmail.com
+Giorgio;miriam;propietario;03624560031;;Chaco;Resistencia;;SI;;;;;;;Eliseo;;M1;PB;G;moralesluis51@yahoo.com.ar
+Zapata;miryam;propietario;2657584391 ;2657431837;San Luis;Villa Mercedes;;SI;;;;;;;Chaves;;M1;PB;H;loreajesus@gmail.com
+Rosseto;francisco;propietario;03533420011;03533420014;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M1;1º;A;bacner_repuestos@arnetbiz.com.ar
+Ghiano;alicia;propietario;3493422176;3493154009290;Santa Fe;Sunchales;;SI;;;;;;;Chaves;;M1;1º;B;aliciaghiano@hotmail.com
+Franco;ana maria;propietario;3576414338;3576491017;Córdoba;El Tío;;SI;;;;;;;Chaves;;M1;1º;C;anamfranco9@gmail.com
+Gallo;placido;propietario;03533421857 ;353315680218;Córdoba;Las Varillas;;SI;;;;;;;Canje;;M1;1º;D;fernandagodi@hotmail.com
+Gallo;placido;propietario;03533421857 ;353315680218;Córdoba;Las Varillas;;SI;;;;;;;Canje;;M1;1º;E;fernandagodi@hotmail.com
+Gallo;placido;propietario;03533421857 ;353315680218;Córdoba;Las Varillas;;SI;;;;;;;Canje;;M1;1º;F;fernandagodi@hotmail.com
+Gallo;Fernando;propietario;3533680218 ;03533421857;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M1;1º;G;fernandagodi@hotmail.com
+Rivero ;fanny;propietario;3541330743;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M1;2º;A;riverofannyemilse@hotmail.com
+Beltramone ;andrea;propietario;03514247372 ;351157023905;Córdoba;Las Varillas;;SI;;;;;;;Canje;;M1;2º;B;lelitajones@hotmail.com
+Sberna;adriana;propietario;3541542778 ;3541428582;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M1;2º;C;gestions12@gmail.com
+Benavente;teresa;propietario;2615254360;;Mendoza;Godoy Cruz;;SI;;;;;;;Chaves;;M1;2º;D;juanconti31@yahoo.com
+Perón ;bety;propietario;3472555091;;Córdoba;San Marcos Sud;;SI;;;;;;;Canje;;M1;2º;E;fliarebuffo@yahoo.com.ar
+Gallo;placido;propietario;03533421857 ;353315680218;Córdoba;Las Varillas;;SI;;;;;;;Canje;;M1;2º;F;fernandagodi@hotmail.com
+Spínedi ;cecilia;propietario;354115611401;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M1;2º;G;mcspinedi@gmail.com
+Trabucco;sandra;propietario;03572458860  ;3572440883;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M1;2º;H;sandra_trabucco@hotmail.com
+Besora;juan carlos;propietario;3547620022 ;354715630248;Córdoba;Rafael Garcia;;SI;;;;;;;Eliseo;;M1;3º;A;
+Daghero;carlos;propietario;3572437945;;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M1;3º;B;micaeladaghero@gmail.com
+Bravo ;celeste;propietario;3516705706;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo;;M1;3º;C;celestebravo@hotmail.com
+Piovano ;luis cesar;propietario;0351156082851;;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M1;3º;D;lafuenteesther@hotmail.com
+Guillis ;mario;propietario;0353154014479;;Córdoba;Villa María;;SI;;;;;;;Eliseo;;M1;3º;E;magillis@live.com.ar
+Gallo;placido;propietario;03533421857 ;35334535300;Córdoba;Las Varillas;;SI;;;;;;;Canje;;M1;3º;F;fernandagodi@hotmail.com
+Caporale ;omar;propietario;03414927333  ;0340215495790;Santa Fe;Fighiera ;;SI;;;;;;;Chaves;;M1;3º;G;parador2004@yahoo.com.ar - mderc@hotmail.com 
+Gentile ;raul;propietario;3492430476 ;3492635874;Santa Fe;Rafaela ;;SI;;;;;;;;;M1;3º;H;tododiesel@wilnet.com.ar
+D'Andrea Antici;ana;propietario;3401648635;;Santa Fe;María Susana;;SI;;;;;;;Pirra;;M2;PB;A;anamariadandrea@hotmail.com
+Magnano Contreras;natalia;propietario;3573457401 ;3573481251;Córdoba;Luque;;SI;;;;;;;Eliseo/Angar.;;M2;PB;B;nataliamagnano@hotmail.com
+Contreras;carola;propietario;3541558145;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Chaves;;M2;PB;C;
+Namur;hugo;propietario;03468471459;;Córdoba;Monte Maíz;;SI;;;;;;;Eliseo;;M2;PB;D;namurinmobiliaria@yahoo.com.ar
+Barragán;raul;propietario;0296615621203;;Santa Cruz ;Río Gallegos;;SI;;;;;;;Chaves;;M2;PB;E;"hugogodoy@rifasbarragan.com; rbarragan304@gmail.com "
+Martinez;ismelda zulma;propietario;3541623310 ;3541430121;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo/Angar.;;M2;PB;F;ismezmartinez@gmail.com
+Pereyra;hugo daniel;propietario;0353215401716;353437974;Córdoba;Oliva ;;SI;;;;;;;Chaves;;M2;PB;G;giu600721@hotmail.com 
+Baltar;daniela;propietario;3541516169;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Cesión;;M2;PB;H;patobaltar@hotmail.com
+Angaramo;gabriela;propietario;3573513412;;Córdoba;Calchín;;SI;;;;;;;Eliseo;;M2;PB;I;gabyangaramo7@hotmail.com.ar
+Faggioli;natalia;propietario;3573401019;;Córdoba;Luque;;SI;;;;;;;Chaves;;M2;PB;J;"jorge.giraudo@alladio.com.ar; estudioabaco@outlook.com"
+Molas;maria elena;propietario;3513872184;;Catamarca;Catamarca;;SI;;;;;;;Pirra;;M2;PB;K;mundial78@hotmail.com
+Vega;gerardo;propietario;1150276683;;Buenos Aires;Florencio Varela ;;SI;;;;;;;Eliseo;;M2;PB;L;aanto18@hotmail.com
+Colao  Lezcano;laura;propietario;02323421662;;Buenos Aires;Luján;;SI;;;;;;;Eliseo;;M2;PB;M;laurasilvialezcano@hotmail.com
+Cerutti;graciela;propietario;3572691026;;Córdoba;Oncativo;;SI;;;;;;;Cesión;;M2;PB;N;gracielacerutti@hotmail.com
+Provens;luis;propietario;03514561792 ;3515517040;Córdoba;Córdoba;;SI;;;;;;;Cesión;;M2;PB;O;prohens_d@arnet.com.ar
+Audisio;juan carlos;propietario;3573514203;3573497289;Córdoba;Calchín;;SI;;;;;;;Eliseo/Angar.;;M2;PB;P;pabloaudisio@hotmail.com.ar
+Baillet;manuela;propietario;0342154730697;;Santa Fe;Santa Fe;;SI;;;;;;;Eliseo;;M2;PB;Q;aliciaamayasauce@hotmail.com
+Serassio;nestor;propietario;3541623410;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo/Angar.;;M2;PB;R;farmaciadurando@hotmail.com
+Vazquez;gustavo;propietario;3533433850;;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M2;PB;S;gustavo_a_vazquez@hotmail.com
+Audero;elizabeth;propietario;3576414581 ;357615412848;Córdoba;El Tío;;SI;;;;;;;Chaves;;M2;PB;T;flia_torchetto@hotmail.com
+Gasman;diego;propietario;3564639571 ;3564450918;Córdoba;Colonia Vignaud;;SI;;;;;;;Eliseo;;M2;PB;U;esthermondino@hotmail.com
+Gazzano ;luis  eduardo;propietario;3547635052;;Córdoba;Despeñaderos ;;SI;;;;;;;Chaves;;M2;PB;V;ninoros@gmail.com
+Bosetti;jorge;propietario;357315436270;;Córdoba;Calchín;;SI;;;;;;;Cesión;;M2;PB;W;jorgebisetti@gmail.com
+Capellini;enzo;propietario;3576651621;;Córdoba;Arroyito;;SI;;;;;;;Eliseo;;M2;PB;X;transecapellini@cescom.net.ar
+Lorandini;alberto;propietario;3471525883;;Santa Fe;Montes de Oca;;SI;;;;;;;Chaves;;M2;PB;Y;blorandini@redcrs.com.ar
+Minetti ;dario;propietario;3573402640;;Córdoba;Luque ;;SI;;;;;;;;;M2;PB;Z;darioaminetti@hotmail.com
+Gianesini;egles;propietario;03573497313 ;3573497064 ;Córdoba;Calchín;;SI;;;;;;;Cesión;;M2;1º;A;m.gerosa@hotmail.com
+Ciccioli;ruben;propietario;3471687557;;Santa Fe;Cañada de Gomez;;SI;;;;;;;Pirra;;M2;1º;B;andreaciccioli@hotmail.com
+Sberna;alba;propietario;3541542778;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M2;1º;C;gestions12@gmail.com
+Sberna;alba;propietario;3541542778;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M2;1º;D;gestions12@gmail.com
+Ardesino ;graciela del valle;propietario;0357415455401;;Córdoba;Río Primero;;SI;;;;;;;;;M2;1º;E;chelaardesino@gmail.com 
+Mezzelani;fernando;propietario;0347115610302;;Córdoba;Córdoba;;SI;;;;;;;Cesión;;M2;1º;F;yanimeschini@hotmail.com
+SDK Ingenieria S.R.L.;;propietario;3541469047;;;;;SI;;;;;;;Canje;;M2;1º;G;
+Sberna;alba;propietario;3541542778;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M2;1º;H;gestions12@gmail.com
+Salamanca;carlos;propietario;03533420949;;Córdoba;Las Varillas;;SI;;;;;;;Cesión;;M2;1º;J;vivsalamanca@lasvarinet.com.ar
+Cipolatti;raquel;propietario;3575491125;;Córdoba;La Para;;SI;;;;;;;Lucas;;M2;1º;K;raquelcipolatti@hotmail.com
+Beistegui;alcides;propietario;3541469047;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M2;1º;L;alcides2005@gmail.com
+Metrebian ;silvia;propietario;03516092770;;;;;SI;;;;;;;;;M2;1º;M;silmetre@gmail.com
+Beistegui ;sol;propietario;3541469047;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M2;1º;N;alcides2005@gmail.com
+Belbusti;alberto;propietario;3576528068;;Córdoba;Arroyito;;SI;;;;;;;Eliseo;;M2;1º;O;belbusticlaudiojose@hotmail.com
+Brunetto;roberto;propietario;3533686290;;Córdoba;Sacanta;;SI;;;;;;;Eliseo/Angar.;;M2;1º;P;
+Fernandez;alfredo hector;propietario;0111536628600  ;0378115484583;Corrientes ;Itá Ibaté;;SI;;;;;;;Chaves;;M2;1º;Q;
+Pesco;jose;propietario;3585629374 ;3585155619186;Córdoba;General Deheza;;SI;;;;;;;Chaves;;M2;1º;R;gapesco@cgdweb.com.ar
+Gomez;ana;propietario;3533401527 ;3533421017;Córdoba;Villa Carlos Paz;;SI;;;;;;;Pirra;;M2;1º;S;silvina19_15@hotmail.com
+Ercoli;nestor;propietario;3401522407;;Santa Fe;Los Cardos;;SI;;;;;;;Pirra;;M2;1º;T;marta_carnevale@hotmail.com
+Yus;noelia ;propietario;3416272328;;Santa Fe;Capitan Bermudez;;SI;;;;;;;Chaves;;M2;1º;U;noerolhogar@gmail.com
+Kuriger;mario;propietario;3491433074;;Santa Fe;Villa Trinidad;;SI;;;;;;;Eliseo;;M2;1º;V;vetcorsa@vtcc.com.ar
+Antonucci;silvana;propietario;3532467155 ;3532495000;Córdoba;Calchín Oeste;;SI;;;;;;;Pirra;;M2;1º;W;vanesaantonucci@hotmail.com
+Saluzzo;gabriela;propietario;3533680297;;Córdoba;Alicia;;SI;;;;;;;Eliseo;;M2;1º;X;info@gabrielasaluzzo.com.ar
+Yus;rolando;propietario;3416272328;;Santa Fe;Capitan Bermudez;;SI;;;;;;;Chaves;;M2;1º;Y;noerolhogar@gmail.com
+Marchegiani;norma;propietario;3572438859 ;3572457375;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M2;1º;Z;nmarchegiani@hotmail.com
+Malía;juan jose;propietario;3533454518;;Córdoba;Alicia;;SI;;;;;;;Eliseo;;M2;2º;A;malliajoseluis@hotmail.com
+Fernandez;jorge pablo;propietario;3825677671;;La Rioja;Chilecito;;SI;;;;;;;Chaves;;M2;2º;B;jorgepfernandez@gmail.com
+Sberna;alba;propietario;3541542778;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M2;2º;C;gestions12@gmail.com
+Zuppa ;paola;propietario;0357215529066;;Córdoba;Oncativo ;;SI;;;;;;;Eliseo;;M2;2º;D;paozuppa@hotmail.com- silviaravalli@hotmail.com
+Montero Muñoz;soraya;propietario;354115690400;;Córdoba;San Antonio;;SI;;;;;;;Canje;;M2;2º;E;sorayamontero12@hotmail.com
+Alvarez;catalina;propietario;3573693707;;Córdoba;Villa del Rosario;;SI;;;;;;;Eliseo;;M2;2º;F;alvarezmariacatalina38@gmail.com
+Rodriguez;federico;propietario;2954528562;;La Pampa;Santa Rosa;;SI;;;;;;;Eliseo;;M2;2º;G;rodriguezteruel@hotmail.com
+Sberna;alba;propietario;3541542778      ;3541550763;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M2;2º;H;gestions12@gmail.com
+Catelli;edgar;propietario;3468413309;;Córdoba;Monte Maíz;;SI;;;;;;;Chaves;;M2;2º;I;edgarcatelli@hotmail.com
+Ronco;analia;propietario;3533684751;;Córdoba;Las Varillas;;SI;;;;;;;Cesión;;M2;2º;J;ani_ronco@hotmail.com
+Piovano;oscar y julio;propietario;3564608437;;Córdoba;La Francia;;SI;;;;;;;Eliseo;;M2;2º;K;jpiovano@lafrancia.com.ar
+Parodi, Carlos;carlos;propietario;03525455426;;Córdoba;Jesús María;;SI;;;;;;;Chaves;;M2;2º;L;castagnacarina@hotmail.com
+Yane ;liliana;propietario;2644154175;;San Juan ;San Juan ;;SI;;;;;;;;;M2;2º;M;lilianyane05@gmail.com 
+Fernandez ;silvana;propietario;3572449132;;Córdoba;Oncativo;;SI;;;;;;;Cisterna/Ross;;M2;2º;N;
+Chiarotti;walter;propietario;3572512168;;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M2;2º;O;chawarajo@hotmail.com
+Perea;marcelo;propietario;351532400;;Córdoba;Córdoba;;SI;;;;;;;Chaves;;M2;2º;P;ing.industrial.perea@gmail.com
+Porcel de Peralta;nahuel;propietario;3516994051;;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M2;2º;Q;porcelnahuel@gmail.com
+Piovano;julio cesar;propietario;3564608437 ;3564508448;Santa Fe;Tortugas;;SI;;;;;;;Cesión;;M2;2º;R;jpiovano@lafrancia.com.ar
+Orlandi;yanina soledad;propietario;3573513249;;Córdoba;Calchín;;SI;;;;;;;Eliseo/Angar.;;M2;2º;S;ysorlandi@hotmail.com.ar
+Minetti;Alicia;propietario;3516748951;;Córdoba;Calchín;;SI;;;;;;;Eliseo/Angar.;;M2;2º;T;aliciaminetti56@hotmail.com
+Tantucci;amado;propietario;03572456946 ;357215693718;Córdoba;Oncativo;;SI;;;;;;;Eliseo;;M2;2º;U;
+Establecimiento Don Elpidio SRL;;propietario;3573499560;;Córdoba;Luque;;SI;;;;;;;Eliseo;;M2;2º;V;danielmartino_@live.com.ar
+Bobbio ;raul pedro;propietario;03576493158; 03576 15412392;Córdoba;El Tío;;SI;;;;;;;Cesión;;M2;2º;W;antonellabobbio@hotmail.com
+Dadone;oscar;propietario;3471681547 ;3471681546;Santa Fe;Las Rosas;;SI;;;;;;;Chaves;;M2;2º;X;d5cereales@walnet.com.ar
+Pirchio;sergio;propietario;3471674375;;Santa Fe;Cañada Rosquín;;SI;;;;;;;Eliseo;;M2;2º;Y;sergiopirchio@hotmail.com
+Giraudo ;nicolas;propietario;3516766220;;Córdoba;Córdoba;;SI;;;;;;;;;M2;2º;Z;ngiraudoe@arnet.com.ar
+Marangoni;eduardo;propietario;03424344944 ;3424743215;Santa Fe;Santo Tome;;SI;;;;;;;Eliseo;;M2;3º;A;marangonieduardo@hotmail.com
+Zanatta ;daniel;propietario;0351152277054;;Córdoba;Villa Retiro ;;SI;;;;;;;Chaves;;M2;3º;B;olga_rossi_80@hotmail.com 
+Farchetto;horacio;propietario;3513886791;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Chaves;;M2;3º;C;horacioafarchetto@gmail.com
+Rasano;hugo;propietario;3572691175;;Córdoba;Río Segundo;;SI;;;;;;;Eliseo;;M2;3º;D;alquiler_vajillas_rasano@hotmail.com
+Carballo;liliana;propietario;0354115650319 ;2954-595376;La Pampa;Santa Rosa;;SI;;;;;;;Eliseo;;M2;3º;E;"liajimenabardin@hotmail.com; lilocarballo@hotmail.com"
+Carnero;fabiana;propietario;0357415401969;3574481301;La Pampa;Santa Rosa;;SI;;;;;;;Chaves;;M2;3º;F;fabianacarnero792@gmail.com.ar
+Peral;mirtha;propietario;3549631700 ;354915630403;Córdoba;Cruz del Eje;;SI;;;;;;;Chaves;;M2;3º;G;mirthaperal@yahoo.com.ar
+Orihuela;eduardo;propietario;3385449308;;Córdoba;Laboulaye;;SI;;;;;;;Chaves;;M2;3º;H;eduorihuela@hotmail.com
+Moriondo;susana;propietario;3564434218;;Córdoba;San Francisco;;SI;;;;;;;Chaves;;M2;3º;I;"juanmaboschetto@hotmail.com.ar; susanavarayoud@hotmail.com"
+Baravalle;estela mary;propietario;0354715581442 ;03547425598;Córdoba;Alta Gracia ;;SI;;;;;;;Cesión;;M2;3º;J;tucofernandez@gmail.com
+Picotto;maria eugenia;propietario;3492576203 ;3492508004;Santa Fe;Vila;;SI;;;;;;;Eliseo;;M2;3º;K;mepicotto@interclass.com.ar
+Garcia ;maria eugenia;propietario;3472438976  ;3472483156;Córdoba;Leones ;;SI;;;;;;;Chaves;;M2;3º;L;jpig1978@gmail.com 
+Franco;roberto;propietario;3573402370;;Córdoba;Villa del Rosario;;SI;;;;;;;Cisterna;;M2;3º;M;mariana.f2008@hotmail.com
+Mezzelani ;geronimo enrique;propietario;0347115575008 ;3471461121;Santa Fe;Armstrong;;SI;;;;;;;Chaves;;M2;3º;N;
+Ghigo;victor;propietario;3573456180;;Córdoba;Calchín;;SI;;;;;;;Eliseo/Angar.;;M2;3º;O;mariaestherarnaudo@hotmail.com
+Pintucci ;Oscar;propietario;357615413100;;Córdoba;Arroyito;;SI;;;;;;;Cesión;;M2;3º;Q;"diegopintucci05@gmail.com; melorenzi@hotmail.com // lpintucci@yahoo.com"
+Satuf ;mauricio;propietario;0340215496994;;Santa Fe;Santa Teresa ;;SI;;;;;;;;;M2;3º;R;mauriciosatuf@fboglich.com.ar
+Conti;maria pamela;propietario;2615254360;;Mendoza;Godoy Cruz;;SI;;;;;;;Chaves;;M2;3º;S;natalia_conti@yahoo.com.ar
+Ostorero;carlos alberto;propietario;3562404496 ;3562431103;Córdoba;Morteros ;;SI;;;;;;;Eliseo/Angar.;;M2;3º;T;carlosostorero2@gmail.com
+Trillini;hugo orlando;propietario;3572511688 ;3572516793;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M2;3º;U;martinatrillini.calidad@gmail.com
+Salvucci;benchi;propietario;3573496954 ;;Córdoba;Luque;;SI;;;;;;;Eliseo;;M2;3º;V;aurox16@hotmail.com
+Bocco;nebel;propietario;351153413839 ;3492669985;Córdoba;Santa Clara de Saguir;;SI;;;;;;;Eliseo;;M2;3º;W;lorenabocco@hotmail.com
+Biagetti;carlos y norma;propietario;3573400504 ;3573400506;Córdoba;Villa del Rosario;;SI;;;;;;;Cisterna;;M2;3º;X;carandinonorma@hotmail.com
+Salzgeber;helio;propietario;03471582086  ;03541556919;Santa Fe;Las Rosas;;SI;;;;;;;Chaves;;M2;3º;Y;maruvcp_04@hotmail.com
+Schneider;marisa del carmen;propietario;3498473607 ;3498479379;Santa Fe;Elisa ;;SI;;;;;;;Eliseo;;M2;3º;Z;schneider.marisa@hotmail.com
+Dadurian;Jose;propietario;03576422924;;Córdoba;Arroyito;;SI;;;;;;;Eliseo;;M3;PB;B;dadurian@arnet.com.ar
+Jurado;hugo;propietario;3464471369;;Córdoba;Arequito;;SI;;;;;;;Eliseo;;M3;PB;C;ventas@cedar.com.ar
+Cagnolo;abelardo;propietario;03534611361;;Córdoba;Villa María;;SI;;;;;;;Eliseo;;M3;PB;D;"gabebadi@arnetbiz.com.ar; abelcagnolo@hotmail.com"
+Nardi ;angel;propietario;;;Santa Fe;Villa Eloisa;;SI;;;;;;;Cesión;;M3;PB;E;cecilianardi@yahoo.com.ar
+Russo;norma;propietario;2216128298 ;2214835206;Buenos Aires;La Plata;;SI;;;;;;;Chaves;;M3;PB;F;normagrusso@yahoo.com.ar
+Dadurian;jose;propietario;03576422924;;Córdoba;Arroyito;;SI;;;;;;;Cesión;;M3;PB;I;dadurian@arnet.com.ar
+Pleitavino ;luis omar;propietario;03573421506; 357315461545;Córdoba;Luque;;SI;;;;;;;Chaves;;M3;PB;J;dahy-78@hotmail.com
+Fandos ;berta ramona;propietario;0354115588816 ;3541483708;Córdoba;Villa Carlos Paz;;SI;;;;;;;Cesión;;M3;PB;K;ramolegui@hotmail.com.ar
+Delfino;silvia;propietario;03571507745; 3571539114;Córdoba;Río Tercero;;SI;;;;;;;Cesión;;M3;PB;L;d.e.rossi@hotmail.com
+Sella;jorge;propietario;3487347166 ;3487420152;Buenos Aires;Zarate;;SI;;;;;;;Chaves;;M3;PB;LL;nuevosaires3@gmail.com
+Nuñez Corres;alejandra;propietario;03534528520;;Córdoba;Villa María;;SI;;;;;;;Chaves;;M3;PB;M;rodri_nu@yahooo.com.ar 
+Durando ;amanda irene;propietario;3563409630;;Córdoba;Córdoba;;SI;;;;;;;Chaves;;M3;PB;N;damiantuni@hotmail.com
+Destefanis;enrique;propietario;03535657815 ;3534612105;Córdoba;Villa María;;SI;;;;;;;Chaves;;M3;PB;Ñ;enriquedestefanis@gmail.com
+Maero;jorge;propietario;3534449114;;Córdoba;San Marcos Sud;;SI;;;;;;;Eliseo;;M3;PB;O;marianelamaero@hotmail.com
+Varayoud de Maranetto ;mirta;propietario;03576421512 ;035715461563;Córdoba;Arroyito ;;SI;;;;;;;Eliseo;;M3;PB;P;admin@maranetto.com.ar
+Sagripanti;marcelo;propietario;3514707982;;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M3;PB;Q;"transportesagripanti@hotmail.com; agustinsagripanti@hotmail.com"
+Valentini ;franco ruben;propietario;3471490108 ;3471490115;Santa Fe;Armstrong;;SI;;;;;;;Eliseo;;M3;PB;R;info@acepla.com.ar
+Laurita;oscar;propietario;3576446630;;Córdoba;Santiago Temple;;SI;;;;;;;Eliseo;;M3;PB;S;transporteoscarlaurita@hotmail.com
+Marchegiani;silvana;propietario;3572444678  ;3572448164;Córdoba;Oncativo;;SI;;;;;;;Eliseo;;M3;PB;T;silvanamarchegiani@gmail.com
+Ozan;diego;propietario;3471688835;;Santa Fe;Tortugas ;;SI;;;;;;;Chaves;;M3;PB;U;diegoymateo@hotmail.com
+Pagnone;leandro;propietario;3515193505;;Córdoba;Villa Allende;;SI;;;;;;;Eliseo;;M3;PB;V;lpagnone@gmail.com
+Seimandi;gustavo;propietario;3492516944;;Santa Fe;San Jorge;;SI;;;;;;;Eliseo;;M3;PB;W;seimandigus@gmail.com
+Cantamuto;oscar;propietario;3564619237;;Santa Fe;Freyre;;SI;;;;;;;Eliseo;;M3;PB;X;gabrielcantamutto@hotmail.com
+Longo;lucas;propietario;3564628093;3564431203;Córdoba;San Francisco;;SI;;;;;;;Eliseo;;M3;PB;Y;lucaslongocar@gmail.com
+Trecco;ronald;propietario;3534061916;;Córdoba;Ticino;;SI;;;;;;;Eliseo;;M3;PB;Z;rtrecco@lorenzati.com
+Molina;franklin;propietario;0340115437977 ;0340115410009;Santa Fe;El Trebol;;SI;;;;;;;Pirra;;M3;1º;A;vanesa@lovatotransporte.com
+Miralles;elba isabel;propietario;0354715466122;;Córdoba;Alta Gracia;;SI;;;;;;;Eliseo;;M3;1º;B;"adrianagaray1980@gmail.com; contador@elcentrofinanciero.com.ar"
+Gomez Marello;oscar;propietario;3534656906;;Córdoba;Justiniano Posse;;SI;;;;;;;Chaves;;M3;1º;C;doctoroscargomez@yahoo.com.ar
+Novarese;onelio;propietario;3401640095;3401642254 ;Santa Fe;Casas;;SI;;;;;;;Pirra;;M3;1º;D;vane-6278@hotmail.com
+Trillini;hugo;propietario;3572516793;;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M3;1º;E;martinatrillini.calidad@gmail.com
+Barale Nanterme;walter;propietario;3876663716;;Salta;Rosario de la Frontera;;SI;;;;;;;Chaves;;M3;1º;F;norte_bulones@hotmail.com
+Cicciliani;mariana;propietario;3468569762;;Córdoba;Monte Maíz;;SI;;;;;;;Namur;;M3;1º;G;maiaciciliani76@hotmail.com
+Becerica;paola;propietario;3572530041;;Córdoba;Oncativo;;SI;;;;;;;Eliseo / Gaby;;M3;1º;H;paolabecerica@hotmail.com
+Minetti;jorge;propietario;3573456278 ;3573497156;Córdoba;Calchín;;SI;;;;;;;Eliseo / Gaby;;M3;1º;I;jominettisrl@gmail.com / ypfminetti@gmail.com
+Seimandi;gustavo;propietario;3492516944;;Santa Fe;San Jorge;;SI;;;;;;;;;M3;1º;J;seimandigus@gmail.com
+Besonne;omar;propietario;03468471875;;Córdoba;Monte Maíz;;SI;;;;;;;Eliseo/Namur;;M3;1º;K;marybessonemm@hotmail.com.ar
+Mosson ;catalina;propietario;0354115628211;354115621393;Córdoba;Villa Carlos Paz;;SI;;;;;;;Cesión;;M3;1º;L;
+Bocco;norberto;propietario;03564638847;;Córdoba;Calchín Oeste;;SI;;;;;;;Cesión;;M3;1º;LL;gracielabocco@hotmail.com
+Calderon;rinaldo;propietario;03576421708;;Córdoba;Arroyito;;SI;;;;;;;Eliseo/Dadurian ;;M3;1º;M;mylcalderon@arnet.com.ar
+Yus;carlos;propietario;3416272328;;Santa Fe;Capitan Bermudez;;SI;;;;;;;Chaves;;M3;1º;N;noerolhogar@gmail.com
+Rodriguez;rolando;propietario;3874109217 ;38744360782;Salta;Salta;;SI;;;;;;;Chaves;;M3;1º;Ñ;ingrolandorodriguez@hotmail.com
+Comba;italo;propietario;3532499168 ;3532498502;Córdoba;Calchín Oeste;;SI;;;;;;;Cesión;;M3;1º;O;diegolucas68@hotmail.com
+Lopez;eduardo;propietario;03532421132;0353215498479;Córdoba;Oliva ;;SI;;;;;;;Eliseo;;M3;1º;P;"eduardobalalopez@hotmail.com; picafore41@hotmail.com"
+Milevich ;fabiana;propietario;0351155199371;;Córdoba;La Calera ;;SI;;;;;;;Pirra;;M3;1º;Q;lrmcba@hotmail.com 
+Leo ;jose lorenzo;propietario;0382715655454;;La Rioja ;Aimogasta ;;SI;;;;;;;Chaves;;M3;1º;R;leo_jose@arnet.com.ar 
+Trecco;daniel;propietario;3534229830;;Córdoba;Ticino;;SI;;;;;;;;;M3;1º;S;farmagudin@yahoo.com.ar
+Lamberti;cristian y leonardo;propietario;3573411851;;Córdoba;Matorrales;;SI;;;;;;;Eliseo;;M3;1º;T;"grupolamberti1@hotmail.com.ar; grupolamberti@hotmail.com.ar"
+Bonetto;gerardo;propietario;0353154087625;;Córdoba;Etruria;;SI;;;;;;;Eliseo;;M3;1º;U;gerardo_bonetto@hotmail.com
+Pettiti;diego;propietario;3533686892;;Córdoba;Las Varillas;;SI;;;;;;;Cesión;;M3;1º;V;"diegopetittitrabajo@gmail.com; diego_petitti@hotmail.com "
+Bonetto;gerardo;propietario;03534087625;;Córdoba;Etruria;;SI;;;;;;;Eliseo;;M3;1º;W;iglesiascecilia001@gmail.com
+Arnaudo;lita;propietario;03514235700;;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M3;1º;X;
+Ludueña;daniel;propietario;03576523090;;Córdoba;El Tío;;SI;;;;;;;Chaves;;M3;1º;Y;dluduena@hotmail.com.ar
+Baravalle de Genaro;mabel;propietario;3533589365 ;3533404232;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M3;1º;Z;franciscorgenaro@yahoo.com.ar
+Mallia;juan jose;propietario;3533454518;;Córdoba;Alicia;;SI;;;;;;;Eliseo;;M3;2º;A;jjmallia@cespalnet.com.ar
+Garcia;fernanda;propietario;03537592530;;Córdoba;Justiniano Posse ;;SI;;;;;;;Eliseo;;M3;2º;B;fermellisgarcia@hotmail.com 
+Olivetta;marcelo;propietario;3533686551;;Córdoba;Devoto ;;SI;;;;;;;Cesión;;M3;2º;C;lasvarillas@fordpicco.com.ar
+Aguilera;veronica;propietario;1141757046;;Buenos Aires;Buenos Aires;;SI;;;;;;;Eliseo / Gaby;;M3;2º;D;veronicakinesio@gmail.com
+Romero;ruben;propietario;3471426409;;Córdoba;Cañada de Gomez;;SI;;;;;;;Cesión;;M3;2º;E;leb660@hotmail.com
+D'Angelo;horacio;propietario;3537592054;;Córdoba;Justiniano Posse;;SI;;;;;;;Chaves;;M3;2º;F;ginar@nodosud.com.ar
+Girardi;sergio;propietario;3548413563;;Córdoba;La Falda;;SI;;;;;;;Chaves;;M3;2º;G;jorgesgirardi@hotmail.com
+Fanucchi;sergio;propietario;3491690164;;Santa Fe;Ceres;;SI;;;;;;;Chaves;;M3;2º;H;sfanucchi@arnet.com.ar
+Maldonado;nori;propietario;3735457174;;Chaco;Campo Hermoso;;SI;;;;;;;Motroni;;M3;2º;I;znmaldonado@yahoo.com.ar
+Forlin;raul;propietario;3462501294;;Santa Fe;Santa Isabel;;SI;;;;;;;Chaves;;M3;2º;J;raul.forlin@hotmail.com
+Lombardi;lorenzo;propietario;03471461125;;Santa Fe;Armstrong;;SI;;;;;;;Chaves;;M3;2º;K;lombardil@arnet.com.ar
+García;fernando;propietario;03537594034;;Córdoba;Justiniano Posse;;SI;;;;;;;Pirra;;M3;2º;L;lyfgarcia@nodosud.com.ar
+Poeta;jose;propietario;3576468964 ;3576468962;Córdoba;Arroyito;;SI;;;;;;;;;M3;2º;LL;josemarcosp@gmail.com
+Garcia;leandro;propietario;3537442957;;Córdoba;Justiniano Posse;;SI;;;;;;;Pirra;;M3;2º;M;leli180476@gmail.com
+Gil;walter;propietario;3576650783;;Córdoba;Arroyito;;SI;;;;;;;Eliseo;;M3;2º;N;guniguni@arnet.com.ar
+Rosso;omar;propietario;03401420116 ;3401641706;Santa Fe;El Trebol;;SI;;;;;;;Chaves;;M3;2º;Ñ;omarrosso@arnet.com.ar
+Cerutti;roberto;propietario;3413352254;;Santa Fe;Capitan Bermudez;;SI;;;;;;;Canje;;M3;2º;O;giscer23@hotmail.com 
+Cerutti;roberto;propietario;3413352254;;Santa Fe;Capitan Bermudez;;SI;;;;;;;Canje;;M3;2º;P;giscer23@hotmail.com 
+Pagaburu;leonardo;propietario;3492580088;;Santa Fe;Rafaela;;SI;;;;;;;Chaves;;M3;2º;Q;lpagaburu@nutribal.com.ar
+Gomez;marita;propietario;3731401430;;Chaco;Charata;;SI;;;;;;;Motroni;;M3;2º;R;mar_gom_men@hotmail.com
+Avalis;jose maria;propietario;3534950115;;Córdoba;Las Perdices;;SI;;;;;;;Eliseo;;M3;2º;S;"jmavalis@gmail.com; estefaniamarengo@outlook.com"
+Fernandez;jorge;propietario;3468529952 ;3468536879;Córdoba;Monte Maíz;;SI;;;;;;;Eliseo;;M3;2º;T;agromassmm@hotmail.com
+Catelli;edgar;propietario;3468413309;;Córdoba;Monte Maíz;;SI;;;;;;;Eliseo;;M3;2º;U;edgarcatelli@hotmail.com
+Rodriguez;ramin;propietario;3572542139;;Córdoba;Río Segundo;;SI;;;;;;;Canje;;M3;2º;V;nahuellrodriguez@hotmail.com
+Namur;hugo;propietario;03468471459;;Córdoba;Monte Maíz;;SI;;;;;;;Eliseo;;M3;2º;W;
+Colombo;walter;propietario;3537441915;;Córdoba;San Marcos Sud;;SI;;;;;;;Eliseo;;M3;2º;X;adrianabersano@hotmail.com
+Venier;carlos;propietario;03572480458;;Córdoba;Laguna Larga ;;SI;;;;;;;Eliseo;;M3;2º;Y;carlos-venier@hotmail.com 
+ Gattino ;ireneo;propietario;03564423086 ; 356415416678;Córdoba;San Francisco ;;SI;;;;;;;Canje ;;M3;2º;Z;rectificacionesgattino@hotmail.com
+Marchegiani;norma;propietario;3572438859;;Córdoba;Oncativo;;SI;;;;;;;Eliseo;;M3;3º;A;nmarchegiani@hotmail.com
+Romano;ernesto;propietario;3573513146;;Córdoba;Luque;;SI;;;;;;;Eliseo;;M3;3º;B;
+Cesar;claudio;propietario;3514211030 ;3515207765;;;;SI;;;;;;;;;M3;3º;C;mariabarberis1311@hotmail.com
+Yus;rolando;propietario;3416572243;;Santa Fe;Ricardone;;SI;;;;;;;Chaves;;M3;3º;D;noerolhogar@gmail.com
+Juncos;sonia;propietario;3572443510;;Córdoba;Río Segundo;;SI;;;;;;;Eliseo;;M3;3º;E;juncossonia@hotmail.com
+Rusconi;diego;propietario;3471421530;;Santa Fe;Cañada de Gomez;;SI;;;;;;;Eliseo;;M3;3º;F;diegorusconi@hierromassrl.com.ar
+Ochetti;rodolfo;propietario;03572460016 ;3572435292;Córdoba;Oncativo;;SI;;;;;;;Eliseo;;M3;3º;G;idalinazoia2012@hotmail.com.ar
+Orihuela;eduardo;propietario;3385449308;;Córdoba;Laboulaye;;SI;;;;;;;Chaves;;M3;3º;H;eduorihuela@hotmail.com
+Mansilla;alfredo;propietario;0354715674109;;Córdoba;Despeñaderos;;SI;;;;;;;Pirra;;M3;3º;I;gonzalommansilla@hotmail.com
+Castagno;diego;propietario;3562438239;;Córdoba;Freyre;;SI;;;;;;;Eliseo;;M3;3º;J;castagnodiegom@hotmail.com
+Bollo;luis;propietario;3543614035;;Córdoba;Río Ceballos;;SI;;;;;;;Eliseo;;M3;3º;K;luisbollo@hotmail.com
+Panero;rodolfo;propietario;3533434505 ;3533452001;Córdoba;El Arañado;;SI;;;;;;;Eliseo;;M3;3º;L;silviapussetto74@hotmail.com
+Cottura;miriam;propietario;3573436125;;Córdoba;Luque;;SI;;;;;;;Eliseo;;M3;3º;LL;"patrygugli@hotmail.com; edmundofer_44@hotmail.com.ar; miriancot_18@hotmail.com"
+Ferrari;andres;propietario;03467471529 ;03515107924 ;Córdoba;Monte Buey;;SI;;;;;;;Pirra;;M3;3º;M;"enriquepennesi@live.com.ar; andresferr@nodosud.com.ar"
+Chiariotti;walter;propietario;3572440909;;Córdoba;Oncativo;;SI;;;;;;;Cesión;;M3;3º;N;chawarajo@hotmail.com
+De Pascual;rogelio;propietario;3517536105;;Córdoba;Córdoba;;SI;;;;;;;Canje;;M3;3º;Ñ;"fdepascual@gmail.com; rogedepaz@hotmail.com"
+Trecco ;daniel;propietario;3534229830;;Córdoba;Ticino;;SI;;;;;;;Eliseo;;M3;3º;O;farmagudin@yahoo.com.ar
+Rozycki;jose;propietario;3514705577;;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M3;3º;P;rozycki@trv.com.ar
+Giliberti;oscar;propietario;03572445525;;Córdoba;Laguna Larga;;SI;;;;;;;Eliseo;;M3;3º;Q;miquidemaria@hotmail.com
+Aljanati;marcela;propietario;3541651664 ;35413194932;Córdoba;Villa Carlos Paz;;SI;;;;;;;Chaves;;M3;3º;R;
+Cesar;claudio;propietario;3514211030 ;3515207765;;;;SI;;;;;;;;;M3;3º;S;mariabarberis1311@hotmail.com
+Quiroga;gustavo;propietario;3476427584;;Santa Fe;San Lorenzo;;SI;;;;;;;Chaves;;M3;3º;T;gustavojquiroga@hotmail.com
+Ferreyra;norberto;propietario;3564560807;;Córdoba;Colonia San Bartolome ;;SI;;;;;;;;;M3;3º;U;norbertoferreyra46@hotmail.com
+Rodriguez;jorge;propietario;3572570680;;Córdoba;Río Segundo;;SI;;;;;;;Canje;;M3;3º;V;
+Trincavelli;jorge;propietario;03541426975;;Salta;Salta;;SI;;;;;;;Eliseo;;M3;3º;W;trincavellijorge@gmail.com
+Cerino;daniel;propietario;3515636066;;Córdoba;Arroyito;;SI;;;;;;;Eliseo;;M3;3º;X;ma.carocerino@gmail.com
+Lencina;gabriel;propietario;3834788378;;Catamarca;Catamarca;;SI;;;;;;;Chaves;;M3;3º;Y;gabylencina77@gmail.com
+Gottero;alejandro;propietario;3534140183 ;3535657206;Córdoba;Ticino;;SI;;;;;;;Eliseo;;M3;3º;Z;vivianadichiara@hotmail.com
+Candelero;alberto;propietario;3564667214 ; 3564451171;Córdoba;Porteña;;SI;;;;;;;;;M4;PB;A;albertocandelero@hotmail.com
+Italiani;juan;propietario;02235520151 ;3541384048;Buenos Aires;Mar del Plata;;SI;;;;;;;Eliseo;;M4;PB;B;pimba933@hotmail.com
+Cerquetti;isabel;propietario;3471570249;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M4;PB;C;yeni75@hotmail.com.ar
+Osella;martin;propietario;3471686492;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M4;PB;D;martinosella_1982@hotmail.com
+Bessone;martin;propietario;03492496437;;Santa Fe;Ramona;;SI;;;;;;;Eliseo;;M4;PB;E;marcebessone31@gmail.com
+Panero;rodolfo;propietario;3533434505;;Córdoba;El Arañado;;SI;;;;;;;Eliseo;;M4;PB;F;silviapussetto74@hotmail.com
+Tolosa;mirta;propietario;3514721768 ;3515110178;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M4;PB;G;merymoran91@gmail.com
+Venier ;mauro;propietario;0357215570631;;Córdoba;Laguna Larga ;;SI;;;;;;;;;M4;1º;A;maurovenier@hotmail.com
+Rossotto;omar;propietario;3562669003  ;3564450074;Córdoba;Porteña;;SI;;;;;;;Eliseo;;M4;1º;B;rossotto62@gmail.com
+Venier ;carlos;propietario;03572480458 ;357215531254;Córdoba;Laguna Larga ;;SI;;;;;;;;;M4;1º;C;carlos-venier@hotmail.com
+Gallo;gustavo;propietario;3533681892;;Córdoba;Las Varillas;;SI;;;;;;;Canje;;M4;1º;D;gustavo@industriasgallo.com.ar
+Rios;eugenio;propietario;3468521972;;Córdoba;Monte Maíz;;SI;;;;;;;M. Namur;;M4;1º;E;eugeniomono@hotmail.com
+Cravero;sergio;propietario;3572535226;;Córdoba;Oncativo;;SI;;;;;;;Eliseo;;M4;1º;F;griseldacravero@hotmail.com
+Perozzi;alberto;propietario;3471673932;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M4;1º;G;albertoperozzi@hotmail.com
+Rossotto;omar;propietario;3562669003 ;3564450074;;Porteña;;SI;;;;;;;Eliseo;;M4;2º;A;orossotto@dataco34.com.ar
+Garcia;jose;propietario;3468566247;;Córdoba;Monte Maíz;;SI;;;;;;;M. Namur;;M4;2º;B;garciariva@hotmail.com
+Ficetto;edgardo;propietario;;;Santa Fe;Sunchales;;SI;;;;;;;;;M4;2º;C;edgardoficetto@gmail.com
+Miranda Noya ;;propietario;3471491313;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M4;2º;D;mirandanoya@veloisa.com.ar
+Lorenzini;norma;propietario;3471522814;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M4;2º;E;norma.b.lorenzini@hotmail.com
+Gomez;rodolfo;propietario;3573456555;;Córdoba;Calchín;;SI;;;;;;;Lucas;;M4;2º;F;rodolfo-73@hotmail.com
+Astengo;sandro;propietario;2954521751;;La Pampa;Santa Rosa;;SI;;;;;;;Eliseo;;M4;2º;G;"juarezalejandra_m@hotmail.com; sandroastengo60@hotmail.com"
+Nin ;andrea;propietario;03537498499 ;353715519141;Córdoba;San Marcos Sud ;;SI;;;;;;;;;M4;3º;A;andreanin1@hotmail.com
+Del Huerto Curi ;delia maria;propietario;347120987;;Córdoba;Villa María;;SI;;;;;;;;;M4;3º;B;angaramojl@arnet.com.ar 
+Talavera ;cristian;propietario;;;Santa Fe;Venado Tuerto;;SI;;;;;;;;;M4;3º;D;
+Marin;carlos;propietario;3471673872;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M4;3º;E;camarin56@hotmail.com
+Marin;carlos;propietario;3471673872;;Santa Fe;Villa Eloisa;;SI;;;;;;;Eliseo;;M4;3º;F;camarin56@hotmail.com
+Mina ;mauro;propietario;035411526193  ;354115667027;Córdoba;Villa Carlos Paz;;SI;;;;;;;Eliseo;;M4;3º;G;"silcardo@hotmail.com ; mgmina@hotmail.com"
+Torino ;margarita;propietario;0381156445299  ;03814617091;Tucuman ;Tafi Viejo ;;SI;;;;;;;;;M5;PB;A;farboeste2@yahoo.com.ar
+Buglione;mario;propietario;3515109553;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M5;PB;G;mbb745@hotmail.com
+Basualdo;gabriela;propietario;2974238747;;Chubut ;Comodoro Rivadavia ;;SI;;;;;;;Eliseo;;M5;PB;H;basualdomg@hotmail.com
+Brondino;gabriel;propietario;3572437922 ;3572585388;Córdoba;Oncativo;;SI;;;;;;;Eliseo;;M5;PB;I;municipalidad@oncativo.gob.ar
+Angeleri;luis;propietario;03468567402;;Córdoba;Camilo Aldao;;SI;;;;;;;Eliseo;;M5;PB;J;luisangeleri@hotmail.com.ar
+Borgna;micaela y guillermo;propietario;3532-409409;;Córdoba;Pampayasta Norte;;SI;;;;;;;Eliseo;;M5;PB;K;mykybe@hotmail.com
+Giampieri;adela cristina;propietario;3513123078 ;3513576288;;;;SI;;;;;;;;;M5;PB;N;"crisgiampieri55@hotmail.com; yaninaviguera@hotmail.com"
+Tamame ;fernando gabriel;propietario;351 2288830;;Córdoba;Córdoba;;SI;;;;;;;Eliseo;;M5;PB;O;ftamame@sergiovillella.com
+Chiariotti;walter;propietario;03572440909;;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M5;1;B;chawarajo@hotmail.com
+Taccari ;gustavo;propietario;3471672358;;Santa Fe;Las Rosas;;SI;;;;;;;;;M5;1;C;"tavotaccari@gmail.com; estilodeportivo@arnetbiz.com.ar"
+Cerutti;carmen;propietario;01146504383;;Buenos Aires;El Palomar;;SI;;;;;;;Canje;;M5;1;D;serviceoeste@gmail.com
+Alday;Victor;propietario;2964604887;;Tierra del Fuego;Río Grande;;SI;;;;;;;Chaves;;M5;1;E;alfredo.gomez3060@gmail.com - victor.alday@gmail.com
+Lopez;Oscar y Andrea;propietario;2664728254;;San Luis;San Luis;;SI;;;;;;;Chaves;;M5;1;F;mbazan40@yahoo.com.ar 
+Ravalli;Silvia;propietario;3534069406;;Córdoba;Etruria;;SI;;;;;;;Eliseo;;M5;1;G;georginabertone@hotmail.com - silviaravalli@hotmail.com
+Cerutti;Dante;propietario;3513855023;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M5;1;H;
+Leguizamon;Paulo;propietario;3537609090;;Córdoba;Justiniano Posse;;SI;;;;;;;;;M5;1;I;ventas@jaramasrl.com.ar - administracion@jaramasrl.com.ar
+Forchino;Gustavo;propietario;3471514482;;Córdoba;El Trebol;;SI;;;;;;;Eliseo;;M5;1;J;chinoforchino@hotmail.com
+Buffa;Soledad;propietario;3533433850;;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M5;1;K;gustavo_a_vazquez@hotmail.com
+Forlín;Raul;propietario;03462501294;;Santa Fe;Villa Isabel;;SI;;;;;;;Chaves;;M5;1;L;raul.forlin@hotmail.com
+Bornancini ;Ruben;propietario;03541647488;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M5;1;M;fernandobornancini@hotmail.com.ar
+Massietti;Norberto;propietario;3472422646;;Córdoba;Marcos Juarez;;SI;;;;;;;Cesión;;M5;2;B;amassietti@hotmail.com  - inmobertettiblanco@gmail.com
+Olivari ;Andres;propietario;34716780052;3471670311;Buenos Aires;Capital Federal;;SI;;;;;;;Chaves;;M5;2;C;jorgelinachiappini@hotmail.com
+Ruatta;Ruben;propietario;03576410788;;Córdoba;La Tordilla;;SI;;;;;;;Chaves;;M5;2;D;rubenruatta@hotmail.com
+Damiano;Ricardo;propietario;03575656154;;Córdoba;La Puerta;;SI;;;;;;;S. Gomez;;M5;2;E;rgdamiano@hotmail.com
+Giovannini;Roxana;propietario;03406641198;;Santa Fe;San Jorge;;SI;;;;;;;Eliseo;;M5;2;F;sanjorgepiscinas@gmail.com
+Zanello;Juan;propietario;3401644020;;Santa Fe;Cañada Rosquín;;SI;;;;;;;Eliseo / Otros;;M5;2;G;juanzanello@velosat.com.ar
+Badino;Vanesa;propietario;03576650802;;Córdoba;Villa del Rosario;;SI;;;;;;;Eliseo;;M5;2;H;guillepianca@gmail.com
+Buglione;Mario;propietario;3541565585 ;3515109553;Córdoba;Villa Carlos Paz;;SI;;;;;;;Canje;;M5;2;I;linasmol74@gmail.com - mbb745@hotmail.com
+Nicolli;Luis;propietario;;;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M5;2;J;mariano@riegosysilos.com.ar
+Fariello;Danie;propietario;3644507323 ;3732545521;Chaco;Tres Isletas;;SI;;;;;;;Chaves;;M5;2;K;dgfariello@hotmail.com
+Buffa;Laura;propietario;3533433850;;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M5;2;L;gustavo_a_vazquez@hotmail.com
+Buffa;Cecilia;propietario;3533433850;;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M5;2;M;gustavo_a_vazquez@hotmail.com
+Sebastianelli ;Antonio Jose;propietario;03465654580 ;3465470088;Santa Fe;Alcorta;;SI;;;;;;;Eliseo / Laura;;M5;3;B;sebastianellivanina@gmail.com  - antoniojosesebastianelli@gmail.com
+Gerzicich;Maria;propietario;3563491337;3563405840;Córdoba;Balnearia;;SI;;;;;;;Chaves;;M5;3;C;graciela_gerzi@hotmail.com
+Pagnucco;walter;propietario;03471421753;;Santa Fe;Cañada de Gomez;;SI;;;;;;;Pirra;;M5;3;D;silsumil@yahoo.com.ar
+Spurio ;norma;propietario;03471496409  ;03471578247;Córdoba;Marcos Juarez;;SI;;;;;;;Chaves;;M5;3;E;cristianscaglia2016@gmail.com
+Talisman;jose;propietario;03471424660    ;347684255;Santa Fe;Cañada de Gomez;;SI;;;;;;;Pirra;;M5;3;F;yarlotsaires@hotmail.com - jtalisman@steelcdg.com.ar
+Fernandez;jorge;propietario;3825677671;;Santa Fe;Cañada de Gomez;;SI;;;;;;;Eliseo;;M5;3;G;jorgepfernandez@gmail.com
+Miller;nicolas;propietario;3822664175;;La Rioja;La Rioja;;SI;;;;;;;Chaves;;M5;3;H;alexisnicolasmiller@yahoo.com
+Gianti;alberto;propietario;3564451112;;Córdoba;Porteña;;SI;;;;;;;Eliseo;;M5;3;I;gymrotulaciones@gmail.com
+Zin ;stela maris;propietario;3471523991 ;3471613092 ;Córdoba;Cañada De Gomez ;;SI;;;;;;;Eliseo / Laura;;M5;3;J;llamariss@hotmail.com - fabiferri08@hotmail.com
+Vacchina;jose maria;propietario;02396444629 ;239479144;Buenos Aires;Peguajo ;;SI;;;;;;;Eliseo / Laura;;M5;3;K;vacchinahnos@oficartnet.com.ar
+Cerioni;vilma;propietario;03525481447;;Córdoba;Colonia Caroya;;SI;;;;;;;Eliseo / Laura;;M5;3;L;rodeoveterinaria@hotmail.com
+Bianco;silvia graciela;propietario;0357215446417;;Córdoba;Oncativo;;SI;;;;;;;Eliseo / Laura;;M5;3;M;silviabianco_1@hotmail.com
+D'Andrea;ana;propietario;3401648635;;Santa Fe;María susana ;;SI;;;;;;;Pirra;;M6;PB;C;anamariadandrea@hotmail.com
+Gonella;Ruben;propietario;03572466407;;Córdoba;Oncativo;;SI;;;;;;;Chaves;;M6;PB;D;casagonella@yahoo.com.ar
+Peiretti;dario;propietario;3493663684;;Santa Fe;Sunchales;;SI;;;;;;;Inm. Miralejos;;M6;PB;E;dpeiretti@sancorseguros.com
+Santarelli;alberto;propietario;3471561351;;Santa Fe;Villa Eloisa;;SI;;;;;;;Inm. Miralejos;;M6;PB;F;nancybelamate@veloisa.com.ar
+Oliver ;alejandro;propietario;3513278015;;Córdoba;Córdoba;;SI;;;;;;;;;M6;PB;H;alejandroinstrumentos@gmail.com
+Las Marías S.A.;;propietario;3525538410;;Córdoba;Jesús María;;SI;;;;;;;;;M6;PB;I;maas@coop5.com.ar
+Cassino Gomaris;celeste;propietario;3517542168;;Córdoba;Córdoba;;SI;;;;;;;Cernotto;;M6;1;A;celecassino@gmail.com
+Nieri;miguel angel;propietario;03400494123  ;0336154417753;Santa Fe;Empalme Villa Constitucion.;;SI;;;;;;;Inm.Miralejos ;;M6;1;B;"metalurgicanieri@yahoo.com.ar; va_nieri@hotmail.com "
+Rostagno Rassetto;gabriela y dulio;propietario;3564606785;;Córdoba;San Francisco;;SI;;;;;;;;;M6;1;C;hotelcanadian.sanfco@gmail.com
+Berardo;alfredo;propietario;3492660382;;Santa Fe;Rafaela ;;SI;;;;;;;;;M6;1;D;agberardo@wilnet.com.ar
+Polo G S.A.;;propietario;3573400146;;Córdoba;Villa del Rosario;;SI;;;;;;;;;M6;1;E;cgiardelli@hotmail.com
+García;francisco;propietario;0346815563768   ;3468471196;Córdoba;Monte Maíz;;SI;;;;;;;Namur;;M6;1;F;garciaisabelita@gmail.com solegarcia83@hotmail.com
+Bovo;edgardo;propietario;3493661608;;Santa Fe;Sunchales;;SI;;;;;;;Inm. Miralejos;;M6;1;G;"ebovo@sancorseguros.com; ebovo@prevencionsalud.com.ar"
+Cassino Gomaris;celeste;propietario;3517542168;;Córdoba;Córdoba;;SI;;;;;;;Cernotto;;M6;1;H;celecassino@gmail.com
+Rothsched  ;mario;propietario;3541621846;;Córdoba;Villa Carlos Paz;;SI;;;;;;;Inm. Miralejos;;M6;1;I;"casa.palacios@hotmail.com; casapalacios@gmail.com"
+Cassino Gomaris;celeste;propietario;3517542168;;Córdoba;Córdoba;;SI;;;;;;;Cernotto;;M6;2;A;celecassino@gmail.com
+Baggini ;mariana;propietario;03382457769;;Santa Fe;Rufino;;SI;;;;;;;Chaves;;M6;2;B;"celibaggini@gmail.com; marianabaggini@hotmail.com"
+Borgna;orlando;propietario;3571573022;;Córdoba;Oliva;;SI;;;;;;;Inm. Miralejos;;M6;2;C;oborgna10@hotmail.com.ar
+Yus;carlos;propietario;3416272328;;Santa Fe;Capitan Bermudez;;SI;;;;;;;Eliseo;;M6;2;D;noerolhogar@gmail.com
+Viskovic Petrili;osvaldo;propietario;3471523161 ;3401643675;Santa Fe;Bouquet;;SI;;;;;;;Chaves;;M6;2;F;"pagadasdeudas@hotmail.com;  oapetrilli@fecoteldatos.com.ar"
+Borio;edgardo;propietario;02302511021;;La Pampa;Winifreda;;SI;;;;;;;Inm. Miralejos;;M6;2;H;"edgborio@hotmail.com; melisaborio14@gmail.com"
+Viotto;victor andres;propietario;0353154187811;;Córdoba;Las Perdices ;;SI;;;;;;;;;M6;2;I;victorandresviotto@gmail.com
+Bigatton ;luis y miguel;propietario;3572516912;;Córdoba;Laguna Larga;;SI;;;;;;;Eliseo;;M8;PB;A;luisbigatton@gmail.com
+Tallarico;guillermo;propietario;3516535207;;Córdoba;Córdoba;;SI;;;;;;;Canje M8;;M8;PB;B;guilletallarico@hotmail.com
+Sola;Magdalena;propietario;;;Santa Fe;Ramona;;SI;;;;;;;Pablo Perlo;;M8;PB;D;estudiomartino44@hotmail.com
+Del Grecco;Omar;propietario;3468527576 ;3468412092;Córdoba;Cavanagh;;SI;;;;;;;Eliseo;;M8;PB;E;angeluccisilvana@hotmail.com
+Leo;jose;propietario;3804761649  ;382515678784;La Rioja;La Rioja;;SI;;;;;;;;;M8;PB;F;germanbrega1@gmail.com 
+Pirchio;gerardo;propietario;3471419406;;Santa Fe;Cañada de Gomez;;SI;;;;;;;Miralejos;;M8;PB;G;"yaninarobles64@hotmail.com; g.gonchi@hotmail.com"
+Cravero;sergio;propietario;3572535226;;Córdoba;Cañada de Gomez;;SI;;;;;;;Eliseo;;M8;1;A;griseldacravero@hotmail.com
+Tallarico;guillermo;propietario;3516535207;;Córdoba;Córdoba;;SI;;;;;;;Canje M8;;M8;1;B;guilletallarico@hotmail.com
+Novarese;onelio;propietario;3401494037;;Santa Fe;Casas;;SI;;;;;;;Eliseo;;M8;1;C;vane-6278@hotmail.com
+Martino;melisa y tatiana;propietario;3492566050;;Santa Fe;Ramona;;SI;;;;;;;Pablo Perlo;;M8;1;D;estudiomartino44@hotmail.com
+Cerutti;carmen y roberto;propietario;3413352254 ;3413787051;Buenos Aires;El Palomar ;;SI;;;;;;;Canje CA;;M8;1;E;serviceoeste@gmail.com
+Martino;francisco;propietario;3471674288;;Santa Fe;Villa Eloisa ;;SI;;;;;;;;;M8;1;F;"franmartino44@hotmail.com; lmartino@veloisa.com.ar"
+Bazzoni;angel;propietario;03514684847;;España;Córdoba;;SI;;;;;;;;;M8;1;G;v5v5-lay@hotmail.com
+Comanducci;norma;propietario;0353156574529;;Córdoba;Hernando;;SI;;;;;;;Canje M8;;M8;2;B;"ivanbonetto456@gmail.com; norma.comanducci@gmail.com"
+Bigatton ;luis;propietario;3572516912;;Córdoba;Laguna Larga;;SI;;;;;;;Eliseo;;M8;2;A;"cristinacussa@hotmail.com; luisbigatton@gmail.com"
+Pettinari;jorge;propietario;3401470656;;Santa Fe;Casas;;SI;;;;;;;Eliseo;;M8;2;C;maria_fabrizio@hotmail.com
+Actis;nestor;propietario;3571521581;;Córdoba;Tancacha;;SI;;;;;;;;;M8;2;D;walteredelmer@hotmail.com
+Miretti;mauricio;propietario;3493455604;;Mendoza ;Mendoza;;SI;;;;;;;Eliseo;;M8;2;E;mhmiretti@sancorseguros.com 
+Peralta;miguel;propietario;3537680752;;Córdoba;Bel Ville;;SI;;;;;;;;;M8;2;F;info@distribuidorailma.com.ar / leslie_1502@hotmail.com
+Pagani;daniel;propietario;3416044022;;Santa Fe;Granadero Baigoria;;SI;;;;;;;Eliseo;;M8;2;G;casalumi@steel.com.ar
+Bigatton;miguel;propietario;3572516912;;Córdoba;Laguna Larga;;SI;;;;;;;Eliseo;;M8;3;A;luisbigatton@gmail.com
+Ambroggio;ruth;propietario;3533680096;;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M8;3;B;rambroggio@bancor.com.ar
+Calvo;isidro;propietario;3533402895;;Córdoba;Las Varillas;;SI;;;;;;;Eliseo;;M8;3;C;cristinadecalvo@hotmail.com
+Ferrero ;claudio;propietario;3493662162;;Santa Fe;Sunchales;;SI;;;;;;;Eliseo;;M8;3;D;estudioferrero@sunchanet.com.ar
+Conrradi;nory;propietario;3735457174;;Chaco ;Hermoso Campo;;SI;;;;;;;Eliseo;;M8;3;E;znmaldonado@yahoo.com.ar
+Massola;nelso;propietario;3572521079  ;3572458147;Córdoba;Oncativo ;;SI;;;;;;;;;M8;3;F;nachomassola@hotmail.com

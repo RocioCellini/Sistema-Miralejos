@@ -69,7 +69,7 @@ if($type_accion==="nuevo_llamado"){
 
   echo($last_id)."</br>"; 
 
-  /*El valor de el campo AUTO_INCREMENT que fué actualizado por la consulta anterior. Devuelve cero si no hubo una consulta previa en la conexión o si la consulta no actualiza un valor AUTO_INCREMENT.*/
+  /*mysqli_insert_id() : devuelve el valor de el campo AUTO_INCREMENT que fué actualizado por la consulta anterior. Devuelve cero si no hubo una consulta previa en la conexión o si la consulta no actualiza un valor AUTO_INCREMENT.*/
 
   if($last_id!=0){
     $message="Se guardo un nuevo llamado";
