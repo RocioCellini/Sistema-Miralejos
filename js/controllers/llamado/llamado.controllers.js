@@ -39,14 +39,14 @@
       $ctrl.formats = ['dd-MMMM-yyyy', 'dd/MM/yyyy', 'dd.MM.yyyy', 'shortDate'];
       $ctrl.format = $ctrl.formats[1];
       $ctrl.altInputFormats = ['dd/MM/yyyy'];
-
+/*
       $ctrl.dateOptions = {
         formatYear: 'yy',
         maxDate: new Date(2020, 5, 22),
         minDate: new Date(),
         startingDay: 1
       };
-
+*/
       $ctrl.popup1 = {
       opened: false
       };
@@ -243,7 +243,7 @@
               let valuetime = new Date();
               valuetime.setHours(timedate[0], timedate[1], timedate[2]);
 
-              $ctrl.objDataLlamado.time = $filter('date')(valuetime, 'HH:mm:ss');
+              $ctrl.objDataLlamado.hora_llamado = $filter('date')(valuetime, 'HH:mm:ss');
 
               /*******************************************************************/ 
                
@@ -270,10 +270,44 @@
               $ctrl.cierre_operacion.selectedOption.id_cierre_operacion=$ctrl.objDataLlamado.id_cierre_operacion; 
               $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
-              $ctrl.objDataLlamado.dt1 = $ctrl.objDataLlamado.fecha_llamado;
-              $ctrl.objDataLlamado.dt2 = $ctrl.objDataLlamado.fecha_origen_dato; 
-              $ctrl.objDataLlamado.dt3 = $ctrl.objDataLlamado.fecha_cierre_operacion; 
-              $ctrl.objDataLlamado.time = $ctrl.objDataLlamado.hora_llamado;  
+              // la funcion javascript new date () Nos pide AÑO MES Y DIA, y como obtenemos 
+              // el valor de la base de datos con el - no nos sirve, javascript nos dara un error
+              //entonces usamos la funcion split para obtener los valores por separado sin el - medio
+
+              /*******************************************************************/ 
+              let date1 = $ctrl.objDataLlamado.fecha_llamado.split("-");
+              let date2 = $ctrl.objDataLlamado.fecha_origen_dato.split("-");                    
+              let date3 = $ctrl.objDataLlamado.fecha_cierre_operacion.split("-");   
+
+              setDate(date1[0], date1[1]-1, date1[2], "dt1");
+              setDate(date2[0], date2[1]-1, date2[2], "dt2");
+              setDate(date3[0], date3[1], date3[2], "dt3");
+                 
+              // Creamos una funcion con cualquier nombre para pasar los parametros obtenidos por split.
+              function setDate (year, month, day , typevar) {
+
+                // AHORA SI! podemos crear un Obj date por que tenemos los valores como nos pide new Date ()
+                // typevar es solo para aprovechar la funcion y hacer el mismo procedimiento con las tres variables
+                // dt1, dt2 y dt3.   
+                console.log(month);
+                
+                $ctrl.objDataLlamado[typevar] = new Date(year, month, day);
+
+                //$ctrl.dt2 = new Date(year, month, day);
+
+              };
+
+              // Mismo caso para definir la Hora.
+              
+              let timedate =  $ctrl.objDataLlamado.hora_llamado.split(":");
+
+              // NEcesitamos un Obj Date y Luego usar la funcion de javascript setHours para dar formato de hora minutos y segundos
+              let valuetime = new Date();
+              valuetime.setHours(timedate[0], timedate[1], timedate[2]);
+
+              $ctrl.objDataLlamado.hora_llamado = $filter('date')(valuetime, 'HH:mm:ss');
+
+              /*******************************************************************/ 
 
               $ctrl.data_origen_dato.selectedOption.id_origen_dato=$ctrl.objDataLlamado.id_origen_dato;   
 
@@ -285,7 +319,7 @@
             console.log(err);
         });          
 
-      };    
+      }; //Fin Init()   
 
       
       //upDate
@@ -392,7 +426,9 @@
       function CompletarDatos(row) {             
             
         $ctrl.objDataLlamado.id_cliente=row.id_cliente;
-        $ctrl.objDataLlamado.contacto= row.apellido +", "+ row.nombre;
+        $ctrl.objDataLlamado.contacto= row.apellido +", "+ row.nombre;        
+
+        $ctrl.objDataLlamado.type_accion="nuevo_llamado";
 
       };
 
@@ -404,11 +440,9 @@
                 
         $ctrl.allow_disable=true;
 
-        $ctrl.objDataLlamado.type_accion="nuevo_llamado"
-
         $ctrl.objDataLlamado.fecha_llamado = $filter('date')($ctrl.objDataLlamado.dt1, 'yyyy-MM-dd'); 
         $ctrl.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl.objDataLlamado.dt2, 'yyyy-MM-dd'); 
-        $ctrl.objDataLlamado.hora_llamado = $filter('date')($ctrl.objDataLlamado.time, 'HH:mm:ss'); 
+        $ctrl.objDataLlamado.hora_llamado = $filter('date')($ctrl.objDataLlamado.hora_llamado, 'HH:mm:ss'); 
 
         $ctrl.objDataLlamado.id_vendedor=$ctrl.data_vendedor.selectedOption.id;
 

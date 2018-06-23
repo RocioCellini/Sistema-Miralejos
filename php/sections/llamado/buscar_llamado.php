@@ -13,7 +13,6 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
   $criterio=$data->{'criterio'};
   
   
-
   include "../../conexion.php";
 
   //$criterio="2011-03-14";
@@ -36,9 +35,7 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
 
       if($row=$rs->fetch_assoc()){
 
-         $response = array();
-
-    
+         $response = array();   
 
          do{  
 
@@ -47,6 +44,8 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
             $id_edificio=$row["id_edificio"]; 
             $id_planta=$row["id_planta"]; 
             $id_dpto=$row["id_dpto"]; 
+            $id_inmobiliaria=$row["id_inmobiliaria"];
+            $id_cierre_operacion=$row["id_cierre_operacion"];
             $id_origen_dato=$row["id_origen_dato"]; 
 
             //vendedor
@@ -147,6 +146,41 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
               $dpto=$row_d["nombre"];
             }
 
+             //Inmobiliaria
+            //-----------------------------------------------------     
+            $result_inmob = "SELECT * FROM inmobiliaria";
+            $stmt_inmob = $conn->prepare($result_inmob);
+
+            if($stmt_inmob === false) {
+                trigger_error('Wrong SQL: ' . $result_inmob . ' Error: ' . $conn->error, E_USER_ERROR);
+            }
+              
+            $stmt_inmob->execute();
+            $rs_inmob=$stmt_inmob->get_result();
+
+            if($row_inmob = $rs_inmob->fetch_assoc()) {
+
+              $inmobiliaria=$row_inmob["nombre"];
+               
+            }   
+
+            //Cierre de Operacion 
+
+            $result_co = "SELECT * FROM cierre_operacion";
+            $stmt_co = $conn->prepare($result_co);
+
+            if($stmt_co === false) {
+                trigger_error('Wrong SQL: ' . $result_co . ' Error: ' . $conn->error, E_USER_ERROR);
+            }
+             
+            $stmt_co->execute();
+            $rs_co=$stmt_co->get_result();
+
+            if($row_co = $rs_co->fetch_assoc()) {
+            
+               $cierre_operacion=$row_co["cierre_operacion"];
+            }
+
             //Origen Dato
 
             $result_od = 'SELECT * FROM origen_dato WHERE id_origen_dato=?';
@@ -195,6 +229,13 @@ if ($type_accion==="buscar_llamado" && isset($_SESSION['Usuario'])) {
 
                         'id_dpto'=>utf8_encode($row['id_dpto']),
                         'dpto'=>utf8_encode($dpto),    
+
+                        'id_inmobiliaria'=>utf8_encode($row['id_inmobiliaria']),
+                        'inmobiliaria'=>utf8_encode($inmobiliaria), 
+
+                        'id_cierre_operacion'=>utf8_encode($row['id_cierre_operacion']),
+                        'cierre_operacion'=>utf8_encode($cierre_operacion),  
+                        'fecha_cierre_operacion'=>utf8_encode($row['fecha_cierre_operacion']),
 
                         'id_origen_dato'=>utf8_encode($row['id_origen_dato']),
                         'nombre_origen_dato'=>($nombre_origen_dato)
