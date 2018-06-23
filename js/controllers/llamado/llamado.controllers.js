@@ -270,7 +270,7 @@
               $ctrl.cierre_operacion.selectedOption.id_cierre_operacion=$ctrl.objDataLlamado.id_cierre_operacion; 
               $ctrl.grado_interes.selectedOption.id=$ctrl.objDataLlamado.grado_interes-1; 
 
-              $ctrl.objDataLlamado.dt1 =$stateParams.objdata.fecha_llamado;
+              $ctrl.objDataLlamado.dt1 = $ctrl.objDataLlamado.fecha_llamado;
               $ctrl.objDataLlamado.dt2 = $ctrl.objDataLlamado.fecha_origen_dato; 
               $ctrl.objDataLlamado.dt3 = $ctrl.objDataLlamado.fecha_cierre_operacion; 
               $ctrl.objDataLlamado.time = $ctrl.objDataLlamado.hora_llamado;  
@@ -361,9 +361,8 @@
 
     // Searching data        
     //**********************************************************************************************//  
-    function BuscarCliente (valorIngresado) {     
-         
-        $ctrl.Mensaje="";
+    function BuscarCliente (valorIngresado) {           
+       
         $ctrl.boton_submmit=true;
 
         $ctrl.objDataLlamado.type_accion="buscar_cliente";              
@@ -380,8 +379,6 @@
 
         }).catch(function (err) {
             
-            $ctrl.boton_submmit=false;
-            $ctrl.Mensaje="Intente Mas Tarde";  
             console.log(err);
 
         });
@@ -407,6 +404,8 @@
                 
         $ctrl.allow_disable=true;
 
+        $ctrl.objDataLlamado.type_accion="nuevo_llamado"
+
         $ctrl.objDataLlamado.fecha_llamado = $filter('date')($ctrl.objDataLlamado.dt1, 'yyyy-MM-dd'); 
         $ctrl.objDataLlamado.fecha_origen_dato = $filter('date')($ctrl.objDataLlamado.dt2, 'yyyy-MM-dd'); 
         $ctrl.objDataLlamado.hora_llamado = $filter('date')($ctrl.objDataLlamado.time, 'HH:mm:ss'); 
@@ -426,17 +425,11 @@
         $ctrl.objDataLlamado.id_origen_dato = $ctrl.data_origen_dato.selectedOption.id_origen_dato; 
 
         const metodo=$stateParams.type_ingreso.split(".");
-
-        console.log(metodo[1]);
-        console.log($ctrl.objDataLlamado);
         
         llamadoFactory[metodo[1]]($ctrl.objDataLlamado).then(function(d) {  
 
-                $ctrl.Mensaje = d.Mensaje;
-
                 //$ctrl.allow_disable=false;
-
-                console.log($ctrl.objDataLlamado);
+                 $ctrl.Mensaje=d.Mensaje;
                 console.log(d.Mensaje);
     
          }).catch(function (err) {
