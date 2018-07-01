@@ -31,11 +31,39 @@ h2.titulo{
     line-height: 1.2;  
 }
 
+h3, legend{
+    color: #6e141b;
+}
+
+/*Menu*/
+.nav>li:hover{
+  background-color: #fffdc7;
+}
+
+.navbar-default .navbar-nav>li>a{
+  color: #6e141b;
+  font-size: 1.1em;
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover{
+   background-color: #fffdc7;
+}
+
 /*Tablas*/
 
 table.table{
   margin-left: 15px;
   margin-right: 15px;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd){
+   background-color: #fffdc7;
+}
+
+tr.ng-table-sort-header{
+  background-color: #F2F2F2;
 }
 
 tr.titulo{
@@ -44,6 +72,10 @@ tr.titulo{
 
 th{
   padding: 10px 0px;
+}
+
+.table>caption+thead>tr:first-child>td, .table>caption+thead>tr:first-child>th, .table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th, .table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th{
+  vertical-align: middle;
 }
 
 th:nth-child(2){
@@ -141,3 +173,5 @@ span.marca{
    font-family: 'Satisfy', cursive; 
    font-size: 1.5em;
 }
+
+

@@ -29,10 +29,10 @@
             subtree: [{
               name: "Visualizar",
               link: "GestionVentas.planilla"
-            },{
+            },/*{
               name: "Agregar Fila",
               link: "GestionVentas.agregarDatos"
-            },{
+            },*/{
               name: "Importar Planilla",
               link: "GestionVentas.importar"
             }]

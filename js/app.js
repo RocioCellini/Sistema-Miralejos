@@ -36,9 +36,7 @@
         url:'/Logueo',
         templateUrl:'templates/formLogueo.html',
         controller: 'LoginController as $ctrl',
-      })
-
-  
+      })  
 
       .state('GestionVentas.planilla',{
         url:'/Planilla',
