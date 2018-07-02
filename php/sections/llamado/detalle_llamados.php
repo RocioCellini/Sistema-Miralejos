@@ -15,7 +15,7 @@ if ($type_accion==="detalle_llamados" && isset($_SESSION['Usuario']) ) {
 
   include "../../conexion.php";
 
-  //$id_cliente=3;
+  //$id_cliente=645;
 
   if($id_cliente!=="") {  
 
@@ -46,6 +46,11 @@ if ($type_accion==="detalle_llamados" && isset($_SESSION['Usuario']) ) {
           $id_origen_dato=$row['id_origen_dato'];
           $fecha_origen_dato=$row['fecha_origen_dato'];
           $id_vendedor=$row['id_vendedor'];
+          $id_edificio=$row['id_edificio'];
+          $id_planta=$row['id_planta'];
+          $id_dpto=$row['id_dpto'];
+          $id_inmobiliaria=$row['id_inmobiliaria'];
+          $grado_interes=$row['grado_interes'];
           
           $result_orig = 'SELECT * FROM origen_dato WHERE id_origen_dato=?';
 
@@ -65,45 +70,60 @@ if ($type_accion==="detalle_llamados" && isset($_SESSION['Usuario']) ) {
 
             $nombre_origen_dato=$row_orig['origen_dato'];
 
-          }
-
-          $result_plan = 'SELECT * FROM planilla_de_venta WHERE id_cliente=?';
-
-          $stmt_plan = $conn->prepare($result_plan);
-
-          if($stmt_plan===false) {
-          trigger_error('Wrong SQL: ' . $result_plan . ' Error: ' . $conn->error, E_USER_ERROR);
-          }
-
-          $stmt_plan->bind_param('i',$id_cliente); 
-
-          $stmt_plan->execute(); 
-
-          $rs_plan=$stmt_plan->get_result(); 
-
-          if($row_plan=$rs_plan->fetch_assoc()){
-
-            $id_inmobiliaria=$row_plan['id_inmobiliaria'];
-            $id_edificio=$row_plan['id_edificio'];
-            $id_planta=$row_plan['id_planta'];
-            $id_dpto=$row_plan['id_dpto'];
-
-          }
-        
+          }        
 
         }while ($row=$rs->fetch_assoc());
+
+         //Vendedor
+        //-----------------------------------------------------     
+        $result_vend = "SELECT * FROM vendedor WHERE id_vendedor=?";
+        $stmt_vend = $conn->prepare($result_vend);
+
+        if($stmt_vend === false) {
+            trigger_error('Wrong SQL: ' . $result_vend . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+
+        $stmt_vend->bind_param('i',$id_vendedor); 
+          
+        $stmt_vend->execute();
+        $rs_vend=$stmt_vend->get_result();
+
+        if($row_vend = $rs_vend->fetch_assoc()) {        
+           $vendedor=$row_vend['nombre'];           
+        }   
+
+        //Inmobiliaria
+        //-----------------------------------------------------     
+        $result_inmob = "SELECT * FROM inmobiliaria WHERE id_inmobiliaria=?";
+        $stmt_inmob = $conn->prepare($result_inmob);
+
+        if($stmt_inmob === false) {
+            trigger_error('Wrong SQL: ' . $result_inmob . ' Error: ' . $conn->error, E_USER_ERROR);
+        }
+        
+        $stmt_inmob->bind_param('i',$id_inmobiliaria); 
+
+        $stmt_inmob->execute();
+        $rs_inmob=$stmt_inmob->get_result();
+
+        if($row_inmob = $rs_inmob->fetch_assoc()) {        
+           $inmobiliaria=$row_inmob['nombre'];
+        }   
 
          $temp=array('contador'=>$contador, 
           'fecha_ult_llamado'=> $fecha_llamado, 
           'nombre_origen_dato'=> $nombre_origen_dato, 
           'fecha_origen_dato'=> $fecha_origen_dato, 
           'id_vendedor'=> $id_vendedor, 
-          'id_inmobiliaria'=> $id_inmobiliaria,
+          'vendedor'=> $vendedor, 
           'id_edificio'=> $id_edificio, 
           'id_planta'=> $id_planta, 
-          'id_dpto'=> $id_dpto);
+          'id_dpto'=> $id_dpto,
+          'id_inmobiliaria'=> $id_inmobiliaria,
+          'inmobiliaria'=> $inmobiliaria,
+          'grado_interes'=> $grado_interes);
 
-            $response[]=$temp;   
+          $response[]=$temp;   
 
        } else { 
           $mensaje=array('Mensaje'=>utf8_encode("0"));

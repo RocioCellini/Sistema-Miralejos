@@ -3,7 +3,8 @@
     <div class="col-md-8">
 		<h3>Cargar Datos</h3><br>
 
-		<p>Realice la búsqueda del cliente, luego seleccione en la tabla el correspondiente y pase a agregar los datos que se le piden a continuación. Si no encuentra el cliente, deberá ir primero a la opción Contactos/Añadir del menú superior y registrar dicho cliente.</p>
+		<p>Para agregar una nueva fila en la planilla, deberá ir primero a la opción Contactos/Añadir del menú superior y registrar el cliente, luego debe añadir un llamado al mismo desde la opción Llamado/Añadir.<br> 
+		Ya realizados estos pasos, haga aquí la búsqueda del cliente, luego seleccione en la tabla el correspondiente y haga clic en Guardar.</p>
 		<br>
 		
 	</div>
@@ -11,8 +12,8 @@
 </div>
 
 <div class="row" align="center">
-  <div class="col-md-2"></div>
-    <div class="col-md-4 well">
+  <div class="col-md-3"></div>
+    <div class="col-md-6 well">
     <form name="FormBuscarCliente" class="form-horizontal" role="form"> 
       <legend>Buscar Contacto</legend>
       <fieldset>
@@ -51,28 +52,29 @@
       </fieldset>     
     </form> 
   </div>
-  <div class="col-md-8"></div>
+  <div class="col-md-3"></div>
 </div>
 
 </br></br>
 <div class="row">
 	<div class="col-md-2"></div>
     <div class="col-md-8">
-	<p>Cuando se busca un cliente ya existente, sólo se deben modificar los datos que están incompletos en el siguiente formulario</br> (tipo de cliente, grado de interés y fecha de cierre de operación)</p>
+	<p>Cuando se busca un cliente ya existente, al seleccionarlo se buscan los datos de su último llamado, estos datos serán los que se visualicen en la planilla</p>
 	</div>
 	<div class="col-md-2"></div>
 </div>
 </br></br>
 
 <div class="row">
-  <div class="col-md-3"></div>
-    <div class="col-md-6" align="center">
+  <div class="col-md-1"></div>
+    <div class="col-md-10" align="center">
 
       <table ng-table="$ctrl.tableParams" class="table table-condensed table-bordered table-striped">
         <tr ng-repeat="row in $data">
 
             <td data-title="'Nombre'">{{row.nombre}}</td>
-            <td data-title="'Apellido'">{{row.apellido}}</td>         
+            <td data-title="'Apellido'">{{row.apellido}}</td>  
+            <td data-title="'Tipo de Cliente'">{{row.tipo_cliente}}</td>       
             <td data-title="'Dni'">{{row.dni}}</td>
             <td data-title="'Telefono 1'">{{row.telefono1}}</td>
             <td data-title="'Telefono 2'">{{row.telefono2}}</td>
@@ -90,7 +92,7 @@
       </table>
 
     </div>
-  <div class="col-md-3"> </div>
+  <div class="col-md-1"> </div>
 </div>
 <br><br><br><br>
 
@@ -164,9 +166,22 @@
 	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.conoce">                 
 	          </div>
 	          <div class="col-sm-2"></div>
-	    </div>
+	    </div>			
 
-		 <div class="form-group">
+      	</div>
+		 
+
+		<div class="col-md-4">
+
+		  <div class="form-group" ng-hide="comboTipoCliente">
+	        <label class="col-sm-4 control-label">Tipo de Cliente::</label>
+	          <div class="col-sm-6">
+	                 <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.tipo_cliente">   
+	          </div>
+	          <div class="col-sm-2"></div>
+	        </div>
+
+		  <div class="form-group">
 	        <label  class="col-sm-4 control-label">Origen del Dato:</label>
 	        <div class="col-sm-6">
 	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.nombre_origen_dato">
@@ -180,12 +195,7 @@
 	             <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.fecha_origen_dato">                     
 	        </div>
 	        <div class="col-sm-2"></div>
-	      </div>		
-
-      	  </div>
-		 
-
-		<div class="col-md-4">
+	      </div>	
 
 		  <div class="form-group">
 		    <label class="col-sm-4 control-label">Nº Llamados</label>
@@ -196,22 +206,15 @@
 		  </div>
 
 		  <div class="form-group">
-		    <label class="col-sm-4 control-label">Fecha ultimo contacto</label>
+		    <label class="col-sm-4 control-label">Fecha ultimo llamado</label>
 		    <div class="col-sm-6">
 	            <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.fecha_ult_llamado">
 	        </div>
 	        <div class="col-sm-2"></div>
 		  </div> 
 
-		  <div class="form-group">
-			  <label  class="col-sm-4 control-label">Tipo de Cliente:</label>
-			  <div class="col-sm-6">
-			  	<select class="form-control campoform" name="tipo_cliente" id="mySelect" ng-options="option.tipo for option in $ctrl.tipo_cliente.availableOptions track by option.id" ng-model="$ctrl.tipo_cliente.selectedOption"  ng-change="upDate()">
-	            </select>
-			  </div>
-			  <div class="col-sm-2"></div>
-		  </div>  
-
+		
+<!--
 	      <div class="form-group">
             <label  class="col-sm-4 control-label">Grado de Interés:</label>
             <div class="col-sm-6">
@@ -220,7 +223,32 @@
             </div>
             <div class="col-sm-2"></div>
       	  </div>
+-->
+      	   <div class="form-group">
+	        <label class="col-sm-4 control-label">Grado de Interés:</label>
+	          <div class="col-sm-6">
+	                 <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.grado_interes">   
+	          </div>
+	          <div class="col-sm-2"></div>
+	        </div>
 
+
+      	   <div class="form-group">
+	        <label class="col-sm-4 control-label">Vendedor:</label>
+	          <div class="col-sm-6">
+	                 <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.vendedor">   
+	          </div>
+	          <div class="col-sm-2"></div>
+	        </div>
+
+	        <div class="form-group">
+	        <label class="col-sm-4 control-label">Inmobiliaria:</label>
+	          <div class="col-sm-6">
+	                 <input type="text" class="form-control campoform" ng-model="$ctrl.objAgregarDatos.inmobiliaria">   
+	          </div>
+	          <div class="col-sm-2"></div>
+	        </div>
+<!--
       	  <div class="form-group">
             <label  class="col-sm-4 control-label">Vendedor:</label>
             <div class="col-sm-6">
@@ -238,8 +266,8 @@
             </div>
             <div class="col-sm-2"></div>
       	  </div> 
-
-
+-->
+<!--
 		   <div class="form-group">
 	        <label  class="col-sm-4 control-label">Fecha de Cierre de Operación:</label>
 	        <div class="col-sm-6" align="left">
@@ -292,7 +320,7 @@
 	            <div class="col-sm-2" ></div>
 	      </div>
 
-		  
+	-->	  
 		 
 	</div>
 	<div class="col-md-2"></div>

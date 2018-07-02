@@ -15,51 +15,13 @@ $type_accion=$data->{'type_accion'};
 
 if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
   
-	include "../../conexion.php";	
+	include "../../conexion.php";		
 	
-	
-  $id_cliente=$data->{'id_cliente'}; 
-  $tipo_cliente=$data->{'tipo_cliente'};
-  $grado_interes=$data->{'grado_interes'};
-  $telefono1=$data->{'telefono1'}; 
-  $telefono2=$data->{'telefono2'}; 
-  $origen_dato=$data->{'nombre_origen_dato'};
-  $conoce=$data->{'conoce'};
-  $fecha_origen_dato=$data->{'fecha_origen_dato'};
-  $fecha_ult_llamado=$data->{'fecha_ult_llamado'};
-  $cant_de_llamados=$data->{'num_llamados'};
+  $id_cliente=$data->{'id_cliente'};   
   $id_vendedor=$data->{'id_vendedor'};
   $id_inmobiliaria=$data->{'id_inmobiliaria'};
-  $fecha_cierre_operacion=$data->{'fecha_cierre_operacion'};
-  $id_edificio=$data->{'id_edificio'};
-  $id_planta=$data->{'id_planta'};
-  $id_dpto=$data->{'id_dpto'};
-  $email=$data->{'email'};
 
-
-/*
-
-  $id_cliente=15; 
-  $tipo_cliente=0;
-  $grado_interes=2;
-  $telefono1=54552; 
-  $telefono2=5225; 
-  $origen_dato="Letrero";
-  $conoce=0;
-  $fecha_origen_dato="2018-03-06";
-  $fecha_ult_llamado="2018-02-07";
-  $cant_de_llamados=2;
-  $fecha_cierre_operacion="2018-03-12";
-  $id_edificio=2;
-  $id_planta=4;
-  $id_dpto=3;
-  $email="maria@miralejos.net";
-*/
-
-  
-  //Insertamos los datos en la tabla de la BD
-
-  $sql_insert='INSERT INTO planilla_de_venta (id_planilla, id_cliente, tipo_cliente, id_vendedor, id_inmobiliaria, fecha_cierre_operacion, id_edificio, id_planta, id_dpto) VALUES  (?,?,?,?,?,?,?,?,?)';
+  $sql_insert='INSERT INTO planilla_de_venta (id_planilla, id_cliente, id_vendedor, id_inmobiliaria) VALUES  (?,?,?,?)';
 
   $stmt_insert = $conn->prepare($sql_insert);
   if($stmt_insert === false) {
@@ -68,7 +30,7 @@ if($type_accion==="nueva_fila" && isset($_SESSION['Usuario'])){
 
   $idfirst=NULL; 
 
-  $stmt_insert->bind_param('iisiisiii',$idfirst, $id_cliente, $tipo_cliente, $id_vendedor, $id_inmobiliaria, $fecha_cierre_operacion, $id_edificio, $id_planta, $id_dpto);
+  $stmt_insert->bind_param('iiii',$idfirst, $id_cliente, $id_vendedor, $id_inmobiliaria);
 
   $stmt_insert->execute();
 

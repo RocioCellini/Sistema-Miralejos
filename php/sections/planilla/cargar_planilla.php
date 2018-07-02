@@ -9,7 +9,7 @@ $type_accion=$data->{'type_accion'};
 
 //$type_accion="cargar_planilla";
 
-if ($type_accion==="cargar_planilla"  && isset($_SESSION['Usuario']) ) {
+if ($type_accion==="cargar_planilla" && isset($_SESSION['Usuario']) ) {
 
 		include "../../conexion.php";
 
@@ -245,10 +245,10 @@ if ($type_accion==="cargar_planilla"  && isset($_SESSION['Usuario']) ) {
 				        $rs_edif=$stmt_edif->get_result();
 
 				        if($row_edif = $rs_edif->fetch_assoc()) {
-
-				            $edificio=$row_edif['nombre'];
-					
-				        }
+				            $edificio=$row_edif['nombre'];					
+				        }else{
+				      		 $edificio='Sin Datos';
+				      	}
 
 
 				        //SubConsulta para obtener los datos de las Plantas
@@ -268,11 +268,11 @@ if ($type_accion==="cargar_planilla"  && isset($_SESSION['Usuario']) ) {
 
 				        $rs_planta=$stmt_planta->get_result();
 
-				        if($row_planta = $rs_planta->fetch_assoc()) {
-				        
+				        if($row_planta = $rs_planta->fetch_assoc()) {				        
 				            $planta = $row_planta['nombre'];
-
-				        }
+				        }else{
+				      		 $planta='Sin Datos';
+				      	}
 
 				        
 				        //SubConsulta para obtener los datos de los Departamentos
@@ -292,11 +292,11 @@ if ($type_accion==="cargar_planilla"  && isset($_SESSION['Usuario']) ) {
 
 				        $rs_dpto=$stmt_dpto->get_result();
 
-				        if($row_dpto = $rs_dpto->fetch_assoc()) {
-				        
+				        if($row_dpto = $rs_dpto->fetch_assoc()) {				        
 				            $dpto = $row_dpto['nombre'];
-
-				        }
+				        }else{
+				      		 $dpto='Sin Datos';
+				      	}
 
 				
 			      		// Origen dato del Cliente especificado
@@ -415,7 +415,16 @@ if ($type_accion==="cargar_planilla"  && isset($_SESSION['Usuario']) ) {
 					'vendedor'=>utf8_encode($vendedor),
 
 					'id_inmobiliaria'=>utf8_encode($row_planilla['id_inmobiliaria']),
-					'inmobiliaria'=>utf8_encode($inmobiliaria)                  
+					'inmobiliaria'=>utf8_encode($inmobiliaria),
+
+					'id_edificio'=>utf8_encode($id_edificio),  
+					'id_planta'=>utf8_encode($id_planta),
+					'id_dpto'=>utf8_encode($id_dpto),
+
+					'edificio'=>utf8_encode($edificio),  
+					'planta'=>utf8_encode($planta),
+					'dpto'=>utf8_encode($dpto)				                    
+
                     );
 
             $response_planilla[]=$temp;

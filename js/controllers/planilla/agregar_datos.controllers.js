@@ -269,6 +269,9 @@
             console.log($ctrl.objAgregarDatos);
               
             clienteFactory.buscarCliente($ctrl.objAgregarDatos).then(function(d) {
+
+            $ctrl.objAgregarDatos.id_provincia=d.Respuesta[0].id_provincia; 
+            $ctrl.objAgregarDatos.id_localidad=d.Respuesta[0].id_localidad; 
            
             $ctrl.tableParams.settings({dataset: d.Respuesta});   
 
@@ -290,6 +293,7 @@
                 
             $ctrl.objAgregarDatos.id_cliente= row.id_cliente;
             $ctrl.objAgregarDatos.contacto= row.apellido +" ,"+ row.nombre;
+            $ctrl.objAgregarDatos.tipo_cliente= row.tipo_cliente;
             $ctrl.objAgregarDatos.telefono1= row.telefono1;
             $ctrl.objAgregarDatos.telefono2= row.telefono2;
             $ctrl.objAgregarDatos.email= row.email;
@@ -302,18 +306,20 @@
 
             llamadoFactory.detalleLlamados($ctrl.objAgregarDatos).then(function(d) {
 
-             // console.log(d.Respuesta); 
+             console.log(d.Respuesta); 
 
               $ctrl.objAgregarDatos.num_llamados= d.Respuesta[0].contador;  
               $ctrl.objAgregarDatos.fecha_ult_llamado= d.Respuesta[0].fecha_ult_llamado;                   
               $ctrl.objAgregarDatos.nombre_origen_dato= d.Respuesta[0].nombre_origen_dato;
               $ctrl.objAgregarDatos.fecha_origen_dato= d.Respuesta[0].fecha_origen_dato;
               $ctrl.data_vendedor.selectedOption.id=d.Respuesta[0].id_vendedor;              
-              $ctrl.data_inmob.selectedOption.id=d.Respuesta[0].id_inmobiliaria;  
-
+              $ctrl.data_inmob.selectedOption.id=d.Respuesta[0].id_inmobiliaria;
+              $ctrl.objAgregarDatos.vendedor=d.Respuesta[0].vendedor;    
               $ctrl.data_edificio.selectedOption.id_edificio=d.Respuesta[0].id_edificio; 
               $ctrl.data_planta.selectedOption.id_planta=d.Respuesta[0].id_planta; 
-              $ctrl.data_dpto.selectedOption.id_dpto=d.Respuesta[0].id_dpto; 
+              $ctrl.data_dpto.selectedOption.id_dpto=d.Respuesta[0].id_dpto;          
+              $ctrl.objAgregarDatos.inmobiliaria=d.Respuesta[0].inmobiliaria;   
+              $ctrl.objAgregarDatos.grado_interes=d.Respuesta[0].grado_interes;  
 
             }).catch(function (err) {
                 console.log(err);
@@ -329,31 +335,31 @@
               
             //$ctrl.allow_disable=true;
 
-            var fecha_cierre_operacion=$filter('date')($ctrl.objDate.fecha_cierre_operacion, 'yyyy-MM-dd');
+           /* var fecha_cierre_operacion=$filter('date')($ctrl.objDate.fecha_cierre_operacion, 'yyyy-MM-dd');
             
             $ctrl.objAgregarDatos.fecha_cierre_operacion=fecha_cierre_operacion;
-           console.log(fecha_cierre_operacion);   
-
-            $ctrl.objAgregarDatos.type_accion="nueva_fila";
+            console.log(fecha_cierre_operacion); 
 
             $ctrl.objAgregarDatos.id_provincia=$ctrl.dataprovincia.selectedOption.id;
             $ctrl.objAgregarDatos.id_localidad=$ctrl.datalocalidad.selectedOption.id;
 
             $ctrl.objAgregarDatos.grado_interes=$ctrl.grado_interes.selectedOption.id;
-            $ctrl.objAgregarDatos.tipo_cliente=$ctrl.tipo_cliente.selectedOption.tipo;
-            $ctrl.objAgregarDatos.id_vendedor=$ctrl.data_vendedor.selectedOption.id;
-            $ctrl.objAgregarDatos.id_inmobiliaria=$ctrl.data_inmob.selectedOption.id;
-
+            $ctrl.objAgregarDatos.tipo_cliente=$ctrl.tipo_cliente.selectedOption.tipo; 
             $ctrl.objAgregarDatos.id_edificio=$ctrl.data_edificio.selectedOption.id_edificio;
             $ctrl.objAgregarDatos.id_planta=$ctrl.data_planta.selectedOption.id_planta;
             $ctrl.objAgregarDatos.id_dpto=$ctrl.data_dpto.selectedOption.id_dpto;
+            */
+
+            $ctrl.objAgregarDatos.type_accion="nueva_fila";
+
+            $ctrl.objAgregarDatos.id_vendedor=$ctrl.data_vendedor.selectedOption.id;
+            $ctrl.objAgregarDatos.id_inmobiliaria=$ctrl.data_inmob.selectedOption.id; 
+               console.log($ctrl.objAgregarDatos);         
          
             AgregarDatosFactory.nuevaFila($ctrl.objAgregarDatos).then(function(d) {  
                                
                     $ctrl.Mensaje=d.Mensaje;
-                    //$ctrl.allow_disable=false;
-
-                    console.log($ctrl.objAgregarDatos);
+                    //$ctrl.allow_disable=false;                 
 
                     console.log(d.Mensaje);
         
